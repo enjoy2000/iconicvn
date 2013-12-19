@@ -24,10 +24,92 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<div class="footer-container">
-    <div class="footer">
-        <?php echo $this->getChildHtml() ?>
-        <p class="bugs"><?php echo $this->__('Help Us to Keep Magento Healthy') ?> - <a href="http://www.magentocommerce.com/bug-tracking" onclick="this.target='_blank'"><strong><?php echo $this->__('Report All Bugs') ?></strong></a> <?php echo $this->__('(ver. %s)', Mage::getVersion()) ?></p>
-        <address><?php echo $this->getCopyright() ?></address>
+<footer id="footer">
+	<!-- SLOGAN -->
+	<div id="slogan">
+		<div class="wrapper">
+			<h2><?php echo $this->__('KHI BẠN ĐĂNG KÝ TÀI KHOẢN TRÊN ICONIC, BẠN SẼ ĐƯỢC <span>TƯ VẤN BỞI CÁC CHUYÊN VIÊN CỦA CHÚNG TÔI</span><br />
+				CŨNG NHƯ NHẬN ĐƯỢC CÁC THÔNG TIN VỀ VIỆC LÀM <span>HOÀN TOÀN MIỄN PHÍ</span>') ?>
+			</h2>
+		</div>
+	</div>
+	
+	<!-- MAP -->
+	<div id="map">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m5!3m3!1m2!1s0x31752f3380293b5b%3A0x8c1a70e7434f935c!2zMTQ1IMSQaeG7h24gQmnDqm4gUGjhu6csIMSQYSBLYW8sIEjhu5MgQ2jDrSBNaW5oLCBWaWV0bmFt!5e0!3m2!1sen!2s!4v1387433823510" width="100%" height="325" frameborder="0" style="border:0"></iframe>
+	</div>
+	
+	<!-- CONTACT INFORMAPTION -->
+    <div id="contact-information">
+    	<div class="wrapper clearfix">
+    		<div id="social" class="fll first">
+    			<h4 class="black-tit heading">
+    				<?php echo $this->__('Theo dõi chúng tôi') ?>
+    			</h4>
+    			<div class="social-links">
+    				<a class="facebook" href="#">&nbsp;</a>    				
+    				<a class="twitter" href="#">&nbsp;</a>    				
+    				<a class="in" href="#">&nbsp;</a>    				
+    				<a class="google" href="#">&nbsp;</a>
+    			</div>
+    		</div>
+    		<div id="address" class="fll">
+    			<h4 class="black-tit heading">
+    				<?php echo $this->__('Thông tin liên hệ') ?>
+    			</h4>
+    			<div class="company-location clearfix">
+    				<div class="first fll">
+    					<?php echo $this->__('
+    					<strong>Ho Chi Minh city:</strong><br />
+						4F Avenis Building, 145 Dien Bien Phu, Dist1,
+						HCMC,  Vietnam
+						') ?>
+    				</div>
+    				<div class="last flr">
+    					<?php echo $this->__('
+    					<strong>Hanoi:</strong><br/>
+						4F TDL Bldg, 22 Lang Ha, Dong Da Dist, Ha Noi, 
+						Vietnam						
+						') ?>
+    				</div>
+    			</div>
+    			<div class="company-phone clearfix">
+    				<div class="first fll">
+    					<?php echo $this->__('
+    					<strong>Ho Chi Minh city:</strong><br />
+						(84-8) 3821-5122<br />
+						(Director: yasukura、nagahama）
+						') ?>
+    				</div>
+    				<div class="last flr">
+    					<?php echo $this->__('
+    					<strong>Hanoi:</strong><br/>
+						(84-4) 3776-5963<br />
+						Director: yamamoto)
+						') ?>
+    				</div>
+    			</div>
+    		</div>
+    		<div id="contact-form" class="flr last">
+    			<h4 class="black-tit heading">
+    				<?php echo $this->__('Gửi email cho chúng tôi') ?>
+    			</h4>
+    			
+    			<!-- FORM -->
+    			<form id="contact-us">
+    				<input id="email" name="email" type="email" placeholder="<?php echo $this->__('Email') ?>" />
+    				<input id="subject" name="subject" type="text" placeholder="<?php echo $this->__('Tiêu đề') ?>" />
+    				<textarea id="message" name="message" placeholder="<?php echo $this->__('Nhập nội dung') ?>"></textarea>
+    				<button id="submit" class="btn flr btn-blue" name="submit" type="submit"><?php echo $this->__('Gửi') ?></button>
+    			</form>
+    		</div>
+    	</div>
     </div>
-</div>
+    
+    <!-- COPYRIGHT -->
+    <div id="copyright">
+    	<div class="wrapper">
+    		<?php echo $this->__('Copyright © 2009-2011 ICONIC CO.,LTD · All Rights Reserved.') ?>
+    	</div>
+    </div>
+</footer>

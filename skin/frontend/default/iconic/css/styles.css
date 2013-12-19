@@ -2,9 +2,8 @@
 	Styles for IconicVN
 */
 html, button, input, select, textarea {
-	font: 13px/1.3em "Myriad Pro", Geneva, Arial, Helvetica, sans-serif;
-	color: #555;
-	-webkit-font-smoothing: antialiased;
+	font-family: 'Roboto Condensed', sans-serif;
+	color: #000;
 }
 #header{
 	background-color: #1197ec;
@@ -41,7 +40,6 @@ html, button, input, select, textarea {
 	text-transform: uppercase;
 	color: #939598;
 	font-size: 14px;
-	font-family: "Myriad Pro", Tahoma, sans-serif;
 	font-weight: bold;
 	position: relative;
 }
@@ -56,7 +54,7 @@ html, button, input, select, textarea {
 	position: absolute;
 	width: 0;
 	height: 0;
-	bottom: -127%;
+	bottom: -115%;
 	left: 50%;
 	pointer-events: none;
 	border: solid transparent;
@@ -72,8 +70,8 @@ html, button, input, select, textarea {
  * LANDING
 */
 #header #header-landing{
-	min-height: 680px;
-	background: url('../images/landing_bg.png') center no-repeat transparent;
+	min-height: 600px;
+	background: url('../images/landing_bg.png') center 80px no-repeat transparent;
 }
 #header #header-landing h1{
 	text-align: center;
@@ -82,7 +80,6 @@ html, button, input, select, textarea {
 	font-weight: bold;
 	margin-top: 45px;
 	font-size: 45px;
-	font-family: "Myriad Pro";
 }
 #header #header-landing #user{
 	margin-top: 30px;
@@ -104,4 +101,148 @@ html, button, input, select, textarea {
 }
 #header #header-landing #user > a.last{
 	margin-left: 30px;
+}
+
+/*
+	MAIN CONTENT
+*/
+#main{
+	min-height: 600px;
+	margin-top: -145px;
+	background-color: #fff;
+	border-radius: 10px;
+	border-top: solid 4px #0c69a5;
+	position: relative;
+}
+#main:before{
+	content: " ";
+	position: absolute;
+	right: 0px;
+	top: 1px;
+	width: 1px;
+	height: 140px;
+	border-right: solid 4px #0c69a5;
+	border-top-right-radius: 5px;
+}
+#main .col-main{
+	padding: 15px;
+}
+
+/*
+	FOOTER
+*/
+#footer{
+	background-color: #e6e7e8;
+}
+#footer #slogan{
+	padding: 30px 0;
+}
+#footer #slogan h2{
+	text-align: center;
+	line-height: 25px;
+}
+#footer #slogan h2 span{
+	color: #1197EC;
+}
+#footer #contact-information{
+	padding-bottom: 20px;
+}
+#footer #contact-information .wrapper > div{
+	padding-top: 30px;
+}
+#footer #contact-information .wrapper > div h4{
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 15px;
+	color: #000;
+}
+#footer #contact-information #social{
+	width: 15%;	
+}
+#footer #contact-information #social .social-links{
+	width: 70%;
+	margin-top: 20px;
+}
+#footer #contact-information #social .social-links > a{
+	display: inline-block;
+	width:32px;
+	height: 32px;
+}
+#footer #contact-information #social .social-links > a.facebook{
+	background: url('../images/social/facebook.png') center no-repeat transparent;
+}
+#footer #contact-information #social .social-links > a.twitter{
+	background: url('../images/social/twitter.png') center no-repeat transparent;
+	margin-left: 15px
+}
+#footer #contact-information #social .social-links > a.in{
+	background: url('../images/social/in.png') center no-repeat transparent;
+	margin-top: 15px;
+}
+#footer #contact-information #social .social-links > a.google{
+	background: url('../images/social/google.png') center no-repeat transparent;
+	margin-left: 15px;
+	margin-top: 15px;
+}
+#footer #contact-information #social .social-links > a.facebook:hover{
+	background: url('../images/social/facebook-active.png') center no-repeat transparent;
+}
+#footer #contact-information #social .social-links > a.twitter:hover{
+	background: url('../images/social/twitter-active.png') center no-repeat transparent;
+	margin-left: 15px
+}
+#footer #contact-information #social .social-links > a.in:hover{
+	background: url('../images/social/in-active.png') center no-repeat transparent;
+	margin-top: 15px;
+}
+#footer #contact-information #social .social-links > a.google:hover{
+	background: url('../images/social/google-active.png') center no-repeat transparent;
+	margin-left: 15px;
+	margin-top: 15px;
+}
+#footer #contact-information #address{
+	width: 45%;
+	margin-left: 5%;
+	color: #6d6e71;
+}
+#footer #contact-information #address .company-location{
+	padding-left: 20px;
+	background: url('../images/location.png') left top no-repeat transparent;
+	margin-top: 20px;
+}
+#footer #contact-information #address .company-phone{
+	padding-left: 20px;
+	background: url('../images/phone.png') left top no-repeat transparent;
+	margin-top: 20px;
+}
+#footer #contact-information #address > div > div{
+	width: 45%;
+}
+#footer #contact-information #contact-form{
+	width: 30%;
+}
+#footer #contact-information #contact-form form{
+	margin-top: 15px;
+}
+#footer #contact-information #contact-form form input{
+	margin-bottom: 5px;
+	width: 91%;
+}
+#footer #contact-information #contact-form form textarea{
+	width: 91%;
+	margin-bottom: 5px;
+}
+#footer #contact-information #contact-form form button#submit{
+	padding: 6px 36px;
+	box-shadow: none;
+	-webkit-appearance: none;
+	border: 0;
+}
+#footer #copyright{
+	color: #939598;
+	background-color: #2a303c;
+	padding: 20px 0;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 16px;
 }
