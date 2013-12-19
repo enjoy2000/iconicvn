@@ -1,0 +1,74 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+<header id="header">
+	<!-- Header Menu & Logo -->
+	<div id="header-menu">
+		<div class="wrapper clearfix">
+			<!-- Logo -->
+			<div id="logo" class="fll">
+				<img src="<?php echo $this->getSkinUrl('images/logo.png') ?>" alt="Iconic's Logo"  />
+			</div><!-- End Logo -->
+			
+			<!-- Menu -->
+			<div id="menu" class="flr">
+				<?php ?>
+				<ul>
+					<li class="<?php echo strpos($this->getLayout()->getBlock('root')->getBodyClass(), 'cms-index-index') ? 'current-menu-item' : ''  ?>"><a href=""><?php echo $this->__('Trang chủ') ?></a></li>
+					<li><a href=""><?php echo $this->__('Người tìm việc') ?></a></li>
+					<li><a href=""><?php echo $this->__('Nhà tuyển dụng') ?></a></li>
+					<li><a href=""><?php echo $this->__('Blog') ?></a></li>
+					<li><a href=""><?php echo $this->__('Giới thiệu công ty') ?></a></li>
+				</ul>
+			</div><!-- End Menu -->
+		</div>
+	</div><!-- End Header Menu & Logo -->
+	
+	<!-- Breadcrumb -->
+	<div id="breadcrumb">
+		
+	</div><!-- End Breadcrumb -->
+	
+	<!-- Header Landing -->
+	<div id="header-landing">
+		<div class="wrapper">
+			<h1><?php echo $this->__('Việc Làm Tốt Nhất Cho Người Việt') ?></h1>
+			
+			<!-- Logged In -->
+			<?php if(Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+			<!-- Logged Out -->
+			<?php else: ?>
+				<div id="user">
+					<a href="" class="bg-blue" id="login"><?php echo $this->__('Đăng nhập') ?></a>
+					<a href="" class="bg-white last" id="logout"><?php echo $this->__('Đăng ký') ?></a>
+				</div>
+			<?php endif; ?>
+		</div>
+	</div><!-- End Header Landing -->
+</header>

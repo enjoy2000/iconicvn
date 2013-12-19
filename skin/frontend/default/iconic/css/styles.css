@@ -1,0 +1,107 @@
+/*
+	Styles for IconicVN
+*/
+html, button, input, select, textarea {
+	font: 13px/1.3em "Myriad Pro", Geneva, Arial, Helvetica, sans-serif;
+	color: #555;
+	-webkit-font-smoothing: antialiased;
+}
+#header{
+	background-color: #1197ec;
+	min-height: 300px;
+	border-bottom: solid 4px #0c69a5;
+}
+#header #header-menu{
+	height: 85px;
+	background-color: #fff;
+}
+
+/*
+ * LOGO 
+*/
+#header #header-menu #logo{
+	margin-top: 18px;
+	margin-left: 10px;
+}
+
+/* 
+ * MENU
+ */
+#header #header-menu #menu{
+	margin-top: 50px;
+}
+#header #header-menu #menu ul{
+	list-style: none;
+}
+#header #header-menu #menu li{
+	display: inline;
+}
+#header #header-menu #menu ul li a{
+	padding: 5px 18px;
+	text-transform: uppercase;
+	color: #939598;
+	font-size: 14px;
+	font-family: "Myriad Pro", Tahoma, sans-serif;
+	font-weight: bold;
+	position: relative;
+}
+#header #header-menu #menu ul li a:hover{
+	color: #1197EC;
+}
+#header #header-menu #menu ul li.current-menu-item a{
+	color: #1197ec;
+}
+#header #header-menu #menu ul li.current-menu-item a:before{
+	content: " ";
+	position: absolute;
+	width: 0;
+	height: 0;
+	bottom: -127%;
+	left: 50%;
+	pointer-events: none;
+	border: solid transparent;
+}
+#header #header-menu #menu ul li.current-menu-item a:before{
+	border-color: #1197EC;
+	border-top-color: #fff;
+	border-width: 10px;
+	margin-left: -10px;
+}
+
+/*
+ * LANDING
+*/
+#header #header-landing{
+	min-height: 680px;
+	background: url('../images/landing_bg.png') center no-repeat transparent;
+}
+#header #header-landing h1{
+	text-align: center;
+	color: #fff;
+	text-shadow: 2px 0px 2px #000;
+	font-weight: bold;
+	margin-top: 45px;
+	font-size: 45px;
+	font-family: "Myriad Pro";
+}
+#header #header-landing #user{
+	margin-top: 30px;
+	text-align: center;
+}
+#header #header-landing #user > a{
+	display: inline-block;
+	width: 150px;
+	padding: 15px 10px;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 25px;
+	font-weight: bold;
+	border: solid 4px #fff;
+	border-radius: 10px;
+	-webkit-box-shadow: 4px -4px 0px -2px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 4px -4px 0px -2px rgba(0, 0, 0, 0.15);
+    box-shadow: 4px -4px 0px -2px rgba(0, 0, 0, 0.15);
+}
+#header #header-landing #user > a.last{
+	margin-left: 30px;
+}

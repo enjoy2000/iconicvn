@@ -1,0 +1,53 @@
+/* CSS  Utilities */
+.hide {
+    display: none;
+}
+.fll {
+	float: left;
+}
+.flr {
+	float: right;
+}
+.text-center {
+    text-align: center;
+}
+
+.hide-text {
+    text-indent: 100% !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+}
+
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+.wrapper{
+	width: 960px;
+	margin: 0 auto;
+}
+.bg-blue{
+	background-color: #1197ec;
+	color: #fff;
+}
+.bg-blue:hover{
+	background-color: white;
+	color: #1197ec;
+}
+.bg-white{
+	background-color: white;
+	color: #1197ec;
+}
+.bg-white:hover{
+	background-color: #1197ec;
+	color: #fff;
+}
