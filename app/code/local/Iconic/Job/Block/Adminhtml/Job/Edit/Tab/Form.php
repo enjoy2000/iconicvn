@@ -42,14 +42,24 @@ class Iconic_Job_Block_Adminhtml_Job_Edit_Tab_Form extends Mage_Adminhtml_Block_
             'values'	=> $arrayCategories,
         ));
 		
-		$fieldset->addField('location_id', 'text', array(
+		//get location values
+		$locationModel = Mage::getModel('job/location')->getCollection();
+		foreach($locationModel as $loc){
+			$arrayLocation[] = array(
+							'label'		=> $loc->getName(),
+							'value'		=> $loc->getLocationId(),
+			);
+		}
+		
+		$fieldset->addField('location_id', 'select', array(
             'label'     => Mage::helper('job')->__('Location'),
             'class'     => 'required-entry',
             'required'  => true,
             'name'      => 'location_id',
+            'values'	=> $arrayLocation,
         ));
 		
-		$fieldset->addField('job_level', 'text', array(
+		$fieldset->addField('job_level', 'select', array(
             'label'     => Mage::helper('job')->__('Job Level'),
             'class'     => 'required-entry',
             'required'  => true,
@@ -63,23 +73,23 @@ class Iconic_Job_Block_Adminhtml_Job_Edit_Tab_Form extends Mage_Adminhtml_Block_
             'name'      => 'job_salary',
         ));
 		
-		$fieldset->addField('job_type', 'text', array(
+		$fieldset->addField('job_type', 'select', array(
             'label'     => Mage::helper('job')->__('Job Type'),
             'name'     => 'job_type',
             'required'  => true,
             'values'    => array(
                 array(
-                    'value'     => 'full',
-                    'label'     => Mage::helper('job')->__('Full Time'),
+                    'value'     => 'Toàn thời gian',
+                    'label'     => Mage::helper('job')->__('Toàn thời gian'),
                 ),
  
                 array(
-                    'value'     => 'part',
-                    'label'     => Mage::helper('job')->__('Part Time'),
+                    'value'     => 'Bán thời gian',
+                    'label'     => Mage::helper('job')->__('Bán thời gian'),
                 ),
                 array(
-                    'value'     => 'free',
-                    'label'     => Mage::helper('job')->__('Freelance'),
+                    'value'     => 'Tự do',
+                    'label'     => Mage::helper('job')->__('Tự do'),
                 )
             ),
         ));

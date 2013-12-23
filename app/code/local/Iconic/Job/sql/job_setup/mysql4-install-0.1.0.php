@@ -16,9 +16,9 @@ CREATE TABLE {$this->getTable('job')} (
   `created_time` datetime NULL,
   `category_id` int(11) unsigned NOT NULL,
   `location_id` int(11) unsigned NOT NULL,
-  `job_level` int(11) unsigned NOT NULL,
+  `job_level` varchar(20) NOT NULL,
   `job_salary` int(11) unsigned NOT NULL default '0',
-  `job_type` varchar(20) NOT NULL default '0',
+  `job_type` varchar(20) NOT NULL default '',
   PRIMARY KEY (`job_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
  

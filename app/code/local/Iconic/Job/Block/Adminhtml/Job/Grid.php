@@ -16,6 +16,20 @@ class Iconic_Job_Block_Adminhtml_Job_Grid extends Mage_Adminhtml_Block_Widget_Gr
     protected function _prepareCollection()
     {
         $collection = Mage::getModel('job/job')->getCollection();
+		/* @var $collection Iconic_Job_Model_Mysql4_Category_Collection */
+		
+		$collection->getSelect()->join(array("c" => $collection->getTable('job/category')), 
+			"main_table.category_id = c.category_id", "c.name as c_name");
+		/* @var $collection Iconic_Job_Model_Mysql4_Type_Collection */
+		
+		$collection->getSelect()->join(array("t" => $collection->getTable('job/type')), 
+			"main_table.job_type = t.type_id", "t.name as t_name");
+		/* @var $collection Iconic_Job_Model_Mysql4_Level_Collection */
+		
+		$collection->getSelect()->join(array("l" => $collection->getTable('job/level')), 
+			"main_table.job_level = l.level_id", "l.name as l_name");
+		
+		
         $this->setCollection($collection);
         return parent::_prepareCollection();
     }
@@ -37,14 +51,22 @@ class Iconic_Job_Block_Adminhtml_Job_Grid extends Mage_Adminhtml_Block_Widget_Gr
         
         $this->addColumn('category_id', array(
             'header'    => Mage::helper('job')->__('Category'),
-            'width'     => '50px',
-            'index'     => 'category_id',
+            'index'     => 'c_name',
         ));
                 
         $this->addColumn('location_id', array(
             'header'    => Mage::helper('job')->__('Location'),
-            'width'     => '50px',
             'index'     => 'location_id',
+        ));
+                
+        $this->addColumn('job_level', array(
+            'header'    => Mage::helper('job')->__('Level'),
+            'index'     => 'l_name',
+        ));
+                
+        $this->addColumn('job_type', array(
+            'header'    => Mage::helper('job')->__('Type'),
+            'index'     => 't_name',
         ));
  
         $this->addColumn('created_time', array(
