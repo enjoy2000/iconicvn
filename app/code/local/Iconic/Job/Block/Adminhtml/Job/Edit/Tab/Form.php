@@ -2,6 +2,7 @@
  
 class Iconic_Job_Block_Adminhtml_Job_Edit_Tab_Form extends Mage_Adminhtml_Block_Widget_Form
 {
+	
     protected function _prepareForm()
     {
         $form = new Varien_Data_Form();
@@ -59,11 +60,20 @@ class Iconic_Job_Block_Adminhtml_Job_Edit_Tab_Form extends Mage_Adminhtml_Block_
             'values'	=> $arrayLocation,
         ));
 		
+		//get level values
+		$levelModel = Mage::getModel('job/level')->getCollection();
+		foreach($levelModel as $level){
+			$arrayLevel[] = array(
+							'label'		=> $level->getName(),
+							'value'		=> $level->getLevelId(),
+			);
+		}
 		$fieldset->addField('job_level', 'select', array(
             'label'     => Mage::helper('job')->__('Job Level'),
             'class'     => 'required-entry',
             'required'  => true,
             'name'      => 'job_level',
+            'values'	=> $arrayLevel,
         ));
 		
 		$fieldset->addField('job_salary', 'text', array(
@@ -73,25 +83,19 @@ class Iconic_Job_Block_Adminhtml_Job_Edit_Tab_Form extends Mage_Adminhtml_Block_
             'name'      => 'job_salary',
         ));
 		
+		//get type values
+		$typeModel = Mage::getModel('job/type')->getCollection();
+		foreach($typeModel as $type){
+			$arrayType[] = array(
+							'label'		=> $type->getName(),
+							'value'		=> $type->getTypeId(),
+			);
+		}
 		$fieldset->addField('job_type', 'select', array(
             'label'     => Mage::helper('job')->__('Job Type'),
             'name'     => 'job_type',
             'required'  => true,
-            'values'    => array(
-                array(
-                    'value'     => 'Toàn thời gian',
-                    'label'     => Mage::helper('job')->__('Toàn thời gian'),
-                ),
- 
-                array(
-                    'value'     => 'Bán thời gian',
-                    'label'     => Mage::helper('job')->__('Bán thời gian'),
-                ),
-                array(
-                    'value'     => 'Tự do',
-                    'label'     => Mage::helper('job')->__('Tự do'),
-                )
-            ),
+            'values'    => $arrayType,
         ));
        
         $fieldset->addField('requirement', 'editor', array(

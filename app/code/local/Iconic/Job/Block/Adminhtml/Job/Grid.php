@@ -16,6 +16,8 @@ class Iconic_Job_Block_Adminhtml_Job_Grid extends Mage_Adminhtml_Block_Widget_Gr
     protected function _prepareCollection()
     {
         $collection = Mage::getModel('job/job')->getCollection();
+		
+		//JOIN TABLES TO SHOW ON NAME ON GRID
 		/* @var $collection Iconic_Job_Model_Mysql4_Category_Collection */
 		
 		$collection->getSelect()->join(array("c" => $collection->getTable('job/category')), 
@@ -28,6 +30,10 @@ class Iconic_Job_Block_Adminhtml_Job_Grid extends Mage_Adminhtml_Block_Widget_Gr
 		
 		$collection->getSelect()->join(array("l" => $collection->getTable('job/level')), 
 			"main_table.job_level = l.level_id", "l.name as l_name");
+		/* @var $collection Iconic_Job_Model_Mysql4_Location_Collection */
+		
+		$collection->getSelect()->join(array("la" => $collection->getTable('job/location')), 
+			"main_table.location_id = la.location_id", "la.name as la_name");
 		
 		
         $this->setCollection($collection);
@@ -56,7 +62,7 @@ class Iconic_Job_Block_Adminhtml_Job_Grid extends Mage_Adminhtml_Block_Widget_Gr
                 
         $this->addColumn('location_id', array(
             'header'    => Mage::helper('job')->__('Location'),
-            'index'     => 'location_id',
+            'index'     => 'la_name',
         ));
                 
         $this->addColumn('job_level', array(
