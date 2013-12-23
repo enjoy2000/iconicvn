@@ -22,6 +22,15 @@
                 </job>
             </updates>
         </layout>
+        <translate>
+            <modules>
+                <translations>
+                    <files>
+                        <default>Iconic_Job.csv</default>
+                    </files>
+                </translations>
+            </modules>
+        </translate>
     </frontend>
     <admin>
         <routers>
@@ -91,6 +100,15 @@
                 </job>
             </updates>
         </layout>
+        <translate>
+            <modules>
+                <translations>
+                    <files>
+                        <default>Iconic_Job.csv</default>
+                    </files>
+                </translations>
+            </modules>
+        </translate>
     </adminhtml>   
     <global>
         <models>
