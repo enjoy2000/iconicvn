@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <job module="job">
+            <title>Job</title>
+            <sort_order>71</sort_order>               
+            <children>
+                <jobs module="job">
+                    <title>Manage Jobs</title>
+                    <sort_order>0</sort_order>
+                    <action>job/adminhtml_job</action>
+                </jobs>
+                <categories module="job">
+                    <title>Manage Categories</title>
+                    <sort_order>1</sort_order>
+                    	<children>
+                    		<parent module="job">
+			                    <title>Parent Categories</title>
+			                    <sort_order>0</sort_order>
+			                    <action>job/adminhtml_category</action>
+			                </parent>
+			                <sub module="job">
+			                    <title>Sub Categories</title>
+			                    <sort_order>0</sort_order>
+			                    <action>job/adminhtml_job</action>
+			                </sub>
+                    	</children>
+                </categories>
+            </children>
+        </job>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <job>
+                        <title>Job Module</title>
+                        <sort_order>200</sort_order>
+                    </job>
+                </children>
+            </admin>
+        </resources>   
+    </acl>
+    <layout>
+        <updates>
+            <job>
+                <file>job.xml</file>
+            </job>
+        </updates>
+    </layout>
+</config>

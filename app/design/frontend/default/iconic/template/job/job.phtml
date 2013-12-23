@@ -1,0 +1,59 @@
+    <br />
+<ul class="filter">
+	<li>Status:</li>
+	<li<?php if(!$this->getRequest()->getParam('status') || ($this->getRequest()->getParam('status') == 'available')){ echo ' class="active"';} ?>><a href="?status=available&category=<?php echo $this->getRequest()->getParam('category') ?>&order=<?php echo $this->getRequest()->getParam('order') ?>">Available</a></li>
+	
+	<li<?php if($this->getRequest()->getParam('status') == 'waiting'){echo ' class="active"';} ?>><a href="?status=waiting&category=<?php echo $this->getRequest()->getParam('category') ?>&order=<?php echo $this->getRequest()->getParam('order') ?>"">Waiting</a></li>
+	
+	<li<?php if($this->getRequest()->getParam('status') == 'closed'){echo ' class="active"';} ?>><a href="?status=closed&category=<?php echo $this->getRequest()->getParam('category') ?>&order=<?php echo $this->getRequest()->getParam('order') ?>"">Closed</a></li>
+	
+</ul>
+<?php $categories = Mage::getModel('article/category')->getCollection()->load(); ?>
+<ul class="filter">
+	<li>Category:</li>
+    <li<?php if(!$this->getRequest()->getParam('category')){ echo ' class="active"';} ?>><a href="?status=<?php echo $this->getRequest()->getParam('status') ?>&order=<?php echo $this->getRequest()->getParam('order') ?>">All</a></li>
+    <?php foreach($categories as $cat): ?>
+    <li<?php if($this->getRequest()->getParam('category') == $cat->getName()){echo ' class="active"';} ?>><a href="?status=<?php if($this->getRequest()->getParam('status')){echo $this->getRequest()->getParam('status');}else{echo 'available';} ?>&category=<?php echo $cat->getName() ?>&order=<?php if($this->getRequest()->getParam('order')){ echo $this->getRequest()->getParam('order');}else{echo 'total_bets';} ?>">
+    <?php echo $cat->getName() ?></a></li>
+    <?php endforeach; ?>
+</ul>
+
+<ul class="filter">
+	<li>Order:</li>
+	<li<?php if(!$this->getRequest()->getParam('order') || ($this->getRequest()->getParam('order') == 'total_bets')){ echo ' class="active"';} ?>><a href="?status=<?php echo $this->getRequest()->getParam('status') ?>&category=<?php echo $this->getRequest()->getParam('category') ?>">Highest Bets</a></li>
+	
+	<li<?php if($this->getRequest()->getParam('order') == '-total_bets'){echo ' class="active"';} ?>><a href="?status=<?php echo $this->getRequest()->getParam('status') ?>&category=<?php echo $this->getRequest()->getParam('category') ?>&order=-total_bets">Lowest Bets</a></li>
+	
+	<li<?php if($this->getRequest()->getParam('order') == '-deadline_time'){echo ' class="active"';} ?>><a href="?status=<?php echo $this->getRequest()->getParam('status') ?>&category=<?php echo $this->getRequest()->getParam('category') ?>&order=-deadline_time">Earliest deadline</a></li>
+	
+	<li<?php if($this->getRequest()->getParam('order') == 'deadline_time'){echo ' class="active"';} ?>><a href="?status=<?php echo $this->getRequest()->getParam('status') ?>&category=<?php echo $this->getRequest()->getParam('category') ?>&order=deadline_time">Latest deadline</a></li>
+	
+	<li<?php if($this->getRequest()->getParam('order') == 'created_time'){echo ' class="active"';} ?>><a href="?status=<?php echo $this->getRequest()->getParam('status') ?>&category=<?php echo $this->getRequest()->getParam('category') ?>&order=created_time">Newest</a></li>
+	
+	<li<?php if($this->getRequest()->getParam('order') == '-created_time'){echo ' class="active"';} ?>><a href="?status=<?php echo $this->getRequest()->getParam('status') ?>&category=<?php echo $this->getRequest()->getParam('category') ?>&order=-created_time">Oldest</a></li>
+	
+</ul>
+	
+<br />	
+<h6 class="line-divider">Available statements in all categories</h6>
+
+<?php 
+        foreach ($this->getCollection() as $article): ?>
+<div class="filter">
+    <a href="<?php echo $this->getUrl('article/index/item?id=' . $article->getArticleId()) ?>">
+    	<h6>
+    		<?php echo $article->getTitle() ?>
+    	</h6>
+    </a>
+    <li class="agree">
+    	<?php echo $article->getAgree() ?>
+    </li>
+	<li class="disagree">
+		<?php echo $article->getDisagree() ?>
+	</li>    
+    <li class="active">
+    	<?php echo Mage::helper('article')->timeCountdown($article->getDeadlineTime(), $article->getStatus())   ?>
+    </li>
+ </div>
+<?php endforeach; ?>
+<?php echo $this->getPagerHtml(); ?>

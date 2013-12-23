@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<layout version="0.1.1">
+    <iconic_job_index_index>
+        <reference name="content">
+             <block type="job/index" name="job" template="job/job.phtml" />
+        </reference>
+    </job_index_index>
+    
+    <iconic_job_index_new>
+        <reference name="content">
+             <block type="job/new" name="job/new" template="job/new.phtml" />
+        </reference>
+    </job_index_new>
+    
+    <iconic_job_index_item>
+        <reference name="content">
+             <block type="core/template" name="job/item" template="job/item.phtml" />
+        </reference>
+    </job_index_item>
+    
+    <iconic_job_index_success>
+        <reference name="content">
+             <block type="core/template" name="job/success" template="job/success.phtml" />
+        </reference>
+    </job_index_success>
+    
+    <iconic_job_index_status>
+        <reference name="content">
+             <block type="core/template" name="job/status" template="job/status.phtml" />
+        </reference>
+    </job_index_status>
+    
+    <iconic_job_index_search>
+        <reference name="content">
+             <block type="job/search" name="job/search" template="job/search.phtml" />
+        </reference>
+    </job_index_search>
+    
+    <iconic_job_index_changelraccount>
+        <reference name="content">
+             <block type="core/template" name="job/changelraccount" template="job/changelraccount.phtml" />
+        </reference>
+    </job_index_changelraccount>
+    
+    <iconic_job_index_withdraw>
+        <reference name="content">
+             <block type="job/withdraw" name="job/withdraw" template="job/withdraw.phtml" />
+        </reference>
+    </job_index_withdraw>
+    
+    <iconic_job_index_toolbar>
+        <reference name="content">
+             <block type="job/toolbar" name="job/toolbar" template="job/toolbar.phtml" />
+        </reference>
+    </job_index_toolbar>
+    
+</layout>
