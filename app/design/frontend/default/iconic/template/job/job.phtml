@@ -8,7 +8,7 @@
 	<li<?php if($this->getRequest()->getParam('status') == 'closed'){echo ' class="active"';} ?>><a href="?status=closed&category=<?php echo $this->getRequest()->getParam('category') ?>&order=<?php echo $this->getRequest()->getParam('order') ?>"">Closed</a></li>
 	
 </ul>
-<?php $categories = Mage::getModel('article/category')->getCollection()->load(); ?>
+<?php $categories = Mage::getModel('job/category')->getCollection()->load(); ?>
 <ul class="filter">
 	<li>Category:</li>
     <li<?php if(!$this->getRequest()->getParam('category')){ echo ' class="active"';} ?>><a href="?status=<?php echo $this->getRequest()->getParam('status') ?>&order=<?php echo $this->getRequest()->getParam('order') ?>">All</a></li>

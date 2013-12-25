@@ -33,14 +33,16 @@
 		<div class="wrapper clearfix">
 			<!-- Logo -->
 			<div id="logo" class="fll">
-				<img src="<?php echo $this->getSkinUrl('images/logo.png') ?>" alt="Iconic's Logo"  />
+				<a title="Iconic" href="/">
+					<img src="<?php echo $this->getSkinUrl('images/logo.png') ?>" alt="Iconic's Logo"  />
+				</a>
 			</div><!-- End Logo -->
 			
 			<!-- Menu -->
 			<div id="menu" class="flr">
 				<?php ?>
 				<ul>
-					<li class="<?php echo strpos($this->getLayout()->getBlock('root')->getBodyClass(), 'cms-index-index') ? 'current-menu-item' : ''  ?>"><a href=""><?php echo $this->__('Trang chủ') ?></a></li>
+					<li class="<?php echo strpos($this->getLayout()->getBlock('root')->getBodyClass(), 'cms-index-index') ? 'current-menu-item' : ''  ?>"><a href="/"><?php echo $this->__('Trang chủ') ?></a></li>
 					<li><a href=""><?php echo $this->__('Người tìm việc') ?></a></li>
 					<li><a href=""><?php echo $this->__('Nhà tuyển dụng') ?></a></li>
 					<li><a href=""><?php echo $this->__('Blog') ?></a></li>
