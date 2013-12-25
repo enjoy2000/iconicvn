@@ -15,6 +15,13 @@ class Iconic_Job_Block_Adminhtml_Job_Edit_Tab_Form extends Mage_Adminhtml_Block_
             'required'  => true,
             'name'      => 'title',
         ));
+		
+		$fieldset->addField('url_key', 'text', array(
+            'label'     => Mage::helper('job')->__('Url Key'),
+            'class'     => '',
+            'required'  => false,
+            'name'      => 'url_key',
+        ));
         
 		
 		//get array categories
