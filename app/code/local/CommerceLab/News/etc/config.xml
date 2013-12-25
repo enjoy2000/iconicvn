@@ -58,7 +58,7 @@
         <menu>
             <clnews module="clnews">
                 <title>News</title>
-                <sort_order>80</sort_order>
+                <sort_order>72</sort_order>
                 <children>
                     <add translate="title" module="clnews">
                         <title>Add News Article</title>

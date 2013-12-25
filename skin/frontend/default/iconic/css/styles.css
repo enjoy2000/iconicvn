@@ -3,7 +3,8 @@
 */
 html, button, input, select, textarea {
 	font-family: 'Roboto Condensed', sans-serif;
-	color: #000;
+	color: #58595b;
+	font-size: 14px;
 }
 #header{
 	background-color: #1197ec;

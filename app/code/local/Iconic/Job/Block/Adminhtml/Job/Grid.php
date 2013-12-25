@@ -39,7 +39,7 @@ class Iconic_Job_Block_Adminhtml_Job_Grid extends Mage_Adminhtml_Block_Widget_Gr
         $this->setCollection($collection);
         return parent::_prepareCollection();
     }
- 
+	
     protected function _prepareColumns()
     {
         $this->addColumn('job_id', array(
@@ -55,24 +55,46 @@ class Iconic_Job_Block_Adminhtml_Job_Grid extends Mage_Adminhtml_Block_Widget_Gr
             'index'     => 'title',
         ));
         
+		//get array categories
+		$parentCategories = Mage::getModel('job/parentcategory')->getCollection();
+		foreach($parentCategories as $parent){
+			$subCategories = Mage::getModel('job/category')->getCollection();	
+			$subCategories->addFieldToFilter('parent_category_id',$parent->getParentCategoryId());
+			$subCategories->setOrder('name','ASC');
+			$arraySub = array();
+			foreach($subCategories as $sub){
+				$arraySub[] = 	array(
+								'label'		=> $sub->getName(),
+								'value' 	=> $sub->getCategoryId(),
+				);				
+			}
+			$arrayCategories[] = array(
+								'label'		=> $parent->getName(),
+								'value'	=> $arraySub,
+			);
+		}
         $this->addColumn('category_id', array(
             'header'    => Mage::helper('job')->__('Category'),
             'index'     => 'c_name',
+            'filter_index'=>'c.name',
         ));
                 
         $this->addColumn('location_id', array(
             'header'    => Mage::helper('job')->__('Location'),
             'index'     => 'la_name',
+            'filter_index'=>'la.name'            
         ));
                 
         $this->addColumn('job_level', array(
             'header'    => Mage::helper('job')->__('Level'),
             'index'     => 'l_name',
+            'filter_index'=>'l.name'
         ));
                 
-        $this->addColumn('job_type', array(
+        $this->addColumn('t_name', array(
             'header'    => Mage::helper('job')->__('Type'),
             'index'     => 't_name',
+            'filter_index'=>'t.name'
         ));
  
         $this->addColumn('created_time', array(

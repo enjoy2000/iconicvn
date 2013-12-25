@@ -1,0 +1,85 @@
+<?php 
+$item = $this->getItem(); 
+$jobs = $this->getJobsInCategory();
+?>
+
+<!-- Page Title -->
+<div id="page-title">
+	<h2 class="blue-tit"><?php echo $this->__('No.%s&nbsp;&nbsp;|&nbsp;&nbsp;%s', $item->getId(), $item->getTitle()) ?></h2>
+</div>
+
+<div class="fll job-content width-60">
+	
+	<!-- Job Requirement -->
+	<div id="job-requirement">
+		<p class="text-blue tit">
+			<?php echo $this->__('Yêu cầu công việc:') ?>
+		</p>
+		<?php echo $item->getRequirement() ?>
+	</div>
+	
+	<!-- Job Infomation -->
+	<div id="job-info">
+		<p class="text-blue tit">
+			<?php echo $this->__('Thông tin công việc:') ?>
+		<?php echo $item->getInfo() ?>
+		</p>
+	</div>
+	
+	<!-- Job Actions -->
+	<div id="job-actions">
+		<a class="btn button-blue btn-send" href="#"><?php echo $this->__('Ứng tuyển') ?></a>
+		<a class="btn button-grey btn-back" href="#"><?php echo $this->__('Trở về') ?></a>
+	</div>
+</div>
+
+<div class="flr job-details-right width-30">
+	
+	<!-- Job Details -->
+	<div class="job-details">
+		<p class="first">
+			<span><?php echo $this->__('Ngày đăng:') ?></span>
+			<?php echo Mage::helper('job')->formatDate($item->getCreatedTime()) ?>
+		</p>
+		<p>
+			<span><?php echo $this->__('Ngành nghề:') ?></span>
+			<?php echo $this->getCategory()->getName() ?>
+		</p>
+		<p>
+			<span><?php echo $this->__('Địa điểm làm việc:') ?></span>
+			<?php echo $this->getLocation()->getName() ?>
+		</p>
+		<p>
+			<span><?php echo $this->__('Cấp độ công việc:') ?></span>
+			<?php echo $this->getLevel()->getName() ?>
+		</p>
+		<p>
+			<span><?php echo $this->__('Lương:') ?></span>
+			<?php echo ($item->getJobSalary() == 0) ? $this->__('Thương lượng') : $item->getJobSalary().' '.Mage::helper('job')->getCurrency(); ?>
+		</p>
+		<p class="last">
+			<span><?php echo $this->__('Loại hình:') ?></span>
+			<?php echo $this->getType()->getName() ?>
+		</p>
+	</div>
+	
+	<!-- Jobs Same Category -->
+	<div id="job-same-category">
+		<div class="heading">
+			<h5 class="blue-tit text-blue"><?php echo $this->__('Các công việc cùng ngành nghề') ?></h5>
+		</div>
+		<ul class="jobs-list">
+		<?php 
+		foreach($jobs as $job): 
+		$location = Mage::getModel('job/location')->load($job->getLocationId())->getName();
+		?>
+			<li>
+				<a href="#" title="<?php echo $job->getTitle() ?>"><?php echo $job->getTitle() ?></a>
+				<span class="created-time"><?php echo Mage::helper('job')->formatDate($job->getCreatedTime()) ?></span>
+				<span class="location"><?php echo $location ?></span>
+			</li>
+		<?php endforeach; ?>
+		</ul>
+		<a class="text-blue view-more-category" href="<?php echo Mage::helper('job')->getCategoryUrl($item->getCategoryId()); ?>"><?php echo $this->__('Xem thêm') ?></a>
+	</div>
+</div>

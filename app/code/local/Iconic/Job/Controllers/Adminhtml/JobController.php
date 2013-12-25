@@ -56,11 +56,17 @@ class Iconic_Job_Adminhtml_JobController extends Mage_Adminhtml_Controller_Actio
                 $postData = $this->getRequest()->getPost();
                 $jobModel = Mage::getModel('job/job');
                 $currentDate = Date('Y-m-d H:i:s');
-                $jobModel
-                    ->setData($postData)
-                    ->setId($this->getRequest()->getParam('id'))
-					->setCreatedTime($currentDate)
-                    ->save();
+                $jobModel->setData($postData)
+	                     ->setId($this->getRequest()->getParam('id'))
+						 ->setCreatedTime($currentDate);
+                
+				//set url key
+				if($postData['url_key']){
+					$urlkey = Mage::helper('job')->formatUrlKey($postData['url_key']);
+				}else{
+					$urlkey = Mage::helper('job')->formatUrlKey($postData['title']);
+				}
+				$jobModel->setUrlKey($urlkey)->save();
                                 
                 Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('adminhtml')->__('Item was successfully saved'));
                 Mage::getSingleton('adminhtml/session')->setJobData(false);
@@ -213,52 +219,5 @@ class Iconic_Job_Adminhtml_JobController extends Mage_Adminhtml_Controller_Actio
             }
         }
         $this->_redirect('*/*/');
-    }
-    
-    public function massDelete2Action()
-    {
-    	if($this->getRequest()->getParam('id') > 0){
-    		try{
-    			$model = Mage::getModel('job/job');
-    			$model->setId($this->getRequest()->getParam('id'))->delete();
-    			Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('job')->__('Item was successly deleted.'));
-    			$this->_redirect('*/*/');
-    		}catch(Exception $e){
-    			Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
-    			$this->_redirect('*/*/', array('id' => $this->getRequest()->getParam('id')));
-    		}
-    	}
-    	$this->_redirect('*/*/');
-    }
-    
-    public function abcAction(){
-    	if($this->getRequest()->getParam('id') > 0){
-    		try{
-    			$model = Mage::getModel('job/job');
-    			$model->setId($this->getRequest()->getParam('id'))->delete();
-    			Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('job')->__('Item was successly deleted.'));
-    			$this->_redirect('*/*/');
-    		}catch(Exception $e){
-    			Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
-    			$this->_redirect('*/*/edit', array('id' => $this->getRequest()->getParam('id')));
-    		}
-    	}
-    	$this->_redirect('*/*/');
-    }
-    
-    public function abcdAction()
-    {
-    	if($this->getRequest()->getParam('id') > 0){
-    		try{
-    			$model = Mage::getModel('job/job');
-    			$model->setId($this->getRequest()->getParam('id'))->delete();
-    			Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('job')->__('Item was successly deleted.'));
-    			$this->_redirect('*/*/');
-    		}catch(Exception $e){
-    			Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
-    			$this->_redirect('*/*/edit', array('id' => $this->getRequest()->getParam('id')));
-    		}
-    	}
-    	$this->_redirect('*/*/');
     }
 }
