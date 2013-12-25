@@ -8,14 +8,14 @@ class Iconic_Job_Block_Adminhtml_ParentCategory_Edit_Tabs extends Mage_Adminhtml
         parent::__construct();
         $this->setId('job_tabs');
         $this->setDestElementId('edit_form');
-        $this->setTitle(Mage::helper('job')->__('News Information'));
+        $this->setTitle(Mage::helper('job')->__('Parent Category'));
     }
  
     protected function _beforeToHtml()
     {
         $this->addTab('form_section', array(
-            'label'     => Mage::helper('job')->__('Item Information'),
-            'title'     => Mage::helper('job')->__('Item Information'),
+            'label'     => Mage::helper('job')->__('Edit Category'),
+            'title'     => Mage::helper('job')->__('Edit Category'),
             'content'   => $this->getLayout()->createBlock('job/adminhtml_parentcategory_edit_tab_form')->toHtml(),
         ));
        

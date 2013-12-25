@@ -6,7 +6,7 @@ class Iconic_Job_Block_Adminhtml_Category_Edit_Tab_Form extends Mage_Adminhtml_B
     {
         $form = new Varien_Data_Form();
         $this->setForm($form);
-        $fieldset = $form->addFieldset('caetgory_form', array('legend'=>Mage::helper('job')->__('Category information')));
+        $fieldset = $form->addFieldset('category_form', array('legend'=>Mage::helper('job')->__('Category information')));
        
         $fieldset->addField('name', 'text', array(
             'label'     => Mage::helper('job')->__('Name'),
@@ -18,15 +18,15 @@ class Iconic_Job_Block_Adminhtml_Category_Edit_Tab_Form extends Mage_Adminhtml_B
 		$parentCategoryModel = Mage::getModel('job/parentcategory')->getCollection();
 		foreach($parentCategoryModel as $cat){
 			$parentCategoryValues[] = array(
-										'value' => $cat->getParentCategoryId(),
+										'value' => $cat->getParentcategoryId(),
 										'label' => $cat->getName(),
 			);
 		}
-		$fieldset->addField('parent_category_id', 'select', array(
+		$fieldset->addField('parentcategory_id', 'select', array(
             'label'     => Mage::helper('job')->__('Parent Category'),
             'class'     => 'required-entry',
             'required'  => true,
-            'name'      => 'parent_category_id',
+            'name'      => 'parentcategory_id',
             'values'	=> $parentCategoryValues,
         ));
  

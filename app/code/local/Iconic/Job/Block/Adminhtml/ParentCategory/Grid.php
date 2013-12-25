@@ -5,7 +5,7 @@ class Iconic_Job_Block_Adminhtml_ParentCategory_Grid extends Mage_Adminhtml_Bloc
     public function __construct()
     {
         parent::__construct();
-        $this->setId('categoryGrid');
+        $this->setId('parentcategoryGrid');
         // This is the primary key of the database
         $this->setDefaultSort('parent_category_id');
         $this->setDefaultDir('ASC');
@@ -22,17 +22,23 @@ class Iconic_Job_Block_Adminhtml_ParentCategory_Grid extends Mage_Adminhtml_Bloc
  
     protected function _prepareColumns()
     {
-        $this->addColumn('parent_category_id', array(
+        $this->addColumn('parentcategory_id', array(
             'header'    => Mage::helper('job')->__('ID'),
             'align'     =>'right',
             'width'     => '50px',
-            'index'     => 'parent_category_id',
+            'index'     => 'parentcategory_id',
         ));
  
         $this->addColumn('name', array(
             'header'    => Mage::helper('job')->__('Name'),
             'align'     =>'left',
             'index'     => 'name',
+        ));
+		
+		$this->addColumn('group_category', array(
+            'header'    => Mage::helper('job')->__('Group Category'),
+            'align'     =>'left',
+            'index'     => 'group_category',
         ));
  
  
@@ -41,7 +47,7 @@ class Iconic_Job_Block_Adminhtml_ParentCategory_Grid extends Mage_Adminhtml_Bloc
  
     public function getRowUrl($row)
     {
-        return $this->getUrl('*/*/edit', array('id' => $row->getId()));
+        return $this->getUrl('*/*/edit', array('id' => $row->getParentcategoryId()));
     }
  
     public function getGridUrl()

@@ -15,7 +15,7 @@ CREATE TABLE {$this->getTable('job_location')} (
 
 -- DROP TABLE IF EXISTS {$this->getTable('job_parent_category')};
 CREATE TABLE {$this->getTable('job_parent_category')} (
-  `parent_category_id` int(11) unsigned NOT NULL auto_increment,
+  `parentcategory_id` int(11) unsigned NOT NULL auto_increment,
   `name` varchar(255) NOT NULL default '',
   PRIMARY KEY (`parent_category_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -23,7 +23,7 @@ CREATE TABLE {$this->getTable('job_parent_category')} (
 -- DROP TABLE IF EXISTS {$this->getTable('job_category')};
 CREATE TABLE {$this->getTable('job_category')} (
   `category_id` int(11) unsigned NOT NULL auto_increment,
-  `parent_category_id` int(11) unsigned NOT NULL,
+  `parentcategory_id` int(11) unsigned NOT NULL,
   `name` varchar(255) NOT NULL default '',
   PRIMARY KEY (`category_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

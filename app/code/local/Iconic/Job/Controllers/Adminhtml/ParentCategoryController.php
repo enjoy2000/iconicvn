@@ -19,18 +19,18 @@ class Iconic_Job_Adminhtml_ParentCategoryController extends Mage_Adminhtml_Contr
  
     public function editAction()
     {
+    	
         $jobId     = $this->getRequest()->getParam('id');
         $jobModel  = Mage::getModel('job/parentcategory')->load($jobId);
- 
         if ($jobModel->getId() || $jobId == 0) {
  
-            Mage::register('parentcategory_data', $jobModel);
+            Mage::register('category_data', $jobModel);
  
             $this->loadLayout();
             $this->_setActiveMenu('job/items');
            
-            $this->_addBreadcrumb(Mage::helper('adminhtml')->__('Item Manager'), Mage::helper('adminhtml')->__('Item Manager'));
-            $this->_addBreadcrumb(Mage::helper('adminhtml')->__('Item News'), Mage::helper('adminhtml')->__('Item News'));
+            $this->_addBreadcrumb(Mage::helper('adminhtml')->__('Item Manager'), Mage::helper('adminhtml')->__('Parent Category'));
+            $this->_addBreadcrumb(Mage::helper('adminhtml')->__('Item News'), Mage::helper('adminhtml')->__('Edit Category'));
            
             $this->getLayout()->getBlock('head')->setCanLoadExtJs(true);
            

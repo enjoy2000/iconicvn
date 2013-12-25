@@ -6,13 +6,30 @@ class Iconic_Job_Block_Adminhtml_ParentCategory_Edit_Tab_Form extends Mage_Admin
     {
         $form = new Varien_Data_Form();
         $this->setForm($form);
-        $fieldset = $form->addFieldset('caetgory_form', array('legend'=>Mage::helper('job')->__('Category information')));
+        $fieldset = $form->addFieldset('category_form', array('legend'=>Mage::helper('job')->__('Category information')));
        
         $fieldset->addField('name', 'text', array(
             'label'     => Mage::helper('job')->__('Name'),
             'class'     => 'required-entry',
             'required'  => true,
             'name'      => 'name',
+        ));
+		
+		$fieldset->addField('group_category', 'select', array(
+            'label'     => Mage::helper('job')->__('Group Category'),
+            'class'     => 'required-entry',
+            'required'  => true,
+            'name'      => 'group_category',
+            'values'	=> array(
+				array(
+					'label' => Mage::helper('job')->__('Industry Category'),
+					'value' => 'industry'
+				),
+				array(
+					'label' => Mage::helper('job')->__('Function Category'),
+					'value' => 'function'
+				),
+			),
         ));
  
         if ( Mage::getSingleton('adminhtml/session')->getCategoryData() )

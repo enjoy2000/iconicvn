@@ -20,7 +20,7 @@ class Iconic_Job_Block_Adminhtml_Category_Grid extends Mage_Adminhtml_Block_Widg
 		
 		
 		$collection->getSelect()->join(array("p" => $collection->getTable('job/parentcategory')), 
-			"main_table.parent_category_id = p.parent_category_id", "p.name as p_name");
+			"main_table.parentcategory_id = p.parentcategory_id", "p.name as p_name");
 		
         $this->setCollection($collection);
         return parent::_prepareCollection();
@@ -41,10 +41,11 @@ class Iconic_Job_Block_Adminhtml_Category_Grid extends Mage_Adminhtml_Block_Widg
             'index'     => 'name',
         ));
 		
-		$this->addColumn('parent_category_id', array(
+		$this->addColumn('parentcategory_id', array(
             'header'    => Mage::helper('job')->__('Parent Category'),
             'align'     =>'left',
             'index'     => 'p_name',
+            'filter_index'=> 'p.name',
         ));
  
         return parent::_prepareColumns();

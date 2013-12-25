@@ -28,7 +28,7 @@ class Iconic_Job_Block_Adminhtml_Job_Edit_Tab_Form extends Mage_Adminhtml_Block_
 		$parentCategories = Mage::getModel('job/parentcategory')->getCollection();
 		foreach($parentCategories as $parent){
 			$subCategories = Mage::getModel('job/category')->getCollection();	
-			$subCategories->addFieldToFilter('parent_category_id',$parent->getParentCategoryId());
+			$subCategories->addFieldToFilter('parentcategory_id',$parent->getParentcategoryId());
 			$subCategories->setOrder('name','ASC');
 			$arraySub = array();
 			foreach($subCategories as $sub){
