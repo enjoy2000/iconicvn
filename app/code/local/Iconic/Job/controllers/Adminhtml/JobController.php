@@ -58,15 +58,16 @@ class Iconic_Job_Adminhtml_JobController extends Mage_Adminhtml_Controller_Actio
                 $currentDate = Date('Y-m-d H:i:s');
                 $jobModel->setData($postData)
 	                     ->setId($this->getRequest()->getParam('id'))
-						 ->setCreatedTime($currentDate);
+						 ->setCreatedTime($currentDate)
+						 ->save();
                 
 				//set url key
-				if($postData['url_key']){
-					$urlkey = Mage::helper('job')->formatUrlKey($postData['url_key']);
-				}else{
-					$urlkey = Mage::helper('job')->formatUrlKey($postData['title']);
-				}
-				$jobModel->setUrlKey($urlkey)->save();
+				//if($postData['url_key']){
+					//$urlkey = Mage::helper('job')->formatUrlKey($postData['url_key']);
+				//}else{
+					//$urlkey = Mage::helper('job')->formatUrlKey($postData['title']);
+				//}
+				//$jobModel->setUrlKey($urlkey)->save();
                                 
                 Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('adminhtml')->__('Item was successfully saved'));
                 Mage::getSingleton('adminhtml/session')->setJobData(false);
