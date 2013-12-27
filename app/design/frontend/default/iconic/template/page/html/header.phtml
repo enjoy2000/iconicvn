@@ -64,11 +64,18 @@
 			
 			<!-- Logged In -->
 			<?php if(Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+				<div id="user">
+					<span id="logged-user">
+						<?php echo $this->__('Xin chào, %s', Mage::getSingleton('customer/session')->getCustomer()->getName()) ?>
+					</span>
+					<a class="bg-blue last" id="logout" href="<?php echo Mage::helper('customer')->getLogoutUrl() ?>"><?php echo $this->__('Đăng xuất') ?></a>
+				</div>
+				
 			<!-- Logged Out -->
 			<?php else: ?>
 				<div id="user">
-					<a href="" class="bg-blue" id="login"><?php echo $this->__('Đăng nhập') ?></a>
-					<a href="" class="bg-white last" id="logout"><?php echo $this->__('Đăng ký') ?></a>
+					<a href="<?php echo Mage::helper('customer')->getLoginUrl() ?>" class="bg-blue" id="login"><?php echo $this->__('Đăng nhập') ?></a>
+					<a href="<?php echo Mage::helper('customer')->getRegisterUrl() ?>" class="bg-white last" id="register"><?php echo $this->__('Đăng ký') ?></a>
 				</div>
 			<?php endif; ?>
 		</div>

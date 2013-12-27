@@ -55,7 +55,7 @@ html, button, input, select, textarea {
 	position: absolute;
 	width: 0;
 	height: 0;
-	bottom: -115%;
+	bottom: -112%;
 	left: 50%;
 	pointer-events: none;
 	border: solid transparent;
@@ -71,6 +71,9 @@ html, button, input, select, textarea {
  * LANDING
 */
 #header #header-landing{
+	min-height: 310px;
+}
+body.cms-home #header #header-landing{
 	min-height: 600px;
 	background: url('../images/landing_bg.png') center 80px no-repeat transparent;
 }
@@ -99,6 +102,19 @@ html, button, input, select, textarea {
 	-webkit-box-shadow: 4px -4px 0px -2px rgba(0, 0, 0, 0.15);
     -moz-box-shadow: 4px -4px 0px -2px rgba(0, 0, 0, 0.15);
     box-shadow: 4px -4px 0px -2px rgba(0, 0, 0, 0.15);
+}
+#header #header-landing #user > a#logout{
+	background-color: #59b6f2;
+	border: 0;
+	text-transform: none;
+	font-weight: 300;
+}
+#header #header-landing #user > a#logout:hover{
+	background-color: #fff;
+}
+#header #header-landing #user > span#logged-user{
+	color: #fff;
+	font-size: 28px;
 }
 #header #header-landing #user > a.last{
 	margin-left: 30px;
