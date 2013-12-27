@@ -1,6 +1,6 @@
 <?php
  
-class Iconic_Job_Model_ParentCategory extends Mage_Core_Model_Abstract
+class Iconic_Job_Model_Parentcategory extends Mage_Core_Model_Abstract
 {
     public function _construct()
     {

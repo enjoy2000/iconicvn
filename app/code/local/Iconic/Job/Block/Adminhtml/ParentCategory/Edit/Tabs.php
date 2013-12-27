@@ -1,6 +1,6 @@
 <?php
  
-class Iconic_Job_Block_Adminhtml_ParentCategory_Edit_Tabs extends Mage_Adminhtml_Block_Widget_Tabs
+class Iconic_Job_Block_Adminhtml_Parentcategory_Edit_Tabs extends Mage_Adminhtml_Block_Widget_Tabs
 {
  
     public function __construct()

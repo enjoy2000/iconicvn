@@ -129,7 +129,7 @@
                 <resourceModel>job_type</resourceModel>
             </type>
             <parentcategory>
-            	<class>Iconic_Job_Model_ParentCategory</class>
+            	<class>Iconic_Job_Model_Parentcategory</class>
                 <resourceModel>job_parent_category</resourceModel>
             </parentcategory>
             <location>

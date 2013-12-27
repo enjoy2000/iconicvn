@@ -1,6 +1,6 @@
 <?php
  
-class Iconic_Job_Adminhtml_ParentCategoryController extends Mage_Adminhtml_Controller_Action
+class Iconic_Job_Adminhtml_ParentcategoryController extends Mage_Adminhtml_Controller_Action
 {
  
     protected function _initAction()

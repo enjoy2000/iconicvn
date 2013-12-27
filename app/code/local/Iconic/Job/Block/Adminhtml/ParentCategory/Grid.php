@@ -1,6 +1,6 @@
 <?php
  
-class Iconic_Job_Block_Adminhtml_ParentCategory_Grid extends Mage_Adminhtml_Block_Widget_Grid
+class Iconic_Job_Block_Adminhtml_Parentcategory_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
     public function __construct()
     {

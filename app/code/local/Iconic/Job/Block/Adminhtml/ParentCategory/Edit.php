@@ -1,6 +1,6 @@
 <?php
  
-class Iconic_Job_Block_Adminhtml_ParentCategory_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
+class Iconic_Job_Block_Adminhtml_Parentcategory_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
 {
     public function __construct()
     {

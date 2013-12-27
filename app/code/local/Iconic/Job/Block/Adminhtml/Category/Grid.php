@@ -16,7 +16,7 @@ class Iconic_Job_Block_Adminhtml_Category_Grid extends Mage_Adminhtml_Block_Widg
     protected function _prepareCollection()
     {
         $collection = Mage::getModel('job/category')->getCollection();
-		/* @var $collection Iconic_Job_Model_Mysql4_ParentCategory_Collection */
+		/* @var $collection Iconic_Job_Model_Mysql4_Parentcategory_Collection */
 		
 		
 		$collection->getSelect()->join(array("p" => $collection->getTable('job/parentcategory')), 
