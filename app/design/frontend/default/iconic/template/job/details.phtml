@@ -69,14 +69,9 @@ $jobs = $this->getJobsInCategory();
 			<h5 class="blue-tit text-blue"><?php echo $this->__('Các công việc cùng ngành nghề') ?></h5>
 		</div>
 		<ul class="jobs-list">
-		<?php 
-		foreach($jobs as $job): 
-		$location = Mage::getModel('job/location')->load($job->getLocationId())->getName();
-		?>
+		<?php foreach($jobs as $job): ?>
 			<li>
-				<a href="#" title="<?php echo $job->getTitle() ?>"><?php echo $job->getTitle() ?></a>
-				<span class="created-time"><?php echo Mage::helper('job')->formatDate($job->getCreatedTime()) ?></span>
-				<span class="location"><?php echo $location ?></span>
+				<?php echo Mage::helper('job')->renderJob($job) ?>
 			</li>
 		<?php endforeach; ?>
 		</ul>

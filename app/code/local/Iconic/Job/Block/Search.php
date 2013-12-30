@@ -3,14 +3,29 @@
 class Iconic_Job_Block_Search extends Mage_Core_Block_Template
 {
 	protected function _prepareLayout(){
+			
+		$this->setPost($this->getRequest()->getPost());
 		
-		if($this->getRequest()->getQuery('s')){
-		    $posts = Mage::getModel('job/job')->getCollection()->addFieldToFilter('status', $this->getRequest()->getQuery('s'));
+		//get list location and category
+		$location = Mage::getModel('job/location')->getCollection();
+		$listLocation = '';
+		foreach($location as $loc){
+			$listLocation .= '<option value="' . $loc->getLocationId() . '">' . $loc->getName() . '</option>';
 		}
-        else{
-            $posts = Mage::getModel('job/job')->getCollection()->addFieldToFilter('status', 'available');
-        }
-        $this->setPosts($posts);
+		$this->setLocationList($listLocation);
+		
+		$parentCategory = Mage::getModel('job/parentcategory')->getCollection();
+		$listCategory = '';
+		foreach($parentCategory as $parent){
+			$categories = Mage::getModel('job/category')->getCollection()->addFieldToFilter('parentcategory_id', array('eq'=>$parent->getParentcategoryId()));
+			$catOptions = '';
+			foreach($categories as $cat){
+				$catOptions .= '<option value="' . $cat->getCategoryId() . '">' . $cat->getName() . '</option>';
+			}
+			$listCategory .= '<optgroup label="'.$parent->getName().'">'.$catOptions.'</optgroup>';
+		}
+		$this->setCategoryList($listCategory);
+		
 		parent::_prepareLayout();
 	}
 }

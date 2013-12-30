@@ -66,15 +66,20 @@
 	background: url('../images/title-blue.png') bottom left no-repeat transparent;
 	padding-bottom: 10px;
 }
+select{
+	color: #000;
+}
 input{
 	width: 100%;
 	border: solid 3px #d2d4d5;
 	padding: 3px 10px;
+	color: #000;
 }
 textarea{
 	width: 100%;
 	border: solid 3px #d2d4d5;
 	padding: 3px 10px;
+	color: #000;
 }
 .btn{
 	text-transform: uppercase;
@@ -85,6 +90,9 @@ textarea{
 }
 .btn-blue{
 	background: url('../images/btn-blue.png') center no-repeat transparent;
+}
+.btn-orange{
+	background: url('../images/btn-orange.png') center no-repeat transparent;
 }
 .btn:hover{
 	opacity: 0.8;
@@ -105,10 +113,16 @@ textarea{
 	width: 40%;
 }
 .width-50{
-	width: 50%;
+	width: 49.5%;
+}
+.width-45{
+	width: 45%;
 }
 .width-60{
 	width: 60%;
+}
+.width-65{
+	width: 65%;
 }
 .width-70{
 	width: 70%;
@@ -130,4 +144,12 @@ textarea{
 .button-grey{
 	background-color: #bcbec0;
 	border-radius: 8px;
+}
+input:focus,textarea:focus{
+	outline: none;
+	border-color: #808285;
+	color: #000;
+}
+*:focus{
+	outline: none;
 }

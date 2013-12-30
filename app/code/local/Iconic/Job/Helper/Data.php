@@ -51,7 +51,33 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 	}
 	
 	public function getCategoryUrl($catId){
-		$catUrl =  Mage::getBaseUrl().'job/'.Mage::getModel('job/category')->load($catId)->getUrlKey();
+		$catUrl =  Mage::getBaseUrl().'job/'.Mage::getModel('job/category' )->load($catId)->getUrlKey();
 		return $catUrl;
 	}
+
+	public function string_limit_words($string){
+		$words = explode(' ', $string, (7 + 1));
+		if(count($words) > 7){
+			array_pop($words);
+			return implode(' ', $words).'...';		
+		}else{
+			return implode(' ', $words);
+		}		
+	}
+	
+	public function getJobLink($jobId){
+		$link = Mage::getBaseUrl().'job/details?id='.$jobId;
+		return $link;
+	}
+	
+	public function renderJob($job){
+		$location = Mage::getModel('job/location')->load($job->getLocationId())->getName();
+		
+		$render = '<a href="'.$this->getJobLink($job->getJobId()).'" title="' . $job->getTitle().'">' . $this->string_limit_words($job->getTitle()).'</a>';
+		$render .= '<span class="inline created-time">'.$this->formatDate($job->getCreatedTime()).'</span>';
+		$render .= '<span class="inline location">'.$location.'</span>';
+		
+		return $render;
+	}
 }
+	
