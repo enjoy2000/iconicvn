@@ -79,7 +79,7 @@ class Iconic_Job_Adminhtml_LocationController extends Mage_Adminhtml_Controller_
     {
         if( $this->getRequest()->getParam('id') > 0 ) {
             try {
-                $jobModel = Mage::getModel('job/job');
+                $jobModel = Mage::getModel('job/location');
                
                 $jobModel->setId($this->getRequest()->getParam('id'))
                     ->delete();

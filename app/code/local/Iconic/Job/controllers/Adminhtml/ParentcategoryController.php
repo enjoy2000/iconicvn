@@ -79,7 +79,7 @@ class Iconic_Job_Adminhtml_ParentcategoryController extends Mage_Adminhtml_Contr
     {
         if( $this->getRequest()->getParam('id') > 0 ) {
             try {
-                $jobModel = Mage::getModel('job/job');
+                $jobModel = Mage::getModel('job/parentcategory');
                
                 $jobModel->setId($this->getRequest()->getParam('id'))
                     ->delete();

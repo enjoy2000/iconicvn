@@ -416,3 +416,53 @@ div#home-main-content{
 	color: #000;
 	font-size: 13px;
 }
+
+/*
+	Latest blog
+*/
+.block.news-categories{
+	float: right;
+	width: 30%;
+	border: solid 6px #acdbf8;
+	border-radius: 8px;
+}
+.block.news-categories ul{
+	list-style: none;
+	height: 400px;
+	overflow-y: auto;
+}
+.block.news-categories ul > li{
+	padding: 20px;
+}
+.block.news-categories ul > li .item-content{
+	width: 185px;
+}
+.block.news-categories ul > li .item-content a{
+	font-weight: bold;
+	color: #000;
+}
+.block.news-categories ul > li .item-content a:hover{
+	color: #1197EC;
+}
+.block.news-categories ul > li .item-content > *{
+	display: block;
+	width: 100%;
+}
+.block.news-categories ul > li+li{
+	border-top: solid 1px #828282;
+}
+.block.news-categories ul li > img{
+	width: 40px;
+	height: 40px;
+	border-radius: 4px;
+}
+.block.news-categories .block-title{
+	padding: 10px 20px;
+	padding-bottom: 0;
+	background-color: #dcddde;
+}
+.block.news-categories .block-title span{
+	display: block;
+	text-transform: uppercase;
+	font-size: 18px;
+}

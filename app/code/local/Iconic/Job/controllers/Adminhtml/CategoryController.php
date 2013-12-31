@@ -79,7 +79,7 @@ class Iconic_Job_Adminhtml_CategoryController extends Mage_Adminhtml_Controller_
     {
         if( $this->getRequest()->getParam('id') > 0 ) {
             try {
-                $jobModel = Mage::getModel('job/job');
+                $jobModel = Mage::getModel('job/category');
                
                 $jobModel->setId($this->getRequest()->getParam('id'))
                     ->delete();

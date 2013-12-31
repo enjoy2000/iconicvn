@@ -194,4 +194,12 @@ class CommerceLab_News_Helper_Data extends Mage_Core_Helper_Abstract
         }
         return $date;
     }
+	
+	public function getShortDescLink($item){
+		return Mage::getBaseUrl().'media/'.$item->getImageShortContent();
+	}
+	
+	public function getFullDescLink($item){
+		return Mage::getBaseUrl().'media/'.$item->getImageFullContent();
+	}
 }
