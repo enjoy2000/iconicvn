@@ -22,7 +22,7 @@ class CommerceLab_News_Block_Abstract extends Mage_Core_Block_Template
     protected $_itemsOnPage = 10;
     protected $_itemsLimit;
     protected $_pages;
-    protected $_latestItemsCount = 2;
+    protected $_latestItemsCount = 20;
     protected $_showFlag = 0;
 
     protected function _construct()
