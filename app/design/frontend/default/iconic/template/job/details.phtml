@@ -28,7 +28,7 @@ $jobs = $this->getJobsInCategory();
 	
 	<!-- Job Actions -->
 	<div id="job-actions">
-		<a class="btn button-blue btn-send" href="#"><?php echo $this->__('Ứng tuyển') ?></a>
+		<a class="btn button-blue btn-send" href="<?php echo Mage::helper('job')->getApplyLink($item->getId()) ?>"><?php echo $this->__('Ứng tuyển') ?></a>
 		<a class="btn button-grey btn-back" href="#"><?php echo $this->__('Trở về') ?></a>
 	</div>
 </div>

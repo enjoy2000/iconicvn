@@ -70,6 +70,10 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 		return $link;
 	}
 	
+	public function getApplyLink($jobId){
+		return Mage::getBaseUrl().'job/apply?id='.$jobId;
+	}
+	
 	public function renderJob($job){
 		$location = Mage::getModel('job/location')->load($job->getLocationId())->getName();
 		
