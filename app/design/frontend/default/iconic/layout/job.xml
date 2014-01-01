@@ -64,4 +64,9 @@
         </reference>
     </job_index_toolbar>
     
+    <job_search_index>
+        <reference name="content">
+             <block type="job/search" name="job_search" template="job/search.phtml" />
+        </reference>
+    </job_search_index>
 </layout>

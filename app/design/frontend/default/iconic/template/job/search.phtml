@@ -1,17 +1,31 @@
 <div id="search-block" class="clearfix">
-	<form action="" method="post">
-		<input name="keyword" class="width-80" id="keyword" placeholder="<?php echo $this->__('Nhập chức danh, ngành nghề, từ khóa...') ?>" />
+	<form action="/job/search" method="get">
+		<input name="q" class="width-80" id="keyword"
+			value="<?php echo $this->getKeyword();?>"
+			placeholder="<?php echo $this->__('Nhập chức danh, ngành nghề, từ khóa...') ?>" />
 		<br class="clear"/>
 		<select name="category" id="category" class="inline">
-			<option><?php echo $this->__('Ngành nghề') ?></option>
+			<option value=""><?php echo $this->__('Ngành nghề') ?></option>
 			<?php echo $this->getCategoryList() ?>
 		</select>
 		
 		<select name="location" id="location" class="inline">
-			<option><?php echo $this->__('Địa điểm') ?></option>
+			<option value=""><?php echo $this->__('Địa điểm') ?></option>
 			<?php echo $this->getLocationList() ?>			
 		</select>
 		
 		<button id="search-btn" name"submit" type="submit" class="flr inline btn btn-orange"><?php echo $this->__('Tìm kiếm') ?></button>		
 	</form>
 </div>
+<?php if($this->hasResults()): ?>
+<div id="search_results">
+	<?php foreach($this->getResults() as $job): ?>
+		<?php var_dump($job); ?>
+	<?php endforeach; ?>
+</div>
+<div id="search_results_filter">
+	<?php foreach($this->getFilters() as $filter): ?>
+		<?php echo $filter->toHtml(); ?>
+	<?php endforeach; ?>
+</div>
+<?php endif; ?>
