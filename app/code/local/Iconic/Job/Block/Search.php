@@ -2,16 +2,23 @@
 
 class Iconic_Job_Block_Search extends Mage_Core_Block_Template
 {
-	protected function _prepareLayout(){
-			
+	protected function _prepareLayout(){			
+		
 		$this->setPost($this->getRequest()->getPost());
 		
-		parent::_prepareLayout();
+		$this->getLayout()->getBlock('head')->setTitle(Mage::helper('job')->__('Tìm kiếm công việc')); 
+		
+		
+		return parent::_prepareLayout();
 	}
 	
 	protected function _beforeToHtml(){
 		if($this->needFetchJobs()){
 			$this->_fetchJobs();
+			$pager = $this->getLayout()->createBlock('page/html_pager', 'custom.pager');
+			$pager->setShowPerPage(false);
+	        $pager->setCollection($this->getResults());
+	        $this->setChild('pager', $pager);
 		}
 		return parent::_beforeToHtml();
 	}
@@ -34,15 +41,34 @@ class Iconic_Job_Block_Search extends Mage_Core_Block_Template
 		if ($this->getLocation()){
 			$collection->addFieldToFilter('location_id', array('eq' => $this->getLocation()));
 		}
-		if ($this->getJobType()){
-			$collection->addFieldToFilter('job_type', array('eq' => $this->getJobType()));
+		if ($this->getJobLevel()){
+			$collection->addFieldToFilter('job_level', array('eq' => $this->getJobLevel()));
 		}
 		
 		if ($this->getFunctionCategory()){
 			$collection->addFieldToFilter('function_category_id', array('eq' => $this->getFunctionCategory()));
 		}
 		
-		var_dump($collection->getSelect()->__toString());
+		if($this->getIndustry()){
+			$cats = Mage::getModel('job/category')->getCollection()->addFieldToFilter('parentcategory_id', array('eq'=>$this->getIndustry()));
+			$catIds = array();
+			foreach($cats as $cat){
+				$catIds[] = $cat->getCategoryId();
+			}
+			$collection->addFieldToFilter('category_id', array('in' => $catIds));
+		}
+		
+		if($this->getFunction()){
+			$cats2 = Mage::getModel('job/category')->getCollection()->addFieldToFilter('parentcategory_id', array('eq'=>$this->getFunction()));
+			$catIds2 = array();
+			foreach($cats2 as $cat){
+				$catIds2[] = $cat->getCategoryId();
+			}
+			$collection->addFieldToFilter('category_id', array('in' => $catIds2));
+		}
+		
+		$collection->setOrder('created_time','DESC');
+		//var_dump($collection->getSelect()->__toString());
 		
 		
 		$this->setResults($collection);
@@ -53,7 +79,7 @@ class Iconic_Job_Block_Search extends Mage_Core_Block_Template
 	}
 	
 	public function isQueryParamAvailable(){
-		return $this->getKeyword() || $this->getCategory() || $this->getLocation();
+		return true;
 	}
 	
 	public function getLocationList(){
@@ -82,7 +108,7 @@ class Iconic_Job_Block_Search extends Mage_Core_Block_Template
 	public function getCategoryList(){
 		if (!$this->hasData('categoryList')){
 		
-			$parentCategory = Mage::getModel('job/parentcategory')->getCollection();
+			$parentCategory = Mage::getModel('job/parentcategory')->getCollection()->addFieldToFilter('group_category', array('eq'=>'industry'));
 			$listCategory = '';
 			if ($this->getCategory()){
 				foreach ($parentCategory as $parent){
@@ -124,7 +150,7 @@ class Iconic_Job_Block_Search extends Mage_Core_Block_Template
 			$filter->setDesticationField('category_id');
 			$filter->setModel('job/category');
 			$filter->setParamName('category');
-			$filter->setTitle("Category");
+			$filter->setTitle(Mage::helper('job')->__('Tìm việc theo ngành nghề'));
 			$filters['category'] = $filter;
 		}
 		
@@ -136,20 +162,24 @@ class Iconic_Job_Block_Search extends Mage_Core_Block_Template
 			$filter->setModel('job/parentcategory');
 			$filter->setParamName('function_category');
 			$filters['function_category'] = $filter;
-			$filter->setTitle("Function Category");
+			$filter->setTitle(Mage::helper('job')->__('Tìm việc theo chức năng'));
 		}
 
-		if (!$this->getJobType()){
+		if (!$this->getJobLevel()){
 			$filter = $this->getLayout()->createBlock('job/search_filter');
 			$filter->setCollection($this->getResults());
-			$filter->setField('job_type');
-			$filter->setDesticationField('type_id');
-			$filter->setModel('job/type');
-			$filter->setParamName('type');
-			$filter->setTitle("Job Type");
-			$filters['type'] = $filter;
+			$filter->setField('job_level');
+			$filter->setDesticationField('level_id');
+			$filter->setModel('job/level');
+			$filter->setParamName('level');
+			$filter->setTitle(Mage::helper('job')->__('Tìm việc theo đối tượng'));
+			$filters['level'] = $filter;
 		}
 		return $filters;
 	}
+ 
+    public function getPagerHtml(){
+        return $this->getChildHtml('pager');
+    }
 }
         

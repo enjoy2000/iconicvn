@@ -83,5 +83,15 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 		
 		return $render;
 	}
+
+	function highlight($inp, $words){
+		$replace=array_flip(array_flip($words)); // remove duplicates
+		$pattern=array();
+		foreach ($replace as $k=>$fword) {
+			$pattern[]='/\b(' . $fword . ')(?!>)\b/i';
+			$replace[$k]='<b>$1</b>';
+		}
+		return preg_replace($pattern, $replace, $inp);
+	}
 }
 	

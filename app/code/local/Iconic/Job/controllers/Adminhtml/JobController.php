@@ -58,9 +58,12 @@ class Iconic_Job_Adminhtml_JobController extends Mage_Adminhtml_Controller_Actio
                 $currentDate = Date('Y-m-d H:i:s');
                 $jobModel->setData($postData)
 	                     ->setId($this->getRequest()->getParam('id'))
-						 ->setCreatedTime($currentDate)
-						 ->save();
-                
+						 ->setUpdateTime($currentDate);
+						 
+                if(!$this->getRequest()->getParam('id')){
+                	$jobModel->setCreatedTime($currentDate);
+                }
+				$jobModel->save();
 				//set url key
 				//if($postData['url_key']){
 					//$urlkey = Mage::helper('job')->formatUrlKey($postData['url_key']);

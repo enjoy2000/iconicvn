@@ -75,6 +75,16 @@
 	                    <sort_order>0</sort_order>
 	                    <action>job/adminhtml_location</action>
 	                </location>
+	                <level module="job">
+	                    <title>Manage Job Level</title>
+	                    <sort_order>0</sort_order>
+	                    <action>job/adminhtml_level</action>
+	                </level>
+	                <type module="job">
+	                    <title>Manage Job Type</title>
+	                    <sort_order>0</sort_order>
+	                    <action>job/adminhtml_type</action>
+	                </type>
 	            </children>
 	        </job>
         </menu>

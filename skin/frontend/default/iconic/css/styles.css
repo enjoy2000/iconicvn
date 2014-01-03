@@ -244,10 +244,10 @@ body.cms-home #header #header-landing{
 }
 #footer #contact-information #contact-form form input{
 	margin-bottom: 5px;
-	width: 91%;
+	width: 100%;
 }
 #footer #contact-information #contact-form form textarea{
-	width: 91%;
+	width: 100%;
 	margin-bottom: 5px;
 }
 #footer #contact-information #contact-form form button#submit{
@@ -268,6 +268,9 @@ body.cms-home #header #header-landing{
 /*
 	SEARCH BOX
 */
+body.cms-home #search_results{
+	display: none;
+}
 #search-block input, #search-block select{
 	padding: 7px 20px;
 	border: solid 4px #d2d4d5;
@@ -465,4 +468,121 @@ div#home-main-content{
 	display: block;
 	text-transform: uppercase;
 	font-size: 18px;
+}
+/*
+	SEARCH RESULTS
+*/
+#search_results{
+	margin-top: 30px;
+}
+#page-title{
+	padding: 5px 20px;
+	padding-bottom: 0;
+	background-color: #dcddde;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	margin-bottom: 20px;
+}
+#search_results .info-search .info{
+	padding: 0 20px;
+}
+#search_results .info-search .info + .info{
+	border-left: solid 1px #ccc;
+}
+#search_results .info-search .info span{
+	color: #1197EC;
+}
+#search_results .info-search .amount{
+	padding: 0 20px;
+	margin-bottom: 30px;
+}
+#search_results .info-search .amount span{
+	color: #1197EC;
+	font-weight: bold;
+}
+#search_results .results .content{
+	border: solid 6px #acdbf8;
+	padding: 15px 0;
+	border-radius: 8px;
+}
+#search_results .results .content .job{
+	padding: 10px 20px;
+}
+#search_results .results .content .job + .job{
+	border-top: solid 1px #828282;
+}
+#search_results .results .content .job a.title{
+	display: block;
+	color: #000;
+}
+#search_results .results .content .job a.title:hover{
+	color: #1197EC;
+}
+#search_results .pager{
+	text-align: center;
+	margin-top: 20px;
+}
+
+#search_results .pager ol{
+	list-style: none;
+}
+#search_results .pager ol li{
+	display: inline-block;
+	padding: 3px 10px;
+	border: solid 1px #ccc;
+}
+#search_results .pager ol li.current{
+	border-color: #1197EC;
+	color: #1197EC;
+	font-weight: bold;
+}
+#search_results .results .no-results{
+	border: solid 6px #acdbf8;
+	border-radius: 8px;
+	margin-top: 30px;
+}
+#search_results .results .no-results img{
+	padding: 8px 15px;
+	background-color: #ACDBF8;
+}
+#search_results .results .no-results .text{
+	padding: 10px 30px;
+	font-weight: bold;
+}
+#search_results .search-filters{	
+	border: solid 6px #acdbf8;
+	border-radius: 8px;
+	padding-bottom: 20px;
+}
+#search_results .search-filters .heading{
+	padding: 15px 20px;
+	background-color: #dcdddd;
+	padding-bottom: 0;
+}
+#search_results .search-filters .heading h4{
+	font-size: 18px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+#search_results .search-filters .filter{
+	padding: 20px;
+	padding-bottom: 0;
+}
+#search_results .search-filters .filter + .filter h4{
+	border-top: solid 1px #828282;
+	padding-top: 20px;
+}
+#search_results .search-filters .filter h4{
+	color: #1197EC;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 14px;
+}
+#search_results .search-filters .filter > a{
+	display: block;
+	padding: 2px 20px;
+	background: url('../images/list-arrow.png') left 5px center transparent no-repeat;
+}
+#search_results .search-filters .filter > a:hover{
+	color: #1197EC;
 }

@@ -19,14 +19,24 @@ class Iconic_Job_SearchController extends Mage_Core_Controller_Front_Action{
 			$searchBlock->setLocation((int)$location);
 		}
 		
-		$type = $this->getRequest()->get("type");
-		if($type){
-			$searchBlock->setJobType((int)$type);
+		$level = $this->getRequest()->get("level");
+		if($level){
+			$searchBlock->setJobLevel((int)$level);
 		}
 		
 		$functionCategory = $this->getRequest()->get("function_category");
 		if($functionCategory){
 			$searchBlock->setFunctionCategory((int)$functionCategory);
+		}
+		
+		$industry = $this->getRequest()->get("industry");
+		if($industry){
+			$searchBlock->setIndustry((int)$industry);
+		}
+		
+		$function = $this->getRequest()->get("function");
+		if($function){
+			$searchBlock->setIndustry((int)$function);
 		}
 		
 		$this->renderLayout();
