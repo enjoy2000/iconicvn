@@ -24,7 +24,7 @@
 		<h2 class="blue-tit text-blue"><?php echo $this->__('Kết quả tìm kiếm') ?></h2>
 	</div>
 	<div class="info-search">
-		<?php if($this->hasKeyword()): ?>
+		<?php if($this->getKeyword()): ?>
 		<div class="info inline-b">
 			<?php echo $this->__('Từ khóa') ?>:
 			<span><?php echo $this->getKeyword() ?></span>
@@ -72,6 +72,11 @@
 	</div>
 	<div class="results fll width-65">
 		<?php if($this->getResults()->count() > 0): ?>
+			<script>
+				$(document).ready(function(){
+					$('.info-search > p').html($('.pager .amount'));
+				});
+			</script>
 			<div class="content">
 			<?php foreach($this->getResults() as $job): ?>
 				<div class="job clearfix">
@@ -99,7 +104,7 @@
 		<?php else: ?>
 			<div class="no-results clearfix">
 				<img class="fll" src="<?php echo $this->getSkinUrl('images/no-results.png') ?>" alt="" />
-				<span class="fll text"><?php echo $this->__('Không tìm thấy việc làm phù hợp. Bạn vui làm thử lại.') ?></span>
+				<span class="fll text"><?php echo $this->__('Không tìm thấy việc làm phù hợp. Bạn vui lòng thử lại.') ?></span>
 			</div>
 		<?php endif; ?>
 	</div>
@@ -151,8 +156,3 @@
 			<?php //echo $filter->toHtml(); ?>
 		<?php //endforeach; ?>
 	<?php //endif; ?>
-<script>
-	$(document).ready(function(){
-		$('.info-search > p').html($('.pager .amount'));
-	});
-</script>

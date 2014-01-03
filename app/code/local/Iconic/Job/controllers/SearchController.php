@@ -36,7 +36,7 @@ class Iconic_Job_SearchController extends Mage_Core_Controller_Front_Action{
 		
 		$function = $this->getRequest()->get("function");
 		if($function){
-			$searchBlock->setIndustry((int)$function);
+			$searchBlock->setFunction((int)$function);
 		}
 		
 		$this->renderLayout();

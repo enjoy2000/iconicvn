@@ -493,12 +493,17 @@ div#home-main-content{
 	color: #1197EC;
 }
 #search_results .info-search .amount{
-	padding: 0 20px;
 	margin-bottom: 30px;
 }
 #search_results .info-search .amount span{
 	color: #1197EC;
 	font-weight: bold;
+}
+#search_results .info-search > p{
+	padding: 0 20px;
+}
+#search_results .info-search > p span{
+	color: #1197EC;
 }
 #search_results .results .content{
 	border: solid 6px #acdbf8;
