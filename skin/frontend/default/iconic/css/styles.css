@@ -124,7 +124,7 @@ body.cms-home #header #header-landing{
 	MAIN CONTENT
 */
 #main{
-	min-height: 600px;
+	min-height: 300px;
 	margin-top: -145px;
 	background-color: #fff;
 	border-radius: 10px;
@@ -244,10 +244,10 @@ body.cms-home #header #header-landing{
 }
 #footer #contact-information #contact-form form input{
 	margin-bottom: 5px;
-	width: 100%;
+	width: 91%;
 }
 #footer #contact-information #contact-form form textarea{
-	width: 100%;
+	width: 91%;
 	margin-bottom: 5px;
 }
 #footer #contact-information #contact-form form button#submit{

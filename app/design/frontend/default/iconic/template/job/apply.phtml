@@ -1,0 +1,16 @@
+<input id="fileupload" type="file" name="files[]" data-url="<?php echo Mage::getBaseUrl() ?>job/apply/upload" multiple>
+<script src="<?php echo Mage::getBaseUrl() ?>js/fileupload/vendor/jquery.ui.widget.js"></script>
+<script src="<?php echo Mage::getBaseUrl() ?>js/fileupload/jquery.iframe-transport.js"></script>
+<script src="<?php echo Mage::getBaseUrl() ?>js/fileupload/jquery.fileupload.js"></script>
+<script>
+$(function () {
+    $('#fileupload').fileupload({
+        dataType: 'json',
+        done: function (e, data) {
+            $.each(data.result.files, function (index, file) {
+                $('<p/>').text(file.name).appendTo(document.body);
+            });
+        }
+    });
+});
+</script>
