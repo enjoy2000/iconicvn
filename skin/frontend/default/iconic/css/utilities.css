@@ -87,6 +87,9 @@ textarea{
 	font-weight: bold;
 	padding: 3px 10px;
 	text-align: center;
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 .btn-blue{
 	background: url('../images/btn-blue.png') center no-repeat transparent;
@@ -96,6 +99,11 @@ textarea{
 }
 .btn:hover{
 	opacity: 0.8;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+	filter: alpha(opacity=80);
+	-moz-opacity: 0.8;
+	-khtml-opacity: 0.8;
+
 }
 .text-blue{
 	color: #1197EC;

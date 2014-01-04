@@ -93,5 +93,10 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 		}
 		return preg_replace($pattern, $replace, $inp);
 	}
+	
+	public function renderTitle($job){
+		$title = $this->__('No. %s <span>|</span> %s', $job->getId(), $job->getTitle());
+		return $title;
+	}
 }
 	

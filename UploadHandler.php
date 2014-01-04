@@ -13,7 +13,7 @@
 class UploadHandler
 {
 
-    protected $options;
+    public $options;
 
     // PHP File Upload error message codes:
     // http://php.net/manual/en/features.file-upload.errors.php
@@ -152,11 +152,11 @@ class UploadHandler
             $this->error_messages = $error_messages + $this->error_messages;
         }
         if ($initialize) {
-            $this->initialize();
+            //$this->initialize();
         }
     }
 
-    protected function initialize() {
+    public function initialize() {
         switch ($this->get_server_var('REQUEST_METHOD')) {
             case 'OPTIONS':
             case 'HEAD':

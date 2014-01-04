@@ -18,11 +18,17 @@
     
     <job_apply_index>
     	<reference name="content">
+		<reference name="head">          	
+             <action method="addCss"><stylesheet>css/job-apply.css</stylesheet></action>
+		</reference>
              <block type="core/template" name="job_apply" template="job/apply.phtml"></block>
         </reference>    
     </job_apply_index>
     
     <job_search_index>
+		<reference name="head">          	
+             <action method="addCss"><stylesheet>css/search-results.css</stylesheet></action>
+		</reference>
         <reference name="content">
              <block type="job/search" name="job_search" template="job/search.phtml" />
         </reference>
