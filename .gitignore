@@ -42,6 +42,7 @@ cron.sh
 downloader/
 errors/
 favicon.ico
+files/
 get.php
 includes/
 index.php
