@@ -74,11 +74,13 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 			$mail = new Zend_Mail('UTF-8');
 			$data = $this->getRequest()->getPost();
 			foreach($data['filenames'] as $filename){
-				$path = Mage::getBaseDir().'/files/'.$user->getId().'/'.$filename;
-				//var_dump($path);
-				$fileContents = file_get_contents($path);
-				//var_dump($fileContents);
-				$mail->createAttachment($fileContents);
+				$file = Mage::getBaseDir().'/files/'.$user->getId().'/'.$filename;
+				$at = new Zend_Mime_Part(file_get_contents($file));
+				$at->filename = basename($file);
+				$at->disposition = Zend_Mime::DISPOSITION_ATTACHMENT;
+				$at->encoding = Zend_Mime::ENCODING_8BIT;
+				        
+				$mail->addAttachment($at);
 			}
 			/*
 			$config = array(
@@ -91,13 +93,12 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 			$transport = new Zend_Mail_Transport_Smtp('smtp.gmail.com', $config);
 			*/
 			$mail->setBodyText('This is the text of the mail.');
-			$mail->setFrom('sender@test.com', 'Some Sender');
 			$mail->addTo('enjoy3013@gmail.com', 'Some Recipient');
 			$mail->setSubject('TestSubject');
 			$checkSend = $mail->send($transport);
-			var_dump($checkSend);
+			
 		}catch(Exception $e){
-			var_dump($e);
+			
 		}
 		
 		$this->renderLayout();
