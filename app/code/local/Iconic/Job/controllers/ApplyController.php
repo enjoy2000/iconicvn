@@ -74,7 +74,10 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 			$mail = new Zend_Mail('UTF-8');
 			$data = $this->getRequest()->getPost();
 			foreach($data['filenames'] as $filename){
-				$fileContents = file_get_contents(Mage::getBaseDir().$user->getId().'/'.$filename);
+				$path = Mage::getBaseDir().'/files/'.$user->getId().'/'.$filename;
+				//var_dump($path);
+				$fileContents = file_get_contents($path);
+				//var_dump($fileContents);
 				$mail->createAttachment($fileContents);
 			}
 			/*
