@@ -68,30 +68,33 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
             $this->_redirect('customer/account/login/');
             return $this;
         }
-		
-		$user = Mage::getSingleton('customer/session')->getCustomer();
-		
-		$mail = new Zend_Mail('UTF-8');
-		$data = $this->getRequest()->getPost();
-		foreach($data['filenames'] as $filename){
-			$fileContents = file_get_contents(Mage::getBaseDir().$user->getId().'/'.$filename);
-			$mail->createAttachment($fileContents);
+		try{
+			$user = Mage::getSingleton('customer/session')->getCustomer();
+			
+			$mail = new Zend_Mail('UTF-8');
+			$data = $this->getRequest()->getPost();
+			foreach($data['filenames'] as $filename){
+				$fileContents = file_get_contents(Mage::getBaseDir().$user->getId().'/'.$filename);
+				$mail->createAttachment($fileContents);
+			}
+			/*
+			$config = array(
+	                    'auth' => 'login',
+					    'ssl' => 'tls',
+					    'username' => 'email2@domain.com',
+					    'password' => 'mypasshere'
+						);
+	 
+			$transport = new Zend_Mail_Transport_Smtp('smtp.gmail.com', $config);
+			*/
+			$mail->setBodyText('This is the text of the mail.');
+			$mail->setFrom('sender@test.com', 'Some Sender');
+			$mail->addTo('enjoy3013@gmail.com', 'Some Recipient');
+			$mail->setSubject('TestSubject');
+			$mail->send($transport);
+		}catch(Exception $e){
+			var_dump($e);
 		}
-		/*
-		$config = array(
-                    'auth' => 'login',
-				    'ssl' => 'tls',
-				    'username' => 'email2@domain.com',
-				    'password' => 'mypasshere'
-					);
- 
-		$transport = new Zend_Mail_Transport_Smtp('smtp.gmail.com', $config);
-		*/
-		$mail->setBodyText('This is the text of the mail.');
-		$mail->setFrom('sender@test.com', 'Some Sender');
-		$mail->addTo('enjoy3013@gmail.com', 'Some Recipient');
-		$mail->setSubject('TestSubject');
-		$mail->send($transport);
 		
 		$this->renderLayout();
 	}
