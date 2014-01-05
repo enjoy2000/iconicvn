@@ -91,7 +91,8 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 			$mail->setFrom('sender@test.com', 'Some Sender');
 			$mail->addTo('enjoy3013@gmail.com', 'Some Recipient');
 			$mail->setSubject('TestSubject');
-			$mail->send($transport);
+			$checkSend = $mail->send($transport);
+			var_dump($checkSend);
 		}catch(Exception $e){
 			var_dump($e);
 		}
