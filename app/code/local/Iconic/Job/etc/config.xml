@@ -129,11 +129,11 @@
         <events>
             <controller_front_init_routers>
                 <observers>
-                    <clnews>
+                    <job>
                         <type>singleton</type>
                         <class>Iconic_Job_Controller_Router</class>
                         <method>initControllerRouters</method>
-                    </clnews>
+                    </job>
                 </observers>
             </controller_front_init_routers>
         </events>
