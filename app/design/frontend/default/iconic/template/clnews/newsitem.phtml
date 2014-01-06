@@ -8,8 +8,10 @@
 	<?php $item = $this->getNewsitem(); ?>
 	<h2 class="text-blue"><?php echo $item->getTitle() ?></h2>
 	<?php if (Mage::helper('clnews')->showDate()): ?>
-	    <span class="date"><?php echo Mage::helper('job')->formatDate($item->getNewsTime()) ?></span>
-	    <span class="author"><span class="line">|</span>Post by <strong><?php echo $item->getAuthor() ?></strong></span>
+	    <span class="date"><?php echo Mage::helper('job')->formatDate($item->getNewsTime()) ?></span>	    
+	    <?php if ($item->getAuthor()): ?>
+	    <span class="author"><span class="line">|</span><?php echo $this->__('Đăng bởi') ?> <strong><?php echo $item->getAuthor() ?></strong></span>
+	    <?php endif; ?>
 	<?php endif; ?>
 	<?php if (Mage::helper('clnews')->showCategory()): ?>
 	    <?php if ($this->getCategoryByNews($item->getID())->getData('title') != ''): ?>
@@ -95,90 +97,6 @@
 	</p>
 	
 	<?php echo $this->getMessagesBlock()->getGroupedHtml(); ?>
-	
-	<div class="news-item-comment">
-	<?php if($item->getCommentsEnabled()): ?>
-	    <?php $comments = $this->getComments(); ?>
-	    <div>
-	        <a name="commentBox" ></a>
-	        <h2><?php echo $this->getCommentTotalString($comments);?></h2>
-	    </div>
-	    <div id="clloader" style="display:none;"><img src="<?php echo $this->getSkinUrl('images/clnews/ajax-loader.gif')?>"/></div>
-	    <div id="comment_block">
-	    <?php $k = 0;?>
-	    <?php foreach ($comments as $comment):  ?>
-	        <div id="comment_item_<?php echo $k;?>" class="comment-item">
-	            <h4 class="username"><?php echo $comment->getUser();?></h4>
-	            <?php echo $this->__("posted on")?> <?php echo Mage::helper('clnews')->formatDate($comment->getCreatedTime());?>
-	            <div><?php echo $comment->getComment();?></div>
-	        </div>
-	        <?php $k++;?>
-	    <?php endforeach; ?>
-	    </div>
-	    <?php if($this->getLastPageNum()>1): ?>
-	        <div class="pager">
-	            <p class="page">
-	            <span id="prev"><span class="prev" style="display:none;"><?php echo $this->__('Previous') ?></span></span>
-	            <?php foreach ($this->getPages() as $_page): ?>
-	                <?php if ($this->isPageCurrent($_page)): ?>
-	                    <span id="page_<?php echo $_page ?>" class="page current" onclick="AjaxSend(<?php echo $_page ?>, <?php echo $item->getId() ?>, true);"><?php echo $_page ?></span>
-	                <?php else: ?>
-	                    <span id="page_<?php echo $_page ?>" class="page" onclick="AjaxSend(<?php echo $_page ?>, <?php echo $item->getId() ?>, true);"><?php echo $_page ?></span>
-	                <?php endif ?>
-	            <?php endforeach; ?>
-	                <span id="next"><span class="next"><?php echo $this->__('Next') ?></span></span>
-	            </p>
-	        </div>
-	    <?php endif;?>
-	
-	    <?php if (!$this->getRequireLogin() || ($this->getRequireLogin()&&$this->helper('customer')->isLoggedIn())): ?>
-	        <form id="postComment" method="post" action="">
-	            <h4><?php echo Mage::helper('clnews')->__('Submit Comment') ?></h4>
-	            <ul>
-	                <li>
-	                    <?php if (!$this->helper('customer')->isLoggedIn()): ?>
-	                        <div class="input-box">
-	                            <label for="name"><?php echo Mage::helper('clnews')->__('Name') ?> <span class="required">*</span></label>
-	                            <input name="user" id="user" value="<?php echo $this->getCommentName(); ?>" title="<?php echo $this->__('Name') ?>" value="<?php echo $this->htmlEscape($this->helper('clnews')->getUserName()) ?>" class="required-entry input-text" type="text" />
-	                        </div>
-	                        <div class="clear"></div>
-	    
-	                        <div class="input-box">
-	                            <label for="email"><?php echo Mage::helper('clnews')->__('Email') ?> <span class="required">*</span></label>
-	                            <input name="email" id="email" value="<?php echo $this->getCommentEmail(); ?>" title="<?php echo $this->__('Email') ?>" value="<?php echo $this->htmlEscape($this->helper('clnews')->getUserEmail()) ?>" class="required-entry input-text validate-email" type="text" />
-	                        </div>
-	                    <?php else: ?>
-	                        <input name="post_id" type="hidden" value="<?php echo $item->getPostId();?>" />
-	                        <input name="email" type="hidden" value="<?php echo $this->htmlEscape($this->helper('clnews')->getUserEmail()) ?>"/><br/>
-	                        <input name="user" type="hidden" value="<?php echo $this->htmlEscape($this->helper('clnews')->getUserName()) ?>"/><br/>
-	                    <?php endif ?>
-	                    <div class="clear"></div>
-	                    <div class="input-box">
-	                        <label for="comment"><?php echo Mage::helper('clnews')->__('Comment') ?> <span class="required">*</span></label>
-	                        <textarea name="comment" id="comment" title="<?php echo Mage::helper('clnews')->__('Comment') ?>" class="required-entry input-text" style="height:150px;width:400px;" cols="50" rows="5"><?php echo $this->getCommentText(); ?></textarea>
-	                    </div>
-	                </li>
-	                <?php if (Mage::getStoreConfig('clnews/captcha/enabled')): ?>
-	                    <!-- - -->
-	                <?php endif ?>
-	                </li>
-	            </ul>
-	            <div class="button-set">
-	                <input name="news_id" type="hidden" value="<?php echo $item->getId() ?>" />
-	                <p class="required"><?php echo $this->__('* Required Fields') ?></p>
-	                <button class="button" type="submit"><span><span><?php echo Mage::helper('clnews')->__('Submit Comment') ?></span></span></button>
-	            </div>
-	        </form>
-	    
-	        <script type="text/javascript">
-	        var contactForm = new VarienForm('postComment', false);
-	        </script>
-	    <?php else: ?>
-	        <p><?php echo Mage::helper('clnews')->__('You must be logged in to post a comment.');?></p>
-	        <p><a href="<?php echo Mage::helper('customer')->getLoginUrl(); ?>"><?php echo Mage::helper('clnews')->__('click here');?></a> <?php echo Mage::helper('clnews')->__('to log in');?></p>
-	    <?php endif; ?>
-	<?php endif; ?>
-	</div>
 </div>
 <script type="text/javascript">
     function AjaxSend(page, id, showLoader)
