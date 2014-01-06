@@ -84,7 +84,7 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 		return $render;
 	}
 
-	function highlight($inp, $words){
+	public function highlight($inp, $words){
 		$replace=array_flip(array_flip($words)); // remove duplicates
 		$pattern=array();
 		foreach ($replace as $k=>$fword) {
@@ -97,6 +97,11 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 	public function renderTitle($job){
 		$title = $this->__('No. %s <span>|</span> %s', $job->getId(), $job->getTitle());
 		return $title;
+	}
+	
+	public function redirectToSearchPage(){		
+		Mage::app()->getResponse()->setRedirect('/job/search');
+		return;
 	}
 }
 	

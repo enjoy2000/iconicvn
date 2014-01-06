@@ -24,6 +24,14 @@
              <block type="core/template" name="job_apply" template="job/apply.phtml"></block>
         </reference>    
     </job_apply_index>
+    <job_apply_send>
+    	<reference name="content">
+		<reference name="head">          	
+             <action method="addCss"><stylesheet>css/job-apply.css</stylesheet></action>
+		</reference>
+             <block type="core/template" name="job_apply_success" template="job/apply-success.phtml"></block>
+        </reference>    
+    </job_apply_send>
     
     <job_search_index>
 		<reference name="head">          	

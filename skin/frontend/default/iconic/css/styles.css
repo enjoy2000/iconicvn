@@ -285,6 +285,8 @@ body.cms-home #search_results{
 	width: 75%;
 }
 #search-block select{
+	text-indent: 0.01px;
+	text-overflow: ' ';
 	-webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -438,7 +440,7 @@ div#home-main-content{
 	padding: 20px;
 }
 .block.news-categories ul > li .item-content{
-	width: 185px;
+	width: 180px;
 }
 .block.news-categories ul > li .item-content a{
 	font-weight: bold;

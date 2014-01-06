@@ -14,33 +14,36 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
             return $this;
         }
 		
-		if($id = $this->getRequest()->getParam('id')){
-			$item = Mage::getModel('job/job')->load($id);
-			if(!$item->getId()){
-				$this->_redirect('/');
-			}
-			$block = $this->getLayout()->getBlock('job_apply');
-			//set user
-			$user = Mage::getSingleton('customer/session')->getCustomer();
-			$block->setUser($user);
-			//set title by job title
-			$this->getLayout()->getBlock('head')->setTitle(Mage::helper('job')->__('Ứng tuyển').' '.$item->getTitle()); 
-			//set item to block
-			$block->setItem($item);
-			//set other varibles from other models			
-			$block->setCategory(Mage::getModel('job/category')->load($item->getCategoryId()));
-			$block->setFunctionCategory(Mage::getModel('job/category')->load($item->getFunctionCategoryId()));
-			$block->setLocation(Mage::getModel('job/location')->load($item->getLocationId()));
-			$block->setLevel(Mage::getModel('job/level')->load($item->getJobLevel()));
-			$block->setType(Mage::getModel('job/type')->load($item->getJobType()));
-			
-			//get jobs form same category
-			$jobsInCategory = Mage::getModel('job/job')->getCollection()->addFieldToFilter('category_id',array('eq'=>$item->getCategoryId()))
-					->setPageSize(20)
-					->setCurPage(1)
-					->load();
-			$block->setJobsInCategory($jobsInCategory);
+		$id = (int) $this->getRequest()->get('id');
+		if($id <=0){
+			Mage::helper('job')->redirectToSearchPage();
 		}
+		
+		$item = Mage::getModel('job/job')->load($id);
+		if(!$item->getId()){
+			Mage::helper('job')->redirectToSearchPage();
+		}
+		$block = $this->getLayout()->getBlock('job_apply');
+		//set user
+		$user = Mage::getSingleton('customer/session')->getCustomer();
+		$block->setUser($user);
+		//set title by job title
+		$this->getLayout()->getBlock('head')->setTitle(Mage::helper('job')->__('Ứng tuyển').' '.$item->getTitle()); 
+		//set item to block
+		$block->setItem($item);
+		//set other varibles from other models			
+		$block->setCategory(Mage::getModel('job/category')->load($item->getCategoryId()));
+		$block->setFunctionCategory(Mage::getModel('job/category')->load($item->getFunctionCategoryId()));
+		$block->setLocation(Mage::getModel('job/location')->load($item->getLocationId()));
+		$block->setLevel(Mage::getModel('job/level')->load($item->getJobLevel()));
+		$block->setType(Mage::getModel('job/type')->load($item->getJobType()));
+		
+		//get jobs form same category
+		$jobsInCategory = Mage::getModel('job/job')->getCollection()->addFieldToFilter('category_id',array('eq'=>$item->getCategoryId()))
+				->setPageSize(20)
+				->setCurPage(1)
+				->load();
+		$block->setJobsInCategory($jobsInCategory);
 		       
 		$this->renderLayout();
 		   
@@ -68,11 +71,27 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
             $this->_redirect('customer/account/login/');
             return $this;
         }
+		$id = (int) $this->getRequest()->get('id');
+		if($id <=0){
+			Mage::helper('job')->redirectToSearchPage();
+		}
+		
 		try{
 			$user = Mage::getSingleton('customer/session')->getCustomer();
 			
-			$mail = new Zend_Mail('UTF-8');
 			$data = $this->getRequest()->getPost();
+			$job = Mage::getModel('job/job')->load($id);
+			$block = $this->getLayout()->getBlock('job_apply_success');
+			$block->setItem($job);
+			//get jobs form same category
+			$jobsInCategory = Mage::getModel('job/job')->getCollection()->addFieldToFilter('category_id',array('eq'=>$job->getCategoryId()))
+					->setPageSize(20)
+					->setCurPage(1)
+					->load();
+			$block->setJobsInCategory($jobsInCategory);
+			
+			//create email content
+			$mail = new Zend_Mail('UTF-8');
 			foreach($data['filenames'] as $filename){
 				$file = Mage::getBaseDir().'/files/'.$user->getId().'/'.$filename;
 				$at = new Zend_Mime_Part(file_get_contents($file));
@@ -81,6 +100,11 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 				$at->encoding = Zend_Mime::ENCODING_8BIT;
 				        
 				$mail->addAttachment($at);
+			}
+			var_dump($data);
+			if(!$data['name'] || !$data['email'] || !$data['message']){
+				Mage::getSingleton('core/session')->addError(Mage::helper('job')->__('Not enough information.'));
+				$this->_redirect('job/apply', array('id'=>$data['id']));
 			}
 			/*
 			$config = array(
@@ -92,15 +116,31 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 	 
 			$transport = new Zend_Mail_Transport_Smtp('smtp.gmail.com', $config);
 			*/
-			$mail->setBodyText('This is the text of the mail.');
-			$mail->addTo('enjoy3013@gmail.com', 'Some Recipient');
-			$mail->setSubject('TestSubject');
+			//get general contact from config admin
+			/* Sender Name */
+			$nameAdmin = Mage::getStoreConfig('trans_email/ident_general/name'); 
+			/* Sender Email */
+			$emailAdmin = Mage::getStoreConfig('trans_email/ident_general/email');
+			
+			$bodyHtml = '<table><tbody>';			
+			$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Tên ứng viên').':</td><td> '.$data['name'].'</td></tr>';
+			$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Email').':</td><td> '.$data['email'].'</td></tr>';			
+			$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Nội dung').':</td><td> '.$data['message'].'</td></tr>';
+			$bodyHtml .= '</tbody></table>';
+			
+			$mail->setBodyHtml($bodyHtml);
+			$mail->addTo($emailAdmin, $nameAdmin);
+			$mail->setSubject(Mage::helper('job')->__('Ứng tuyển').' '. $job->getTitle());
 			$checkSend = $mail->send($transport);
+			if($checkSend){
+				$this->getLayout()->getBlock('head')->setTitle(Mage::helper('job')->__('Bạn đã ứng tuyển thành công!'));
+			}
 			
+			//set upload link to database
+			
+			$this->renderLayout();
 		}catch(Exception $e){
-			
+			//Mage::getSingleton('core/session')->addError($e);
 		}
-		
-		$this->renderLayout();
 	}
 }
