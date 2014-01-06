@@ -1,6 +1,6 @@
 <?php
  
-class Iconic_Job_Adminhtml_JobController extends Mage_Adminhtml_Controller_Action
+class Iconic_Job_Adminhtml_Job_JobController extends Mage_Adminhtml_Controller_Action
 {
  
     protected function _initAction()
@@ -12,10 +12,10 @@ class Iconic_Job_Adminhtml_JobController extends Mage_Adminhtml_Controller_Actio
     }   
    
     public function indexAction() {
-        $this->_initAction();       
+        $this->_initAction();    
+        $this->_addContent($this->getLayout()->createBlock('job/adminhtml_job'));
         $this->renderLayout();
     }
- 
     public function editAction()
     {
         $jobId     = $this->getRequest()->getParam('id');

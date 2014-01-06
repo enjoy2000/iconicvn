@@ -1,31 +1,62 @@
 <?xml version="1.0"?>
 <config>
+    <layout>
+        <updates>
+            <job>
+                <file>job.xml</file>
+            </job>
+        </updates>
+    </layout>
+    <translate>
+        <modules>
+            <translations>
+                <files>
+                    <default>Iconic_Job.csv</default>
+                </files>
+            </translations>
+        </modules>
+    </translate>
     <menu>
         <job module="job">
-            <title>Job</title>
+            <title>Iconic</title>
             <sort_order>71</sort_order>               
             <children>
                 <jobs module="job">
                     <title>Manage Jobs</title>
                     <sort_order>0</sort_order>
-                    <action>job/adminhtml_job</action>
+                    <action>*/job_job</action>
                 </jobs>
                 <categories module="job">
                     <title>Manage Categories</title>
                     <sort_order>1</sort_order>
-                    	<children>
-                    		<parent module="job">
-			                    <title>Parent Categories</title>
-			                    <sort_order>0</sort_order>
-			                    <action>job/adminhtml_category</action>
-			                </parent>
-			                <sub module="job">
-			                    <title>Sub Categories</title>
-			                    <sort_order>0</sort_order>
-			                    <action>job/adminhtml_job</action>
-			                </sub>
-                    	</children>
+                        <children>
+                            <parent module="job">
+                                <title>Parent Categories</title>
+                                <sort_order>0</sort_order>
+                                <action>*/job_parentcategory</action>
+                            </parent>
+                            <sub module="job">
+                                <title>Sub Categories</title>
+                                <sort_order>0</sort_order>
+                                <action>*/job_category</action>
+                            </sub>
+                        </children>
                 </categories>
+                <location module="job">
+                    <title>Manage Location</title>
+                    <sort_order>0</sort_order>
+                    <action>*/job_location</action>
+                </location>
+                <level module="job">
+                    <title>Manage Job Level</title>
+                    <sort_order>0</sort_order>
+                    <action>*/job_level</action>
+                </level>
+                <type module="job">
+                    <title>Manage Job Type</title>
+                    <sort_order>0</sort_order>
+                    <action>*/job_type</action>
+                </type>
             </children>
         </job>
     </menu>

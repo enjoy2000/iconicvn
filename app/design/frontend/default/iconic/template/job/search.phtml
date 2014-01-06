@@ -81,13 +81,13 @@
 			<?php foreach($this->getResults() as $job): ?>
 				<div class="job clearfix">
 					<div class="fll width-60">
-						<a class="title" href="<?php echo Mage::helper('job')->getJobLink($job->getJobId()) ?>" title="<?php echo $job->getTitle() ?>">
+						<a class="title" href="<?php echo Mage::helper('job')->getJobLink($job) ?>" title="<?php echo $job->getTitle() ?>">
 							<?php echo Mage::helper('job')->highlight(Mage::helper('job')->string_limit_words($job->getTitle()), explode(' ',$this->getKeyword())) ?>
 						</a>
 						<span>
 							<?php echo $this->__('Ngành nghề') ?>:
 							<u class="text-blue underline">
-							<?php echo Mage::getModel('job/category')->load($job->getCategoryId())->getName() ?>
+							<?php echo $job->getCategory()->getName() ?>
 							</u>
 						</span>
 					</div>

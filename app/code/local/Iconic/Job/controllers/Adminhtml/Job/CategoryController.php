@@ -1,6 +1,6 @@
 <?php
  
-class Iconic_Job_Adminhtml_TypeController extends Mage_Adminhtml_Controller_Action
+class Iconic_Job_Adminhtml_Job_CategoryController extends Mage_Adminhtml_Controller_Action
 {
  
     protected function _initAction()
@@ -13,18 +13,18 @@ class Iconic_Job_Adminhtml_TypeController extends Mage_Adminhtml_Controller_Acti
    
     public function indexAction() {
         $this->_initAction(); 
-        $this->_addContent($this->getLayout()->createBlock('job/adminhtml_type'));
+        $this->_addContent($this->getLayout()->createBlock('job/adminhtml_category'));
         $this->renderLayout();
     }
  
     public function editAction()
     {
         $jobId     = $this->getRequest()->getParam('id');
-        $jobModel  = Mage::getModel('job/type')->load($jobId);
+        $jobModel  = Mage::getModel('job/category')->load($jobId);
  
         if ($jobModel->getId() || $jobId == 0) {
  
-            Mage::register('type_data', $jobModel);
+            Mage::register('category_data', $jobModel);
  
             $this->loadLayout();
             $this->_setActiveMenu('job/items');
@@ -34,8 +34,8 @@ class Iconic_Job_Adminhtml_TypeController extends Mage_Adminhtml_Controller_Acti
            
             $this->getLayout()->getBlock('head')->setCanLoadExtJs(true);
            
-            $this->_addContent($this->getLayout()->createBlock('job/adminhtml_type_edit'))
-                 ->_addLeft($this->getLayout()->createBlock('job/adminhtml_type_edit_tabs'));
+            $this->_addContent($this->getLayout()->createBlock('job/adminhtml_category_edit'))
+                 ->_addLeft($this->getLayout()->createBlock('job/adminhtml_category_edit_tabs'));
                
             $this->renderLayout();
         } else {
@@ -54,7 +54,7 @@ class Iconic_Job_Adminhtml_TypeController extends Mage_Adminhtml_Controller_Acti
         if ( $this->getRequest()->getPost() ) {
             try {
                 $postData = $this->getRequest()->getPost();
-                $jobModel = Mage::getModel('job/type');
+                $jobModel = Mage::getModel('job/category');
                
                 $jobModel->setData($postData)
                 	->setId($this->getRequest()->getParam('id'))
@@ -79,7 +79,7 @@ class Iconic_Job_Adminhtml_TypeController extends Mage_Adminhtml_Controller_Acti
     {
         if( $this->getRequest()->getParam('id') > 0 ) {
             try {
-                $jobModel = Mage::getModel('job/type');
+                $jobModel = Mage::getModel('job/category');
                
                 $jobModel->setId($this->getRequest()->getParam('id'))
                     ->delete();
@@ -101,7 +101,7 @@ class Iconic_Job_Adminhtml_TypeController extends Mage_Adminhtml_Controller_Acti
     {
         $this->loadLayout();
         $this->getResponse()->setBody(
-               $this->getLayout()->createBlock('job/adminhtml_type_grid')->toHtml()
+               $this->getLayout()->createBlock('job/adminhtml_category_grid')->toHtml()
         );
     }
 }

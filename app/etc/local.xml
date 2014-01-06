@@ -28,15 +28,15 @@
 <config>
     <global>
         <install>
-            <date><![CDATA[Tue, 17 Dec 2013 18:23:35 +0000]]></date>
+            <date><![CDATA[Mon, 06 Jan 2014 17:26:39 +0000]]></date>
         </install>
         <crypt>
-            <key><![CDATA[233cef2dd912ded8113c3c37db1648d1]]></key>
+            <key><![CDATA[52a7585754ca23936a6f4778f0dea465]]></key>
         </crypt>
         <disable_local_modules>false</disable_local_modules>
         <resources>
             <db>
-                <table_prefix><![CDATA[iconic]]></table_prefix>
+                <table_prefix><![CDATA[]]></table_prefix>
             </db>
             <default_setup>
                 <connection>

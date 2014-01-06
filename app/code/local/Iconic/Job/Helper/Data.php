@@ -65,8 +65,16 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 		}		
 	}
 	
-	public function getJobLink($jobId){
-		$link = Mage::getBaseUrl().'job/details?id='.$jobId;
+	public function getJobLink($job){
+		$link = Mage::getBaseUrl()
+					. $this->getRoute()
+					. '/'
+					. $job->getCategory()->getParentCategory()->getUrlKey()
+					. '/'
+					. $job->getCategory()->getUrlKey()
+					. '/'
+					. $job->getUrlKey()
+					. '.html';
 		return $link;
 	}
 	
@@ -77,7 +85,7 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 	public function renderJob($job){
 		$location = Mage::getModel('job/location')->load($job->getLocationId())->getName();
 		
-		$render = '<a href="'.$this->getJobLink($job->getJobId()).'" title="' . $job->getTitle().'">' . $this->string_limit_words($job->getTitle()).'</a>';
+		$render = '<a href="'.$this->getJobLink($job).'" title="' . $job->getTitle().'">' . $this->string_limit_words($job->getTitle()).'</a>';
 		$render .= '<span class="inline created-time">'.$this->formatDate($job->getCreatedTime()).'</span>';
 		$render .= '<span class="inline location">'.$location.'</span>';
 		
@@ -102,6 +110,10 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 	public function redirectToSearchPage(){		
 		Mage::app()->getResponse()->setRedirect('/job/search');
 		return;
+	}
+
+	public function getRoute(){
+		return 'job';
 	}
 }
 	
