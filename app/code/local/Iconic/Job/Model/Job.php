@@ -9,7 +9,10 @@ class Iconic_Job_Model_Job extends Mage_Core_Model_Abstract
     }
     
     protected function _beforeSave()
-    {        
+    {
+        if(!$this->getUrlKey()){
+            $this->setUrlKey(Mage::helper('job')->formatUrlKey($this->getTitle()));
+        }
         parent::_beforeSave();
     }
     
@@ -18,4 +21,8 @@ class Iconic_Job_Model_Job extends Mage_Core_Model_Abstract
         
         parent::_afterSave();
     } 
+
+    public function getCategory(){
+        return Mage::getModel('job/category')->load($this->getCategoryId());
+    }
 }

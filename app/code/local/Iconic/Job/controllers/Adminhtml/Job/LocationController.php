@@ -1,27 +1,27 @@
 <?php
  
-class Iconic_Job_Adminhtml_ParentcategoryController extends Mage_Adminhtml_Controller_Action
+class Iconic_Job_Adminhtml_Job_LocationController extends Mage_Adminhtml_Controller_Action
 {
  
     protected function _initAction()
     {
         $this->loadLayout()
             ->_setActiveMenu('job/items')
-            ->_addBreadcrumb(Mage::helper('adminhtml')->__('Categories Manager'), Mage::helper('adminhtml')->__('Item Manager'));
+            ->_addBreadcrumb(Mage::helper('adminhtml')->__('Location Manager'), Mage::helper('adminhtml')->__('Location Manager'));
         return $this;
     }   
    
     public function indexAction() {
         $this->_initAction(); 
-        $this->_addContent($this->getLayout()->createBlock('job/adminhtml_parentcategory'));
+        $this->_addContent($this->getLayout()->createBlock('job/adminhtml_location'));
         $this->renderLayout();
     }
  
     public function editAction()
     {
-    	
         $jobId     = $this->getRequest()->getParam('id');
-        $jobModel  = Mage::getModel('job/parentcategory')->load($jobId);
+        $jobModel  = Mage::getModel('job/location')->load($jobId);
+ 
         if ($jobModel->getId() || $jobId == 0) {
  
             Mage::register('category_data', $jobModel);
@@ -29,13 +29,13 @@ class Iconic_Job_Adminhtml_ParentcategoryController extends Mage_Adminhtml_Contr
             $this->loadLayout();
             $this->_setActiveMenu('job/items');
            
-            $this->_addBreadcrumb(Mage::helper('adminhtml')->__('Item Manager'), Mage::helper('adminhtml')->__('Parent Category'));
-            $this->_addBreadcrumb(Mage::helper('adminhtml')->__('Item News'), Mage::helper('adminhtml')->__('Edit Category'));
+            $this->_addBreadcrumb(Mage::helper('adminhtml')->__('Item Manager'), Mage::helper('adminhtml')->__('Location'));
+            $this->_addBreadcrumb(Mage::helper('adminhtml')->__('Item News'), Mage::helper('adminhtml')->__('Location Details'));
            
             $this->getLayout()->getBlock('head')->setCanLoadExtJs(true);
            
-            $this->_addContent($this->getLayout()->createBlock('job/adminhtml_parentcategory_edit'))
-                 ->_addLeft($this->getLayout()->createBlock('job/adminhtml_parentcategory_edit_tabs'));
+            $this->_addContent($this->getLayout()->createBlock('job/adminhtml_location_edit'))
+                 ->_addLeft($this->getLayout()->createBlock('job/adminhtml_location_edit_tabs'));
                
             $this->renderLayout();
         } else {
@@ -54,7 +54,7 @@ class Iconic_Job_Adminhtml_ParentcategoryController extends Mage_Adminhtml_Contr
         if ( $this->getRequest()->getPost() ) {
             try {
                 $postData = $this->getRequest()->getPost();
-                $jobModel = Mage::getModel('job/parentcategory');
+                $jobModel = Mage::getModel('job/location');
                
                 $jobModel->setData($postData)
                 	->setId($this->getRequest()->getParam('id'))
@@ -79,7 +79,7 @@ class Iconic_Job_Adminhtml_ParentcategoryController extends Mage_Adminhtml_Contr
     {
         if( $this->getRequest()->getParam('id') > 0 ) {
             try {
-                $jobModel = Mage::getModel('job/parentcategory');
+                $jobModel = Mage::getModel('job/location');
                
                 $jobModel->setId($this->getRequest()->getParam('id'))
                     ->delete();
@@ -101,7 +101,7 @@ class Iconic_Job_Adminhtml_ParentcategoryController extends Mage_Adminhtml_Contr
     {
         $this->loadLayout();
         $this->getResponse()->setBody(
-               $this->getLayout()->createBlock('job/adminhtml_parentcategory_grid')->toHtml()
+               $this->getLayout()->createBlock('job/adminhtml_location_grid')->toHtml()
         );
     }
 }
