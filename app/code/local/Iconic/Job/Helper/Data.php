@@ -55,9 +55,9 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 		return $catUrl;
 	}
 
-	public function string_limit_words($string){
-		$words = explode(' ', $string, (7 + 1));
-		if(count($words) > 7){
+	public function string_limit_words($string,$number=7){
+		$words = explode(' ', $string, ($number + 1));
+		if(count($words) > $number){
 			array_pop($words);
 			return implode(' ', $words).'...';		
 		}else{

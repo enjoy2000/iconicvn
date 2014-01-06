@@ -26,8 +26,8 @@
             <action method="addItem"><type>skin_css</type><name>css/clnews/style.css</name></action> 
             
             <action method="addJs"><script>jquery/jquery-1.4.4.js</script></action>
-            <action method="addJs"><script>commercelab/noconflict.js</script></action>
            -->
+            <action method="addJs"><script>commercelab/noconflict.js</script></action>
             <action method="addJs"><script>commercelab/treeview/jquery.treeview.pack.js</script></action>
             <action method="addJs"><script>commercelab/category_tree.js</script></action>
 			
@@ -66,6 +66,7 @@
             <action method="setTemplate"><template>page/1column.phtml</template></action>
         </reference>
         <reference name="head">
+        	<action method="addCss"><stylesheet>css/blog.css</stylesheet></action>
             <action method="addJs"><script>commercelab/clnews/news.js</script></action>
         </reference>
         <reference name="content">
@@ -78,11 +79,14 @@
             <action method="setTemplate"><template>page/1column.phtml</template></action>
         </reference>
         <reference name="head">
+        	<action method="addCss"><stylesheet>css/blog.css</stylesheet></action>
             <action method="addJs"><script>commercelab/clnews/news.js</script></action>
         </reference>
         <reference name="content">
             <!-- <block type="core/template" name="contactForm" template="contacts/form.phtml"/> -->
             <block type="clnews/newsitem" name="newsitem" template="clnews/newsitem.phtml"/>
+        	<block type="clnews/news" name="right.clnews.latest" template="clnews/latest.phtml">
+            </block>
         </reference>
     </clnews_newsitem_view>
 

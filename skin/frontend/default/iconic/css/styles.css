@@ -485,6 +485,7 @@ div#home-main-content{
 }
 #page-title h2{
 	font-weight: bold;
+	text-transform: uppercase;
 }
 /*
 	MAGENTO MESSAGE
@@ -502,4 +503,8 @@ ul.messages .error-msg{
 }
 ul.messages .success-msg{
 	border: solid 1px #1197EC;
+}
+
+.breadcrumbs{
+	display: none;
 }
