@@ -11,18 +11,23 @@
 		<?php echo Mage::helper('job')->renderTitle($job); ?>
 	</div>
 	<div class="apply-success-message">
-		<?php $this->__('Xin chúc mừng!') ?>
-		<?php $this->__('Bạn đã ứng tuyển thành công.') ?>
+		<div class="message">
+			<p><?php echo $this->__('Xin chúc mừng!') ?></p>
+			<p><?php echo $this->__('Bạn đã ứng tuyển thành công.') ?></p>
+		</div>
 	</div>
 </div>
-<div class="flr width-35">
+<!-- Jobs Same Category -->
+<div class="flr width-35" id="job-same-category">
 	<div class="heading">
-		<h4 class="blue-tit text-blue"><?php echo $this->__('Các công việc cùng ngành nghề') ?></h4>
+		<h5 class="blue-tit text-blue"><?php echo $this->__('Các công việc cùng ngành nghề') ?></h5>
 	</div>
-	<ul>
-		<?php foreach($jobs as $jb): ?>
-			<li></li>
-		<?php endforeach; ?>
+	<ul class="jobs-list">
+	<?php foreach($jobs as $job): ?>
+		<li>
+			<?php echo Mage::helper('job')->renderJob($job) ?>
+		</li>
+	<?php endforeach; ?>
 	</ul>
 	<a class="text-blue view-more-category" href="<?php echo Mage::helper('job')->getCategoryUrl($job->getCategoryId()); ?>"><?php echo $this->__('Xem thêm') ?></a>
 </div>

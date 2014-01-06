@@ -486,3 +486,20 @@ div#home-main-content{
 #page-title h2{
 	font-weight: bold;
 }
+/*
+	MAGENTO MESSAGE
+*/
+ul.messages{
+	list-style: none;
+	margin-bottom: 10px;
+}
+ul.messages > li{
+	padding: 5px 20px;
+	margin: 5px 0;
+}
+ul.messages .error-msg{
+	border: solid 1px red;
+}
+ul.messages .success-msg{
+	border: solid 1px #1197EC;
+}

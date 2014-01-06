@@ -56,7 +56,7 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 		$user = Mage::getSingleton('customer/session')->getCustomer();
 		$upload_handler->options['upload_dir'] = Mage::getBaseDir().'/files/'.$user->getId().'/';
 		$upload_handler->options['upload_url'] = Mage::getBaseUrl().'files/'.$user->getId().'/';
-		$upload_handler->options['accept_file_types'] = '/\.(gif|jpe?g|png|doc?x|xls?x|ppt?x|pdf)$/i';
+		$upload_handler->options['accept_file_types'] = '/\.(gif|jpe?g|png|docx?|xlsx?|pptx?|pdf)$/i';
 		$upload_handler->initialize();
 	}
 	
@@ -101,7 +101,8 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 				        
 				$mail->addAttachment($at);
 			}
-			var_dump($data);
+			
+			//check input data
 			if(!$data['name'] || !$data['email'] || !$data['message']){
 				Mage::getSingleton('core/session')->addError(Mage::helper('job')->__('Not enough information.'));
 				$this->_redirect('job/apply', array('id'=>$data['id']));
@@ -123,6 +124,7 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 			$emailAdmin = Mage::getStoreConfig('trans_email/ident_general/email');
 			
 			$bodyHtml = '<table><tbody>';			
+			$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Link').':</td><td> '.Mage::helper('job')->getJobLink($data['id']).'</td></tr>';
 			$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Tên ứng viên').':</td><td> '.$data['name'].'</td></tr>';
 			$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Email').':</td><td> '.$data['email'].'</td></tr>';			
 			$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Nội dung').':</td><td> '.$data['message'].'</td></tr>';
@@ -130,17 +132,20 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 			
 			$mail->setBodyHtml($bodyHtml);
 			$mail->addTo($emailAdmin, $nameAdmin);
-			$mail->setSubject(Mage::helper('job')->__('Ứng tuyển').' '. $job->getTitle());
+			$mail->setFrom('info@iconic-vn.com', 'IconicVN');
+			$mail->setSubject(Mage::helper('job')->__('Ứng tuyển').' "'. $job->getTitle()).'"';
 			$checkSend = $mail->send($transport);
 			if($checkSend){
 				$this->getLayout()->getBlock('head')->setTitle(Mage::helper('job')->__('Bạn đã ứng tuyển thành công!'));
 			}
 			
-			//set upload link to database
+			//set upload link to database -- NEED WORK MORE
 			
 			$this->renderLayout();
 		}catch(Exception $e){
 			//Mage::getSingleton('core/session')->addError($e);
+			Mage::getSingleton('core/session')->addError(Mage::helper('job')->__('Không thể gửi mail.'));
+			$this->_redirect('*/apply', array('id'=> $data['id']));
 		}
 	}
 }
