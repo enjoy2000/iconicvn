@@ -17,7 +17,7 @@ class Iconic_Job_Block_Adminhtml_Level_Edit extends Mage_Adminhtml_Block_Widget_
     public function getHeaderText()
     {
         if( Mage::registry('level_data') && Mage::registry('level_data')->getId() ) {
-            return Mage::helper('job')->__("Edit Item '%s'", $this->htmlEscape(Mage::registry('level_data')->getTitle()));
+            return Mage::helper('job')->__("Edit Item '%s'", $this->htmlEscape(Mage::registry('level_data')->getName()));
         } else {
             return Mage::helper('job')->__('Add Item');
         }

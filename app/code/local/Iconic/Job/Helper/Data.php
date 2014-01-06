@@ -33,7 +33,7 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 		);
 		$str = strtr($str, $trans);
 		
-		$urlKey = preg_replace('#[^0-9a-z]+#i', '-', $str);
+		$urlKey = preg_replace('#[^0-9a-z]+#i', '-', Mage::helper('catalog/product_url')->format($str));
 		$urlKey = strtolower($urlKey);
 		$urlKey = trim($urlKey, '-');
     
@@ -48,11 +48,6 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 	
 	public function getCurrency(){
 		return Mage::helper('job')->__('VND');
-	}
-	
-	public function getCategoryUrl($catId){
-		$catUrl =  Mage::getBaseUrl().'job/'.Mage::getModel('job/category' )->load($catId)->getUrlKey();
-		return $catUrl;
 	}
 
 	public function string_limit_words($string,$number=7){
@@ -114,6 +109,14 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 
 	public function getRoute(){
 		return 'job';
+	}
+	
+	public function getCategoryUrl($catId){
+		$cat = Mage::getModel('job/category')->load($catId);
+		$parent = Mage::getModel('job/parentcategory')->load($cat->getParentcategoryId());
+		$url = Mage::getBaseUrl().'/'.$this->getRoute().'/'.$parent->getUrlKey().'/'.$cat->getUrlKey();
+		
+		return $url;
 	}
 }
 	

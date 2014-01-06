@@ -17,7 +17,7 @@ class Iconic_Job_Block_Adminhtml_Category_Edit extends Mage_Adminhtml_Block_Widg
     public function getHeaderText()
     {
         if( Mage::registry('category_data') && Mage::registry('category_data')->getId() ) {
-            return Mage::helper('job')->__("Edit Item '%s'", $this->htmlEscape(Mage::registry('category_data')->getTitle()));
+            return Mage::helper('job')->__("Edit Item '%s'", $this->htmlEscape(Mage::registry('category_data')->getName()));
         } else {
             return Mage::helper('job')->__('Add Item');
         }
