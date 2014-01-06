@@ -74,7 +74,7 @@
 		<?php if($this->getResults()->count() > 0): ?>
 			<script>
 				jQuery(document).ready(function(){
-					jQuery('.info-search > p').html($('.pager .amount'));
+					jQuery('.info-search > p').html(jQuery('.pager .amount'));
 				});
 			</script>
 			<div class="content">
@@ -120,7 +120,7 @@
 				$industryCategory->addFieldToFilter('group_category', array('eq'=>'industry'));
 				foreach($industryCategory as $cat):
 			?>
-				<a href="?industry=<?php echo $cat->getParentcategoryId() ?>" class="filter-item" title="<?php echo $cat->getName() ?>">
+				<a href="<?php echo Mage::helper('job')->getCategoryUrl($cat->getId()) ?>" class="filter-item" title="<?php echo $cat->getName() ?>">
 					<?php echo $cat->getName() ?>
 				</a>
 			<?php endforeach; ?>
@@ -133,7 +133,7 @@
 				$functionCategory->addFieldToFilter('group_category', array('eq'=>'function'));
 				foreach($functionCategory as $cat):
 			?>
-				<a href="?function=<?php echo $cat->getParentcategoryId() ?>" class="filter-item" title="<?php echo $cat->getName() ?>">
+				<a href="<?php echo Mage::getBaseUrl() ?>job/search?function=<?php echo $cat->getParentcategoryId() ?>" class="filter-item" title="<?php echo $cat->getName() ?>">
 					<?php echo $cat->getName() ?>
 				</a>
 			<?php endforeach; ?>
@@ -143,7 +143,7 @@
 			<h4><?php echo $this->__('Tìm việc theo đối tượng') ?></h4>
 			<?php $levels = Mage::getModel('job/level')->getCollection(); ?>
 			<?php foreach($levels as $lv): ?>
-				<a class="filter-item" href="?level=<?php echo $lv->getLevelId() ?>" title="<?php echo $lv->getName() ?>">
+				<a class="filter-item" href="<?php echo Mage::getBaseUrl() ?>job/search?level=<?php echo $lv->getLevelId() ?>" title="<?php echo $lv->getName() ?>">
 					<?php echo $lv->getName() ?>
 				</a>
 			<?php endforeach; ?>
