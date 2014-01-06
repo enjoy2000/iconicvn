@@ -8,7 +8,8 @@
 	<?php $item = $this->getNewsitem(); ?>
 	<h2 class="text-blue"><?php echo $item->getTitle() ?></h2>
 	<?php if (Mage::helper('clnews')->showDate()): ?>
-	    <span class="date"><?php echo Mage::helper('clnews')->formatDate($item->getNewsTime()) ?></span>
+	    <span class="date"><?php echo Mage::helper('job')->formatDate($item->getNewsTime()) ?></span>
+	    <span class="author"><span class="line">|</span>Post by <strong><?php echo $item->getAuthor() ?></strong></span>
 	<?php endif; ?>
 	<?php if (Mage::helper('clnews')->showCategory()): ?>
 	    <?php if ($this->getCategoryByNews($item->getID())->getData('title') != ''): ?>
@@ -49,7 +50,9 @@
 	        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 	        <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
 	    <?php endif; ?>
+	    <!--
 	    <a href="<?php echo $item->getUrl() ?>?mode=print" class="print-btn"><?php echo $this->__('Print Version'); ?></a>
+	    -->
 	</div>
 	
 	<?php if ($item->getImageFullContentShow() && $item->getImageFullContent()): ?>
