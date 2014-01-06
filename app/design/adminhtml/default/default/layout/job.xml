@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <layout version="0.1.1">
-    <job_adminhtml_job_index>
+    <adminhtml_job_job_index>
     	<!--
     	<reference name="head">
             <action method="setCanLoadExtJs"><flag>1</flag></action>
@@ -18,5 +18,5 @@
         <reference name="content">
             <block type="job/adminhtml_job" name="job"/>
         </reference>
-    </job_adminhtml_job_index>
+    </adminhtml_job_job_index>
 </layout>

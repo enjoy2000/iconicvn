@@ -12,7 +12,8 @@ class Iconic_Job_Adminhtml_Job_JobController extends Mage_Adminhtml_Controller_A
     }   
    
     public function indexAction() {
-        $this->_initAction();       
+        $this->_initAction();    
+        $this->_addContent($this->getLayout()->createBlock('job/adminhtml_job'));
         $this->renderLayout();
     }
     public function editAction()

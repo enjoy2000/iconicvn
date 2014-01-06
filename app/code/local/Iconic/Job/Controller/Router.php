@@ -45,17 +45,45 @@ class Iconic_Job_Controller_Router extends Mage_Core_Controller_Varien_Router_Ab
 
         $identifier = substr_replace($request->getPathInfo(), '', 0, strlen("/" . $route. "/"));
         $identifier = str_replace(Mage::helper('clnews')->getNewsitemUrlSuffix(), '', $identifier);
-        list($parentCategoryKey, $categoryKey, $jobKey) = explode("/", $identifier);
+        $identifier = trim($identifier, " /");
 
-        $job = Mage::getModel('job/job')->load($jobKey, 'url_key');
+        $parts = explode("/", $identifier);
 
-        if($job->getId()){
-            $request
-                ->setModuleName('job')
-                ->setControllerName('details')
-                ->setActionName('index')
-                ->setParam('id', $job->getId());
-                return true;
+        switch(count($parts)){
+            case 2: //sub category
+                $category = Mage::getModel('job/category')->load($parts[1], 'url_key');
+                
+                if($category->getId()){
+                    $request
+                        ->setModuleName('job')
+                        ->setControllerName('search')
+                        ->setActionName('index')
+                        ->setParam('category', $category->getId());
+                        return true;
+                }
+            case 1: //parent category
+                $parentCategory = Mage::getModel('job/parentcategory')->load($parts[0], 'url_key');
+                
+                if($parentCategory->getId()){
+                    $request
+                        ->setModuleName('job')
+                        ->setControllerName('search')
+                        ->setActionName('index')
+                        ->setParam('industry', $parentCategory->getId());
+                        return true;
+                }
+                break;
+            case 3: //job detail
+                $job = Mage::getModel('job/job')->load($parts[2], 'url_key');
+                if($job->getId()){
+                    $request
+                        ->setModuleName('job')
+                        ->setControllerName('details')
+                        ->setActionName('index')
+                        ->setParam('id', $job->getId());
+                        return true;
+                }
+                break;
         }
 
         return false;
