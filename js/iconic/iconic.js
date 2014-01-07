@@ -23,6 +23,21 @@
 		if($('#menu ul li.current-menu-item').length < 1){
 			$('#menu ul li:first-child').addClass('current-menu-item');
 		}
+		
+		//contact form email footer
+		$('#contact-us').on('submit', function(e){
+			e.preventDefault();
+			$.ajax({
+				url: 'job/index/contact',
+				type: 'POST',
+				data: $(this).serialize(),
+				success: function(msg){
+					$('#response').show().text(msg);
+					$('#contact-us input').val('');
+					$('#contact-us textarea').val('');
+				}
+			});
+		});
 	});
 })(jQuery);
 

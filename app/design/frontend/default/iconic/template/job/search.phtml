@@ -120,7 +120,7 @@
 				$industryCategory->addFieldToFilter('group_category', array('eq'=>'industry'));
 				foreach($industryCategory as $cat):
 			?>
-				<a href="<?php echo Mage::helper('job')->getCategoryUrl($cat->getId()) ?>" class="filter-item" title="<?php echo $cat->getName() ?>">
+				<a href="<?php echo Mage::getBaseUrl().'job/'.$cat->getUrlKey() ?>" class="filter-item" title="<?php echo $cat->getName() ?>">
 					<?php echo $cat->getName() ?>
 				</a>
 			<?php endforeach; ?>

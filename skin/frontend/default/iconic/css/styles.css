@@ -264,6 +264,11 @@ body.cms-home #header #header-landing{
 	font-weight: bold;
 	font-size: 16px;
 }
+#footer #response{
+	border: solid 1px #1197ec;
+	padding: 5px;
+	display: none;
+}
 
 /*
 	SEARCH BOX

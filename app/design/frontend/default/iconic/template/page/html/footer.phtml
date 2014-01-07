@@ -97,9 +97,12 @@
     			
     			<!-- FORM -->
     			<form id="contact-us">
-    				<input id="email" name="email" type="email" placeholder="<?php echo $this->__('Email') ?>" />
-    				<input id="subject" name="subject" type="text" placeholder="<?php echo $this->__('Tiêu đề') ?>" />
-    				<textarea id="message" name="message" placeholder="<?php echo $this->__('Nhập nội dung') ?>"></textarea>
+    				<input required id="email" name="email" type="email" placeholder="<?php echo $this->__('Email') ?>" />
+    				<input required id="subject" name="subject" type="text" placeholder="<?php echo $this->__('Tiêu đề') ?>" />
+    				<textarea required id="message" name="message" placeholder="<?php echo $this->__('Nhập nội dung') ?>"></textarea>
+    				<div id="response" class="fll width-60">
+    					
+    				</div>
     				<button id="submit" class="btn flr btn-blue" name="submit" type="submit"><?php echo $this->__('Gửi') ?></button>
     			</form>
     		</div>
