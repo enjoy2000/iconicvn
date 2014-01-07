@@ -8,7 +8,15 @@ class Iconic_Job_Block_Adminhtml_Job_Edit_Tab_Form extends Mage_Adminhtml_Block_
         $form = new Varien_Data_Form();
         $this->setForm($form);
         $fieldset = $form->addFieldset('job_form', array('legend'=>Mage::helper('job')->__('Job Details')));
-       
+       	
+		$fieldset->addField('iconic_id', 'text', array(
+            'label'     => Mage::helper('job')->__('Iconic ID'),
+            'class'     => 'required-entry',
+            'required'  => true,
+            'name'      => 'iconic_id',
+        ));
+        
+		
         $fieldset->addField('title', 'text', array(
             'label'     => Mage::helper('job')->__('Title'),
             'class'     => 'required-entry',

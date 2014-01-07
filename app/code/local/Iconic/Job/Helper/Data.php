@@ -98,7 +98,7 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 	}
 	
 	public function renderTitle($job){
-		$title = $this->__('No. %s <span>|</span> %s', $job->getId(), $job->getTitle());
+		$title = $this->__('No. %s <span>|</span> %s', $job->getIconicId(), $job->getTitle());
 		return $title;
 	}
 	
