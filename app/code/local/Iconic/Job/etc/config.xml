@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Iconic_Job>
-            <version>0.1.8</version>
+            <version>0.1.9</version>
         </Iconic_Job>
     </modules>
     <frontend>
@@ -14,6 +14,13 @@
                     <frontName>job</frontName>
                 </args>
             </job>
+            <customer>
+                <args>
+                    <modules>
+                        <Iconic_Job before="Mage_Customer">Iconic_Job_Customer</Iconic_Job>
+                    </modules>
+                </args>
+            </customer>
         </routers>
         <layout>
             <updates>
@@ -137,5 +144,23 @@
                 </observers>
             </controller_front_init_routers>
         </events>
+        <fieldsets>
+            <customer_account>
+                 <sex><create>1</create><update>1</update><name>1</name></sex>
+            </customer_account>
+        </fieldsets>
+        <rewrite>
+            <iconic_job_checkout_cart>
+                <from><![CDATA[#^/customer/account/#]]></from>
+                <!--
+                    - mymodule matches the router frontname below
+                    - checkout_cart matches the path to your controller
+                   
+                    Considering the router below, "/mymodule/checkout_cart/" will be
+                    "translated" to "/MyNameSpace/MyModule/controllers/Checkout/CartController.php" (?)
+                -->
+                <to>/job/customer_account/</to>
+            </iconic_job_checkout_cart>
+        </rewrite>
     </global>
 </config>

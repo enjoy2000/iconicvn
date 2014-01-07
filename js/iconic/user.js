@@ -5,5 +5,9 @@
 		var height= $('#account-page').height() + 100 + 40;
 		$('#account-page').css('left',left);
 		$('#header-landing').css('height',height);
+		
+		$('select').click(function(){
+			$(this).css('color','#000');
+		});
 	});
 })(jQuery);
