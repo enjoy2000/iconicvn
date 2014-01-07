@@ -39,11 +39,7 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 		$block->setType(Mage::getModel('job/type')->load($item->getJobType()));
 		
 		//get jobs form same category
-		$jobsInCategory = Mage::getModel('job/job')->getCollection()->addFieldToFilter('category_id',array('eq'=>$item->getCategoryId()))
-				->setPageSize(20)
-				->setCurPage(1)
-				->load();
-		$block->setJobsInCategory($jobsInCategory);
+		$block->setJobsInCategory($job->getJobsInCategory());
 		       
 		$this->renderLayout();
 		   
@@ -84,13 +80,10 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 			$block = $this->getLayout()->getBlock('job_apply_success');
 			$block->setItem($job);
 			//get jobs form same category
-			$jobsInCategory = Mage::getModel('job/job')->getCollection()->addFieldToFilter('category_id',array('eq'=>$job->getCategoryId()))
-					->setPageSize(20)
-					->setCurPage(1)
-					->load();
-			$block->setJobsInCategory($jobsInCategory);
+			$block->setJobsInCategory($job->getJobsInCategory());
 			
 			//create email content
+			$cv = implode(';',$data['filenames']);
 			$mail = new Zend_Mail('UTF-8');
 			foreach($data['filenames'] as $filename){
 				$file = Mage::getBaseDir().'/files/'.$user->getId().'/'.$filename;
@@ -124,7 +117,7 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 			$emailAdmin = Mage::getStoreConfig('trans_email/ident_general/email');
 			
 			$bodyHtml = '<table><tbody>';			
-			$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Link').':</td><td> '.Mage::helper('job')->getJobLink($data['id']).'</td></tr>';
+			$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Link').':</td><td> '.Mage::helper('job')->getJobLink($job).'</td></tr>';
 			$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Tên ứng viên').':</td><td> '.$data['name'].'</td></tr>';
 			$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Email').':</td><td> '.$data['email'].'</td></tr>';			
 			$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Nội dung').':</td><td> '.$data['message'].'</td></tr>';
@@ -132,15 +125,18 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 			
 			$mail->setBodyHtml($bodyHtml);
 			$mail->addTo($emailAdmin, $nameAdmin);
-			$mail->setFrom('info@iconic-vn.com', 'IconicVN');
+			$mail->setFrom('info@iconic-vn.com', Mage::helper('job')->__('IconicVN'));
 			$mail->setSubject(Mage::helper('job')->__('Ứng tuyển').' "'. $job->getTitle()).'"';
 			$checkSend = $mail->send($transport);
 			if($checkSend){
 				$this->getLayout()->getBlock('head')->setTitle(Mage::helper('job')->__('Bạn đã ứng tuyển thành công!'));
 			}
 			
-			//set upload link to database -- NEED WORK MORE
-			
+			//set upload link to database
+			if(strlen($cv) > 3){
+				$user = Mage::getSingleton('customer/session')->getCustomer();
+				$user->setUploadCv($cv)->save();
+			}
 			$this->renderLayout();
 		}catch(Exception $e){
 			//Mage::getSingleton('core/session')->addError($e);

@@ -36,11 +36,7 @@ class Iconic_Job_DetailsController extends Mage_Core_Controller_Front_Action{
 		$this->getLayout()->getBlock('job_details')->setType(Mage::getModel('job/type')->load($item->getJobType()));
 		
 		//get jobs form same category
-		$jobsInCategory = Mage::getModel('job/job')->getCollection()->addFieldToFilter('category_id',array('eq'=>$item->getCategoryId()))
-				->setPageSize(20)
-				->setCurPage(1)
-				->load();
-		$this->getLayout()->getBlock('job_details')->setJobsInCategory($jobsInCategory);
+		$this->getLayout()->getBlock('job_details')->setJobsInCategory($item->getJobsInCategory());
 		       
 		$this->renderLayout();
 		   
