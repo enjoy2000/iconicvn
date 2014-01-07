@@ -18,13 +18,13 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 				
 				$bodyHtml = '<table><tbody>';
 				$bodyHtml .= '<tr><td align="center" colspan="2">' . Mage::helper('job')->__('Liên lạc từ IconicVN') . '</td></tr>';
-				$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Email').':</td><td> '.$data['email'].'</td></tr>';
-				$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Nội dung').':</td><td> '.$data['message'].'</td></tr>';
+				$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Email').':</td><td> '.$post['email'].'</td></tr>';
+				$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Nội dung').':</td><td> '.$post['message'].'</td></tr>';
 				$bodyHtml .= '</tbody></table>';
 				
 				$mail->setBodyHtml($bodyHtml);
 				$mail->addTo($emailAdmin, $nameAdmin);
-				$mail->setFrom($data['email'], $data['email']);
+				$mail->setFrom($post['email'], $post['email']);
 				$mail->setSubject($post['subject']);
 				$checkSend = $mail->send($transport);
 				if($checkSend){
