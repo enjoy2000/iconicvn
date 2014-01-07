@@ -19,7 +19,7 @@ div.job-content > div > p.tit{
 	margin-bottom: 8px;
 }
 div.job-content #job-info{
-	margin: 20px 0;
+	margin-bottom: 20px;
 }
 div#job-actions a{
 	margin-right: 15px;
@@ -28,6 +28,7 @@ div#job-actions a{
 	width: 100px;
 	text-align: center;
 	font-size: 17px;
+	margin-top: 30px;
 }
 div.job-details-right .job-details{
 	border: solid 4px #d1d3d4;

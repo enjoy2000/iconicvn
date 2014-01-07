@@ -10,6 +10,13 @@ $jobs = $this->getJobsInCategory();
 
 <div class="fll job-content width-60">
 	
+	<!-- Job Infomation -->
+	<div id="job-info">
+		<p class="text-blue tit">
+			<?php echo $this->__('Thông tin công việc:') ?>
+		<?php echo $item->getInfo() ?>
+		</p>
+	</div>
 	<!-- Job Requirement -->
 	<div id="job-requirement">
 		<p class="text-blue tit">
@@ -18,13 +25,6 @@ $jobs = $this->getJobsInCategory();
 		<?php echo $item->getRequirement() ?>
 	</div>
 	
-	<!-- Job Infomation -->
-	<div id="job-info">
-		<p class="text-blue tit">
-			<?php echo $this->__('Thông tin công việc:') ?>
-		<?php echo $item->getInfo() ?>
-		</p>
-	</div>
 	
 	<!-- Job Actions -->
 	<div id="job-actions">
