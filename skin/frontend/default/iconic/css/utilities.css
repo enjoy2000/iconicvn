@@ -164,3 +164,42 @@ input:focus,textarea:focus{
 *:focus{
 	outline: none;
 }
+h1,h2,h3,h4,h5,h6{
+	color: #1197EC;
+}
+ul.small-grey{
+	list-style: url('../images/small-grey-circle.jpg');
+	margin: 20px 0;
+}
+ul.small-grey li + li{
+	margin-top: 20px;
+}
+.blue-circle-tit{
+	color: #1197EC;
+	padding-left: 20px;
+	background: url('../images/small-blue-circle.jpg') left center no-repeat transparent;
+	margin: 20px 0;
+	font-size: 17px;
+}
+ol.grey{
+	counter-reset: my-counter;
+}
+ol.grey > li{
+	position: relative;
+	padding: 10px 0;
+}
+ol.grey > li:before{
+	position: absolute;
+	left: -60px;
+	top: 7px;
+	text-align: center;
+	width: 40px;
+	height: 40px;
+	padding-top: 2px;
+	color: #fff;
+	font-weight: bold;
+	font-size: 18px;
+	content: counter(my-counter);
+	counter-increment: my-counter;
+	background: url('../images/big-grey-circle.jpg') 7px -1px no-repeat transparent;
+}
