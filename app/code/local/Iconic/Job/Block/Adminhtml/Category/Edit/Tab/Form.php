@@ -17,7 +17,6 @@ class Iconic_Job_Block_Adminhtml_Category_Edit_Tab_Form extends Mage_Adminhtml_B
 		
 		$fieldset->addField('url_key', 'text', array(
             'label'     => Mage::helper('job')->__('Url Key'),
-            'class'     => 'required-entry',
             'required'  => false,
             'name'      => 'url_key',
         ));

@@ -102,32 +102,6 @@ class Iconic_Job_Block_Adminhtml_Job_Grid extends Mage_Adminhtml_Block_Widget_Gr
     			'url'      => $this->getUrl('*/*/massDelete'),
     			'confirm'  => Mage::helper('job')->__('Are you sure?')
     	));
-    
-    	$this->getMassactionBlock()->addItem('awaiting', array(
-    			'label'    => Mage::helper('job')->__('Awaiting'),
-    			'url'      => $this->getUrl('*/*/massawaiting')
-    	));
-    
-    	$this->getMassactionBlock()->addItem('available', array(
-    			'label'    => Mage::helper('job')->__('Available'),
-    			'url'      => $this->getUrl('*/*/massAvailable')
-    	));
-        
-        $this->getMassactionBlock()->addItem('waiting', array(
-    			'label'    => Mage::helper('job')->__('Waiting'),
-    			'url'      => $this->getUrl('*/*/massWaiting')
-    	));
-        
-        $this->getMassactionBlock()->addItem('closed', array(
-    			'label'    => Mage::helper('job')->__('Closed'),
-    			'url'      => $this->getUrl('*/*/massClosed')
-    	));
-        
-        $this->getMassactionBlock()->addItem('rejected', array(
-    			'label'    => Mage::helper('job')->__('Rejected'),
-    			'url'      => $this->getUrl('*/*/massRejected')
-    	));
-    
     	return $this;
     }
  
