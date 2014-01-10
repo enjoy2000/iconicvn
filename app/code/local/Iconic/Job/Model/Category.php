@@ -13,7 +13,7 @@ class Iconic_Job_Model_Category extends Mage_Core_Model_Abstract
     {
         if(!$this->getUrlKey()){
             $urlKey = Mage::helper('job')->formatUrlKey($this->getName());
-            if(!Mage::getModel('job/category')->load($urlKey, 'url_key')->getId()){
+            if(!Mage::getModel('job/category')->load($urlKey, 'url_key')->getId() || Mage::getModel('job/category')->load($urlKey, 'url_key')->getId() == $this->getId()){
                 $this->setUrlKey($urlKey);
             } else {
                 $urlKey .= '-' . $this->getId();
