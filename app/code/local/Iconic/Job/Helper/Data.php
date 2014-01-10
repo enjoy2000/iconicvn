@@ -69,7 +69,7 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 					. $job->getCategory()->getUrlKey()
 					. '/'
 					. $job->getUrlKey()
-					. '.html';
+					. Mage::helper('clnews')->getNewsitemUrlSuffix();
 		return $link;
 	}
 	
