@@ -24,6 +24,7 @@ class Iconic_Job_Model_Category extends Mage_Core_Model_Abstract
     }
 	
 	protected function _afterSave(){
+		/*
 		if($this->getUrlKey()){
 			//check url key
 			$count = Mage::getModel('job/category')->getCollection()->addFieldToFilter('category_id',array('neq'=>$this->getId()));
@@ -33,7 +34,9 @@ class Iconic_Job_Model_Category extends Mage_Core_Model_Abstract
 				$urlkey = $this->getUrlKey() . '-' . $this->getId();
 				$this->setUrlKey($urlkey)->save();
 			}
-		}						
+		}
+		 * 
+		 */						
 		parent::_afterSave();
 
 	}
