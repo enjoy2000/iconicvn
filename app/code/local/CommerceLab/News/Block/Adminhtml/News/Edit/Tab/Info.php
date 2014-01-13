@@ -87,65 +87,9 @@ class CommerceLab_News_Block_Adminhtml_News_Edit_Tab_Info extends Mage_Adminhtml
                     'values'    => $categories,
             ));
 
-        $fieldset->addField('comments_enabled', 'select', array(
-        'label'     => Mage::helper('clnews')->__('Comments'),
-        'name'      => 'comments_enabled',
-        'values'    => array(
-          array(
-              'value'     => 1,
-              'label'     => Mage::helper('clnews')->__('Enabled'),
-          ),
-
-          array(
-              'value'     => 0,
-              'label'     => Mage::helper('clnews')->__('Disabled'),
-          ),
-        ),
-        ));
         $newsCollection = Mage::getModel('clnews/news')->getCollection()
                             ->addFieldToFilter('news_id', $this->getRequest()->getParam('id'));
-        $fieldset->addField('document_save', 'file', array(
-            'label'     => Mage::helper('clnews')->__('File'),
-            'required'  => false,
-            'name'      => 'document_save',
-        ));
-        $file = $newsCollection->getData();
-        if ($this->getRequest()->getParam('id')) {
-            $documents = $file[0]['document'];
-            $full_path = $file[0]['full_path_document'];
-            $tag = $file[0]['tags'];
-        } else {
-            $documents = NULL;
-            $full_path = '';
-            $tag = '';
-        }
-        if ($documents) {
-            $fieldset->addField('is_delete', 'checkbox', array(
-                'name'      => 'is_delete',
-                'label'     => Mage::helper('clnews')->__('Delete File'),
-                'after_element_html' => '<a href="' . Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'clnews' . DS . $documents . '" >' . $documents. '</a>',
-            ));
-
-            $fieldset->addField('full_path_document', 'hidden', array(
-                'name'       => 'full_path_document',
-                'value'      => $full_path,
-            ));
-        }
-
-        $fieldset->addField('link', 'text', array(
-            'label'     => Mage::helper('clnews')->__('Link Name'),
-            'title'     => Mage::helper('clnews')->__('Link Name'),
-            'name'      => 'link',
-            'after_element_html' => '<div class="hint"><p class="note">'.$this->__('e.g. Download attached document - default').'</p></div>',
-        ));
-
-        $fieldset->addField('tags', 'text', array(
-              'label'     => Mage::helper('clnews')->__('Add Tags'),
-              'title'     => Mage::helper('clnews')->__('Add Tags'),
-              'name'      => 'tags',
-              'value'     => $tag,
-              'after_element_html' => '<div class="hint"><p class="note">'.$this->__('Use comma for multiple words').'</p></div>',
-            ));
+        
         $data = Mage::registry('clnews_data');
         if ($data && (($data->getImageShortContent() == $data->getImageFullContent()) || $data->getImageShortContent() == '' || !$data->getImageShortContent())) {
             $fieldset->addField('use_full_img', 'checkbox', array(
@@ -172,43 +116,10 @@ class CommerceLab_News_Block_Adminhtml_News_Edit_Tab_Info extends Mage_Adminhtml
 
             $fieldset->addField('image_short_content', 'image', array(
                 'label'     => Mage::helper('clnews')->__('Image for Short Description'),
-                'required'  => false,
+                'required'  => true,
                 'name'      => 'image_short_content',
             ));
         }
-
-        $fieldset->addField('short_height_resize', 'text', array(
-              'label'     => Mage::helper('clnews')->__('Resize Image Height'),
-              'title'     => Mage::helper('clnews')->__('Resize Image Height'),
-              'name'      => 'short_height_resize',
-              'style'     => 'width: 50px;',
-              'after_element_html' => '<span class="hint">px</span>',
-            ));
-
-        $fieldset->addField('short_width_resize', 'text', array(
-              'label'     => Mage::helper('clnews')->__('Resize Image Width'),
-              'title'     => Mage::helper('clnews')->__('Resize Image Width'),
-              'name'      => 'short_width_resize',
-              'style'     => 'width: 50px;',
-              'after_element_html' => '<span class="hint">px</span>',
-            ));
-
-        $fieldset->addField('image_short_content_show', 'select', array(
-            'label'     => Mage::helper('clnews')->__('Show Image'),
-            'required'  => false,
-            'name'      => 'image_short_content_show',
-            'values'    => array(
-              array(
-                  'value'     => 1,
-                  'label'     => Mage::helper('clnews')->__('Yes'),
-              ),
-
-              array(
-                  'value'     => 0,
-                  'label'     => Mage::helper('clnews')->__('No'),
-              ),
-            ),
-        ));
 
         $fieldset->addField('short_content', 'editor', array(
             'name'      => 'short_content',
@@ -224,39 +135,7 @@ class CommerceLab_News_Block_Adminhtml_News_Edit_Tab_Info extends Mage_Adminhtml
             'name'      => 'image_full_content',
         ));
 
-        $fieldset->addField('full_height_resize', 'text', array(
-              'label'     => Mage::helper('clnews')->__('Resize Image Height'),
-              'title'     => Mage::helper('clnews')->__('Resize Image Height'),
-              'name'      => 'full_height_resize',
-              'style'     => 'width: 50px;',
-              'after_element_html' => '<span class="hint">px</span>',
-            ));
-
-        $fieldset->addField('full_width_resize', 'text', array(
-              'label'     => Mage::helper('clnews')->__('Resize Image Width'),
-              'title'     => Mage::helper('clnews')->__('Resize Image Width'),
-              'name'      => 'full_width_resize',
-              'style'     => 'width: 50px;',
-              'after_element_html' => '<span class="hint">px</span>',
-            ));
-
-        $fieldset->addField('image_full_content_show', 'select', array(
-            'label'     => Mage::helper('clnews')->__('Show Image'),
-            'required'  => false,
-            'name'      => 'image_full_content_show',
-            'values'    => array(
-              array(
-                  'value'     => 1,
-                  'label'     => Mage::helper('clnews')->__('Yes'),
-              ),
-
-              array(
-                  'value'     => 0,
-                  'label'     => Mage::helper('clnews')->__('No'),
-              ),
-            ),
-        ));
-
+       
 
         $fieldset->addField('full_content', 'editor', array(
             'name'      => 'full_content',

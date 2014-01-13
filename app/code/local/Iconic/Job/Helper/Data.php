@@ -51,6 +51,7 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 	}
 
 	public function string_limit_words($string,$number=7){
+		$string = strip_tags($string);
 		$words = explode(' ', $string, ($number + 1));
 		if(count($words) > $number){
 			array_pop($words);
