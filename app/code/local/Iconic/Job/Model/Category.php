@@ -25,15 +25,13 @@ class Iconic_Job_Model_Category extends Mage_Core_Model_Abstract
 	
 	protected function _afterSave(){
 		//check url key
-		/*
-		$count = Mage::getModel('job/category');
+		$count = Mage::getModel('job/category')->getCollection()->addFieldToFilter('category_id',array('neq'=>$this->getId()));
 		$count->addFieldToFilter('url_key',array('eq'=>$this->getUrlKey()));
 		$count->getCollection()->count();
-		if($count > 1){
+		if($count > 0){
 			$urlkey = $this->getUrlKey() . '-' . $this->getId();
 			$this->setUrlKey($urlkey)->save();
-		}
-		*/								
+		}								
 		parent::_afterSave();
 	}
 
