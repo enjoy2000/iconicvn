@@ -42,12 +42,6 @@
 	        <?php endif; ?>
 	    <?php endif; ?>
 	    </div>
-	
-	    <div>
-	        <?php if($item->getCommentsEnabled()): ?>
-	            <a href="<?php echo $item->getUrl($this->getCategory()) ?>#commentBox" class="comment"><?php echo $item->getCommentsCount(); ?> <?php echo $this->__('Comment(s)') ?></a>
-	        <?php endif; ?>
-	    </div>
     </div>
 </div>
 <?php endforeach; ?>
