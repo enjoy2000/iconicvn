@@ -16,9 +16,11 @@
 	                        <?php if (Mage::helper('clnews')->showDate()): ?>
 	                            <span class="width-100 date"><?php echo Mage::helper('job')->formatDate($item->getNewsTime()) ?></span>
 	                        <?php endif; ?>
+	                        <!--
 	                        <span class="short-desc width-100">
 	                        	<?php echo Mage::helper('job')->string_limit_words($item->getShortContent()) ?>
 	                        </span>
+	                        -->
                     <?php endif; ?>
                 <?php endforeach; ?>
             </ul>
