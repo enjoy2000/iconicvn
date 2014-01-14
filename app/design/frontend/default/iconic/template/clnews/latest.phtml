@@ -21,6 +21,11 @@
 	                        	<?php echo Mage::helper('job')->string_limit_words($item->getShortContent()) ?>
 	                        </span>
 	                        -->
+	                        <?php if($item->getAuthor()): ?>
+	                        <span class="width-100 author">
+	                        	<?php echo $this->__('Đăng bởi <span>%s</span>', $item->getAuthor()) ?>
+	                        </span>
+	                        <?php endif; ?>
                     <?php endif; ?>
                 <?php endforeach; ?>
             </ul>
