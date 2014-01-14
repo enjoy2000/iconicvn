@@ -87,6 +87,14 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 			$job = Mage::getModel('job/job')->load($id);
 			$block = $this->getLayout()->getBlock('job_apply_success');
 			$block->setItem($job);
+			//set breadcrumbs		
+			$helper = Mage::helper('job');
+			if ($breadcrumbs = $this->getLayout()->getBlock('breadcrumbs')) {
+				$breadcrumbs->addCrumb('home', array('label'=>$helper->__('Home'), 'title'=>$helper->__('Go to Home Page'), 'link'=>Mage::getBaseUrl()));
+				$breadcrumbs->addCrumb('search_results', array('label'=>$helper->__('Kết quả tìm kiếm'), 'title'=>$helper->__('Kết quả tìm kiếm'), 'link'=>Mage::getUrl('job/search')));
+				$breadcrumbs->addCrumb('job_details', array('label'=>$helper->__('Chi tiết công việc'), $helper->__('Chi tiết công việc')));
+				$breadcrumbs->addCrumb('job_apply', array('label'=>$helper->__('Liên hệ ứng tuyển'), $helper->__('Liên hệ ứng tuyển')));
+			}	
 			//get jobs form same category
 			$block->setJobsInCategory($job->getJobsInCategory());
 			
