@@ -91,7 +91,7 @@
 					?>
 						<?php if($func < $this->getFunctionCollection()->count()/2): ?>
 						<div class="parent">
-							<a href="<?php echo Mage::getBaseUrl().'job/search?function='.$parent->getId() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?></a>
+							<a href="<?php echo Mage::getBaseUrl().$parent->getUrlKey() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?></a>
 						</div>
 						<?php endif; ?>
 					<?php $func++; endforeach; ?>
@@ -104,7 +104,7 @@
 					?>
 						<?php if($func >= $this->getFunctionCollection()->count()/2): ?>
 						<div class="parent">
-							<a href="<?php echo Mage::getBaseUrl().'job/search?function='.$parent->getId() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?></a>
+							<a href="<?php echo Mage::getBaseUrl().$parent->getUrlKey() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?></a>
 						</div>
 						<?php endif; ?>
 					<?php $func++; endforeach; ?>

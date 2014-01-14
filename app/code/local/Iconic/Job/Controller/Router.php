@@ -60,12 +60,21 @@ class Iconic_Job_Controller_Router extends Mage_Core_Controller_Varien_Router_Ab
                 $parentCategory = Mage::getModel('job/parentcategory')->load($parts[0], 'url_key');
                 
                 if($parentCategory->getId()){
-                    $request
-                        ->setModuleName('job')
-                        ->setControllerName('search')
-                        ->setActionName('index')
-                        ->setParam('industry', $parentCategory->getId());
-                        return true;
+                	if($parentCategory->getGroupCategory() == 'industry'){
+	                    $request
+	                        ->setModuleName('job')
+	                        ->setControllerName('search')
+	                        ->setActionName('index')
+	                        ->setParam('industry', $parentCategory->getId());
+	                        return true;
+					}else{
+						$request
+	                        ->setModuleName('job')
+	                        ->setControllerName('search')
+	                        ->setActionName('index')
+	                        ->setParam('function', $parentCategory->getId());
+	                        return true;
+					}
                 }
                 break;
             case 3: //job detail
