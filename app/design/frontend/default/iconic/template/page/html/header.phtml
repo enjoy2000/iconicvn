@@ -72,8 +72,10 @@
 	
 	<!-- Breadcrumb -->
 	<?php if($this->getChildHtml('breadcrumbs')): ?>
-	<div id="breadcrumbs">		
-    	<?php echo $this->getChildHtml('breadcrumbs') ?>
+	<div id="breadcrumbs">
+		<div class="wrapper">
+    		<?php echo $this->getChildHtml('breadcrumbs') ?>
+    	</div>
 	</div>
 	<?php endif; ?>
 	<!-- End Breadcrumb -->

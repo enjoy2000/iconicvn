@@ -25,7 +25,7 @@
 		}
 		
 		//set position for breadcrumbs
-		$('#breadcrumbs .breadcrumbs').css('left', $('li.current-menu-item').position().left+200);
+		$('#breadcrumbs .breadcrumbs').css('left', 0);
 		
 		//contact form email footer
 		$('#contact-us').on('submit', function(e){

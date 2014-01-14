@@ -74,6 +74,9 @@ html, button, input, select, textarea {
 	border-bottom: solid 1px #fff;
 	position: relative;
 }
+#breadcrumbs > .wrapper{
+	position: relative;
+}
 #breadcrumbs .breadcrumbs{
 	position: absolute;
 	top: 10px;
@@ -82,6 +85,7 @@ html, button, input, select, textarea {
 	display: inline;
 	color: #fff;
 	font-size: 15px;
+	white-space: nowrap;
 }
 #breadcrumbs .breadcrumbs ul span{
 	margin: 0 7px;

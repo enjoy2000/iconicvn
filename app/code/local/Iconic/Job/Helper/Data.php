@@ -63,8 +63,6 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 	
 	public function getJobLink($job){
 		$link = Mage::getBaseUrl()
-					. $this->getRoute()
-					. '/'
 					. $job->getCategory()->getParentCategory()->getUrlKey()
 					. '/'
 					. $job->getCategory()->getUrlKey()
@@ -115,7 +113,7 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 	public function getCategoryUrl($catId){
 		$cat = Mage::getModel('job/category')->load($catId);
 		$parent = Mage::getModel('job/parentcategory')->load($cat->getParentcategoryId());
-		$url = Mage::getBaseUrl().$this->getRoute().'/'.$parent->getUrlKey().'/'.$cat->getUrlKey();
+		$url = Mage::getBaseUrl().$parent->getUrlKey().'/'.$cat->getUrlKey();
 		
 		return $url;
 	}

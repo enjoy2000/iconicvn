@@ -35,15 +35,10 @@ class Iconic_Job_Controller_Router extends Mage_Core_Controller_Varien_Router_Ab
         $route = Mage::helper('job')->getRoute();
 
         $identifier = $request->getPathInfo();
+		
 
 
-
-        if (substr(str_replace("/", "", $identifier), 0, strlen($route)) != $route) {
-            return false;
-        }
-
-
-        $identifier = substr_replace($request->getPathInfo(), '', 0, strlen("/" . $route. "/"));
+        $identifier = substr_replace($request->getPathInfo(), '', 0, 1);
         $identifier = str_replace(Mage::helper('clnews')->getNewsitemUrlSuffix(), '', $identifier);
         $identifier = trim($identifier, " /");
 
