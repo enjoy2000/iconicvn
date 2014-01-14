@@ -38,4 +38,9 @@ class Iconic_Job_Model_Parentcategory extends Mage_Core_Model_Abstract
 						
 		parent::_afterSave();
 	}
+
+	public function getUrl(){
+		$url = Mage::getUrl($this->getUrlKey());
+		return $url;
+	}
 }
