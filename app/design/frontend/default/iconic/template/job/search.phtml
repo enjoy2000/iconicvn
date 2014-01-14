@@ -9,6 +9,11 @@
 			<?php echo $this->getCategoryList() ?>
 		</select>
 		
+		<select name="function_category" id="function-category" class="inline">
+			<option value=""><?php echo $this->__('Chức năng') ?></option>
+			<?php echo $this->getFunctionList() ?>
+		</select>
+		
 		<select name="location" id="location" class="inline">
 			<option value=""><?php echo $this->__('Địa điểm') ?></option>
 			<?php echo $this->getLocationList() ?>			
@@ -63,6 +68,13 @@
 		<div class="info inline-b">
 			<?php echo $this->__('Chức năng') ?>:
 			<span><?php echo Mage::getModel('job/parentcategory')->load($this->getFunction())->getName() ?></span>
+		</div>
+		<?php endif; ?>
+		
+		<?php if($this->hasFunctionCategory()): ?>
+		<div class="info inline-b">
+			<?php echo $this->__('Chức năng') ?>:
+			<span><?php echo Mage::getModel('job/category')->load($this->getFunctionCategory())->getName() ?></span>
 		</div>
 		<?php endif; ?>
 		

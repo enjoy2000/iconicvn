@@ -24,6 +24,11 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
+<?php if(strpos($bodyclass, 'cms-gioi-thieu-cong-ty')): ?>
+<div id="gioi-thieu">
+	
+</div>
+<?php endif; ?>
 <footer id="footer">
 	<!-- SLOGAN -->
 	<div id="slogan">
@@ -37,52 +42,40 @@
 	<!-- CONTACT INFORMAPTION -->
     <div id="contact-information">
     	<div class="wrapper clearfix">
-    		<div id="map" class="fll">
-    			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7838.503953205817!2d106.69885744999999!3d10.792003150000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f34c5c75e43%3A0xd22addcca3b456ed!2sICONIC+co.%2C+ltd!5e0!3m2!1sen!2s!4v1389607551898" width="350" height="200" frameborder="0" style="border:0"></iframe>
+    		<div id="map" class="flr">
+    			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7838.503953205817!2d106.69885744999999!3d10.792003150000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f34c5c75e43%3A0xd22addcca3b456ed!2sICONIC+co.%2C+ltd!5e0!3m2!1sen!2s!4v1389607551898&iwloc=near" width="350" height="200" frameborder="0" style="border:0"></iframe>
     		</div>
-    		<div id="address" class="fll">
-    			<div class="company-location clearfix">
-    				<div class="first fll">
-    					<?php echo $this->__('
-    					<strong>Ho Chi Minh city:</strong><br />
-						4F Avenis Building, 145 Dien Bien Phu, Dist1,
-						HCMC,  Vietnam
-						') ?>
-    				</div>
-    				<div class="last flr">
-    					<?php echo $this->__('
-    					<strong>Hanoi:</strong><br/>
-						4F TDL Bldg, 22 Lang Ha, Dong Da Dist, Ha Noi, 
-						Vietnam						
-						') ?>
-    				</div>
+    		<div id="address" class="flr">
+    			<div class="hcm clearfix">
+    				<?php
+    				echo $this->__('<strong>Ho Chi Minh city:</strong><br />
+							4F Avenis Building, 145 Dien Bien Phu,
+							Dist1,  HCMC,  Vietnam<br />
+							Phone: (84-8) 3821-5122
+							(Director: yasukura nagahama)');
+    				?>
     			</div>
-    			<div class="company-phone clearfix">
-    				<div class="first fll">
-    					<?php echo $this->__('
-    					<strong>Ho Chi Minh city:</strong><br />
-						(84-8) 3821-5122<br />
-						(Director: yasukura、nagahama）
-						') ?>
-    				</div>
-    				<div class="last flr">
-    					<?php echo $this->__('
-    					<strong>Hanoi:</strong><br/>
-						(84-4) 3776-5963<br />
-						Director: yamamoto)
-						') ?>
-    				</div>
+    			<div class="hn clearfix">
+    				<?php
+    				echo $this->__('<strong>Hanoi:</strong><br />
+							4F TDL Bldg, 22 Lang Ha, Dong Da Dist,
+							Ha Noi, Vietnam<br />
+							Phone: (84-4) 3776-5963
+							(Director: yamamoto)');
+    				?>
     			</div>
     		</div>
-    		<div id="contact-form" class="flr last">
+    		<div id="contact-form" class="fll">
     			<h4 class="black-tit heading">
     				<?php echo $this->__('Gửi email cho chúng tôi') ?>
     			</h4>
     			
     			<!-- FORM -->
     			<form id="contact-us">
-    				<input required id="email" name="email" type="email" placeholder="<?php echo $this->__('Email') ?>" />
-    				<input required id="subject" name="subject" type="text" placeholder="<?php echo $this->__('Tiêu đề') ?>" />
+    				<div class="row clearfix">
+	    				<input class="fll width-45" required id="email" name="email" type="email" placeholder="<?php echo $this->__('Email') ?>" />
+	    				<input class="flr width-45" required id="subject" name="subject" type="text" placeholder="<?php echo $this->__('Tiêu đề') ?>" />
+    				</div>
     				<textarea required id="message" name="message" placeholder="<?php echo $this->__('Nhập nội dung') ?>"></textarea>
     				<div id="response" class="fll width-60">
     					

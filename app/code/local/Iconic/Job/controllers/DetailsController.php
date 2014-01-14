@@ -3,7 +3,6 @@ class Iconic_Job_DetailsController extends Mage_Core_Controller_Front_Action{
 	
 	public function indexAction(){		
         $this->loadLayout();  
-		
 		/*
 		 * redirect if user not login 
 		if (!Mage::getSingleton('customer/session')->isLoggedIn()) {
@@ -24,6 +23,14 @@ class Iconic_Job_DetailsController extends Mage_Core_Controller_Front_Action{
 		if(!$item->getId()){
 			Mage::helper('job')->redirectToSearchPage();
 		}
+		
+		//set breadcrumbs		
+		$helper = Mage::helper('job');
+		if ($breadcrumbs = $this->getLayout()->getBlock('breadcrumbs')) {
+			$breadcrumbs->addCrumb('home', array('label'=>$helper->__('Home'), 'title'=>$helper->__('Go to Home Page'), 'link'=>Mage::getBaseUrl()));
+			$breadcrumbs->addCrumb('search_results', array('label'=>$helper->__('Kết quả tìm kiếm'), 'title'=>$helper->__('Kết quả tìm kiếm'), 'link'=>Mage::getUrl('job/search')));
+			$breadcrumbs->addCrumb('job_details', array('label'=>$helper->__('Chi tiết công việc'), $helper->__('Chi tiết công việc')));
+		}	
 		//set title by job title
 		$this->getLayout()->getBlock('head')->setTitle($item->getTitle()); 
 		//set item to block

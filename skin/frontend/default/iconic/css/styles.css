@@ -11,6 +11,9 @@ html, button, input, select, textarea {
 	min-height: 300px;
 	border-bottom: solid 4px #0c69a5;
 }
+#header #header-menu > .wrapper{
+	position: relative;
+}
 #header #header-menu{
 	height: 85px;
 	background-color: #fff;
@@ -66,7 +69,66 @@ html, button, input, select, textarea {
 	border-width: 10px;
 	margin-left: -10px;
 }
-
+#breadcrumbs{
+	height: 40px;
+	border-bottom: solid 1px #fff;
+	position: relative;
+}
+#breadcrumbs .breadcrumbs{
+	position: absolute;
+	top: 10px;
+}
+#breadcrumbs .breadcrumbs ul li{
+	display: inline;
+	color: #fff;
+	font-size: 15px;
+}
+#breadcrumbs .breadcrumbs ul span{
+	margin: 0 7px;
+}
+#breadcrumbs .breadcrumbs ul li > a {
+	color: #fff;
+}
+/*
+	TOP SOCIAL
+*/
+#header #header-menu > .wrapper .top-social{
+	position: absolute;
+	top: 0;
+	right: 20px;
+}
+#header #header-menu > .wrapper .top-social > a{
+	display: inline-block;
+	width: 34px;
+	height: 34px;
+	background-color: #c7c8ca;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+#header #header-menu > .wrapper .top-social > a.in{
+	background-image: url('../images/social/icons/in.png');
+}
+#header #header-menu > .wrapper .top-social > a.facebook{
+	background-image: url('../images/social/icons/facebook.png');
+}
+#header #header-menu > .wrapper .top-social > a.twitter{
+	background-image: url('../images/social/icons/twitter.png');
+}
+#header #header-menu > .wrapper .top-social > a.google{
+	background-image: url('../images/social/icons/google.png');
+}
+#header #header-menu > .wrapper .top-social > a.in:hover{
+	background-color: #56a1c4;
+}
+#header #header-menu > .wrapper .top-social > a.facebook:hover{
+	background-color: #3b5997;
+}
+#header #header-menu > .wrapper .top-social > a.twitter:hover{
+	background-color: #8cccd7;
+}
+#header #header-menu > .wrapper .top-social > a.google:hover{
+	background-color: #d20707;
+}
 /*
  * LANDING
 */
@@ -164,29 +226,29 @@ body.cms-home #header #header-landing{
 #footer #slogan h2 span{
 	color: #1197EC;
 }
-#footer #contact-information{
-	padding-bottom: 20px;
+#footer #contact-information .wrapper{
+	background-color: #d1d3d4;
 }
-#footer #contact-information .wrapper > div{
-	padding-top: 30px;
+#footer #contact-information #map{
+	padding: 10px;
 }
 #footer #contact-information .wrapper > div h4{
 	text-transform: uppercase;
 	font-weight: bold;
-	font-size: 15px;
+	font-size: 18px;
 	color: #000;
 }
 #footer #contact-information #social{
 	width: 15%;	
 }
 #footer #copyright .social-links{
-	width: 25%;
+	width: 18%;
 }
 #footer #copyright .social-links > a{
 	display: inline-block;
 	width:35px;
 	height: 35px;
-	margin-left: 20px;
+	margin-left: 5px;
 }
 #footer #copyright .social-links > a.facebook{
 	background: url('../images/social/facebook.png') center no-repeat transparent;
@@ -213,32 +275,32 @@ body.cms-home #header #header-landing{
 	background: url('../images/social/google-active.png') center no-repeat transparent;
 }
 #footer #contact-information #address{
-	width: 45%;
-	margin-left: 5%;
+	width: 165px;
+	margin-left: 5px;
 	color: #6d6e71;
+	margin-right: 10px;
+	text-align: right;
+	padding-top: 20px;
+	font-size: 13px;
 }
-#footer #contact-information #address .company-location{
-	padding-left: 20px;
-	background: url('../images/location.png') left top no-repeat transparent;
-	margin-top: 20px;
-}
-#footer #contact-information #address .company-phone{
-	padding-left: 20px;
-	background: url('../images/phone.png') left top no-repeat transparent;
-	margin-top: 20px;
+#footer #contact-information #address .hn{
+	margin-top: 15px;
 }
 #footer #contact-information #contact-form{
-	width: 30%;
+	width: 38%;
+	padding: 20px;
+	background: url('../images/contact-bg.png') transparent top left;
 }
 #footer #contact-information #contact-form form{
 	margin-top: 15px;
 }
 #footer #contact-information #contact-form form input{
 	margin-bottom: 5px;
-	width: 91%;
+	width: 40%;
 }
 #footer #contact-information #contact-form form textarea{
-	width: 91%;
+	width: 93%;
+	height: 70px;
 	margin-bottom: 5px;
 }
 #footer #contact-information #contact-form form button#submit{
@@ -284,17 +346,17 @@ body.cms-home #search_results{
 	text-indent: 0.01px;
 	text-overflow: ' ';
 	-webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-	width: 350px;
-	background: url('../images/select-arrow.png') 315px center transparent no-repeat;
+	-moz-appearance: none;
+	appearance: none;
+	width: 230px;
+	background: url('../images/select-arrow.png') 195px center transparent no-repeat;
 }
 #search-block select:focus{
 	outline: none;
 	border-color: #808285;
 }
-#search-block select#location{
-	margin-left: 42px;
+#search-block select+select{
+	margin-left: 25px;
 }
 button#search-btn{
 	-webkit-appearance: none;
@@ -501,9 +563,6 @@ ul.messages .success-msg{
 	border: solid 1px #1197EC;
 }
 
-.breadcrumbs{
-	display: none;
-}
 /*
 	CMS PAGES
 */

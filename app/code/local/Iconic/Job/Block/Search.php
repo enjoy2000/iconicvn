@@ -2,7 +2,12 @@
 
 class Iconic_Job_Block_Search extends Mage_Core_Block_Template
 {
-	protected function _prepareLayout(){			
+	protected function _prepareLayout(){
+		$helper = Mage::helper('job');
+		if ($breadcrumbs = $this->getLayout()->getBlock('breadcrumbs')) {
+			$breadcrumbs->addCrumb('home', array('label'=>$helper->__('Trang chủ'), 'title'=>$helper->__('Trang chủ'), 'link'=>Mage::getBaseUrl()));
+			$breadcrumbs->addCrumb('search_results', array('label'=>$helper->__('Kết quả tìm kiếm'), 'title'=>$helper->__('Kết quả tìm kiếm'), 'link'=>Mage::getUrl('job/search')));
+		}		
 		
 		$this->setPost($this->getRequest()->getPost());
 		
@@ -136,6 +141,39 @@ class Iconic_Job_Block_Search extends Mage_Core_Block_Template
 			$this->setData('categoryList', $listCategory);
 		}
 		return $this->getData('categoryList');
+	}
+	
+	public function getFunctionList(){
+		if (!$this->hasData('functionList')){
+		
+			$parentCategory = Mage::getModel('job/parentcategory')->getCollection()->addFieldToFilter('group_category', array('eq'=>'function'));
+			$listCategory = '';
+			if ($this->getFunctionCategory()){
+				foreach ($parentCategory as $parent){
+					$categories = Mage::getModel('job/category')->getCollection()->addFieldToFilter('parentcategory_id', array('eq'=>$parent->getParentcategoryId()));
+					$catOptions = '';
+					foreach ($categories as $cat){
+						$selected = "";
+						if($cat->getCategoryId() == $this->getFunctionCategory()){
+							$selected = " selected=\"selected\"";
+						}
+						$catOptions .= "<option value=\"{$cat->getCategoryId()}\"{$selected}>{$cat->getName()}</option>";
+					}
+					$listCategory .= '<optgroup label="'.$parent->getName().'">'.$catOptions.'</optgroup>';
+				}
+			} else {
+				foreach ($parentCategory as $parent){
+					$categories = Mage::getModel('job/category')->getCollection()->addFieldToFilter('parentcategory_id', array('eq'=>$parent->getParentcategoryId()));
+					$catOptions = '';
+					foreach ($categories as $cat){
+						$catOptions .= '<option value="' . $cat->getCategoryId() . '">' . $cat->getName() . '</option>';
+					}
+					$listCategory .= '<optgroup label="'.$parent->getName().'">'.$catOptions.'</optgroup>';
+				}
+			}
+			$this->setData('functionList', $listCategory);
+		}
+		return $this->getData('functionList');
 	}
 
 	public function getFilters(){

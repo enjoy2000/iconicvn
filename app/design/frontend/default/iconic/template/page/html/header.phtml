@@ -51,7 +51,7 @@
 					<li class="<?php echo strpos($bodyclass, 'cms-nha-tuyen-dung') ? 'current-menu-item' : ''  ?>">
 						<a href="/nha-tuyen-dung"><?php echo $this->__('Nhà tuyển dụng') ?></a>
 					</li>
-					<li class="<?php echo strpos($bodyclass, 'clnews-index-index') ? 'current-menu-item' : ''  ?>">
+					<li class="<?php echo strpos($bodyclass, 'clnews') ? 'current-menu-item' : ''  ?>">
 						<a href="/blog"><?php echo $this->__('Blog') ?></a>
 					</li>
 					<li class="<?php echo strpos($bodyclass, 'cms-gioi-thieu-cong-ty') ? 'current-menu-item' : ''  ?>">
@@ -59,13 +59,24 @@
 					</li>
 				</ul>
 			</div><!-- End Menu -->
+			
+			<!-- Begin Top Social Icons -->
+			<div class="top-social">
+				<a class="in" target="_blank" title="Instagram" href="#">&nbsp;</a>
+				<a class="twitter" target="_blank" title="Twitter" href="#">&nbsp;</a>
+				<a class="facebook" target="_blank" title="Facebook" href="#">&nbsp;</a>
+				<a class="google" target="_blank" title="Google+" href="#">&nbsp;</a>
+			</div><!-- End Top Social Icons -->
 		</div>
 	</div><!-- End Header Menu & Logo -->
 	
 	<!-- Breadcrumb -->
-	<div id="breadcrumb">
-		
-	</div><!-- End Breadcrumb -->
+	<?php if($this->getChildHtml('breadcrumbs')): ?>
+	<div id="breadcrumbs">		
+    	<?php echo $this->getChildHtml('breadcrumbs') ?>
+	</div>
+	<?php endif; ?>
+	<!-- End Breadcrumb -->
 	
 	<!-- Header Landing -->
 	<div id="header-landing">
