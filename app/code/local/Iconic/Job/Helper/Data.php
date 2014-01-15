@@ -118,5 +118,16 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 		return $url;
 	}
 	
+	public function getLoginUrl(){
+		return 'dang-nhap';
+	}
+	
+	public function getRegisterUrl(){
+		return 'dang-ky';
+	}
+	
+	public function getSearchUrl(){
+		return 'tim-viec-lam';
+	}
 }
 	
