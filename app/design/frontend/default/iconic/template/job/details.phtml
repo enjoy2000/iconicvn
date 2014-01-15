@@ -84,3 +84,13 @@ $jobs = $this->getJobsInCategory();
 		<a class="text-blue view-more-category" href="<?php echo Mage::helper('job')->getCategoryUrl($item->getCategoryId()); ?>"><?php echo $this->__('Xem thêm') ?></a>
 	</div>
 </div>
+<script>
+(function($){
+	$(document).ready(function(){
+	    $('a.btn-back').click(function(){
+	        parent.history.back();
+	        return false;
+	    });
+	});
+})(jQuery);
+</script>
