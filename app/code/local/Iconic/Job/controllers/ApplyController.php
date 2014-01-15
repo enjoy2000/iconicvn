@@ -10,7 +10,7 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
             $session = Mage::getSingleton('customer/session');
             $session->setAfterAuthUrl( Mage::helper('core/url')->getCurrentUrl() );
             $session->setBeforeAuthUrl( Mage::helper('core/url')->getCurrentUrl() );
-            $this->_redirect('customer/account/login/');
+            $this->_redirect(Mage::helper('job')->getLoginUrl());
             return $this;
         }
 		
@@ -72,7 +72,7 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
             $session = Mage::getSingleton('customer/session');
             $session->setAfterAuthUrl( Mage::helper('core/url')->getCurrentUrl() );
             $session->setBeforeAuthUrl( Mage::helper('core/url')->getCurrentUrl() );
-            $this->_redirect('customer/account/login/');
+            $this->_redirect(Mage::helper('job')->getLoginUrl());
             return $this;
         }
 		$id = (int) $this->getRequest()->get('id');
