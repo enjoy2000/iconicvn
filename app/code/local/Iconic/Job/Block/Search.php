@@ -11,7 +11,7 @@ class Iconic_Job_Block_Search extends Mage_Core_Block_Template
 		
 		$this->setPost($this->getRequest()->getPost());
 		
-		$this->getLayout()->getBlock('head')->setTitle(Mage::helper('job')->__('Tìm kiếm công việc')); 
+		$this->getLayout()->getBlock('head')->setTitle(Mage::helper('job')->__('Tìm việc làm')); 
 		
 		
 		return parent::_prepareLayout();
