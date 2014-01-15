@@ -39,12 +39,12 @@
 					?>
 						<?php if($ins < $this->getIndustryCollection()->count()/2): ?>
 						<div class="parent <?php echo ($subCat->count() > 0) ? 'has-child' : '' ?>">
-							<a href="#" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?></a>
+							<a href="<?php echo $parent->getUrl() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?></a>
 							<?php if($subCat->count() > 0): ?>
 							<ul>
 								<?php foreach($subCat as $cat): ?>
 									<li>
-										<a href="<?php echo Mage::helper('job')->getCategoryUrl($cat->getId()) ?>" title="<?php echo $cat->getName() ?>"><?php echo $cat->getName() ?></a>
+										<a href="<?php echo $cat->getUrl() ?>" title="<?php echo $cat->getName() ?>"><?php echo $cat->getName() ?></a>
 									</li>
 								<?php endforeach; ?>
 							</ul>
@@ -61,12 +61,12 @@
 					?>
 						<?php if($ins >= $this->getIndustryCollection()->count()/2): ?>
 						<div class="parent <?php echo ($subCat->count() > 0) ? 'has-child' : '' ?>">
-							<a href="#" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?></a>
+							<a href="<?php echo $parent->getUrl() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?></a>
 							<?php if($subCat->count() > 0): ?>
 							<ul>
 								<?php foreach($subCat as $cat): ?>
 									<li>
-										<a href="<?php echo Mage::helper('job')->getCategoryUrl($cat->getId()) ?>" title="<?php echo $cat->getName() ?>"><?php echo $cat->getName() ?></a>
+										<a href="<?php echo $cat->getUrl() ?>" title="<?php echo $cat->getName() ?>"><?php echo $cat->getName() ?></a>
 									</li>
 								<?php endforeach; ?>
 							</ul>
@@ -90,8 +90,17 @@
 						$subCat = Mage::getModel('job/category')->getCollection()->addFieldToFilter('parentcategory_id',array('eq'=>$parent->getParentcategoryId()));
 					?>
 						<?php if($func < $this->getFunctionCollection()->count()/2): ?>
-						<div class="parent">
+						<div class="parent <?php echo ($subCat->count() > 0) ? 'has-child' : '' ?>">
 							<a href="<?php echo $parent->getUrl() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?></a>
+							<?php if($subCat->count() > 0): ?>
+							<ul>
+								<?php foreach($subCat as $cat): ?>
+									<li>
+										<a href="<?php echo $cat->getUrl() ?>" title="<?php echo $cat->getName() ?>"><?php echo $cat->getName() ?></a>
+									</li>
+								<?php endforeach; ?>
+							</ul>
+							<?php endif; ?>
 						</div>
 						<?php endif; ?>
 					<?php $func++; endforeach; ?>
@@ -103,8 +112,17 @@
 						$subCat = Mage::getModel('job/category')->getCollection()->addFieldToFilter('parentcategory_id',array('eq'=>$parent->getParentcategoryId()));
 					?>
 						<?php if($func >= $this->getFunctionCollection()->count()/2): ?>
-						<div class="parent">
+						<div class="parent <?php echo ($subCat->count() > 0) ? 'has-child' : '' ?>">
 							<a href="<?php echo $parent->getUrl() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?></a>
+							<?php if($subCat->count() > 0): ?>
+							<ul>
+								<?php foreach($subCat as $cat): ?>
+									<li>
+										<a href="<?php echo $cat->getUrl() ?>" title="<?php echo $cat->getName() ?>"><?php echo $cat->getName() ?></a>
+									</li>
+								<?php endforeach; ?>
+							</ul>
+							<?php endif; ?>
 						</div>
 						<?php endif; ?>
 					<?php $func++; endforeach; ?>

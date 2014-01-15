@@ -44,4 +44,10 @@ class Iconic_Job_Model_Category extends Mage_Core_Model_Abstract
     public function getParentCategory(){
     	return Mage::getModel('job/parentcategory')->load($this->getParentcategoryId());
     }
+	
+	public function getUrl(){
+		$parent = Mage::getModel('job/parentcategory')->load($this->getParentcategoryId());
+		$url = Mage::getBaseUrl().$parent->getUrlKey().'/'.$this->getUrlKey();
+		return $url;
+	}
 }

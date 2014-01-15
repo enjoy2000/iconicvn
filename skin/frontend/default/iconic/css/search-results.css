@@ -104,11 +104,18 @@
 	text-transform: uppercase;
 	font-size: 14px;
 }
-#search_results .search-filters .filter > a{
+#search_results .search-filters .filter .parent > a{
 	display: block;
 	padding: 2px 20px;
 	background: url('../images/list-arrow.png') left 5px center transparent no-repeat;
 }
-#search_results .search-filters .filter > a:hover{
+#search_results .search-filters .filter .parent > ul{
+	display: none;
+	padding: 0 20px;
+}
+#search_results .search-filters .filter .parent > ul li a{
+	color: #000;
+}
+#search_results .search-filters .filter a:hover{
 	color: #1197EC;
 }

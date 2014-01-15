@@ -49,12 +49,22 @@ class Iconic_Job_Controller_Router extends Mage_Core_Controller_Varien_Router_Ab
                 $category = Mage::getModel('job/category')->load($parts[1], 'url_key');
                 
                 if($category->getId()){
-                    $request
-                        ->setModuleName('job')
-                        ->setControllerName('search')
-                        ->setActionName('index')
-                        ->setParam('category', $category->getId());
-                        return true;
+                	$parentCategory = Mage::getModel('job/parentcategory')->load($parts[0], 'url_key');
+                    if($parentCategory->getGroupCategory() == 'industry'){
+	                    $request
+	                        ->setModuleName('job')
+	                        ->setControllerName('search')
+	                        ->setActionName('index')
+	                        ->setParam('category', $category->getId());
+	                        return true;
+					}else{
+						$request
+	                        ->setModuleName('job')
+	                        ->setControllerName('search')
+	                        ->setActionName('index')
+	                        ->setParam('function_category', $category->getId());
+	                        return true;
+					}
                 }
             case 1: //parent category
                 $parentCategory = Mage::getModel('job/parentcategory')->load($parts[0], 'url_key');
@@ -89,7 +99,6 @@ class Iconic_Job_Controller_Router extends Mage_Core_Controller_Varien_Router_Ab
                 }
                 break;
         }
-
         return false;
     }
 }
