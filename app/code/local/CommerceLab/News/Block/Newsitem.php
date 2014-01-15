@@ -87,6 +87,7 @@ class CommerceLab_News_Block_Newsitem extends Mage_Core_Block_Template
                 $head->setDescription(Mage::getStoreConfig('clnews/news/metadescription'));
             }
         }
+		return parent::_prepareLayout();
     }
 
     public function getNewsItem()
