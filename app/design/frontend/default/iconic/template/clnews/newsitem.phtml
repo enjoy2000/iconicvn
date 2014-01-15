@@ -6,7 +6,11 @@
 
 <div id="blog-content" class="fll width-65">
 	<?php $item = $this->getNewsitem(); ?>
-	<h1 class="text-blue"><?php echo $item->getTitle() ?></h1>
+	<h1 class="text-blue">
+		<a href="<?php echo str_replace('clnews', $this->getAlias(), $item->getUrl()) ?>" title="<?php echo $item->getTitle() ?>">
+			<?php echo $item->getTitle() ?>
+		</a>
+	</h1>
 	<?php if (Mage::helper('clnews')->showDate()): ?>
 	    <span class="date"><?php echo Mage::helper('job')->formatDate($item->getNewsTime()) ?></span>	    
 	    <?php if ($item->getAuthor()): ?>

@@ -36,6 +36,12 @@ span.author span.line{
 	font-size: 25px;
 	font-weight: 30px;
 }
+#blog-content h1 > a{
+	text-transform: uppercase;
+	font-size: 25px;
+	font-weight: 30px;
+	color: #1197EC;
+}
 #blog-content .news{
 	margin-top: 25px;
 }

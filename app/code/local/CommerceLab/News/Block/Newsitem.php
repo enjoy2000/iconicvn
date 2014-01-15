@@ -47,8 +47,8 @@ class CommerceLab_News_Block_Newsitem extends Mage_Core_Block_Template
             if ($showBreadcrumbs && ($breadcrumbs = $this->getLayout()->getBlock('breadcrumbs'))) {
                 $breadcrumbs->addCrumb('home',
                     array(
-                    'label'=>Mage::helper('clnews')->__('Home'),
-                    'title'=>Mage::helper('clnews')->__('Go to Home Page'),
+                    'label'=>Mage::helper('job')->__('Trang chủ'),
+                    'title'=>Mage::helper('clnews')->__('Trang chủ'),
                     'link'=>Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB)
                     ));
 
@@ -56,7 +56,7 @@ class CommerceLab_News_Block_Newsitem extends Mage_Core_Block_Template
                     array(
                     'label'=>Mage::helper('clnews')->__(Mage::getStoreConfig('clnews/news/title')),
                     'title'=>Mage::helper('clnews')->__('Return to %s', Mage::helper('clnews')->__('News')),
-                    'link'=> Mage::getUrl(Mage::helper('clnews')->getRoute())
+                    'link'=> Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'blog'
                     ));
 
                 if ($category = $newsitem->getCategory()) {
@@ -294,11 +294,5 @@ class CommerceLab_News_Block_Newsitem extends Mage_Core_Block_Template
         if ($item->getFullHeightResize()): $height = $item->getFullHeightResize(); else: $height; endif;
 
         return array('width' => $width, 'height' => $height);
-    }
-
-    protected function _toHtml()
-    {
-        $html = parent::_toHtml();
-        return $html;
     }
 }

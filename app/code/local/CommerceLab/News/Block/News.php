@@ -26,12 +26,13 @@ class CommerceLab_News_Block_News extends CommerceLab_News_Block_Abstract
             if ($showBreadcrumbs && ($breadcrumbs = $this->getLayout()->getBlock('breadcrumbs')) && ($moduleName=='clnews')) {
                 $breadcrumbs->addCrumb('home',
                     array(
-                    'label'=>Mage::helper('clnews')->__('Home'),
-                    'title'=>Mage::helper('clnews')->__('Go to Home Page'),
+                    'label'=>Mage::helper('clnews')->__('Trang chủ'),
+                    'title'=>Mage::helper('clnews')->__('Trang chủ'),
                     'link'=> Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB)));
                 $newsBreadCrumb = array(
                     'label'=>Mage::helper('clnews')->__(Mage::getStoreConfig('clnews/news/title')),
-                    'title'=>Mage::helper('clnews')->__('Return to ' .Mage::helper('clnews')->__('News')),
+                    'title'=>Mage::helper('clnews')->__(Mage::getStoreConfig('clnews/news/title')),
+                    'link' => Mage::getUrl(Mage::helper('clnews')->getRoute())
                     );
                 if ($this->getCategoryKey()) {
                     $newsBreadCrumb['link'] = Mage::getUrl(Mage::helper('clnews')->getRoute());
