@@ -54,10 +54,13 @@ class CommerceLab_News_Block_News extends CommerceLab_News_Block_Abstract
             }
 
             if ($moduleName=='clnews') {
+            	/*
                 // set default meta data
                 $head->setTitle(Mage::getStoreConfig('clnews/news/metatitle'));
                 $head->setKeywords(Mage::getStoreConfig('clnews/news/metakeywords'));
                 $head->setDescription(Mage::getStoreConfig('clnews/news/metadescription'));
+				 * 
+				 */
 
                 // set category meta data if defined
                 $currentCategory = $this->getCurrentCategory();

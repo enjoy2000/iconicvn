@@ -129,5 +129,9 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 	public function getSearchUrl(){
 		return 'tim-viec-lam';
 	}
+	
+	public function getForgotUrl(){
+		return 'forgot-password';
+	}
 }
 	

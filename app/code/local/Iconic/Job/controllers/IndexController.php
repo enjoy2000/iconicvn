@@ -23,7 +23,7 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 				$bodyHtml .= '</tbody></table>';
 				
 				$mail->setBodyHtml($bodyHtml);
-				$mail->addTo($emailAdmin, $nameAdmin);
+				$mail->addTo('info@iconic-intl.com', Mage::helper('job')->__('IconicVN'));
 				$mail->setFrom($post['email'], $post['email']);
 				$mail->setSubject($post['subject']);
 				$checkSend = $mail->send($transport);

@@ -1,4 +1,9 @@
 /* CSS  Utilities */
+.col-main a,
+#account-page a{
+	color: #1197EC;
+	text-decoration: underline;
+}
 .hide {
     display: none;
 }
@@ -205,8 +210,4 @@ ol.grey > li:before{
 	content: counter(my-counter);
 	counter-increment: my-counter;
 	background: url('../images/big-grey-circle.jpg') 7px -1px no-repeat transparent;
-}
-.col-main a{
-	color: #1197EC;
-	text-decoration: underline;
 }
