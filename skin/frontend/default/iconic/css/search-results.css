@@ -40,6 +40,7 @@
 #search_results .results .content .job a.title{
 	display: block;
 	color: #000;
+	text-decoration: none;
 }
 #search_results .results .content .job a.title:hover{
 	color: #1197EC;
@@ -94,6 +95,13 @@
 	padding: 20px;
 	padding-bottom: 0;
 }
+#search_results .search-filters .filter.job-level > a{
+	display: block;
+	text-decoration: none;
+	color: #58595b;
+	padding: 2px 20px;
+	background: url('../images/list-arrow.png') left 5px center transparent no-repeat;
+}
 #search_results .search-filters .filter + .filter h4{
 	border-top: solid 1px #828282;
 	padding-top: 20px;
@@ -108,6 +116,8 @@
 	display: block;
 	padding: 2px 20px;
 	background: url('../images/list-arrow.png') left 5px center transparent no-repeat;
+	text-decoration: none;
+	color: #58595b;
 }
 #search_results .search-filters .filter .parent > ul{
 	display: none;
@@ -115,6 +125,8 @@
 }
 #search_results .search-filters .filter .parent > ul li a{
 	color: #000;
+	text-decoration: none;
+	display: block;
 }
 #search_results .search-filters .filter a:hover{
 	color: #1197EC;

@@ -11,6 +11,7 @@
 	text-transform: uppercase;
 	font-size: 25px;
 	line-height: 30px;
+	text-decoration: none;
 }
 .news-item .news-content span.date{
 	color: #000;
@@ -41,6 +42,7 @@ span.author span.line{
 	font-size: 25px;
 	font-weight: 30px;
 	color: #1197EC;
+	text-decoration: none;
 }
 #blog-content .news{
 	margin-top: 25px;

@@ -46,12 +46,14 @@ html, button, input, select, textarea {
 	font-size: 14px;
 	font-weight: bold;
 	position: relative;
+	text-decoration: none;
 }
 #header #header-menu #menu ul li a:hover{
 	color: #1197EC;
 }
 #header #header-menu #menu ul li.current-menu-item a{
 	color: #1197ec;
+	text-decoration: none;
 }
 #header #header-menu #menu ul li.current-menu-item a:before{
 	content: " ";
@@ -108,6 +110,7 @@ html, button, input, select, textarea {
 	background-color: #c7c8ca;
 	background-position: center;
 	background-repeat: no-repeat;
+	text-decoration: none;
 }
 #header #header-menu > .wrapper .top-social > a.in{
 	background-image: url('../images/social/icons/in.png');
@@ -169,6 +172,7 @@ body.cms-home #header #header-landing{
 	-webkit-box-shadow: 4px -4px 0px -2px rgba(0, 0, 0, 0.15);
     -moz-box-shadow: 4px -4px 0px -2px rgba(0, 0, 0, 0.15);
     box-shadow: 4px -4px 0px -2px rgba(0, 0, 0, 0.15);
+	text-decoration: none;
 }
 #header #header-landing #user > a#logout{
 	background-color: #59b6f2;
@@ -253,6 +257,7 @@ body.cms-home #header #header-landing{
 	width:35px;
 	height: 35px;
 	margin-left: 5px;
+	text-decoration: none;
 }
 #footer #copyright .social-links > a.facebook{
 	background: url('../images/social/facebook.png') center no-repeat transparent;
@@ -469,6 +474,10 @@ div#home-main-content{
 	padding-left: 15px;
 	background: url('../images/list-arrow.png') left 3px no-repeat transparent;
 }
+#tab-content-category .group-category .list-category div.parent a{
+	text-decoration: none;
+	color: #58595b;
+}
 #tab-content-category .group-category .list-category div.parent.has-child.active{
 	background: url('../images/list-arrow-active.png') left 5px no-repeat transparent;
 }
@@ -482,6 +491,7 @@ div#home-main-content{
 #tab-content-category .group-category .list-category div.parent.has-child > ul li a{
 	color: #000;
 	font-size: 13px;
+	text-decoration: none;
 }
 
 /*
@@ -507,6 +517,7 @@ div#home-main-content{
 .block.news-categories ul > li .item-content a{
 	font-weight: bold;
 	color: #000;
+	text-decoration: none;
 }
 .block.news-categories ul > li .item-content a:hover{
 	color: #1197EC;

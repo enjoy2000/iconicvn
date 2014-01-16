@@ -103,7 +103,9 @@
 						<span>
 							<?php echo $this->__('Ngành nghề') ?>:
 							<u class="text-blue underline">
-							<?php echo $job->getCategory()->getName() ?>
+								<a href="<?php echo $job->getCategory()->getUrl() ?>" title="<?php echo $job->getCategory()->getName() ?>">
+									<?php echo $job->getCategory()->getName() ?>
+								</a>
 							</u>
 						</span>
 					</div>

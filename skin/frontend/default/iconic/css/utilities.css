@@ -206,3 +206,7 @@ ol.grey > li:before{
 	counter-increment: my-counter;
 	background: url('../images/big-grey-circle.jpg') 7px -1px no-repeat transparent;
 }
+.col-main a{
+	color: #1197EC;
+	text-decoration: underline;
+}

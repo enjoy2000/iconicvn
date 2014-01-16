@@ -31,6 +31,7 @@ div#job-actions a{
 	text-align: center;
 	font-size: 17px;
 	margin-top: 30px;
+	text-decoration: none;
 }
 div.job-details-right .job-details{
 	border: solid 4px #d1d3d4;
