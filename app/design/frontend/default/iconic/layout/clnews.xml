@@ -84,9 +84,9 @@
         </reference>
         <reference name="content">
             <!-- <block type="core/template" name="contactForm" template="contacts/form.phtml"/> -->
-            <block type="clnews/newsitem" name="newsitem" template="clnews/newsitem.phtml"/>
         	<block type="clnews/news" name="right.clnews.latest" template="clnews/latest.phtml">
             </block>
+            <block type="clnews/newsitem" name="newsitem" template="clnews/newsitem.phtml"/>
         </reference>
     </clnews_newsitem_view>
 

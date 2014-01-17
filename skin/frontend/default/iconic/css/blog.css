@@ -51,3 +51,6 @@ span.author span.line{
 	color: #1197EC;
 	text-decoration: underline;
 }
+body.clnews-newsitem-view .news-categories{
+	margin-top: 60px;
+}
