@@ -19,7 +19,8 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 				
 				$config = array(
 		                    'auth' => 'login',
-						    'port' => '465',
+		                    'ssl'  => 'tls',
+						    'port' => 587,
 						    'username' => 'test',
 						    'password' => 'testing'
 							);

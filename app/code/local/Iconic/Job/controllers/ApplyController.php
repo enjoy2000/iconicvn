@@ -116,16 +116,15 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 				Mage::getSingleton('core/session')->addError(Mage::helper('job')->__('Not enough information.'));
 				$this->_redirect('job/apply', array('id'=>$data['id']));
 			}
-			/*
 			$config = array(
 	                    'auth' => 'login',
-					    'ssl' => 'tls',
-					    'username' => 'email2@domain.com',
-					    'password' => 'mypasshere'
+	                    'ssl'  => 'tls',
+					    'port' => 587,
+					    'username' => 'test',
+					    'password' => 'testing'
 						);
 	 
-			$transport = new Zend_Mail_Transport_Smtp('smtp.gmail.com', $config);
-			*/
+			$transport = new Zend_Mail_Transport_Smtp('mail.iconicvn.com', $config);
 			//get general contact from config admin
 			/* Sender Name */
 			$nameAdmin = Mage::getStoreConfig('trans_email/ident_general/name'); 
