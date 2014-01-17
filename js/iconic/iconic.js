@@ -31,7 +31,7 @@
 		$('#contact-us').on('submit', function(e){
 			e.preventDefault();
 			$.ajax({
-				url: 'job/index/contact',
+				url: '/job/index/contact',
 				type: 'POST',
 				data: $(this).serialize(),
 				success: function(msg){
