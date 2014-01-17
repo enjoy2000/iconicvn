@@ -157,8 +157,8 @@
                         <div class="input-box fll width-45">
                             <select required placeholder="<?php echo $this->__('Chọn giới tính') ?>" name="sex" title="<?php echo $this->__('Chọn giới tính') ?>" id="sex" class="select-box required-entry">
                             	<option value=""><?php echo $this->__('Chọn giới tính') ?></option>
-                            	<option value="<?php echo $this->__('Nam') ?>"><?php echo $this->__('Nam') ?></option>
-                            	<option value="<?php echo $this->__('Nữ') ?>"><?php echo $this->__('Nữ') ?></option>
+                            	<option <?php echo ($this->getFormData()->getSex()==$this->__('Nam')) ? 'selected="selected"' : '' ?> value="<?php echo $this->__('Nam') ?>"><?php echo $this->__('Nam') ?></option>
+                            	<option <?php echo ($this->getFormData()->getSex()==$this->__('Nữ')) ? 'selected="selected"' : '' ?> value="<?php echo $this->__('Nữ') ?>"><?php echo $this->__('Nữ') ?></option>
                             </select>
                         </div>
                         <div class="input-box flr width-45">
@@ -167,7 +167,7 @@
                             	<?php 
                             	$y = (int) Date('Y');
                             	for($i = $y-10; $i >= $y-60;$i--): ?>
-                            	<option value="<?php echo $i ?>"><?php echo $i ?></option>
+                            	<option <?php echo ($this->getFormData()->getBirthyear()==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $i ?></option>
                             	<?php endfor; ?>
                             </select>
                         </div>
@@ -177,7 +177,7 @@
                     	<div class="input-box">
                             <select required placeholder="<?php echo $this->__('Nơi cư trú') ?>" name="location" title="<?php echo $this->__('Nơi cư trú') ?>" id="location" class="select-box required-entry">
                             	<option value=""><?php echo $this->__('Nơi cư trú') ?></option>
-								
+								<!--
 								<option value="1">Hồ Chí Minh</option>
 								<option value="2">Hà Nội</option>
 								<option value="3">Hải Phòng</option>
@@ -240,7 +240,12 @@
 								<option value="61">Tuyên Quang</option>
 								<option value="62">Vĩnh Long</option>
 								<option value="63">Vĩnh Phúc</option>
-								<option value="64">Yên Bái</option>							
+								<option value="64">Yên Bái</option>
+								-->
+								<?php $list = Mage::getModel('job/listlocation')->getCollection() ?>
+								<?php foreach($list as $loc): ?>
+									<option <?php echo ($this->getFormData()->getLocation()==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getId() ?>"><?php echo $loc->getName() ?></option>
+								<?php endforeach; ?>	
                             </select>
                         </div>
                     </div>
@@ -255,3 +260,10 @@
         <?php endif; ?>
     </form>
 </div>
+<?php if($this->hasFormData()): ?>
+<script>
+	jQuery(document).ready(function(){
+		jQuery('select').css('color','black');
+	});
+</script>
+<?php endif; ?>

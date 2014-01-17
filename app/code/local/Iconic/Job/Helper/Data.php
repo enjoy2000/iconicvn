@@ -131,7 +131,7 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 	}
 	
 	public function getForgotUrl(){
-		return 'forgot-password';
+		return 'quen-mat-khau';
 	}
 }
 	

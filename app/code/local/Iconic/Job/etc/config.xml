@@ -72,6 +72,10 @@
             	<class>Iconic_Job_Model_Parentcategory</class>
                 <resourceModel>job_parent_category</resourceModel>
             </parentcategory>
+            <listlocation>
+            	<class>Iconic_Job_Model_Listlocation</class>
+                <resourceModel>list_location</resourceModel>
+            </listlocation>
             <location>
                 <class>Iconic_Job_Model_Location</class>
                 <resourceModel>job_location</resourceModel>
@@ -88,6 +92,9 @@
                     <parentcategory>
                         <table>job_parent_category</table>
                     </parentcategory>
+                    <listlocation>
+                        <table>list_location</table>
+                    </listlocation>
                     <location>
                         <table>job_location</table>
                     </location>
