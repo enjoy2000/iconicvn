@@ -260,7 +260,7 @@
         <?php endif; ?>
     </form>
 </div>
-<?php if($this->hasFormData()): ?>
+<?php if($this->getFormData()->getSex()): ?>
 <script>
 	jQuery(document).ready(function(){
 		jQuery('select').css('color','black');
