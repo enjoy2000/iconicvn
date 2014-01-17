@@ -16,6 +16,17 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 				$nameAdmin = Mage::getStoreConfig('trans_email/ident_general/name'); 
 				$emailAdmin = Mage::getStoreConfig('trans_email/ident_general/email');
 				
+				
+				$config = array(
+		                    'auth' => 'login',
+						    'port' => '465',
+						    'username' => 'test',
+						    'password' => 'testing'
+							);
+		 
+				$transport = new Zend_Mail_Transport_Smtp('mail.iconicvn.com', $config);
+				
+				
 				$bodyHtml = '<table><tbody>';
 				$bodyHtml .= '<tr><td align="center" colspan="2">' . Mage::helper('job')->__('Liên lạc từ IconicVN') . '</td></tr>';
 				$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Email').':</td><td> '.$post['email'].'</td></tr>';
