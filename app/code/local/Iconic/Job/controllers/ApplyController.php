@@ -140,7 +140,7 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 			
 			$mail->setBodyHtml($bodyHtml);
 			$mail->addTo('auto_iconic_vn@iconic-intl.com',Mage::helper('job')->__('IconicVN'));
-			$mail->setFrom('info@iconic-vn.com', Mage::helper('job')->__('IconicVN'));
+			$mail->setFrom('info@iconicvn.com', Mage::helper('job')->__('IconicVN'));
 			$mail->setSubject(Mage::helper('job')->__('Ứng tuyển').' "'. $job->getTitle()).'"';
 			$checkSend = $mail->send($transport);
 			if($checkSend){
