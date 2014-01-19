@@ -70,9 +70,6 @@
 	
 	<div class="news">
 	    <?php echo $this->contentFilter($item->getFullContent()); ?>
-	    <?php if ($item->getDocument()!=''): ?>
-	        <p class="loadfile"><a href="<?php echo Mage::Helper('clnews')->getFileUrl($item) ?>"><?php if ($item->getLink()): echo $item->getLink(); else: echo $this->__('Download attached document'); endif; ?></a></p>
-	    <?php endif ?>
 	    <?php if (Mage::helper('clnews')->showAuthor()): ?>
 	        <?php if ($item->getAuthor()): ?>
 	            <span><?php echo $this->__('Author: ').$item->getAuthor(); ?></span>

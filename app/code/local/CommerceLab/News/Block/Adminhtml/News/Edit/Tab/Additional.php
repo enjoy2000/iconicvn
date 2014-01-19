@@ -102,12 +102,6 @@ class CommerceLab_News_Block_Adminhtml_News_Edit_Tab_Additional extends Mage_Adm
         $fieldset = $form->addFieldset('news_options_data',
             array('legend'=>Mage::helper('clnews')->__('Advanced Post Options')));
 
-        $fieldset->addField('author', 'text', array(
-            'label'     => Mage::helper('clnews')->__('Author name'),
-            'name'      => 'author',
-            'style' => 'width: 520px;',
-            'after_element_html' => '<span class="hint"><p class="note">'.$this->__('Leave blank to disable').'</p></span>',
-        ));
 
         if ( Mage::getSingleton('adminhtml/session')->getNewsData() ) {
             $form->setValues(Mage::getSingleton('adminhtml/session')->getNewsData());

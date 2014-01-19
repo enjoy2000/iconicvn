@@ -67,8 +67,15 @@ class CommerceLab_News_Block_Adminhtml_News_Edit_Tab_Info extends Mage_Adminhtml
                     'required'  => true,
                     'values'    => Mage::getSingleton('adminhtml/system_store')->getStoreValuesForForm(false, true),
             ));
-        }
-
+        }		
+		
+        $fieldset->addField('author', 'text', array(
+            'label'     => Mage::helper('clnews')->__('Author name'),
+            'name'      => 'author',
+            'style' => 'width: 520px;',
+            'after_element_html' => '<span class="hint"><p class="note">'.$this->__('Leave blank to disable').'</p></span>',
+        ));
+		
         $categories = array();
         $collection = Mage::getModel('clnews/category')->getCollection()->setOrder('sort_id', 'asc');
         $nonEscapableNbspChar = html_entity_decode('&#160;', ENT_NOQUOTES, 'UTF-8');
