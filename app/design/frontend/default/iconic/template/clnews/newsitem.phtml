@@ -61,7 +61,7 @@
 	    -->
 	</div>
 	
-	<?php if ($item->getImageFullContentShow() && $item->getImageFullContent()): ?>
+	<?php if ($item->getImageFullContent()): ?>
 	    <div class="news_image">
 	        <?php $imageSize = $this->getFullImageSize($item) ?>
 	        <img src="<?php echo Mage::helper('clnews')->resizeImage(str_replace('clnews/', '', $item->getImageFullContent()), $imageSize['width'], $imageSize['height'], 'clnews'); ?>" />
