@@ -134,15 +134,15 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 		return 'quen-mat-khau';
 	}
 	
-	public function limitText($str, $limit=60){
+	public function limitText($str, $limit=58){
 		if(strlen($str) > $limit){
 			// truncate string
 		    $stringCut = substr($str, 0, $limit);
 		
 		    // make sure it ends in a word so assassinate doesn't become ass...
-		    $string = substr($stringCut, 0, strrpos($stringCut, ' ')).'...';
+		    $str = substr($stringCut, 0, strrpos($stringCut, ' ')).'...';
 		}
-		return $string;
+		return $str;
 	}
 }
 	
