@@ -120,8 +120,7 @@ class Iconic_Job_Block_Adminhtml_Job_Edit_Tab_Form extends Mage_Adminhtml_Block_
 		
 		$fieldset->addField('job_salary_to', 'text', array(
             'label'     => Mage::helper('job')->__('Salary To'),
-            'class'     => 'required-entry',
-            'required'  => true,
+            'required'  => false,
             'name'      => 'job_salary_to',
             'value'		=> '0',
         ));
