@@ -134,7 +134,7 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 		return 'quen-mat-khau';
 	}
 	
-	public function limitText($str, $limit=55){
+	public function limitText($str, $limit=60){
 		if(strlen($str) > $limit){
 			// truncate string
 		    $stringCut = substr($str, 0, $limit);
