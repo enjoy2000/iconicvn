@@ -133,5 +133,16 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 	public function getForgotUrl(){
 		return 'quen-mat-khau';
 	}
+	
+	public function limitText($str, $limit=55){
+		if(strlen($str) > $limit){
+			// truncate string
+		    $stringCut = substr($string, 0, $limit);
+		
+		    // make sure it ends in a word so assassinate doesn't become ass...
+		    $string = substr($stringCut, 0, strrpos($stringCut, ' ')).'...';
+		}
+		return $string;
+	}
 }
 	
