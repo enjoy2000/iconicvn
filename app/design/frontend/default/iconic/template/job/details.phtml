@@ -61,7 +61,17 @@ $jobs = $this->getJobsInCategory();
 		</p>
 		<p>
 			<span><?php echo $this->__('Lương:') ?></span>
-			<?php echo ($item->getJobSalary() == $item->getJobSalaryTo() && $item->getJobSalary() == 0) ? $this->__('Thương lượng') : $item->getJobSalary().' - '.$item->getJobSalaryTo().' '.$item->getJobSalaryCurrency().' ('.$item->getJobSalaryType().')'; ?>
+			<?php
+			if($item->getJobSalary() == $item->getJobSalaryTo() && $item->getJobSalary() == 0){
+				echo $this->__('Thương lượng');
+			}else{
+				echo $item->getJobSalary();
+				if($item->getJobSalaryTo()){
+					echo '- ' . $item->getJobSalaryTo();
+				}
+				echo $item->getJobSalaryCurrency().' ('.$item->getJobSalaryType().')';
+			}
+			?>
 		</p>
 		<p class="last">
 			<span><?php echo $this->__('Loại hình:') ?></span>
