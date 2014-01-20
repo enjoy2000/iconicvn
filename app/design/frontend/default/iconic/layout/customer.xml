@@ -154,13 +154,13 @@ New customer registration
     </customer_account_forgotpassword>
 
     <customer_account_resetpassword translate="label">
-        <label>Reset a Password</label>
+        <label>Đổi lại mật khẩu</label>
         <remove name="right"/>
         <remove name="left"/>
 
         <reference name="head">
             <action method="setTitle" translate="title" module="customer">
-                <title>Reset a Password</title>
+                <title>Đổi lại mật khẩu</title>
             </action>
         </reference>
         <reference name="root">
@@ -168,7 +168,7 @@ New customer registration
                 <template>page/account.phtml</template>
             </action>
             <action method="setHeaderTitle" translate="title" module="customer">
-                <title>Reset a Password</title>
+                <title>Đổi lại mật khẩu</title>
             </action>
         </reference>
         <reference name="content">
