@@ -13,7 +13,7 @@
                     	<img class="fll" src="<?php echo $this->getBaseUrl().'media/'.$item->getImageShortContent() ?>" alt="" />
                         <div class="item-content flr">
 	                        <a title="<?php echo $item->getTitle() ?>" class="width-100" href="<?php echo str_replace('clnews', $this->getAlias(), $item->getUrl()) ?>" >
-	                        	<?php echo Mage::helper('job')->string_limit_words(strip_tags($item->getTitle())) ?>
+	                        	<?php echo Mage::helper('job')->string_limit_words(strip_tags($item->getTitle()), 10) ?>
 	                        </a>
 	                        <?php if (Mage::helper('clnews')->showDate()): ?>
 	                            <span class="width-100 date"><?php echo Mage::helper('job')->formatDate($item->getNewsTime()) ?></span>
