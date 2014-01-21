@@ -24,13 +24,13 @@ class Iconic_Job_Block_Adminhtml_Category_Edit_Tab_Form extends Mage_Adminhtml_B
 		$industry = Mage::getModel('job/parentcategory')->getCollection()->addFieldToFilter('group_category',array('eq'=>'industry'));
 		$function = Mage::getModel('job/parentcategory')->getCollection()->addFieldToFilter('group_category',array('eq'=>'function'));
 		foreach($industry as $cat){
-			$arrayIn = array(
+			$arrayIn[] = array(
 					'label'		=> $cat->getName(),
 					'value' 	=> $cat->getCategoryId(),
 					);	
 		}
 		foreach($function as $cat){
-			$arrayFuc = array(
+			$arrayFuc[] = array(
 					'label'		=> $cat->getName(),
 					'value' 	=> $cat->getCategoryId(),
 					);	
