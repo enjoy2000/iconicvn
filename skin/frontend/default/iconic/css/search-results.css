@@ -122,6 +122,9 @@
 	text-decoration: none;
 	color: #58595b;
 }
+#search_results .search-filters .filter .parent.active > a{
+	background: url('../images/list-arrow-active.png') 4px 5px no-repeat transparent;
+}
 #search_results .search-filters .filter .parent > ul{
 	display: none;
 	padding: 0 20px;
