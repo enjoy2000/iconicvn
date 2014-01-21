@@ -86,9 +86,9 @@ class Iconic_Job_Customer_AccountController extends Mage_Customer_AccountControl
             }
             $this->_getSession()
                 ->addSuccess( $this->_getHelper('customer')
-                ->__('Nếu có tài khoản đăng ký với email %s, bạn sẽ nhận được email để thiết lập lại mật khẩu.',
+                ->__('Nếu có tài khoản đăng ký với email %s, bạn sẽ nhận được email để thiết lập lại mật khẩu.<p>Vui lòng kiểm tra email của bạn.</p>',
                     $this->_getHelper('customer')->escapeHtml($email)));
-            $this->_redirect(Mage::helper('job')->getLoginUrl());
+            $this->_redirect(Mage::helper('job')->getForgotUrl());
             return;
         } else {
             $this->_getSession()->addError($this->__('Please enter your email.'));
