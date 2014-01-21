@@ -29,9 +29,6 @@ class CommerceLab_News_Block_Adminhtml_News_Edit_Form extends Mage_Adminhtml_Blo
             $this->getLayout()->getBlock('head')->setCanLoadTinyMce(true);
         }
 		
-		$configSettings = Mage::getSingleton('cms/wysiwyg_config')->getConfig();
-		$configSettings['files_browser_window_url'] = $this->getBaseUrl().'admin/cms_wysiwyg_images/index/';
-		Mage::getSingleton('cms/wysiwyg_config')->setConfig($configSettings);
     }
 
     protected function _prepareForm()
