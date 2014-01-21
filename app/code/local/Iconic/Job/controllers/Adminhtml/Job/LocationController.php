@@ -24,7 +24,7 @@ class Iconic_Job_Adminhtml_Job_LocationController extends Mage_Adminhtml_Control
  
         if ($jobModel->getId() || $jobId == 0) {
  
-            Mage::register('category_data', $jobModel);
+            Mage::register('location_data', $jobModel);
  
             $this->loadLayout();
             $this->_setActiveMenu('job/items');
