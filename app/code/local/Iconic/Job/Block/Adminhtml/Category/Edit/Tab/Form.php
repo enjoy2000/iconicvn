@@ -21,19 +21,35 @@ class Iconic_Job_Block_Adminhtml_Category_Edit_Tab_Form extends Mage_Adminhtml_B
             'name'      => 'url_key',
         ));
 		
-		$parentCategoryModel = Mage::getModel('job/parentcategory')->getCollection();
-		foreach($parentCategoryModel as $cat){
-			$parentCategoryValues[] = array(
-										'value' => $cat->getParentcategoryId(),
-										'label' => $cat->getName(),
-			);
+		$industry = Mage::getModel('job/parentcategory')->getCollection()->addFieldToFilter('group_category',array('eq'=>'industry'));
+		$function = Mage::getModel('job/parentcategory')->getCollection()->addFieldToFilter('group_category',array('eq'=>'function'));
+		foreach($industry as $cat){
+			$arrayIn = array(
+					'label'		=> $cat->getName(),
+					'value' 	=> $cat->getCategoryId(),
+					);	
+		}
+		foreach($function as $cat){
+			$arrayFuc = array(
+					'label'		=> $cat->getName(),
+					'value' 	=> $cat->getCategoryId(),
+					);	
 		}
 		$fieldset->addField('parentcategory_id', 'select', array(
             'label'     => Mage::helper('job')->__('Parent Category'),
             'class'     => 'required-entry',
             'required'  => true,
             'name'      => 'parentcategory_id',
-            'values'	=> $parentCategoryValues,
+            'values'	=> array(
+						array(
+							'label' => 'Industry',
+							'value' => $arrayIn,
+						),
+						array(
+							'label' => 'Function',
+							'value' => $arrayFuc,
+						),
+					),
         ));
  
         if ( Mage::getSingleton('adminhtml/session')->getCategoryData() )
