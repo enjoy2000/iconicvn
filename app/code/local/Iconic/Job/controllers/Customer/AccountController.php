@@ -98,7 +98,7 @@ class Iconic_Job_Customer_AccountController extends Mage_Customer_AccountControl
     }
 
 	public function afterforgotAction(){
-		$this->getLayout();
+		$this->loadLayout();
 		$this->renderLayout();
 	}
 }
