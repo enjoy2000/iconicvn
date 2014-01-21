@@ -744,3 +744,18 @@ div.gioi-thieu-cong-ty .content .quote-text .first-text:after{
 	top: 28px;
 	left: 230px;
 }
+
+div#other-web{
+	background-color: #404550;
+	color: #fff;
+	letter-spacing: -1px;
+	padding: 5px 0;
+}
+div#other-web > a{
+	color: #1197EC;
+	text-decoration: underline;
+	margin-right: 2px;
+}
+div#other-web > span.line{
+	margin: 0 5px;
+}
