@@ -751,11 +751,11 @@ div#other-web{
 	letter-spacing: -1px;
 	padding: 5px 0;
 }
-div#other-web > a{
+div#other-web a{
 	color: #1197EC;
 	text-decoration: underline;
 	margin-right: 2px;
 }
-div#other-web > span.line{
+div#other-web span.line{
 	margin: 0 5px;
 }
