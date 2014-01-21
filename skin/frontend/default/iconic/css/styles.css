@@ -747,15 +747,22 @@ div.gioi-thieu-cong-ty .content .quote-text .first-text:after{
 
 div#other-web{
 	background-color: #404550;
-	color: #fff;
+	color: #bcbec0;
 	letter-spacing: -1px;
 	padding: 5px 0;
+	text-align: center;
 }
 div#other-web a{
 	color: #1197EC;
 	text-decoration: underline;
 	margin-right: 2px;
 }
+div#other-web a:first-child{
+	margin-left: 10px;
+}
 div#other-web span.line{
-	margin: 0 5px;
+	margin: 0 10px;
+}
+div#other-web span.top{
+	color: #fff;
 }
