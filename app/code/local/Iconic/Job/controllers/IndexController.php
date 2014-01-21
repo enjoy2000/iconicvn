@@ -50,4 +50,9 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 		}
 		
 	}
+
+	public function afterforgotAction(){
+		$this->loadLayout();
+		$this->renderLayout();
+	}
 }
