@@ -26,13 +26,13 @@ class Iconic_Job_Block_Adminhtml_Category_Edit_Tab_Form extends Mage_Adminhtml_B
 		foreach($industry as $cat){
 			$arrayIn[] = array(
 					'label'		=> $cat->getName(),
-					'value' 	=> $cat->getCategoryId(),
+					'value' 	=> $cat->getParentcategoryId(),
 					);	
 		}
 		foreach($function as $cat){
 			$arrayFuc[] = array(
 					'label'		=> $cat->getName(),
-					'value' 	=> $cat->getCategoryId(),
+					'value' 	=> $cat->getParentcategoryId(),
 					);	
 		}
 		$fieldset->addField('parentcategory_id', 'select', array(
