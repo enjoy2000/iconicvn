@@ -20,7 +20,7 @@ class CommerceLab_News_Block_Adminhtml_News_Edit_Tab_Info extends Mage_Adminhtml
     public function initForm()
     {
         $form = new Varien_Data_Form();
-		$configSettings = array( 'add_widgets' => true, 'add_variables' => false, 'add_images' => true,  'files_browser_window_url'=> $this->getBaseUrl().'admin/cms_wysiwyg_images/index/'); 
+		$configSettings = array( 'add_widgets' => false, 'add_variables' => false, 'add_images' => true,  'files_browser_window_url'=> Mage::getSingleton('adminhtml/url')->getUrl('adminhtml/cms_wysiwyg_images/index'));
         $fieldset = $form->addFieldset('news_form', array('legend'=>Mage::helper('clnews')->__('News information')));
 
         $fieldset->addField('status', 'select', array(
