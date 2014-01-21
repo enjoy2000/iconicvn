@@ -20,7 +20,7 @@ class CommerceLab_News_Block_Adminhtml_News_Edit_Tab_Info extends Mage_Adminhtml
     public function initForm()
     {
     	$wysiwygConfig = Mage::getSingleton('cms/wysiwyg_config')->getConfig();
-		$wysiwygConfig->setData('files_browser_window_url', Mage::getSingleton('adminhtml/url')->getUrl('adminhtml/cms_wysiwyg_images/index'));
+		$wysiwygConfig->setData('files_browser_window_url', Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'admin/cms_wysiwyg_images/index/');
 		
         $form = new Varien_Data_Form();
         $fieldset = $form->addFieldset('news_form', array('legend'=>Mage::helper('clnews')->__('News information')));
