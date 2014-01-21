@@ -50,10 +50,8 @@ class Mage_Adminhtml_Block_Customer_Grid extends Mage_Adminhtml_Block_Widget_Gri
             ->addAttributeToSelect('email')
             ->addAttributeToSelect('created_at')
             ->addAttributeToSelect('group_id')			
-			->addAttributeToSelect('upload_cv') // THIS IS WHAT WE HAVE ADDED			
-			->addAttributeToSelect('sex')			
-			->addAttributeToSelect('birth_year')			
-			->addAttributeToSelect('location')
+			->addAttributeToSelect('upload_cv')		
+			->addAttributeToSelect('sex')
             ->joinAttribute('billing_postcode', 'customer_address/postcode', 'default_billing', null, 'left')
             ->joinAttribute('billing_city', 'customer_address/city', 'default_billing', null, 'left')
             ->joinAttribute('billing_telephone', 'customer_address/telephone', 'default_billing', null, 'left')
