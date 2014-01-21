@@ -178,29 +178,6 @@ New customer registration
             <block type="customer/account_resetpassword" name="resetPassword" template="customer/form/resetforgottenpassword.phtml"/>
         </reference>
     </customer_account_resetpassword>
-    
-    <customer_account_afterforgot translate="label">
-        <label>Đổi lại mật khẩu</label>
-        <remove name="right"/>
-        <remove name="left"/>
-
-        <reference name="head">
-            <action method="setTitle" translate="title" module="customer">
-                <title>Đổi lại mật khẩu</title>
-            </action>
-        </reference>
-        <reference name="root">
-            <action method="setTemplate">
-                <template>page/account.phtml</template>
-            </action>
-            <action method="setHeaderTitle" translate="title" module="customer">
-                <title>Đổi lại mật khẩu</title>
-            </action>
-        </reference>
-        <reference name="content">
-            <block type="core/template" name="afterforgot" template="customer/form/afterforgot.phtml"/>
-        </reference>
-    </customer_account_afterforgot>
 
     <customer_account_confirmation>
         <remove name="right"/>

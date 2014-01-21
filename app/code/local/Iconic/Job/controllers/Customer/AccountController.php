@@ -84,7 +84,8 @@ class Iconic_Job_Customer_AccountController extends Mage_Customer_AccountControl
                     return;
                 }
             }
-            $this->_redirect('job/index/afterforgot');			
+            $this->_redirect('job/index/afterforgot', array('m'=>$email));
+			
             return;
         } else {
             $this->_getSession()->addError($this->__('Please enter your email.'));
@@ -92,9 +93,4 @@ class Iconic_Job_Customer_AccountController extends Mage_Customer_AccountControl
             return;
         }
     }
-
-	public function afterforgotAction(){
-		$this->loadLayout();
-		$this->renderLayout();
-	}
 }

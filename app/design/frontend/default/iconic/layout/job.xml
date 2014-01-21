@@ -13,7 +13,7 @@
         <remove name="left"/>
 
         <reference name="head">
-            <action method="setTitle" translate="title" module="customer">
+            <action method="setTitle">
                 <title>Đổi lại mật khẩu</title>
             </action>
         </reference>
@@ -21,7 +21,7 @@
             <action method="setTemplate">
                 <template>page/account.phtml</template>
             </action>
-            <action method="setHeaderTitle" translate="title" module="customer">
+            <action method="setHeaderTitle">
                 <title>Đổi lại mật khẩu</title>
             </action>
         </reference>
