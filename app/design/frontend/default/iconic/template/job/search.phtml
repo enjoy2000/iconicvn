@@ -118,7 +118,11 @@
 				</div>
 			<?php endforeach; ?>
 			</div>
-			<?php echo $this->getPagerHtml() ?>
+			<?php
+			if($this->getResults()->count() > 12){
+				echo $this->getPagerHtml();
+			}
+			?>
 		<?php else: ?>
 			<div class="no-results clearfix">
 				<img class="fll" src="<?php echo $this->getSkinUrl('images/no-results.png') ?>" alt="" />
