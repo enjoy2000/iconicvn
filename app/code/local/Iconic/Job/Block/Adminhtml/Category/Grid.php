@@ -47,6 +47,12 @@ class Iconic_Job_Block_Adminhtml_Category_Grid extends Mage_Adminhtml_Block_Widg
             'index'     => 'p_name',
             'filter_index'=> 'p.name',
         ));
+		
+		$this->addColumn('group', array(
+            'header'    => Mage::helper('job')->__('Group Category'),
+            'align'     =>'left',
+            'index'     => 'p.group_category',
+        ));
  
         return parent::_prepareColumns();
     }
