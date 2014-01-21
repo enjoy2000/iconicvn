@@ -26,11 +26,13 @@
 #search_results .info-search > p span{
 	color: #1197EC;
 }
+#search_results .info-search .info{
+	margin-bottom: 10px;
+}
 #search_results .results .content{
 	border: solid 6px #acdbf8;
 	padding: 15px 0;
 	border-radius: 8px;
-	margin-top: 20px;
 }
 #search_results .results .content .job{
 	padding: 10px 20px;
