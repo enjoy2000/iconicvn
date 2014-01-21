@@ -58,13 +58,17 @@
 }
 #search_results .pager ol li{
 	display: inline-block;
-	padding: 3px 10px;
 	border: solid 1px #ccc;
+}
+#search_results .pager ol li > a{
+	padding: 3px 10px;
+	display: block;
 }
 #search_results .pager ol li.current{
 	border-color: #1197EC;
 	color: #1197EC;
 	font-weight: bold;
+	padding: 3px 10px;
 }
 #search_results .results .no-results{
 	border: solid 6px #acdbf8;
