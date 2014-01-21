@@ -128,6 +128,26 @@ class Mage_Adminhtml_Block_Customer_Grid extends Mage_Adminhtml_Block_Widget_Gri
         ));
 		*/
 		
+		$this->addColumn('sex', array(
+            'header'    => Mage::helper('customer')->__('Giới tính'),
+            'index'     => 'sex',
+        ));
+		
+		$this->addColumn('birthyear', array(
+            'header'    => Mage::helper('customer')->__('Năm sinh'),
+            'index'     => 'birthyear',
+        ));
+		
+		$this->addColumn('location', array(
+            'header'    => Mage::helper('customer')->__('Địa điểm'),
+            'index'     => 'location',
+        ));
+		
+		$this->addColumn('sex', array(
+            'header'    => Mage::helper('customer')->__('Giới tính'),
+            'index'     => 'sex',
+        ));
+		
 		$this->addColumn('upload_cv', array(
             'header'    => Mage::helper('customer')->__('CV'),
             'index'     => 'upload_cv',

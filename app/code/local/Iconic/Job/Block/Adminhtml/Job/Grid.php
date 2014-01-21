@@ -48,16 +48,16 @@ class Iconic_Job_Block_Adminhtml_Job_Grid extends Mage_Adminhtml_Block_Widget_Gr
             'width'     => '50px',
             'index'     => 'job_id',
         ));
+		
+		$this->addColumn('iconic_id', array(
+            'header'    => Mage::helper('job')->__('IconicId'),
+            'index'     => 'iconic_id',
+        ));
  
         $this->addColumn('title', array(
             'header'    => Mage::helper('job')->__('Title'),
             'align'     =>'left',
             'index'     => 'title',
-        ));
-		
-		$this->addColumn('iconic_id', array(
-            'header'    => Mage::helper('job')->__('IconicId'),
-            'index'     => 'iconic_id',
         ));
         
         $this->addColumn('category_id', array(
