@@ -50,13 +50,16 @@ class Mage_Adminhtml_Block_Customer_Grid extends Mage_Adminhtml_Block_Widget_Gri
             ->addAttributeToSelect('email')
             ->addAttributeToSelect('created_at')
             ->addAttributeToSelect('group_id')			
-			->addAttributeToSelect('upload_cv') // THIS IS WHAT WE HAVE ADDED
+			->addAttributeToSelect('upload_cv') // THIS IS WHAT WE HAVE ADDED			
+			->addAttributeToSelect('sex')			
+			->addAttributeToSelect('birth_year')			
+			->addAttributeToSelect('location')
             ->joinAttribute('billing_postcode', 'customer_address/postcode', 'default_billing', null, 'left')
             ->joinAttribute('billing_city', 'customer_address/city', 'default_billing', null, 'left')
             ->joinAttribute('billing_telephone', 'customer_address/telephone', 'default_billing', null, 'left')
             ->joinAttribute('billing_region', 'customer_address/region', 'default_billing', null, 'left')
             ->joinAttribute('billing_country_id', 'customer_address/country_id', 'default_billing', null, 'left');
-
+		
         $this->setCollection($collection);
 
         return parent::_prepareCollection();
@@ -133,19 +136,17 @@ class Mage_Adminhtml_Block_Customer_Grid extends Mage_Adminhtml_Block_Widget_Gri
             'index'     => 'sex',
         ));
 		
-		$this->addColumn('birthyear', array(
+		$this->addColumn('birth_year', array(
             'header'    => Mage::helper('customer')->__('Năm sinh'),
-            'index'     => 'birthyear',
+            'index'     => 'birth_year',
         ));
 		
 		$this->addColumn('location', array(
             'header'    => Mage::helper('customer')->__('Địa điểm'),
             'index'     => 'location',
-        ));
-		
-		$this->addColumn('sex', array(
-            'header'    => Mage::helper('customer')->__('Giới tính'),
-            'index'     => 'sex',
+            'filter'	=> false,
+            'sortable'  => false,
+            'renderer'  => 'Mage_Adminhtml_Block_Customer_Grid_Renderer_Location',
         ));
 		
 		$this->addColumn('upload_cv', array(
