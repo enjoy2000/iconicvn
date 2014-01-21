@@ -119,9 +119,7 @@
 			<?php endforeach; ?>
 			</div>
 			<?php
-			if($this->getResults()->count() > 12){
 				echo $this->getPagerHtml();
-			}
 			?>
 		<?php else: ?>
 			<div class="no-results clearfix">
