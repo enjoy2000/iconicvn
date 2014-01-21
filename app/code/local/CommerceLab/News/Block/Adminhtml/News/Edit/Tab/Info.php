@@ -19,8 +19,10 @@ class CommerceLab_News_Block_Adminhtml_News_Edit_Tab_Info extends Mage_Adminhtml
 {
     public function initForm()
     {
+    	$wysiwygConfig = Mage::getSingleton('cms/wysiwyg_config')->getConfig();
+		$wysiwygConfig->setData('files_browser_window_url', Mage::getSingleton('adminhtml/url')->getUrl('adminhtml/cms_wysiwyg_images/index'));
+		
         $form = new Varien_Data_Form();
-		$configSettings = array( 'add_widgets' => false, 'add_variables' => false, 'add_images' => true,  'files_browser_window_url'=> Mage::getSingleton('adminhtml/url')->getUrl('adminhtml/cms_wysiwyg_images/index'));
         $fieldset = $form->addFieldset('news_form', array('legend'=>Mage::helper('clnews')->__('News information')));
 
         $fieldset->addField('status', 'select', array(
@@ -132,7 +134,7 @@ class CommerceLab_News_Block_Adminhtml_News_Edit_Tab_Info extends Mage_Adminhtml
             'name'      => 'short_content',
             'label'     => Mage::helper('clnews')->__('Short Description'),
             'title'     => Mage::helper('clnews')->__('Short Description'),
-            'config'    => Mage::getSingleton('clnews/wysiwyg_config')->getConfig(),
+            'config'    => $wysiwygConfig,
             'wysiwyg' => true
         ));
 
@@ -142,14 +144,12 @@ class CommerceLab_News_Block_Adminhtml_News_Edit_Tab_Info extends Mage_Adminhtml
             'name'      => 'image_full_content',
         ));
 
-       
-
         $fieldset->addField('full_content', 'editor', array(
             'name'      => 'full_content',
             'label'     => Mage::helper('clnews')->__('Full Description'),
             'title'     => Mage::helper('clnews')->__('Full Description'),
             'style'     => 'height:36em',
-    		'config'    => $configSettings,
+    		'config'    => $wysiwygConfig,
             'wysiwyg'   => true
         ));
 
