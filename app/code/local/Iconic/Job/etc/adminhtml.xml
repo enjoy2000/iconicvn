@@ -59,6 +59,28 @@
                 </type>
             </children>
         </job>
+        <customer translate="title" module="customer">
+            <title>Candidates</title>
+            <sort_order>40</sort_order>
+            <!-- action>adminhtml/customer/</action -->
+            <children>
+                <manage translate="title" module="customer">
+                    <title>Manage Candidates</title>
+                    <action>adminhtml/customer/</action>
+                    <sort_order>0</sort_order>
+                </manage>
+                <group translate="title" module="customer">
+                    <title>Candidate Groups</title>
+                    <action>adminhtml/customer_group/</action>
+                    <sort_order>10</sort_order>
+                </group>
+                <online translate="title" module="customer">
+                    <title>Online Candidates</title>
+                    <action>adminhtml/customer_online/</action>
+                    <sort_order>100</sort_order>
+                </online>
+            </children>
+         </customer>
     </menu>
     <acl>
         <resources>
