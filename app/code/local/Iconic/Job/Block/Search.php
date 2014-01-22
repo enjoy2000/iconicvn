@@ -91,8 +91,8 @@ class Iconic_Job_Block_Search extends Mage_Core_Block_Template
 		//get list location and category
 		if (!$this->hasData('locationList')){
 			$location = Mage::getModel('job/location')->getCollection()
-						->addFieldToFilter('name',array('neq'=>'Hồ Chí Minh','neq'=>'Hà Nội'));
-			$location->getSelect()->order(new Zend_Db_Expr('lcase(trim(name))'),'ASC')->load();
+						->addFieldToFilter('name',array('neq'=>'Hồ Chí Minh','neq'=>'Hà Nội'))
+						->setOrder(new Zend_Db_Expr('lcase(trim(name))'),'ASC');
 			$listLocation = '<option value="'.Mage::getModel('job/location')->load('Hồ Chí Minh','name')->getId().'">Hồ Chí Minh</option><option value="'.Mage::getModel('job/location')->load('Hà Nội','name')->getId().'">Hà Nội</option>';
 			if ($this->getLocation()){
 				foreach ($location as $loc){
