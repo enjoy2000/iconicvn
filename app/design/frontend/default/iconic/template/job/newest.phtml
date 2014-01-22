@@ -39,7 +39,7 @@
 					?>
 						<?php if($ins < $this->getIndustryCollection()->count()/2): ?>
 						<div class="parent <?php echo ($subCat->count() > 0) ? 'has-child' : '' ?>">
-							<a href="<?php echo $parent->getUrl() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?></a>
+							<a href="<?php echo $parent->getUrl() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?> <span>(<?php echo $parent->getCount() ?>)</span></a>
 							<?php if($subCat->count() > 0): ?>
 							<ul>
 								<?php foreach($subCat as $cat): ?>
@@ -61,7 +61,7 @@
 					?>
 						<?php if($ins >= $this->getIndustryCollection()->count()/2): ?>
 						<div class="parent <?php echo ($subCat->count() > 0) ? 'has-child' : '' ?>">
-							<a href="<?php echo $parent->getUrl() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?></a>
+							<a href="<?php echo $parent->getUrl() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?> <span>(<?php echo $parent->getCount() ?>)</span></a>
 							<?php if($subCat->count() > 0): ?>
 							<ul>
 								<?php foreach($subCat as $cat): ?>
@@ -91,7 +91,7 @@
 					?>
 						<?php if($func < $this->getFunctionCollection()->count()/2): ?>
 						<div class="parent <?php echo ($subCat->count() > 0) ? 'has-child' : '' ?>">
-							<a href="<?php echo $parent->getUrl() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?></a>
+							<a href="<?php echo $parent->getUrl() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?> <span>(<?php echo $parent->getCount() ?>)</span></a>
 							<?php if($subCat->count() > 0): ?>
 							<ul>
 								<?php foreach($subCat as $cat): ?>
@@ -113,7 +113,7 @@
 					?>
 						<?php if($func >= $this->getFunctionCollection()->count()/2): ?>
 						<div class="parent <?php echo ($subCat->count() > 0) ? 'has-child' : '' ?>">
-							<a href="<?php echo $parent->getUrl() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?></a>
+							<a href="<?php echo $parent->getUrl() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?> <span>(<?php echo $parent->getCount() ?>)</span></a>
 							<?php if($subCat->count() > 0): ?>
 							<ul>
 								<?php foreach($subCat as $cat): ?>
@@ -143,7 +143,7 @@
 					?>
 						<?php if($lev < $this->getJobLevel()->count()/2): ?>
 						<div class="parent">
-							<a href="<?php echo Mage::getBaseUrl().'job/search?level='.$parent->getId() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?></a>
+							<a href="<?php echo Mage::getBaseUrl().'job/search?level='.$parent->getId() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?> <span>(<?php echo $parent->getCount() ?>)</span></a>
 						</div>
 						<?php endif; ?>
 					<?php $lev++; endforeach; ?>
@@ -156,7 +156,7 @@
 					?>
 						<?php if($lev >= $this->getJobLevel()->count()/2): ?>
 						<div class="parent">
-							<a href="<?php echo Mage::getBaseUrl().'job/search?level='.$parent->getId() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?></a>
+							<a href="<?php echo Mage::getBaseUrl().'job/search?level='.$parent->getId() ?>" title="<?php echo $parent->getName() ?>"><?php echo $parent->getName(); ?> <span>(<?php echo $parent->getCount() ?>)</span></a>
 						</div>
 						<?php endif; ?>
 					<?php $lev++; endforeach; ?>
