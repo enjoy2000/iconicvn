@@ -22,6 +22,7 @@ class Iconic_Job_Block_Search extends Mage_Core_Block_Template
 			$this->_fetchJobs();
 			$pager = $this->getLayout()->createBlock('page/html_pager', 'custom.pager');
 			$pager->setShowPerPage(false);
+			$pager->setAvailableLimit(array(12=>12));
 			$pager->setPageSize(12);
 	        $pager->setCollection($this->getResults());
 	        $this->setChild('pager', $pager);
