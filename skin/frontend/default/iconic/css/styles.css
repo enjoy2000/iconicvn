@@ -478,6 +478,9 @@ div#home-main-content{
 	text-decoration: none;
 	color: #58595b;
 }
+#tab-content-category .group-category .list-category div.parent a > span{
+	color: #f58220;
+}
 #tab-content-category .group-category .list-category div.parent a:hover{
 	color: #1197EC;
 }
