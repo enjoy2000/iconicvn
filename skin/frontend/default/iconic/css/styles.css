@@ -478,6 +478,9 @@ div#home-main-content{
 	text-decoration: none;
 	color: #58595b;
 }
+#tab-content-category .group-category .list-category div.parent a:hover{
+	color: #1197EC;
+}
 #tab-content-category .group-category .list-category div.parent.has-child.active{
 	background: url('../images/list-arrow-active.png') left 5px no-repeat transparent;
 }
