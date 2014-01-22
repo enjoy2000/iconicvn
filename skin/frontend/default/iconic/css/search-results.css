@@ -139,6 +139,7 @@
 #search_results .search-filters .filter .parent > ul{
 	display: none;
 	padding: 0 20px;
+	margin-bottom: 15px;
 }
 #search_results .search-filters .filter .parent > ul li a{
 	color: #000;
