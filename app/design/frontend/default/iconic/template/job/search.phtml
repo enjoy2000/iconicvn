@@ -142,7 +142,7 @@
 			?>
 				<div class="parent has-child">
 					<a href="<?php echo $parent->getUrl() ?>" class="filter-item" title="<?php echo $parent->getName() ?>">
-						<?php echo $parent->getName() ?>
+						<?php echo $parent->getName() ?> <span>(<?php echo $parent->getCount() ?>)</span>
 					</a>
 					<?php 
 					$subs = Mage::getModel('job/category')->getCollection()->addFieldToFilter('parentcategory_id',array('eq'=>$parent->getId()));
@@ -152,7 +152,7 @@
 						<?php foreach($subs as $sub): ?>						
 							<li>
 								<a href="<?php echo $sub->getUrl() ?>" title="<?php echo $sub->getName() ?>">
-									<?php echo $sub->getName() ?>
+									<?php echo $sub->getName() ?> <span>(<?php echo $sub->getCount() ?>)</span>
 								</a>
 							</li>
 						<?php endforeach; ?>
@@ -171,7 +171,7 @@
 			?>
 				<div class="parent has-child">
 					<a href="<?php echo $parent->getUrl() ?>" class="filter-item" title="<?php echo $parent->getName() ?>">
-						<?php echo $parent->getName() ?>
+						<?php echo $parent->getName() ?> <span>(<?php echo $parent->getCount() ?>)</span>
 					</a>
 					<?php 
 					$subs = Mage::getModel('job/category')->getCollection()->addFieldToFilter('parentcategory_id',array('eq'=>$parent->getId()));
@@ -181,7 +181,7 @@
 						<?php foreach($subs as $sub): ?>						
 							<li>
 								<a href="<?php echo $sub->getUrl() ?>" title="<?php echo $sub->getName() ?>">
-									<?php echo $sub->getName() ?>
+									<?php echo $sub->getName() ?> <span>(<?php echo $sub->getCount() ?>)</span>
 								</a>
 							</li>
 						<?php endforeach; ?>
@@ -196,7 +196,7 @@
 			<?php $levels = Mage::getModel('job/level')->getCollection(); ?>
 			<?php foreach($levels as $lv): ?>
 				<a class="filter-item" href="<?php echo Mage::getBaseUrl() ?>job/search?level=<?php echo $lv->getLevelId() ?>" title="<?php echo $lv->getName() ?>">
-					<?php echo $lv->getName() ?>
+					<?php echo $lv->getName() ?> <span>(<?php echo $lv->getCount() ?>)</span>
 				</a>
 			<?php endforeach; ?>
 		</div>

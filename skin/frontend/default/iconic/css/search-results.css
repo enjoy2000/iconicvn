@@ -126,6 +126,9 @@
 	text-decoration: none;
 	color: #58595b;
 }
+#search_results .search-filters .filter .parent > a > span{
+	color: #f58220;
+}
 #search_results .search-filters .filter .parent.active > a{
 	background: url('../images/list-arrow-active.png') 4px 5px no-repeat transparent;
 	
@@ -138,6 +141,9 @@
 	color: #000;
 	text-decoration: none;
 	display: block;
+}
+#search_results .search-filters .filter .parent > ul li a > span{
+	color:#F58220;
 }
 #search_results .search-filters .filter a:hover{
 	color: #1197EC;

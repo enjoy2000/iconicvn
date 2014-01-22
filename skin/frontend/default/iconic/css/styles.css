@@ -499,7 +499,9 @@ div#home-main-content{
 	font-size: 13px;
 	text-decoration: none;
 }
-
+#tab-content-category .group-category .list-category div.parent.has-child > ul li a > span{
+	color:#F58220;
+}
 /*
 	Latest blog
 */

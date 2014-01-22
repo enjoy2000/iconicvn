@@ -50,4 +50,9 @@ class Iconic_Job_Model_Category extends Mage_Core_Model_Abstract
 		$url = Mage::getBaseUrl().$parent->getUrlKey().'/'.$this->getUrlKey();
 		return $url;
 	}
+	
+	public function getCount(){
+		$count = Mage::getModel('job/job')->getCollection()->addFieldToFilter('category_id',$this->getId())->count();
+		return $count;
+	}
 }
