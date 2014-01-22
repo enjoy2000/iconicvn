@@ -109,6 +109,9 @@
 	padding: 2px 20px;
 	background: url('../images/list-arrow.png') left 5px center transparent no-repeat;
 }
+#search_results .search-filters .filter.job-level > a > span{
+	color: #F58220;
+}
 #search_results .search-filters .filter + .filter h4{
 	border-top: solid 1px #828282;
 	padding-top: 20px;
