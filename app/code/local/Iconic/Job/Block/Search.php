@@ -92,8 +92,9 @@ class Iconic_Job_Block_Search extends Mage_Core_Block_Template
 		if (!$this->hasData('locationList')){
 			$location = Mage::getModel('job/location')->getCollection()
 						->addFieldToFilter('name',array('neq'=>'Hồ Chí Minh','neq'=>'Hà Nội'))
-						->setOrder('name','ASC');
-			$listLocation = '<option value="'.Mage::getModel('job/location')->load('Hồ Chí Minh','name').'">Hồ Chí Minh</option><option value="'.Mage::getModel('job/location')->load('Hà Nội','name').'">Hà Nội</option>';
+						->setOrder('name','ASC')
+						->load();
+			$listLocation = '<option value="'.Mage::getModel('job/location')->load('Hồ Chí Minh','name')->getId().'">Hồ Chí Minh</option><option value="'.Mage::getModel('job/location')->load('Hà Nội','name')->getId().'">Hà Nội</option>';
 			if ($this->getLocation()){
 				foreach ($location as $loc){
 					$selected = "";

@@ -79,6 +79,7 @@ $jobs = $this->getJobsInCategory();
 		</p>
 	</div>
 	
+	<?php if($jobs->count() > 0): ?>
 	<!-- Jobs Same Category -->
 	<div id="job-same-category">
 		<div class="heading">
@@ -93,6 +94,7 @@ $jobs = $this->getJobsInCategory();
 		</ul>
 		<a class="text-blue view-more-category" href="<?php echo Mage::helper('job')->getCategoryUrl($item->getCategoryId()); ?>"><?php echo $this->__('Xem thêm') ?></a>
 	</div>
+	<?php endif; ?>
 </div>
 <script>
 (function($){
