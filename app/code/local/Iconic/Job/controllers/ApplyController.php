@@ -102,11 +102,11 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 			$cv = implode(';',$data['filenames']);
 			$mail = new Zend_Mail('UTF-8');
 			foreach($data['filenames'] as $filename){
-				$file = Mage::getBaseDir().'files/'.$user->getId().'/'.$filename;
+				$file = Mage::getBaseDir().'/files/'.$user->getId().'/'.$filename;
 				$at = new Zend_Mime_Part(file_get_contents($file));
 				$at->filename = basename($file);
 				$at->disposition = Zend_Mime::DISPOSITION_ATTACHMENT;
-				$at->encoding = Zend_Mime::ENCODING_8BIT;
+				$at->encoding = Zend_Mime::ENCODING_BASE64;
 				        
 				$mail->addAttachment($at);
 			}
@@ -139,7 +139,7 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 			$bodyHtml .= '</tbody></table>';
 			
 			$mail->setBodyHtml($bodyHtml);
-			$mail->addTo('enjoy3013@gmail.com',Mage::helper('job')->__('IconicVN'));
+			$mail->addTo('auto_iconic_vn@iconic-intl.com',Mage::helper('job')->__('IconicVN'));
 			$mail->setFrom('info@iconicvn.com', Mage::helper('job')->__('IconicVN'));
 			$mail->setSubject(Mage::helper('job')->__('Ứng tuyển').' "'. $job->getTitle()).'"';
 			$checkSend = $mail->send($transport);
