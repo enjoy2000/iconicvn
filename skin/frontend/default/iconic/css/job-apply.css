@@ -59,7 +59,7 @@ form#form-apply .row{
 #progress .bar{
 	height: 20px;
 	background-color: #1197EC;
-	color: #000;
+	color: #fff;
 	font-weight: bold;
 	text-align: center;
 }
