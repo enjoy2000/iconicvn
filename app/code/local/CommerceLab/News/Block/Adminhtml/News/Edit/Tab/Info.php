@@ -134,7 +134,7 @@ class CommerceLab_News_Block_Adminhtml_News_Edit_Tab_Info extends Mage_Adminhtml
             'name'      => 'short_content',
             'label'     => Mage::helper('clnews')->__('Short Description'),
             'title'     => Mage::helper('clnews')->__('Short Description'),
-            'config'    => $wysiwygConfig,
+            'config'    => Mage::getSingleton('cms/wysiwyg_config')->getConfig(),
             'wysiwyg' => true
         ));
 
@@ -149,7 +149,7 @@ class CommerceLab_News_Block_Adminhtml_News_Edit_Tab_Info extends Mage_Adminhtml
             'label'     => Mage::helper('clnews')->__('Full Description'),
             'title'     => Mage::helper('clnews')->__('Full Description'),
             'style'     => 'height:36em',
-    		'config'    => $wysiwygConfig,
+    		'config'    => Mage::getSingleton('cms/wysiwyg_config')->getConfig(),
             'wysiwyg'   => true
         ));
 
