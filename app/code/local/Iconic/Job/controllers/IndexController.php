@@ -47,12 +47,26 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 			}
 		}else{
 			$this->_redirect('/');
+			return;
 		}
 		
 	}
 
 	public function afterforgotAction(){
 		$this->loadLayout();
+		$this->renderLayout();
+	}
+	
+	public function afterregisterAction(){
+		$this->loadLayout();
+		//set breadcrumbs		
+		$helper = Mage::helper('job');
+		/*
+		if ($breadcrumbs = $this->getLayout()->getBlock('breadcrumbs')) {
+			$breadcrumbs->addCrumb('home', array('label'=>$helper->__('Trang chủ'), 'title'=>$helper->__('Trang chủ'), 'link'=>Mage::getBaseUrl()));
+			$breadcrumbs->addCrumb('search_results', array('label'=>$helper->__('Đăng ký'), 'title'=>$helper->__('Đăng ký'), 'link'=>Mage::getUrl(Mage::helper('job')->getRegisterUrl())));
+		}
+		*/
 		$this->renderLayout();
 	}
 }

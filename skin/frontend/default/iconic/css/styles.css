@@ -775,3 +775,19 @@ div#other-web span.top{
 	color: #fff;
 	margin-right: 20px;
 }
+body.job-index-afterregister #account-page{
+	background: url('../images/register-success.png') left bottom no-repeat #fff;
+	width: 620px;
+	padding: 10px;
+}
+body.job-index-afterregister #account-page .reg-success{
+	margin-bottom: 50px;
+}
+body.job-index-afterregister #account-page .reg-success h3{
+	color: #f58220;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 35px;
+	margin-bottom: 20px;
+	margin-top: 30px;
+}
