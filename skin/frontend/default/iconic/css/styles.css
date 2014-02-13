@@ -776,7 +776,7 @@ div#other-web span.top{
 	margin-right: 20px;
 }
 body.job-index-afterregister #account-page{
-	background: url('../images/register-success.png') left bottom no-repeat #fff;
+	background: url('../images/register-success.png') 15px bottom no-repeat #fff;
 	width: 620px;
 	padding: 10px;
 }
