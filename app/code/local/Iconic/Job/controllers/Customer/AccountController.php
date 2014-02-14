@@ -3,6 +3,7 @@
 require_once 'Mage/Customer/controllers/AccountController.php';
 class Iconic_Job_Customer_AccountController extends Mage_Customer_AccountController
 {
+	
     # Overloaded createPostAction
     public function createPostAction()
     {
@@ -30,7 +31,7 @@ class Iconic_Job_Customer_AccountController extends Mage_Customer_AccountControl
             	$customer->setBirthYear($this->getRequest()->getParam('birthyear'));
                 $customer->save();
                 $this->_dispatchRegisterSuccess($customer);
-                $this->_successProcessRegistration($customer);
+                $this->_redirect('job/index/afterregister');
                 return;
             } else {
                 $this->_addSessionError($errors);
