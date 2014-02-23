@@ -1,0 +1,261 @@
+<div class="create-cv">
+    <div class="page-title">
+        <h1><?php echo $this->__('Tạo hồ sơ') ?></h1>
+    </div>
+    <form action="/<?php echo Mage::helper('job')->getCreateCVUrl() ?>" method="post" id="form-validate">
+    	<div class="row heading">
+    		<span><?php echo $this->__('Thông tin chung') ?></span>
+    	</div>
+    	<div class="row row2">
+    		<input type="text" class="first" id="ho" name="ho" placeholder="<?php echo $this->__('Họ') ?>" value="<?php echo $this->getCustomer()->getLastname() ?>" />
+    		<input type="text" class="last" id="ten" name="ten" placeholder="<?php echo $this->__('Tên') ?>" value="<?php echo $this->getCustomer()->getFirstname() ?>" />
+    	</div>
+    	
+    	<div class="row row3">
+    		<select id="day" class="first" name="day">
+    			<option value=""><?php echo $this->__('Ngày') ?></option>
+            	<?php 
+            	for($i = 1; $i <= 31;$i++): ?>
+            	<option <?php echo ($this->getFormData()->getDay()==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $i ?></option>
+            	<?php endfor; ?>
+    		</select>
+    		<select id="month" name="month" class="middle">
+    			<option value=""><?php echo $this->__('Tháng') ?></option>
+            	<?php 
+            	for($i = 1; $i <= 12;$i++): ?>
+            	<option <?php echo ($this->getFormData()->getMonth()==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $this->__('Tháng') .' '. $i ?></option>
+            	<?php endfor; ?>
+    		</select>
+    		<select id="year" name="year">
+    			<option value=""><?php echo $this->__('Năm sinh') ?></option>
+            	<?php 
+            	$y = (int) Date('Y');
+            	for($i = $y-10; $i >= $y-60;$i--): ?>
+            	<option <?php echo ($this->getFormData()->getYear()==$i || $this->getCustomer()->getBirthYear()==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $i ?></option>
+            	<?php endfor; ?>
+    		</select>
+    	</div>
+    	
+    	<div class="row row2">
+    		<select name="sex" id="sex" class="first">
+    			<option value="">Gới tính</option>
+    			<option value="Nam">Nam</option>
+    			<option value="Nữ">Nữ</option>
+    		</select>
+    		<select name="nation" id="nation" class="last">
+    			<option value="">Quốc tịch</option>
+    			<option value="Việt Nam">Việt Nam</option>
+    			<option value="Nước Ngoài"></option>
+    		</select>
+    	</div>
+    	
+    	<div class="row row1">
+    		<input type="text" name="address" id="address" placeholder="Địa chỉ cư trú" />
+    	</div>
+    	
+    	<div class="row row2">
+    		<select name="location" id="location" class="first">
+    			<option value="">Thành phố</option>
+    			<?php $list = Mage::getModel('job/listlocation')->getCollection() ?>
+				<?php foreach($list as $loc): ?>
+					<option <?php echo ($this->getFormData()->getLocation()==$loc->getId() || $this->getCustomer()->getLocation() == $loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getId() ?>"><?php echo $loc->getName() ?></option>
+				<?php endforeach; ?>
+    		</select>
+    		
+    		<select name="country" id="country" class="last">
+    			<option value="">Quốc gia</option>
+    			<option value="Việt Nam">Việt Nam</option>
+    			<option value="Malaysia">Malaysia</option>
+    			<option value="Nhật Bản">Nhật Bản</option>
+    		</select>
+    	</div>
+    	
+    	<div class="row row2">
+    		<input type="text" class="first" name="phone" id="phone" placeholder="Di động" />
+    		<input type="text" class="last" name="email" id="email" placeholder="Email" value="<?php echo $this->getCustomer()->getEmail() ?>" />
+    	</div>
+    	
+    	<div class="row row3">
+    		<input type="text" class="first" name="salary" id="salary" placeholder="Mức lương hiện tại" />
+    		<select class="mid" name="currency" id="currency">
+    			<option value="USD">USD</option>
+    			<option value="VND">VND</option>
+    		</select>
+    		<select class="last" name="salarytype" id="salarytype">
+    			<option value="Gross">Gross</option>
+    			<option value="NET">NET</option>
+    		</select>
+    	</div>
+    	
+    	<div class="row heading">
+    		<span>Công việc mong muốn</span>
+    	</div>
+    	
+    	<div class="row row3">
+    		<input type="text" class="first" name="salary2" id="salary2" placeholder="Mức lương mong muốn" />
+    		<select class="mid" name="currency2" id="currency2">
+    			<option value="USD">USD</option>
+    			<option value="VND">VND</option>
+    		</select>
+    		<select class="last" name="salarytype2" id="salarytype2">
+    			<option value="Gross">Gross</option>
+    			<option value="NET">NET</option>
+    		</select>
+    	</div>
+    	
+    	<div class="row row2">
+    		<select class="first" name="category" id="category">
+    			<option value="">Ngành nghề</option>
+    			<?php $list = Mage::getModel('job/category')->getCollection() ?>
+				<?php foreach($list as $loc): ?>
+					<option <?php echo ($this->getFormData()->getCategory()==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getId() ?>"><?php echo $loc->getName() ?></option>
+				<?php endforeach; ?>
+    		</select>
+    		<select class="last" name="function" id="function">
+    			<option value="">Chức năng</option>
+    			<?php $list = Mage::getModel('job/category')->getCollection() ?>
+				<?php foreach($list as $loc): ?>
+					<option <?php echo ($this->getFormData()->getCategory()==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getId() ?>"><?php echo $loc->getName() ?></option>
+				<?php endforeach; ?>
+    		</select>
+    	</div>
+    	
+    	<div class="row row2">
+    		<select class="first" name="location2" id="location2">
+    			<option value="">Địa điểm</option>
+    			<?php $list = Mage::getModel('job/listlocation')->getCollection() ?>
+				<?php foreach($list as $loc): ?>
+					<option <?php echo ($this->getFormData()->getLocation2()==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getId() ?>"><?php echo $loc->getName() ?></option>
+				<?php endforeach; ?>
+    		</select>
+    		<select class="last" name="level" id="level">
+    			<option value="">Cấp độ công việc</option>
+    			<?php $list = Mage::getModel('job/level')->getCollection() ?>
+				<?php foreach($list as $loc): ?>
+					<option <?php echo ($this->getFormData()->getLevel()==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getId() ?>"><?php echo $loc->getName() ?></option>
+				<?php endforeach; ?>
+    		</select>
+    	</div>
+    	
+    	<div class="row heading">
+    		<span>Trình độ học vấn</span>
+    		<div class="last">
+	    		<input type="radio" name="education" value="1" /> Nước ngoài
+	    		<input type="radio" name="education" value="2" /> Việt Nam
+    		</div>
+    	</div>
+    	
+    	<div class="row row2">
+    		<input type="text" class="first" name="school" placeholder="Tên trường" />
+    		<input type="text" class="last" name="spec" placeholder="Chuyên ngành" />
+    	</div>
+    	
+    	<div class="row row2">
+    		<select name="degree" id="degree" class="first">
+    			<option value="">Bằng cấp chuyên môn</option>
+    		</select>
+    		<select name="graduate" id="graduate" class="last">
+    			<option value="">Năm tốt nghiệp</option>
+    			<?php 
+            	$y = (int) Date('Y');
+            	for($i = $y; $i >= $y-40;$i--): ?>
+            	<option <?php echo ($this->getFormData()->getGraduate()==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $i ?></option>
+            	<?php endfor; ?>
+    		</select>
+    	</div>
+    	
+    	<div class="row heading">
+    		<span>Kinh nghiệm</span>
+    		<div class="last">
+    			<input type="checkbox" name="newgraduate" id="newgraduate" value="1"/> Tôi vừa mới ra trường, chưa có kinh nghiệm làm việc
+    		</div>
+    	</div>
+    	
+    	<div class="row row2">
+    		<select class="first" name="location2" id="location2">
+    			<option value="">Địa điểm</option>
+    			<?php $list = Mage::getModel('job/listlocation')->getCollection() ?>
+				<?php foreach($list as $loc): ?>
+					<option <?php echo ($this->getFormData()->getLocation2()==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getId() ?>"><?php echo $loc->getName() ?></option>
+				<?php endforeach; ?>
+    		</select>
+    		<select class="last" name="level" id="level">
+    			<option value="">Cấp độ công việc</option>
+    			<?php $list = Mage::getModel('job/level')->getCollection() ?>
+				<?php foreach($list as $loc): ?>
+					<option <?php echo ($this->getFormData()->getLevel()==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getId() ?>"><?php echo $loc->getName() ?></option>
+				<?php endforeach; ?>
+    		</select>
+    	</div>
+    	
+    	<div class="row row2">
+    		<select class="first" name="level2" id="level2">
+    			<option value="">Cấp độ công việc</option>
+    			<?php $list = Mage::getModel('job/level')->getCollection() ?>
+				<?php foreach($list as $loc): ?>
+					<option <?php echo ($this->getFormData()->getLevel2()==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getId() ?>"><?php echo $loc->getName() ?></option>
+				<?php endforeach; ?>
+    		</select>
+    		<input type="text" class="last" name="exp" id="exp" placeholder="Số năm kinh nghiệm" />
+    	</div>
+    	
+    	<div class="row row1">
+    		<textarea placeholder="Chi tiết công việc" name="detail" id="detail"></textarea>
+    	</div>
+    	
+    	<div class="row heading">
+    		<span>Ngôn ngữ</span>
+    	</div>
+    	
+    	<div class="row lang">
+    		Tiếng Nhật
+    		<select name="jp" id="jp">
+    			<option value="">Cấp độ</option>
+    		</select>
+    	</div>
+    	
+    	<div class="row lang">
+    		Tiếng Anh
+    		<select name="en" id="en">
+    			<option value="">Cấp độ</option>
+    		</select>
+    	</div>
+    	
+    	<div class="row lang">
+    		Tiếng Việt
+    		<select name="vn" id="vn">
+    			<option value="">Cấp độ</option>
+    		</select>
+    	</div>
+    	
+    	<div class="row lang">
+    		Tiếng Nhật
+    		<textarea placeholder="Thêm trình độ ngoại ngữ khác" name="otherlang" id="otherlang"></textarea>
+    	</div>
+    	
+    	<div class="row heading">
+    		<span>Kỹ năng</span>
+    	</div>
+    	
+    	<div class="row lang">
+    		<textarea name="skill" id="skill"></textarea>
+    	</div>
+    	
+    	<div class="row">
+    		<input type="radio" name="decide" value="1" /> Tôi muốn tìm việc/chuyển việc ngay bây giờ<br />
+    		<input type="radio" name="decide" value="2" /> Tôi muốn chuyển nếu có công việc/công ty tốt hơn<br />
+    		<input type="radio" name="decide" value="3" /> Tôi muốn chuyển việc trong tương lai (sau 1 năm)<br />
+    	</div>
+    	
+    	<div class="row">
+    		<input type="submit" value="Gửi" name="submit" />
+    	</div>
+    </form>
+</div>
+<script>
+	jQuery('select').each(function() {
+		if (jQuery(this).val() != '') {
+			jQuery(this).css('color', 'black');
+		}
+	}); 
+</script>

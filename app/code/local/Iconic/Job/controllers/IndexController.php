@@ -69,4 +69,19 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 		*/
 		$this->renderLayout();
 	}
+	
+	public function createcvAction(){
+		$this->loadLayout();
+		// redirect if user not login 
+		if (!Mage::getSingleton('customer/session')->isLoggedIn()) {
+            $session = Mage::getSingleton('customer/session');
+            $session->setAfterAuthUrl( Mage::helper('core/url')->getCurrentUrl() );
+            $session->setBeforeAuthUrl( Mage::helper('core/url')->getCurrentUrl() );
+            $this->_redirect(Mage::helper('job')->getLoginUrl());
+            return $this;
+        }
+		
+		$formdata = $this->getRequest();
+		$this->renderLayout();
+	}
 }

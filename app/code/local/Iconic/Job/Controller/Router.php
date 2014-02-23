@@ -96,6 +96,14 @@ class Iconic_Job_Controller_Router extends Mage_Core_Controller_Varien_Router_Ab
                         ->setActionName('forgotpassword');
                         return true;
             	}
+            	if($parts[0] == Mage::helper('job')->getCreateCVUrl()){
+            		$request
+                        ->setModuleName('job')
+                        ->setControllerName('index')
+                        ->setActionName('createcv');
+                        return true;
+            	}
+				
                 $parentCategory = Mage::getModel('job/parentcategory')->load($parts[0], 'url_key');
                 if($parentCategory->getId()){
                 	if($parentCategory->getGroupCategory() == 'industry'){

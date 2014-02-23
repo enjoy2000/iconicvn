@@ -134,6 +134,10 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 		return 'quen-mat-khau';
 	}
 	
+	public function getCreateCVUrl(){
+		return 'tao-ho-so';
+	}
+	
 	public function limitText($str, $limit=58){
 		if(strlen($str) > $limit){
 			// truncate string
