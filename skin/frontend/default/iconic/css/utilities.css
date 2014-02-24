@@ -74,6 +74,9 @@
 select{
 	color: #000;
 }
+select:disabled{
+	background-color: #F0F0F0!important;
+}
 input{
 	width: 100%;
 	border: solid 3px #d2d4d5;

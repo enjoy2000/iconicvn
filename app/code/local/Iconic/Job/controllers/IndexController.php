@@ -80,8 +80,63 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
             $this->_redirect(Mage::helper('job')->getLoginUrl());
             return $this;
         }
-		
-		$formdata = $this->getRequest();
+		if($this->getRequest()->getPost()){
+			$data = $this->getRequest()->getPost();
+			$birthday = $data['day'].'/'.$data['month'].'/'.$data['year'];
+			//explode the date to get month, day and year
+			$birthDate = explode("/", $birthday);
+			//get age from date or birthdate
+			$age = (date("md", date("U", mktime(0, 0, 0, $birthDate[1], $birthDate[0], $birthDate[2]))) > date("md")
+				? ((date("Y") - $birthDate[2]) - 1)
+				: (date("Y") - $birthDate[2]));
+			$now = date('d/m/Y');
+			$arr = array($data['ho'].' '.$data['ten'], '', $age, $data['sex'], $birthday, $data['address'], '', '', $data['phone'], $data['nation'], $data['email'], $data['school'].'/'.$data['spec'], '~'.$data['graduate'], $data['jp'], $data['jp'], $data['jp'], $data['en'], $data['en'], $data['en'], $data['vn'], $data['vn'], $data['vn'], '', '', $data['skill'], '', '', $data['salary'].$data['currency'].'('.$data['salarytype'].')', '', $data['category2'], $data['function2'], '', '', $now);
+			
+			//Write Excel File
+			/** PHPExcel */
+			include Mage::getBaseDir().'/lib/PHPExcel.php';
+			/** PHPExcel_Writer_Excel2007 */
+			include Mage::getBaseDir().'/lib/PHPExcel/Writer/Excel2007.php';
+			$locationFile = Mage::getBaseDir()."/tmp/".Mage::getSingleton('customer/session')->getCustomer()->getEmail().date('Ymdhis').".xlsx";
+			Mage::helper('job')->writeExcel($locationFile,$arr);
+			
+			//Send mail
+			$mail = new Zend_Mail('UTF-8');
+			$at = new Zend_Mime_Part(file_get_contents($locationFile));
+			$at->filename = basename($locationFile);
+			$at->disposition = Zend_Mime::DISPOSITION_ATTACHMENT;
+			$at->encoding = Zend_Mime::ENCODING_BASE64;
+			$mail->addAttachment($at);
+			$config = array(
+	                    'auth' => 'login',
+	                    'ssl'  => 'tls',
+					    'port' => 587,
+					    'username' => 'test',
+					    'password' => 'testing'
+						);
+	 
+			$transport = new Zend_Mail_Transport_Smtp('mail.iconicvn.com', $config);
+			//get general contact from config admin
+			/* Sender Name */
+			$nameAdmin = Mage::getStoreConfig('trans_email/ident_general/name'); 
+			/* Sender Email */
+			$emailAdmin = Mage::getStoreConfig('trans_email/ident_general/email');
+			
+			$bodyHtml = '<table><tbody>';			
+			$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('CV for importing to IS.').':</td></tr>';
+			$bodyHtml .= '</tbody></table>';
+			
+			$mail->setBodyHtml($bodyHtml);
+			$mail->addTo('auto_iconic_vn@iconic-intl.com',Mage::helper('job')->__('IconicVN'));
+			$mail->setFrom('info@iconicvn.com', Mage::helper('job')->__('IconicVN'));
+			$mail->setSubject(Mage::helper('job')->__('[IS] CV của %s %s', $data['ho'], $data['ten']));
+			$checkSend = $mail->send($transport);
+			if($checkSend){
+				$this->_redirect('/');return;
+			}else{
+				echo 123;
+			}
+		}
 		$this->renderLayout();
 	}
 }

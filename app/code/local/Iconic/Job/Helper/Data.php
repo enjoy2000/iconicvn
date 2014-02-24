@@ -148,5 +148,27 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 		}
 		return $str;
 	}
+	
+	function writeExcel($fileName, $arrData){
+		//Create new PHPExcel object
+		$objPHPExcel = new PHPExcel();
+		//$objReader = PHPExcel_IOFactory::createReader('Excel2007');
+		$objReader = new PHPExcel_Reader_Excel2007();
+		$objPHPExcel = $objReader->load(Mage::getBaseDir()."/templates/register_form.xlsx");
+		// Set properties
+		$objPHPExcel->getProperties()->setCreator("ICONIC Manager");
+		$objPHPExcel->getProperties()->setLastModifiedBy("ICONIC Manager");
+		$objPHPExcel->getProperties()->setTitle("ICONIC Form");
+		$objPHPExcel->getProperties()->setSubject("Employment And Register");
+		$objPHPExcel->getProperties()->setDescription("Employment And Register");
+		$objPHPExcel->setActiveSheetIndex(0);
+		//Write Data
+		for($i=0;$i<count($arrData);$i++){
+			//$objPHPExcel->getActiveSheet()->getStyleByColumnAndRow($i,2)->getAlignment()->setWrapText(true);
+			$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($i,2,$arrData[$i]);
+		}
+		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+		$objWriter->save($fileName);
+	}
 }
 	
