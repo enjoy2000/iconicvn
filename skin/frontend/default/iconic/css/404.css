@@ -1,22 +1,26 @@
 #account-page{
 	width: 350px;
 	position: absolute;
-	background-color: #fff;
-	border: solid 1px #000;
-	top: 130px;
+	background-color: transparent;
+	top: 100px;
 	padding: 20px 80px;
-	border: solid 6px #acdbf8;
-	border-radius: 10px;	
-	-webkit-box-shadow: 6px -6px 0px -2px #0e79bd;
-    -moz-box-shadow: 6px -6px 0px -2px #0e79bd;
-    box-shadow: 6px -6px 0px -2px #0e79bd;
+	color: #fff;
 }
 #account-page h1{
-	text-align: center;
-	color: #1197EC;
+	color: #fff;
 	font-size: 23px;
 	margin: 15px 0;
 }
+#account-page a{
+	color: #000;
+}
 #header-landing .wrapper{
 	display: none;
+}
+#header #header-landing{
+	background: url('../images/404.jpg') top center no-repeat #1197EC;
+	min-height: 710px;
+}
+#header #header-menu #menu ul li.current-menu-item a:before{
+	border-width: 0;
 }
