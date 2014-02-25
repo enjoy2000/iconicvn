@@ -90,7 +90,12 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 				? ((date("Y") - $birthDate[2]) - 1)
 				: (date("Y") - $birthDate[2]));
 			$now = date('d/m/Y');
-			$arr = array($data['ho'].' '.$data['ten'], '', $age, $data['sex'], $birthday, $data['address'], '', '', $data['phone'], $data['nation'], $data['email'], $data['school'].'/'.$data['spec'], '~'.$data['graduate'], $data['jp'], $data['jp'], $data['jp'], $data['en'], $data['en'], $data['en'], $data['vn'], $data['vn'], $data['vn'], '', '', $data['skill'], '', '', $data['salary'].$data['currency'].'('.$data['salarytype'].')', '', $data['category2'], $data['function2'], '', '', $now);
+			$wish = 'Ngành nghề: ' . $data['category'];
+			$wish .= ' -- Chức năng: ' . $data['function'];
+			$wish .= ' -- Mức lương: ' . $data['salary2'].$data['currency2'].'('.$data['salarytype2'].')';
+			$wish .= ' -- Địa điểm: ' . $data['location2'];
+			$wish .= ' -- Cấp độ: ' . $data['level']; 
+			$arr = array($data['ho'].' '.$data['ten'], '', $age, $data['sex'], $birthday, $data['address'], '', '', $data['phone'], $data['nation'], $data['email'], $data['school'].'/'.$data['spec'], '~'.$data['graduate'], $data['jp'], $data['jp'], $data['jp'], $data['en'], $data['en'], $data['en'], $data['vn'], $data['vn'], $data['vn'], '', '', $data['skill'], $data['decide'], $data['decide'], $data['salary'].$data['currency'].'('.$data['salarytype'].')', '', $data['category2'], $data['function2'], $wish, '', $now);
 			
 			//Write Excel File
 			/** PHPExcel */
