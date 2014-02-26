@@ -102,14 +102,14 @@
     			<option value="">Địa điểm</option>
     			<?php $list = Mage::getModel('job/listlocation')->getCollection() ?>
 				<?php foreach($list as $loc): ?>
-					<option <?php echo ($this->getFormData()->getLocation2()==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getId() ?>"><?php echo $loc->getName() ?></option>
+					<option <?php echo ($this->getFormData()->getLocation2()==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getName() ?>"><?php echo $loc->getName() ?></option>
 				<?php endforeach; ?>
     		</select>
     		<select required class="last" name="level" id="level">
     			<option value="">Cấp độ công việc</option>
     			<?php $list = Mage::getModel('job/level')->getCollection() ?>
 				<?php foreach($list as $loc): ?>
-					<option <?php echo ($this->getFormData()->getLevel()==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getId() ?>"><?php echo $loc->getName() ?></option>
+					<option <?php echo ($this->getFormData()->getLevel()==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getName() ?>"><?php echo $loc->getName() ?></option>
 				<?php endforeach; ?>
     		</select>
     	</div>
@@ -169,7 +169,7 @@
     			<option value="">Cấp độ công việc</option>
     			<?php $list = Mage::getModel('job/level')->getCollection() ?>
 				<?php foreach($list as $loc): ?>
-					<option <?php echo ($this->getFormData()->getLevel2()==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getId() ?>"><?php echo $loc->getName() ?></option>
+					<option <?php echo ($this->getFormData()->getLevel2()==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getName() ?>"><?php echo $loc->getName() ?></option>
 				<?php endforeach; ?>
     		</select>
     		<select name="exp" required id="exp" class="last">
