@@ -26,24 +26,11 @@
             	<option <?php echo ($this->getFormData()->getMonth()==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $this->__('Tháng') .' '. $i ?></option>
             	<?php endfor; ?>
     		</select>
-    		<select disabled="disabled" id="yeartmp" name="yeartmp" class="last">
-    			<option value=""><?php echo $this->__('Năm sinh') ?></option>
-            	<?php 
-            	$y = (int) Date('Y');
-            	for($i = $y-10; $i >= $y-60;$i--): ?>
-            	<option <?php echo ($this->getFormData()->getYear()==$i || $this->getCustomer()->getBirthYear()==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $i ?></option>
-            	<?php endfor; ?>
-    		</select>
-    		<input type="hidden" name="year" value="<?php echo $this->getCustomer()->getBirthYear() ?>" />
+    		<input readonly class="last select" id="year" type="text" name="year" value="<?php echo $this->getCustomer()->getBirthYear() ?>" />
     	</div>
     	
     	<div class="row row2 clearfix">
-    		<select disabled="disabled" name="sextmp" id="sex" class="first">
-    			<option value="">Gới tính</option>
-    			<option <?php echo ($this->getCustomer()->getSex()=="Nam") ? 'selected="selected"' : '' ?> value="Nam">Nam</option>
-    			<option <?php echo ($this->getCustomer()->getSex()=="Nữ") ? 'selected="selected"' : '' ?> value="Nữ">Nữ</option>
-    		</select>
-    		<input type="hidden" name="sex" value="<?php echo $this->getCustomer()->getSex() ?>" />
+    		<input readonly type="text" id="sex" class="first select" name="sex" value="<?php echo $this->getCustomer()->getSex() ?>" />
     		<select required name="nation" id="nation" class="last">
     			<option value="">Quốc tịch</option>
     			<option value="Việt Nam">Việt Nam</option>
@@ -56,14 +43,7 @@
     	</div>
     	
     	<div class="row row2">
-    		<select disabled="disabled" name="locationtmp" id="location" class="first">
-    			<option value="">Thành phố</option>
-    			<?php $list = Mage::getModel('job/listlocation')->getCollection() ?>
-				<?php foreach($list as $loc): ?>
-					<option <?php echo ($this->getFormData()->getLocation()==$loc->getId() || $this->getCustomer()->getLocation() == $loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getId() ?>"><?php echo $loc->getName() ?></option>
-				<?php endforeach; ?>
-    		</select>
-    		<input type="hidden" name="location" value="<?php echo Mage::getModel('job/listlocation')->load($this->getCustomer()->getLocation())->getName() ?>" />
+    		<input readonly class="first select" type="text" id="location" name="location" value="<?php echo Mage::getModel('job/listlocation')->load($this->getCustomer()->getLocation())->getName() ?>" />
     		
     		<select required name="country" id="country" class="last">
     			<option value="">Quốc gia</option>

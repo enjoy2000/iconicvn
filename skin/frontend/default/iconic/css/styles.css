@@ -66,7 +66,7 @@ html, button, input, select, textarea {
 	border: solid transparent;
 }
 #header #header-menu #menu ul li.current-menu-item a:before{
-	border-color: #1197EC;
+	border-color: transparent;
 	border-top-color: #fff;
 	border-width: 10px;
 	margin-left: -10px;
@@ -173,6 +173,28 @@ body.cms-home #header #header-landing{
     -moz-box-shadow: 4px -4px 0px -2px rgba(0, 0, 0, 0.15);
     box-shadow: 4px -4px 0px -2px rgba(0, 0, 0, 0.15);
 	text-decoration: none;
+}
+#header #header-landing #user > a#login{
+	width: 240px;
+}
+#header #header-landing #user > a.logged{
+	display: block;
+	margin: 0px auto;
+	margin-top: 15px;
+}
+#header #header-landing #user.logged > a#logout{
+	border: 0;
+	background: transparent;
+	text-transform: none;
+	color: #fff;
+	border-left: solid 1px #fff;
+	border-radius: 0;
+	text-decoration: underline;
+	box-shadow: none;
+	line-height: 5px;
+}
+#header #header-landing #user.logged > a#logout:hover{
+	background-color: transparent;
 }
 #header #header-landing #user > a#logout{
 	background-color: #59b6f2;
@@ -322,9 +344,15 @@ body.cms-home #header #header-landing{
 	color: #939598;
 	background-color: #2a303c;
 	padding: 20px 0;
-	text-transform: uppercase;
 	font-weight: bold;
 	font-size: 16px;
+}
+#footer #copyright a.privacy{
+	display: block;
+	margin-bottom: 3px;
+	color: #1091eb;
+	text-transform: none;
+	font-size: 14px;
 }
 #footer #response{
 	border: solid 1px #1197ec;
@@ -790,4 +818,15 @@ body.job-index-afterregister #account-page .reg-success h3{
 	font-size: 35px;
 	margin-bottom: 20px;
 	margin-top: 30px;
+}
+.chinh-sach-bao-mat{
+	margin: 0 auto;
+}
+.chinh-sach-bao-mat h3{
+	font-size: 28px;
+	margin-top: 25px;
+}
+.chinh-sach-bao-mat p{
+	margin-top: 15px;
+	text-align: justify;
 }

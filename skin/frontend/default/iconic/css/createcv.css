@@ -18,8 +18,18 @@
 #account-page .row.row2 input{
 	width: 130px;
 }
+#account-page .row.row2 input.select{
+	background: url('../images/select-arrow.png') 120px center transparent no-repeat;
+}
+#account-page .row.row3 input.select{
+	background: url('../images/select-arrow.png') 70px center transparent no-repeat;
+}
 #account-page .row.row2 select{
 	width: 155px;
+	background: url('../images/select-arrow.png') 120px center transparent no-repeat;
+}
+#account-page .row.row3 select{
+	background: url('../images/select-arrow.png') 70px center transparent no-repeat;
 }
 #account-page .row.row3 input,
 #account-page .row.row3 select{
@@ -69,4 +79,10 @@
 	margin: auto;
 	display: block;
 	margin-top: 20px;
+}
+#year{
+	width: 80px!important;
+}
+input[readonly]{
+	background-color: #ffe6cb!important;
 }

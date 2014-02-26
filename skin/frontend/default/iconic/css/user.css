@@ -71,3 +71,32 @@
 #account-page p.forgot{
 	margin-top: 10px;
 }
+.createcv-success{
+	padding: 20px 0;
+}
+.createcv-success h3{
+	font-size: 35px;
+	color: #f58220;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+.createcv-success span#countdown{
+	color: #1197EC;
+}
+#account-page .create-account > p{
+	text-align: center;
+	letter-spacing: -0.5px;
+}
+#account-page .create-account > a.register{
+	display: block;
+	margin: 10px auto;
+	width: 180px;
+	text-decoration: none;
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 22px;
+	padding: 25px 45px;
+	background: url('../images/create-account.png') center no-repeat transparent;
+}
