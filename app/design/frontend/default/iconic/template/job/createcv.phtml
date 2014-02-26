@@ -59,7 +59,7 @@
     	</div>
     	
     	<div class="row row3">
-    		<input required type="text" class="first" name="salary" id="salary" placeholder="Mức lương hiện tại" />
+    		<input required type="number" class="first" name="salary" id="salary" placeholder="Mức lương hiện tại" />
     		<select required class="mid" name="currency" id="currency">
     			<option value="USD">USD</option>
     			<option value="VND">VND</option>
@@ -75,7 +75,7 @@
     	</div>
     	
     	<div class="row row3">
-    		<input required type="text" class="first" name="salary2" id="salary2" placeholder="Mức lương mong muốn" />
+    		<input required type="number" class="first" name="salary2" id="salary2" placeholder="Mức lương mong muốn" />
     		<select required class="mid" name="currency2" id="currency2">
     			<option value="USD">USD</option>
     			<option value="VND">VND</option>
@@ -129,7 +129,7 @@
     	
     	<div class="row row2">
     		<select required name="degree" id="degree" class="first">
-    			<option value="">Bằng cấp chuyên môn</option>
+    			<option value="">Bằng cấp</option>
     			<option value="Trung cấp">Trung cấp</option>
     			<option value="Cao đẳng">Cao đẳng</option>
     			<option value="Đại học">Đại học</option>
@@ -172,7 +172,12 @@
 					<option <?php echo ($this->getFormData()->getLevel2()==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getId() ?>"><?php echo $loc->getName() ?></option>
 				<?php endforeach; ?>
     		</select>
-    		<input required type="text" class="last" name="exp" id="exp" placeholder="Số năm kinh nghiệm" />
+    		<select name="exp" required id="exp" class="last">
+    			<option value="">Số năm kinh nghiệm</option>
+    			<?php for($i=0;$i<41;$i++): ?>
+    			<option value="<?php echo $i ?>"><?php echo $i ?> năm</option>
+    			<?php endfor; ?>
+    		</select>
     	</div>
     	
     	<div class="row row1">
