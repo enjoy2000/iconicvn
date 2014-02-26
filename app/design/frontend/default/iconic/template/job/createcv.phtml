@@ -7,8 +7,8 @@
     		<span><?php echo $this->__('Thông tin chung') ?></span>
     	</div>
     	<div class="row row2">
-    		<input required type="text" class="first" id="ho" name="ho" placeholder="<?php echo $this->__('Họ') ?>" value="<?php echo $this->getCustomer()->getLastname() ?>" />
-    		<input required type="text" class="last" id="ten" name="ten" placeholder="<?php echo $this->__('Tên') ?>" value="<?php echo $this->getCustomer()->getFirstname() ?>" />
+    		<input readonly required type="text" class="first" id="ho" name="ho" placeholder="<?php echo $this->__('Họ') ?>" value="<?php echo $this->getCustomer()->getLastname() ?>" />
+    		<input readonly required type="text" class="last" id="ten" name="ten" placeholder="<?php echo $this->__('Tên') ?>" value="<?php echo $this->getCustomer()->getFirstname() ?>" />
     	</div>
     	
     	<div class="row row3">
@@ -26,7 +26,7 @@
             	<option <?php echo ($this->getFormData()->getMonth()==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $this->__('Tháng') .' '. $i ?></option>
             	<?php endfor; ?>
     		</select>
-    		<select required id="year" name="year" class="last">
+    		<select disabled="disabled" id="yeartmp" name="yeartmp" class="last">
     			<option value=""><?php echo $this->__('Năm sinh') ?></option>
             	<?php 
             	$y = (int) Date('Y');
@@ -34,14 +34,16 @@
             	<option <?php echo ($this->getFormData()->getYear()==$i || $this->getCustomer()->getBirthYear()==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $i ?></option>
             	<?php endfor; ?>
     		</select>
+    		<input type="hidden" name="year" value="<?php echo $this->getCustomer()->getBirthYear() ?>" />
     	</div>
     	
     	<div class="row row2 clearfix">
-    		<select required name="sex" id="sex" class="first">
+    		<select disabled="disabled" name="sextmp" id="sex" class="first">
     			<option value="">Gới tính</option>
     			<option <?php echo ($this->getCustomer()->getSex()=="Nam") ? 'selected="selected"' : '' ?> value="Nam">Nam</option>
     			<option <?php echo ($this->getCustomer()->getSex()=="Nữ") ? 'selected="selected"' : '' ?> value="Nữ">Nữ</option>
     		</select>
+    		<input type="hidden" name="sex" value="<?php echo $this->getCustomer()->getSex() ?>" />
     		<select required name="nation" id="nation" class="last">
     			<option value="">Quốc tịch</option>
     			<option value="Việt Nam">Việt Nam</option>
@@ -54,13 +56,14 @@
     	</div>
     	
     	<div class="row row2">
-    		<select required name="location" id="location" class="first">
+    		<select disabled="disabled" name="locationtmp" id="location" class="first">
     			<option value="">Thành phố</option>
     			<?php $list = Mage::getModel('job/listlocation')->getCollection() ?>
 				<?php foreach($list as $loc): ?>
 					<option <?php echo ($this->getFormData()->getLocation()==$loc->getId() || $this->getCustomer()->getLocation() == $loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getId() ?>"><?php echo $loc->getName() ?></option>
 				<?php endforeach; ?>
     		</select>
+    		<input type="hidden" name="location" value="<?php echo Mage::getModel('job/listlocation')->load($this->getCustomer()->getLocation())->getName() ?>" />
     		
     		<select required name="country" id="country" class="last">
     			<option value="">Quốc gia</option>
@@ -72,7 +75,7 @@
     	
     	<div class="row row2">
     		<input required type="text" class="first" name="phone" id="phone" placeholder="Di động" />
-    		<input required type="text" class="last" name="email" id="email" placeholder="Email" value="<?php echo $this->getCustomer()->getEmail() ?>" />
+    		<input readonly required type="text" class="last" name="email" id="email" placeholder="Email" value="<?php echo $this->getCustomer()->getEmail() ?>" />
     	</div>
     	
     	<div class="row row3">
