@@ -137,6 +137,7 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 			$mail->setSubject(Mage::helper('job')->__('[IS] CV của %s %s', $data['ho'], $data['ten']));
 			$checkSend = $mail->send($transport);
 			if($checkSend){
+				Mage::getSingleton('customer/session')->getCustomer()->setCreatecv(1)->save();
 				$this->_redirect('job/index/aftercreatecv');return;
 			}else{
 				Mage::getSingleton('core/session')->addError(Mage::helper('job')->__('Cannot send email.'));

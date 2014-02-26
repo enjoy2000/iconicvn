@@ -91,7 +91,9 @@
 						<?php echo $this->__('Xin chào, %s', Mage::getSingleton('customer/session')->getCustomer()->getName()) ?>
 					</span>
 					<a class="last" id="logout" href="<?php echo Mage::helper('customer')->getLogoutUrl() ?>"><?php echo $this->__('Đăng xuất') ?></a>
-					<a href="<?php echo Mage::getUrl(Mage::helper('job')->getCreateCVUrl()) ?>" class="bg-blue logged" id="login"><?php echo $this->__('Tạo hồ sơ trên Iconic') ?></a>
+					<?php if(Mage::getSingleton('customer/session')->getCustomer()->getCreatecv() == 0): ?>
+						<a href="<?php echo Mage::getUrl(Mage::helper('job')->getCreateCVUrl()) ?>" class="bg-blue logged" id="login"><?php echo $this->__('Tạo hồ sơ trên Iconic') ?></a>
+					<?php endif; ?>
 				</div>
 				
 			<!-- Logged Out -->
