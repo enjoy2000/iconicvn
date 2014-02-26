@@ -196,7 +196,7 @@
 			<h4><?php echo $this->__('Tìm việc theo đối tượng') ?></h4>
 			<?php $levels = Mage::getModel('job/level')->getCollection(); ?>
 			<?php foreach($levels as $lv): ?>
-				<a class="filter-item" href="<?php echo Mage::getBaseUrl() ?>job/search?level=<?php echo $lv->getLevelId() ?>" title="<?php echo $lv->getName() ?>">
+				<a class="filter-item" href="<?php echo Mage::getBaseUrl().Mage::helper('job')->getSearchUrl() ?>?level=<?php echo $lv->getLevelId() ?>" title="<?php echo $lv->getName() ?>">
 					<?php echo $lv->getName() ?> <span>(<?php echo $lv->getCount() ?>)</span>
 				</a>
 			<?php endforeach; ?>

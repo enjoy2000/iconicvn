@@ -140,7 +140,7 @@ html, button, input, select, textarea {
  * LANDING
 */
 #header #header-landing{
-	min-height: 310px;
+	min-height: 340px;
 }
 body.cms-home #header #header-landing{
 	min-height: 600px;
