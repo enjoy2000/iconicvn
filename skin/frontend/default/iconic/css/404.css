@@ -1,0 +1,22 @@
+#account-page{
+	width: 350px;
+	position: absolute;
+	background-color: #fff;
+	border: solid 1px #000;
+	top: 130px;
+	padding: 20px 80px;
+	border: solid 6px #acdbf8;
+	border-radius: 10px;	
+	-webkit-box-shadow: 6px -6px 0px -2px #0e79bd;
+    -moz-box-shadow: 6px -6px 0px -2px #0e79bd;
+    box-shadow: 6px -6px 0px -2px #0e79bd;
+}
+#account-page h1{
+	text-align: center;
+	color: #1197EC;
+	font-size: 23px;
+	margin: 15px 0;
+}
+#header-landing .wrapper{
+	display: none;
+}

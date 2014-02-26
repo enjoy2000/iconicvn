@@ -146,7 +146,7 @@ Default layout, loads most of the pages
         </reference>
     </page_one_column>
     
-    <page_account translate="label">
+    <page_account translate="label" module="page">
     	<label>Account Pages</label>
         <reference name="root">
             <action method="setTemplate"><template>page/account.phtml</template></action>
@@ -154,4 +154,13 @@ Default layout, loads most of the pages
             <action method="setIsHandle"><applied>1</applied></action>
         </reference>
     </page_account>
+    
+    <page_error translate="label" module="page">
+    	<label>Account Pages</label>
+        <reference name="root">
+            <action method="setTemplate"><template>page/404.phtml</template></action>
+            <!-- Mark root page block that template is applied -->
+            <action method="setIsHandle"><applied>1</applied></action>
+        </reference>
+    </page_error>
 </layout>
