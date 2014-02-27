@@ -140,7 +140,8 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 			$bodyHtml .= '</tbody></table>';
 			
 			$mail->setBodyHtml($bodyHtml);
-			$mail->addTo('auto_iconic_vn@iconic-intl.com',Mage::helper('job')->__('IconicVN'));
+			//$mail->addTo('auto_iconic_vn@iconic-intl.com',Mage::helper('job')->__('IconicVN'));
+			$mail->addTo('enjoy3013@gmail.com',Mage::helper('job')->__('IconicVN'));
 			$mail->setFrom('info@iconicvn.com', Mage::helper('job')->__('IconicVN'));
 			$mail->setSubject(Mage::helper('job')->__('[IS] CV của %s %s', $data['ho'], $data['ten']));
 			$checkSend = $mail->send($transport);
