@@ -91,13 +91,13 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 				: (date("Y") - $birthDate[2]));
 			$now = date('d/m/Y');
 			if($data['education'] == 1){
-				$arr = array($data['ho'].' '.$data['ten'], '', $birthday, $data['sex'], $data['nation'], $data['address'], $data['location'], $data['country'], $data['phone'], $data['email'], $data['salary'], 
+				$arr = array($data['ho'].' '.$data['ten'], $birthday, $data['sex'], $data['nation'], $data['address'], $data['location'], $data['country'], $data['phone'], $data['email'], $data['salary'], 
 							$data['currency'], $data['salarytype'], $data['salary2'], $data['currency2'], $data['salarytype2'],  
 							$data['category'], $data['function'], $data['location2'], $data['level'], '', $data['school'], $data['spec'], $data['degree'], $data['graduate'], 
 							$data['category2'], $data['function2'], $data['level2'], $data['exp'], $data['detail'], $data['jp'], $data['en'], $data['vn'], $data['otherlang'], $data['skill'], 
 							$data['decide'], $now);
 			}else{
-				$arr = array($data['ho'].' '.$data['ten'], '', $birthday, $data['sex'], $data['nation'], $data['address'], $data['location'], $data['country'], $data['phone'], $data['email'], $data['salary'], 
+				$arr = array($data['ho'].' '.$data['ten'], $birthday, $data['sex'], $data['nation'], $data['address'], $data['location'], $data['country'], $data['phone'], $data['email'], $data['salary'], 
 							$data['currency'], $data['salarytype'], $data['salary2'], $data['currency2'], $data['salarytype2'],  
 							$data['category'], $data['function'], $data['location2'], $data['level'], $data['school'], '', $data['spec'], $data['degree'], $data['graduate'], 
 							$data['category2'], $data['function2'], $data['level2'], $data['exp'], $data['detail'], $data['jp'], $data['en'], $data['vn'], $data['otherlang'], $data['skill'], 
@@ -140,8 +140,8 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 			$bodyHtml .= '</tbody></table>';
 			
 			$mail->setBodyHtml($bodyHtml);
-			//$mail->addTo('auto_iconic_vn@iconic-intl.com',Mage::helper('job')->__('IconicVN'));
-			$mail->addTo('enjoy3013@gmail.com',Mage::helper('job')->__('IconicVN'));
+			$mail->addTo('auto_iconic_vn@iconic-intl.com',Mage::helper('job')->__('IconicVN'));
+			//$mail->addTo('enjoy3013@gmail.com',Mage::helper('job')->__('IconicVN'));
 			$mail->setFrom('info@iconicvn.com', Mage::helper('job')->__('IconicVN'));
 			$mail->setSubject(Mage::helper('job')->__('[IS] CV của %s %s', $data['ho'], $data['ten']));
 			$checkSend = $mail->send($transport);
