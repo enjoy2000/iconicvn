@@ -90,12 +90,20 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 				? ((date("Y") - $birthDate[2]) - 1)
 				: (date("Y") - $birthDate[2]));
 			$now = date('d/m/Y');
-			$wish = 'Ngành nghề: ' . $data['category'];
-			$wish .= ' -- Chức năng: ' . $data['function'];
-			$wish .= ' -- Mức lương: ' . $data['salary2'].$data['currency2'].'('.$data['salarytype2'].')';
-			$wish .= ' -- Địa điểm: ' . $data['location2'];
-			$wish .= ' -- Cấp độ: ' . $data['level']; 
-			$arr = array($data['ho'].' '.$data['ten'], '', $age, $data['sex'], $birthday, $data['address'], '', '', $data['phone'], $data['nation'], $data['email'], $data['school'].'/'.$data['spec'], '~'.$data['graduate'], $data['jp'], $data['jp'], $data['jp'], $data['en'], $data['en'], $data['en'], $data['vn'], $data['vn'], $data['vn'], '', '', $data['skill'], $data['decide'], $data['decide'], $data['salary'].$data['currency'].'('.$data['salarytype'].')', '', $data['category2'], $data['function2'], $wish, '', $now);
+			if($data['education'] == 1){
+				$arr = array($data['ho'].' '.$data['ten'], '', $birthday, $data['sex'], $data['nation'], $data['address'], $data['location'], $data['country'], $data['phone'], $data['email'], $data['salary'], 
+							$data['currency'], $data['salarytype'], $data['salary2'], $data['currency2'], $data['salarytype2'],  
+							$data['category'], $data['function'], $data['location2'], $data['level'], '', $data['school'], $data['spec'], $data['degree'], $data['graduate'], 
+							$data['category2'], $data['function2'], $data['level2'], $data['exp'], $data['detail'], $data['jp'], $data['en'], $data['vn'], $data['otherlang'], $data['skill'], 
+							$data['decide'], $now);
+			}else{
+				$arr = array($data['ho'].' '.$data['ten'], '', $birthday, $data['sex'], $data['nation'], $data['address'], $data['location'], $data['country'], $data['phone'], $data['email'], $data['salary'], 
+							$data['currency'], $data['salarytype'], $data['salary2'], $data['currency2'], $data['salarytype2'],  
+							$data['category'], $data['function'], $data['location2'], $data['level'], $data['school'], '', $data['spec'], $data['degree'], $data['graduate'], 
+							$data['category2'], $data['function2'], $data['level2'], $data['exp'], $data['detail'], $data['jp'], $data['en'], $data['vn'], $data['otherlang'], $data['skill'], 
+							$data['decide'], $now);
+			}
+			
 			
 			//Write Excel File
 			/** PHPExcel */

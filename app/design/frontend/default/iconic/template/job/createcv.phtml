@@ -1,3 +1,4 @@
+<?php $data = $this->getFormData(); ?>
 <div class="create-cv">
     <div class="page-title">
         <h1><?php echo $this->__('Tạo hồ sơ') ?></h1>
@@ -16,14 +17,14 @@
     			<option value=""><?php echo $this->__('Ngày') ?></option>
             	<?php 
             	for($i = 1; $i <= 31;$i++): ?>
-            	<option <?php echo ($this->getFormData()->getDay()==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $i ?></option>
+            	<option <?php echo ($data['day']==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $i ?></option>
             	<?php endfor; ?>
     		</select>
     		<select required id="month" name="month" class="middle">
     			<option value=""><?php echo $this->__('Tháng') ?></option>
             	<?php 
             	for($i = 1; $i <= 12;$i++): ?>
-            	<option <?php echo ($this->getFormData()->getMonth()==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $this->__('Tháng') .' '. $i ?></option>
+            	<option <?php echo ($data['month']==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $this->__('Tháng') .' '. $i ?></option>
             	<?php endfor; ?>
     		</select>
     		<input readonly class="last select" id="year" type="text" name="year" value="<?php echo $this->getCustomer()->getBirthYear() ?>" />
@@ -89,11 +90,11 @@
     	<div class="row row2">
     		<select required class="first" name="category" id="category">
     			<option value="">Ngành nghề</option>
-				<?php echo $this->getCategoryList($this->getFormData()->getCategory()) ?>
+				<?php echo $this->getCategoryList($data['category']) ?>
     		</select>
     		<select required class="last" name="function" id="function">
     			<option value="">Chức năng</option>
-				<?php echo $this->getFunctionList($this->getFormData()->getFunction()) ?>
+				<?php echo $this->getFunctionList($data['function']) ?>
     		</select>
     	</div>
     	
@@ -102,14 +103,14 @@
     			<option value="">Địa điểm</option>
     			<?php $list = Mage::getModel('job/listlocation')->getCollection() ?>
 				<?php foreach($list as $loc): ?>
-					<option <?php echo ($this->getFormData()->getLocation2()==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getName() ?>"><?php echo $loc->getName() ?></option>
+					<option <?php echo ($data['location2']==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getName() ?>"><?php echo $loc->getName() ?></option>
 				<?php endforeach; ?>
     		</select>
     		<select required class="last" name="level" id="level">
     			<option value="">Cấp độ công việc</option>
     			<?php $list = Mage::getModel('job/level')->getCollection() ?>
 				<?php foreach($list as $loc): ?>
-					<option <?php echo ($this->getFormData()->getLevel()==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getName() ?>"><?php echo $loc->getName() ?></option>
+					<option <?php echo ($data['level']==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getName() ?>"><?php echo $loc->getName() ?></option>
 				<?php endforeach; ?>
     		</select>
     	</div>
@@ -141,7 +142,7 @@
     			<?php 
             	$y = (int) Date('Y');
             	for($i = $y; $i >= $y-40;$i--): ?>
-            	<option <?php echo ($this->getFormData()->getGraduate()==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $i ?></option>
+            	<option <?php echo ($data['graduate']==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $i ?></option>
             	<?php endfor; ?>
     		</select>
     	</div>
@@ -156,11 +157,11 @@
     	<div class="row row2">
     		<select required class="first" name="category2" id="category2">
     			<option value="">Ngành nghề</option>
-				<?php echo $this->getCategoryList($this->getFormData()->getCategory2()) ?>
+				<?php echo $this->getCategoryList($data['category2']) ?>
     		</select>
     		<select required class="last" name="function2" id="function2">
     			<option value="">Chức năng</option>
-				<?php echo $this->getCategoryList($this->getFormData()->getFunction2()) ?>
+				<?php echo $this->getFunctionList($data['function2']) ?>
     		</select>
     	</div>
     	
@@ -169,13 +170,13 @@
     			<option value="">Cấp độ công việc</option>
     			<?php $list = Mage::getModel('job/level')->getCollection() ?>
 				<?php foreach($list as $loc): ?>
-					<option <?php echo ($this->getFormData()->getLevel2()==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getName() ?>"><?php echo $loc->getName() ?></option>
+					<option <?php echo ($data['level2']==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getName() ?>"><?php echo $loc->getName() ?></option>
 				<?php endforeach; ?>
     		</select>
     		<select name="exp" required id="exp" class="last">
     			<option value="">Số năm kinh nghiệm</option>
     			<?php for($i=0;$i<41;$i++): ?>
-    			<option value="<?php echo $i ?>"><?php echo $i ?> năm</option>
+    			<option <?php echo ($data['exp']==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $i ?> năm</option>
     			<?php endfor; ?>
     		</select>
     	</div>

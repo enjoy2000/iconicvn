@@ -11,7 +11,7 @@ class Iconic_Job_Block_Createcv extends Mage_Core_Block_Template
         $data = new Varien_Object();
 		$formdata = $this->getRequest()->getPost();
 		$data->addData($formData);
-        return $data;
+        return $formdata;
     }
 	
 	public function getCustomer(){
