@@ -82,13 +82,10 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
         }
 		if($this->getRequest()->getPost()){
 			$data = $this->getRequest()->getPost();
-			$birthday = $data['day'].'/'.$data['month'].'/'.$data['year'];
+			$birthday = $data['month'].'/'.$data['day'].'/'.$data['year'];
 			//explode the date to get month, day and year
 			$birthDate = explode("/", $birthday);
 			//get age from date or birthdate
-			$age = (date("md", date("U", mktime(0, 0, 0, $birthDate[1], $birthDate[0], $birthDate[2]))) > date("md")
-				? ((date("Y") - $birthDate[2]) - 1)
-				: (date("Y") - $birthDate[2]));
 			$now = date('d/m/Y');
 			if($data['education'] == 1){
 				$arr = array($data['ho'].' '.$data['ten'], $birthday, $data['sex'], $data['nation'], $data['address'], $data['location'], $data['country'], $data['phone'], $data['email'], $data['salary'], 
@@ -110,7 +107,7 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 			include Mage::getBaseDir().'/lib/PHPExcel.php';
 			/** PHPExcel_Writer_Excel2007 */
 			include Mage::getBaseDir().'/lib/PHPExcel/Writer/Excel2007.php';
-			$locationFile = Mage::getBaseDir()."/tmp/".Mage::getSingleton('customer/session')->getCustomer()->getEmail().date('Ymdhis').".xlsx";
+			$locationFile = Mage::getBaseDir()."/tmp/".Mage::getSingleton('customer/session')->getCustomer()->getEmail().".xlsx";
 			Mage::helper('job')->writeExcel($locationFile,$arr);
 			
 			//Send mail

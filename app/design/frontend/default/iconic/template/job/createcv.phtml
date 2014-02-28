@@ -14,14 +14,14 @@
     	
     	<div class="row row3">
     		<select required id="day" class="first" name="day">
-    			<option value=""><?php echo $this->__('Ngày') ?></option>
+    			<option value=""><?php echo $this->__('Ngày*') ?></option>
             	<?php 
             	for($i = 1; $i <= 31;$i++): ?>
             	<option <?php echo ($data['day']==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $i ?></option>
             	<?php endfor; ?>
     		</select>
     		<select required id="month" name="month" class="middle">
-    			<option value=""><?php echo $this->__('Tháng') ?></option>
+    			<option value=""><?php echo $this->__('Tháng*') ?></option>
             	<?php 
             	for($i = 1; $i <= 12;$i++): ?>
             	<option <?php echo ($data['month']==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $this->__('Tháng') .' '. $i ?></option>
@@ -32,7 +32,7 @@
     	
     	<div class="row row2 clearfix">
     		<input readonly type="text" id="sex" class="first select" name="sex" value="<?php echo $this->getCustomer()->getSex() ?>" />
-    		<select required name="nation" id="nation" class="last">
+    		<select name="nation" id="nation" class="last">
     			<option value="">Quốc tịch</option>
     			<option value="Việt Nam">Việt Nam</option>
     			<option value="Nước ngoài">Nước ngoài</option>
@@ -40,13 +40,13 @@
     	</div>
     	
     	<div class="row row1">
-    		<input required type="text" name="address" id="address" placeholder="Địa chỉ cư trú" />
+    		<input type="text" name="address" id="address" placeholder="Địa chỉ cư trú" />
     	</div>
     	
     	<div class="row row2">
     		<input readonly class="first select" type="text" id="location" name="location" value="<?php echo Mage::getModel('job/listlocation')->load($this->getCustomer()->getLocation())->getName() ?>" />
     		
-    		<select required name="country" id="country" class="last">
+    		<select name="country" id="country" class="last">
     			<option value="">Quốc gia</option>
     			<option value="Việt Nam">Việt Nam</option>
     			<option value="Malaysia">Malaysia</option>
@@ -55,18 +55,18 @@
     	</div>
     	
     	<div class="row row2">
-    		<input required type="number" class="first" name="phone" id="phone" placeholder="Di động" />
-    		<input readonly required type="text" class="last" name="email" id="email" placeholder="Email" value="<?php echo $this->getCustomer()->getEmail() ?>" />
+    		<input required type="number" class="first" name="phone" id="phone" placeholder="Di động*" />
+    		<input readonly required type="text" class="last" name="email" id="email" placeholder="Email*" value="<?php echo $this->getCustomer()->getEmail() ?>" />
     	</div>
     	
     	<div class="row row3">
-    		<input required type="number" class="first" name="salary" id="salary" placeholder="Mức lương hiện tại" />
-    		<select required class="mid" name="currency" id="currency">
+    		<input type="number" class="first" name="salary" id="salary" placeholder="Mức lương hiện tại" />
+    		<select class="mid" name="currency" id="currency">
     			<option value="">Tiền tệ</option>
     			<option value="USD">USD</option>
     			<option value="VND">VND</option>
     		</select>
-    		<select required class="last" name="salarytype" id="salarytype">
+    		<select class="last" name="salarytype" id="salarytype">
     			<option value="">Gross/NET</option>
     			<option value="Gross">Gross</option>
     			<option value="NET">NET</option>
@@ -78,7 +78,7 @@
     	</div>
     	
     	<div class="row row3">
-    		<input required type="number" class="first" name="salary2" id="salary2" placeholder="Mức lương mong muốn" />
+    		<input required type="number" class="first" name="salary2" id="salary2" placeholder="Mức lương mong muốn*" />
     		<select required class="mid" name="currency2" id="currency2">
     			<option value="">Tiền tệ</option>
     			<option value="USD">USD</option>
@@ -93,24 +93,24 @@
     	
     	<div class="row row2">
     		<select required class="first" name="category" id="category">
-    			<option value="">Ngành nghề</option>
+    			<option value="">Ngành nghề*</option>
 				<?php echo $this->getCategoryList($data['category']) ?>
     		</select>
     		<select required class="last" name="function" id="function">
-    			<option value="">Chức năng</option>
+    			<option value="">Chức năng*</option>
 				<?php echo $this->getFunctionList($data['function']) ?>
     		</select>
     	</div>
     	
     	<div class="row row2">
-    		<select required class="first" name="location2" id="location2">
+    		<select class="first" name="location2" id="location2">
     			<option value="">Địa điểm</option>
     			<?php $list = Mage::getModel('job/listlocation')->getCollection() ?>
 				<?php foreach($list as $loc): ?>
 					<option <?php echo ($data['location2']==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getName() ?>"><?php echo $loc->getName() ?></option>
 				<?php endforeach; ?>
     		</select>
-    		<select required class="last" name="level" id="level">
+    		<select class="last" name="level" id="level">
     			<option value="">Cấp độ công việc</option>
     			<?php $list = Mage::getModel('job/level')->getCollection() ?>
 				<?php foreach($list as $loc): ?>
@@ -122,18 +122,18 @@
     	<div class="row heading">
     		<span>Trình độ học vấn</span>
     		<div class="last">
-	    		<input required type="radio" name="education" value="1" /> Nước ngoài
-	    		<input required type="radio" name="education" value="2" /> Việt Nam
+	    		<input type="radio" name="education" value="1" /> Nước ngoài
+	    		<input type="radio" name="education" value="2" /> Việt Nam
     		</div>
     	</div>
     	
     	<div class="row row2">
-    		<input required type="text" class="first" name="school" placeholder="Tên trường" />
-    		<input required type="text" class="last" name="spec" placeholder="Chuyên ngành" />
+    		<input type="text" class="first" name="school" placeholder="Tên trường" />
+    		<input type="text" class="last" name="spec" placeholder="Chuyên ngành" />
     	</div>
     	
     	<div class="row row2">
-    		<select required name="degree" id="degree" class="first">
+    		<select name="degree" id="degree" class="first">
     			<option value="">Bằng cấp</option>
     			<option value="Trung cấp">Trung cấp</option>
     			<option value="Cao đẳng">Cao đẳng</option>
@@ -141,7 +141,7 @@
     			<option value="Thạc sĩ">Thạc sĩ</option>
     			<option value="Tiến sĩ">Tiến sĩ</option>
     		</select>
-    		<select required name="graduate" id="graduate" class="last">
+    		<select name="graduate" id="graduate" class="last">
     			<option value="">Năm tốt nghiệp</option>
     			<?php 
             	$y = (int) Date('Y');
@@ -160,24 +160,24 @@
     	
     	<div class="row row2">
     		<select required class="first" name="category2" id="category2">
-    			<option value="">Ngành nghề</option>
+    			<option value="">Ngành nghề*</option>
 				<?php echo $this->getCategoryList($data['category2']) ?>
     		</select>
     		<select required class="last" name="function2" id="function2">
-    			<option value="">Chức năng</option>
+    			<option value="">Chức năng*</option>
 				<?php echo $this->getFunctionList($data['function2']) ?>
     		</select>
     	</div>
     	
     	<div class="row row2">
-    		<select required class="first" name="level2" id="level2">
+    		<select class="first" name="level2" id="level2">
     			<option value="">Cấp độ công việc</option>
     			<?php $list = Mage::getModel('job/level')->getCollection() ?>
 				<?php foreach($list as $loc): ?>
 					<option <?php echo ($data['level2']==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getName() ?>"><?php echo $loc->getName() ?></option>
 				<?php endforeach; ?>
     		</select>
-    		<select name="exp" required id="exp" class="last">
+    		<select name="exp" id="exp" class="last">
     			<option value="">Số năm kinh nghiệm</option>
     			<?php for($i=0;$i<41;$i++): ?>
     			<option <?php echo ($data['exp']==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?> năm"><?php echo $i ?> năm</option>
@@ -195,9 +195,9 @@
     	
     	<div class="row lang">
     		<div class="text">
-    			Tiếng Nhật
+    			Tiếng Anh
     		</div>
-    		<select required name="jp" id="jp">
+    		<select name="en" id="en">
     			<option value="">Cấp độ</option>
     			<option value="Bản ngữ">Bản ngữ</option>
     			<option value="Cao cấp">Cao cấp</option>
@@ -209,9 +209,9 @@
     	
     	<div class="row lang">
     		<div class="text">
-    			Tiếng Anh
+    			Tiếng Nhật
     		</div>
-    		<select required name="en" id="en">
+    		<select name="jp" id="jp">
     			<option value="">Cấp độ</option>
     			<option value="Bản ngữ">Bản ngữ</option>
     			<option value="Cao cấp">Cao cấp</option>
@@ -225,7 +225,7 @@
     		<div class="text">
     			Tiếng Việt
     		</div>
-    		<select required name="vn" id="vn">
+    		<select name="vn" id="vn">
     			<option value="">Cấp độ</option>
     			<option value="Bản ngữ">Bản ngữ</option>
     			<option value="Cao cấp">Cao cấp</option>
@@ -254,7 +254,7 @@
     	</div>
     	
     	<div class="row">
-    		<input type="submit" value="Gửi" name="submit" />
+    		<input class="btn button-blue button" type="submit" value="Gửi" name="submit" />
     	</div>
     </form>
 </div>
@@ -271,6 +271,11 @@
 				$('#category2, #function2, #level2, #exp, #detail').prop('disabled', true);
 			}else{
 				$('#category2, #function2, #level2, #exp, #detail').prop('disabled', false);
+			}
+		});
+		$('input[type="number"]').on('keyup', function(){
+			if(!$.isNumeric($(this).val())){
+				alert('Bạn chỉ được điền số trong ô này.');
 			}
 		});
 	});

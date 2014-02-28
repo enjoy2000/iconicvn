@@ -2,6 +2,9 @@
 	width: 100%;
 	display: block;
 }
+#account-page .row input{
+	color: #000;
+}
 #account-page .row:after{
 	clear: both;
 	content: ".";
@@ -17,12 +20,6 @@
 
 #account-page .row.row2 input{
 	width: 130px;
-}
-#account-page .row.row2 input.select{
-	background: url('../images/select-arrow.png') 120px center transparent no-repeat;
-}
-#account-page .row.row3 input.select{
-	background: url('../images/select-arrow.png') 70px center transparent no-repeat;
 }
 #account-page .row.row2 select{
 	width: 155px;
@@ -79,6 +76,10 @@
 	margin: auto;
 	display: block;
 	margin-top: 20px;
+	border: 0;
+	font-size: 20px;
+	padding: 4px 20px;
+	color: #fff;
 }
 #year{
 	width: 80px!important;

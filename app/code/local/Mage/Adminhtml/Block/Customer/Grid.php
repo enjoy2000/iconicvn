@@ -54,6 +54,7 @@ class Mage_Adminhtml_Block_Customer_Grid extends Mage_Adminhtml_Block_Widget_Gri
 			->addAttributeToSelect('sex')	
 			->addAttributeToSelect('birth_year')	
 			->addAttributeToSelect('location')
+			->addAttributeToSelect('createcv')
             ->joinAttribute('billing_postcode', 'customer_address/postcode', 'default_billing', null, 'left')
             ->joinAttribute('billing_city', 'customer_address/city', 'default_billing', null, 'left')
             ->joinAttribute('billing_telephone', 'customer_address/telephone', 'default_billing', null, 'left')
@@ -150,11 +151,19 @@ class Mage_Adminhtml_Block_Customer_Grid extends Mage_Adminhtml_Block_Widget_Gri
         ));
 		
 		$this->addColumn('upload_cv', array(
-            'header'    => Mage::helper('customer')->__('CV'),
+            'header'    => Mage::helper('customer')->__('CV Uploaded'),
             'index'     => 'upload_cv',
             'filter'	=> false,
             'sortable'  => false,
             'renderer'  => 'Mage_Adminhtml_Block_Customer_Grid_Renderer_Link',
+        ));
+		
+		$this->addColumn('createcv', array(
+            'header'    => Mage::helper('customer')->__('CV Created'),
+            'index'     => 'createcv',
+            'filter'	=> false,
+            'sortable'  => false,
+            'renderer'  => 'Mage_Adminhtml_Block_Customer_Grid_Renderer_Cv',
         ));
 		
 		
