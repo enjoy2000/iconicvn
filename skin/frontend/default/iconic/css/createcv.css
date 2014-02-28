@@ -1,6 +1,19 @@
 #account-page .row{
 	width: 100%;
 	display: block;
+	position: relative;
+}
+#account-page .row .re{
+	position: absolute;
+	color: red;
+	left: -8px;
+	top: 16px;
+}
+#account-page .row .re2{
+	left: 188px;
+}
+#account-page .row .re3{
+	left: 115px;
 }
 #account-page .row input{
 	color: #000;

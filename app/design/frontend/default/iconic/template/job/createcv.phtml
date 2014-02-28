@@ -13,15 +13,17 @@
     	</div>
     	
     	<div class="row row3">
+    		<span class="re">*</span>
+    		<span class="re re3">*</span>
     		<select required id="day" class="first" name="day">
-    			<option value=""><?php echo $this->__('Ngày*') ?></option>
+    			<option value=""><?php echo $this->__('Ngày') ?></option>
             	<?php 
             	for($i = 1; $i <= 31;$i++): ?>
             	<option <?php echo ($data['day']==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $i ?></option>
             	<?php endfor; ?>
     		</select>
     		<select required id="month" name="month" class="middle">
-    			<option value=""><?php echo $this->__('Tháng*') ?></option>
+    			<option value=""><?php echo $this->__('Tháng') ?></option>
             	<?php 
             	for($i = 1; $i <= 12;$i++): ?>
             	<option <?php echo ($data['month']==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $this->__('Tháng') .' '. $i ?></option>
@@ -55,6 +57,7 @@
     	</div>
     	
     	<div class="row row2">
+    		<span class="re">*</span>
     		<input required type="number" class="first" name="phone" id="phone" placeholder="Di động*" />
     		<input readonly required type="text" class="last" name="email" id="email" placeholder="Email*" value="<?php echo $this->getCustomer()->getEmail() ?>" />
     	</div>
@@ -92,12 +95,14 @@
     	</div>
     	
     	<div class="row row2">
+    		<span class="re">*</span>
+    		<span class="re re2">*</span>
     		<select required class="first" name="category" id="category">
-    			<option value="">Ngành nghề*</option>
+    			<option value="">Ngành nghề</option>
 				<?php echo $this->getCategoryList($data['category']) ?>
     		</select>
     		<select required class="last" name="function" id="function">
-    			<option value="">Chức năng*</option>
+    			<option value="">Chức năng</option>
 				<?php echo $this->getFunctionList($data['function']) ?>
     		</select>
     	</div>
@@ -159,12 +164,14 @@
     	</div>
     	
     	<div class="row row2">
+    		<span class="re">*</span>
+    		<span class="re re2">*</span>
     		<select required class="first" name="category2" id="category2">
-    			<option value="">Ngành nghề*</option>
+    			<option value="">Ngành nghề</option>
 				<?php echo $this->getCategoryList($data['category2']) ?>
     		</select>
     		<select required class="last" name="function2" id="function2">
-    			<option value="">Chức năng*</option>
+    			<option value="">Chức năng</option>
 				<?php echo $this->getFunctionList($data['function2']) ?>
     		</select>
     	</div>
@@ -179,7 +186,7 @@
     		</select>
     		<select name="exp" id="exp" class="last">
     			<option value="">Số năm kinh nghiệm</option>
-    			<?php for($i=0;$i<41;$i++): ?>
+    			<?php for($i=1;$i<41;$i++): ?>
     			<option <?php echo ($data['exp']==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?> năm"><?php echo $i ?> năm</option>
     			<?php endfor; ?>
     		</select>
@@ -278,6 +285,7 @@
 				alert('Bạn chỉ được điền số trong ô này.');
 			}
 		});
+		//$('#category,#category2,#function,#function2').select2();
 	});
 })(jQuery);
 </script>

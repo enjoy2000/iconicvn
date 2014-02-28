@@ -92,7 +92,10 @@
             <action method="setTitle">
                 <title>Tạo hồ sơ</title>
             </action>
+             <action method="addJs"><script>select2/select2.min.js</script></action>
              <action method="addCss"><stylesheet>css/createcv.css</stylesheet></action>
+             <action method="addCss"><stylesheet>css/select2-bootstrap.css</stylesheet></action>
+             <action method="addCss"><stylesheet>css/select2.css</stylesheet></action>
         </reference>
         <reference name="content">
              <block type="job/createcv" name="createcv" template="job/createcv.phtml" />
