@@ -4,7 +4,7 @@ class Mage_Adminhtml_Block_Customer_Grid_Renderer_Cv
 {
     public function render(Varien_Object $row)
     {
-        if($row->getData($this->getColumn()->getIndex())=="0"){
+        if($row->getData($this->getColumn()->getIndex())==""){
             return "";
         }else{
         	$customer = Mage::getModel('customer/customer')->load($row->getId());
