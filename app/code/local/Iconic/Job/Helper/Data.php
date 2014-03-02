@@ -164,7 +164,7 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 		$objPHPExcel->setActiveSheetIndex(0);
 		//Write Data
 		for($i=0;$i<count($arrData);$i++){
-			$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($i,3,$arrData[$i]);
+			$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($i,2,$arrData[$i]);
 			//$objPHPExcel->getActiveSheet()->getStyleByColumnAndRow($i,3)->getAlignment()->setWrapText(true);
 		}
 		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
