@@ -104,13 +104,30 @@ html, button, input, select, textarea {
 	right: 20px;
 }
 #header #header-menu > .wrapper .top-social > a{
-	display: inline-block;
+	display: block;
+	float: left;
+	margin-left: 3px;
 	width: 34px;
 	height: 34px;
 	background-color: #c7c8ca;
 	background-position: center;
 	background-repeat: no-repeat;
 	text-decoration: none;
+}
+#header #header-menu > .wrapper .top-social > a.login{
+	padding-left: 30px;
+	text-transform: uppercase;
+	color: #fff;
+	background: url('../images/user.png') 5px center no-repeat #c7c8ca;
+	font-weight: bold;
+	letter-spacing: -0.5px;
+	font-size: 15px;
+	padding-top: 8px;
+	height: 26px;
+	width: 75px;
+}
+#header #header-menu > .wrapper .top-social > a.login:hover{
+	background-color: #a7a9ac;
 }
 #header #header-menu > .wrapper .top-social > a.in{
 	background-image: url('../images/social/icons/in.png');
