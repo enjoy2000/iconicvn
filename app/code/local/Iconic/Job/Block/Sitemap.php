@@ -24,7 +24,6 @@ class Iconic_Job_Block_Sitemap extends Mage_Core_Block_Template
 		
 		//set location list to view
 		$location = Mage::getModel('job/location')->getCollection()
-						->addFieldToFilter('name',array('neq'=>'Hồ Chí Minh','neq'=>'Hà Nội'))
 						->setOrder('url_key','ASC')->load();
 		$this->setLocationList($location);
 	}
