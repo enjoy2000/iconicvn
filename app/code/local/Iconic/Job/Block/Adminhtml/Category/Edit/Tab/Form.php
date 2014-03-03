@@ -15,6 +15,12 @@ class Iconic_Job_Block_Adminhtml_Category_Edit_Tab_Form extends Mage_Adminhtml_B
             'name'      => 'name',
         ));
 		
+		$fieldset->addField('name_en', 'text', array(
+            'label'     => Mage::helper('job')->__('English Trans'),
+            'required'  => false,
+            'name'      => 'name_en',
+        ));
+		
 		$fieldset->addField('url_key', 'text', array(
             'label'     => Mage::helper('job')->__('Url Key'),
             'required'  => false,
