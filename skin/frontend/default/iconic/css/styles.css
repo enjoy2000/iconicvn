@@ -348,11 +348,19 @@ body.cms-home #header #header-landing{
 	font-size: 16px;
 }
 #footer #copyright a.privacy{
-	display: block;
 	margin-bottom: 3px;
 	color: #1091eb;
 	text-transform: none;
 	font-size: 14px;
+}
+#footer #copyright a.sitemap{
+	margin-bottom: 3px;
+	color: #1091eb;
+	text-transform: none;
+	font-size: 14px;
+}
+#footer #copyright span.line{
+	color: #1091eb;
 }
 #footer #response{
 	border: solid 1px #1197ec;

@@ -9,5 +9,17 @@
 		$('select').click(function(){
 			$(this).css('color','#000');
 		});
+		
+		//toogle content on parent category click
+		$('div.parent.has-child > a').click(function(){
+			e.preventDefault();
+			$(this).parent().find('ul').toggle();
+			if($(this).parent().hasClass('active')){
+				$(this).parent().removeClass('active');
+			}else{
+				$(this).parent().addClass('active');
+			}
+			return;
+		});
 	});
 })(jQuery);

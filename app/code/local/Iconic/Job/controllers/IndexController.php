@@ -155,7 +155,11 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 
 	public function aftercreatecvAction(){
 		$this->loadLayout();
-		
+		$this->renderLayout();
+	}
+	
+	public function sitemapAction(){
+		$this->loadLayout();
 		$this->renderLayout();
 	}
 }

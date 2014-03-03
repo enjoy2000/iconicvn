@@ -103,6 +103,13 @@ class Iconic_Job_Controller_Router extends Mage_Core_Controller_Varien_Router_Ab
                         ->setActionName('createcv');
                         return true;
             	}
+				if($parts[0] == Mage::helper('job')->getSitemapUrl()){
+            		$request
+                        ->setModuleName('job')
+                        ->setControllerName('index')
+                        ->setActionName('sitemap');
+                        return true;
+            	}
 				
                 $parentCategory = Mage::getModel('job/parentcategory')->load($parts[0], 'url_key');
                 if($parentCategory->getId()){
