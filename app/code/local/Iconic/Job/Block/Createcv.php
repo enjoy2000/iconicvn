@@ -33,7 +33,7 @@ class Iconic_Job_Block_Createcv extends Mage_Core_Block_Template
 						if($cat->getName() == $postName){
 							$selected = " selected=\"selected\"";
 						}
-						$catOptions .= "<option value=\"{$cat->getName()}\"{$selected}>{$cat->getName()}</option>";
+						$catOptions .= "<option value=\"{$cat->getNameEn()}\"{$selected}>{$cat->getName()}</option>";
 					}
 					$listCategory .= '<optgroup label="'.$parent->getName().'">'.$catOptions.'</optgroup>';
 				}
@@ -42,7 +42,7 @@ class Iconic_Job_Block_Createcv extends Mage_Core_Block_Template
 					$categories = Mage::getModel('job/category')->getCollection()->addFieldToFilter('parentcategory_id', array('eq'=>$parent->getParentcategoryId()));
 					$catOptions = '';
 					foreach ($categories as $cat){
-						$catOptions .= '<option value="' . $cat->getName() . '">' . $cat->getName() . '</option>';
+						$catOptions .= '<option value="' . $cat->getNameEn() . '">' . $cat->getName() . '</option>';
 					}
 					$listCategory .= '<optgroup label="'.$parent->getName().'">'.$catOptions.'</optgroup>';
 				}
@@ -66,7 +66,7 @@ class Iconic_Job_Block_Createcv extends Mage_Core_Block_Template
 						if($cat->getName() == $postName){
 							$selected = " selected=\"selected\"";
 						}
-						$catOptions .= "<option value=\"{$cat->getName()}\"{$selected}>{$cat->getName()}</option>";
+						$catOptions .= "<option value=\"{$cat->getNameEn()}\"{$selected}>{$cat->getName()}</option>";
 					}
 					$listCategory .= '<optgroup label="'.$parent->getName().'">'.$catOptions.'</optgroup>';
 				}
@@ -75,7 +75,7 @@ class Iconic_Job_Block_Createcv extends Mage_Core_Block_Template
 					$categories = Mage::getModel('job/category')->getCollection()->addFieldToFilter('parentcategory_id', array('eq'=>$parent->getParentcategoryId()));
 					$catOptions = '';
 					foreach ($categories as $cat){
-						$catOptions .= '<option value="' . $cat->getName() . '">' . $cat->getName() . '</option>';
+						$catOptions .= '<option value="' . $cat->getNameEn() . '">' . $cat->getName() . '</option>';
 					}
 					$listCategory .= '<optgroup label="'.$parent->getName().'">'.$catOptions.'</optgroup>';
 				}
