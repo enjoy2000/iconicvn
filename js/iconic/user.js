@@ -8,15 +8,26 @@
 		
 		//style for select placeholder
 		$('select').each(function(){
-			$(this).focus(function(){
-				$(this).css('color', 'black');
-			});
-			$(this).change(function () {
-			    if($(this).val() == "") $(this).css('color', '#A6A6A6');
-			    else $(this).css("color","black");
-			});
+			var go = false;//switch off
+			$(this).on('fosus active click',function() {//on focus/active
+				$(this).css('color','black');
+			    doit($(this));//do it
+			}).on('change', function() {
+			    go=true;//go
+			    doit($(this));//and doit
+			}).on('blur', function() {doit($(this)); go = false; });//switch off on blur
 			
-			$(this).change();
+			function doit(el) {
+			    if (go) {//if go
+			        //do stuff here with el.val()
+			        if(el.val()==''){
+			        	el.css('color','#A6A6A6');
+			        }else{
+			        	el.css('color','black');
+			        }
+			        go = false;//switch off
+			    } else {go=true;}//else go
+			}
 		});
 		
 		//toogle content on parent category click
