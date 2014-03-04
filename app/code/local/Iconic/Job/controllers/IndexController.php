@@ -87,16 +87,18 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 			$birthDate = explode("/", $birthday);
 			//get age from date or birthdate
 			$now = date('d/m/Y');
+			$loc = Mage::helper('job')->noAccent($data['location']);
+			$loc2 = Mage::helper('job')->noAccent($data['location2']);
 			if($data['education'] == 1){
-				$arr = array($data['ho'].' '.$data['ten'], $birthday, $data['sex'], $data['nation'], $data['address'], $data['location'], $data['country'], $data['phone'], $data['email'], $data['salary'], 
+				$arr = array($data['ho'].' '.$data['ten'], $birthday, $data['sex'], $data['nation'], $data['address'], $loc, $data['country'], $data['phone'], $data['email'], $data['salary'], 
 							$data['currency'], $data['salarytype'], $data['salary2'], $data['currency2'], $data['salarytype2'],  
-							$data['category'], $data['function'], $data['location2'], $data['level'], '', $data['school'], $data['spec'], $data['degree'], $data['graduate'], 
+							$data['category'], $data['function'], $loc2, $data['level'], '', $data['school'], $data['spec'], $data['degree'], $data['graduate'], 
 							$data['category2'], $data['function2'], $data['level2'], $data['exp'], $data['detail'], $data['jp'], $data['en'], $data['vn'], $data['otherlang'], $data['skill'], 
 							$data['decide'], $now);
 			}else{
-				$arr = array($data['ho'].' '.$data['ten'], $birthday, $data['sex'], $data['nation'], $data['address'], $data['location'], $data['country'], $data['phone'], $data['email'], $data['salary'], 
+				$arr = array($data['ho'].' '.$data['ten'], $birthday, $data['sex'], $data['nation'], $data['address'], $loc, $data['country'], $data['phone'], $data['email'], $data['salary'], 
 							$data['currency'], $data['salarytype'], $data['salary2'], $data['currency2'], $data['salarytype2'],  
-							$data['category'], $data['function'], $data['location2'], $data['level'], $data['school'], '', $data['spec'], $data['degree'], $data['graduate'], 
+							$data['category'], $data['function'], $loc2, $data['level'], $data['school'], '', $data['spec'], $data['degree'], $data['graduate'], 
 							$data['category2'], $data['function2'], $data['level2'], $data['exp'], $data['detail'], $data['jp'], $data['en'], $data['vn'], $data['otherlang'], $data['skill'], 
 							$data['decide'], $now);
 			}
