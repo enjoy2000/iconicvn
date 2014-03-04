@@ -6,8 +6,14 @@
 		$('#account-page').css('left',left);
 		$('#header-landing').css('height',height);
 		
-		$('select').click(function(){
-			$(this).css('color','#000');
+		//style for select placeholder
+		$('select').each(function(){
+			$(this).change(function () {
+			    if($(this).val() == "") $(this).css('color', '#A6A6A6');
+			    else $(this).css("color","black");
+			});
+			
+			$(this).change();
 		});
 		
 		//toogle content on parent category click

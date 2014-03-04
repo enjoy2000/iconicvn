@@ -270,11 +270,6 @@
 <script>
 (function($){
 	$(document).ready(function(){
-		$('select').each(function() {
-			if ($(this).val() != '') {
-				$(this).css('color', 'black');
-			}
-		});
 		$('#newgraduate').on('change', function(){
 			if($(this).prop('checked')==true){
 				$('#category2, #function2, #level2, #exp, #detail').prop('disabled', true);
