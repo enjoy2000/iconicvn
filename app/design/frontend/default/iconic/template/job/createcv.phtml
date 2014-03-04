@@ -117,10 +117,11 @@
     		</select>
     		<select class="last" name="level" id="level">
     			<option value="">Cấp độ công việc</option>
-    			<?php $list = Mage::getModel('job/level')->getCollection() ?>
-				<?php foreach($list as $loc): ?>
-					<option <?php echo ($data['level']==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getName() ?>"><?php echo $loc->getName() ?></option>
-				<?php endforeach; ?>
+    			<option value="New Graduates/Entry Level">Mới Tốt Nghiệp/Chưa Có Kinh Nghiệm</option>
+    			<option value="Experienced">Có Kinh Nghiệm</option>
+    			<option value="Team Leader/Supervisor/Assistant Manager">Trưởng Nhóm/Giám Sát/Trợ Lý</option>
+    			<option value="Manager">Quản Lý</option>
+    			<option value="Executive Management">Quản Lý Cấp Cao</option>
     		</select>
     	</div>
     	
@@ -179,15 +180,16 @@
     	<div class="row row2">
     		<select class="first" name="level2" id="level2">
     			<option value="">Cấp độ công việc</option>
-    			<?php $list = Mage::getModel('job/level')->getCollection() ?>
-				<?php foreach($list as $loc): ?>
-					<option <?php echo ($data['level2']==$loc->getId()) ? 'selected="selected"' : '' ?> value="<?php echo $loc->getName() ?>"><?php echo $loc->getName() ?></option>
-				<?php endforeach; ?>
+    			<option value="New Graduates/Entry Level">Mới Tốt Nghiệp/Chưa Có Kinh Nghiệm</option>
+    			<option value="Experienced">Có Kinh Nghiệm</option>
+    			<option value="Team Leader/Supervisor/Assistant Manager">Trưởng Nhóm/Giám Sát/Trợ Lý</option>
+    			<option value="Manager">Quản Lý</option>
+    			<option value="Executive Management">Quản Lý Cấp Cao</option>
     		</select>
     		<select name="exp" id="exp" class="last">
     			<option value="">Số năm kinh nghiệm</option>
     			<?php for($i=1;$i<41;$i++): ?>
-    			<option <?php echo ($data['exp']==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?> năm"><?php echo $i ?> năm</option>
+    			<option <?php echo ($data['exp']==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $i ?> năm</option>
     			<?php endfor; ?>
     		</select>
     	</div>
