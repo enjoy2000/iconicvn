@@ -31,6 +31,27 @@ class Iconic_Job_Customer_AccountController extends Mage_Customer_AccountControl
             	$customer->setBirthYear($this->getRequest()->getParam('birthyear'));
                 $customer->save();
                 $this->_dispatchRegisterSuccess($customer);
+				//success action
+				$session = $this->_getSession();
+		        if ($customer->isConfirmationRequired()) {
+		            /** @var $app Mage_Core_Model_App */
+		            $app = $this->_getApp();
+		            /** @var $store  Mage_Core_Model_Store*/
+		            $store = $app->getStore();
+		            $customer->sendNewAccountEmail(
+		                'confirmation',
+		                $session->getBeforeAuthUrl(),
+		                $store->getId()
+		            );
+		            $customerHelper = $this->_getHelper('customer');
+		            $session->addSuccess($this->__('Account confirmation is required. Please, check your email for the confirmation link. To resend the confirmation email please <a href="%s">click here</a>.',
+		                $customerHelper->getEmailConfirmationUrl($customer->getEmail())));
+		            $url = $this->_getUrl('*/*/index', array('_secure' => true));
+		        } else {
+		            $session->setCustomerAsLoggedIn($customer);
+		            $session->renewSession();
+		            $url = $this->_welcomeCustomer($customer);
+		        }
                 $this->_redirect('job/index/afterregister');
                 return;
             } else {
