@@ -192,7 +192,7 @@ body.cms-home #header #header-landing{
 	text-decoration: none;
 }
 #header #header-landing #user > a#login{
-	width: 240px;
+	width: 260px;
 }
 #header #header-landing #user > a.logged{
 	display: block;
