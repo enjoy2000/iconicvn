@@ -25,6 +25,7 @@ class Iconic_Job_Controller_Router extends Mage_Core_Controller_Varien_Router_Ab
 
     public function match(Zend_Controller_Request_Http $request)
     {
+    	Mage::getSingleton('core/session', array("name" => "frontend"));
         if (!Mage::app()->isInstalled()) {
             Mage::app()->getFrontController()->getResponse()
                 ->setRedirect(Mage::getUrl('install'))
@@ -43,7 +44,39 @@ class Iconic_Job_Controller_Router extends Mage_Core_Controller_Varien_Router_Ab
         $identifier = trim($identifier, " /");
 
         $parts = explode("/", $identifier);
-
+		//url for tim-viec-lam
+		if($parts[0] == Mage::helper('job')->getSearchUrl()){
+			$request
+				->setModuleName('job')
+                ->setControllerName('search')
+                ->setActionName('index');
+			foreach($parts as $part){
+				$loc = Mage::getModel('job/location')->load($part, 'url_key');
+				$cat = Mage::getModel('job/category')->load($part, 'url_key');
+				if($loc->getId()){
+					$request
+						->setParam('location', $loc->getId());
+				}
+				if($cat->getId()){
+					$parent = Mage::getModel('job/parentcategory')->load($cat->getId(), 'parentcategory_id');
+					if($parent->getGroupCategory() == 'industry'){
+						$request
+							->setParam('category', $cat->getId());
+					}else{
+						$request
+							->setParam('function_category', $cat->getId());
+					}
+				}
+				if(!$loc->getId() && !$cat->getId() && ($part != Mage::helper('job')->getSearchUrl())){
+					$request
+						->setParam('q', Mage::getSingleton('core/session')->getKeywordSearch());
+					//Mage::getSingleton('core/session')->unsKeywordSearch();
+					
+				}
+			}
+			return true;
+		}
+        
         switch(count($parts)){
             case 2: //sub category
                 $category = Mage::getModel('job/category')->load($parts[1], 'url_key');
@@ -66,7 +99,7 @@ class Iconic_Job_Controller_Router extends Mage_Core_Controller_Varien_Router_Ab
 	                        return true;
 					}
                 }
-            case 1: //parent category
+            case 1: //parent category and other static link
             	
             	if($parts[0] == Mage::helper('job')->getRegisterUrl()){
             		$request
@@ -82,13 +115,14 @@ class Iconic_Job_Controller_Router extends Mage_Core_Controller_Varien_Router_Ab
                         ->setActionName('login');
                         return true;
             	}
+				/*
             	if($parts[0] == Mage::helper('job')->getSearchUrl()){
             		$request
                         ->setModuleName('job')
                         ->setControllerName('search')
                         ->setActionName('index');
                         return true;
-            	}
+            	}*/
             	if($parts[0] == Mage::helper('job')->getForgotUrl()){
             		$request
                         ->setModuleName('customer')

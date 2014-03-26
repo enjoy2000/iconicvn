@@ -1,9 +1,8 @@
 <?php
 class Iconic_Job_SearchController extends Mage_Core_Controller_Front_Action{
 	
-	public function indexAction(){		
+	public function indexAction(){
         $this->loadLayout();
-		
 		$searchBlock = $this->getLayout()->getBlock("job_search");
 
 		$q = $this->getRequest()->get("q");
@@ -40,5 +39,25 @@ class Iconic_Job_SearchController extends Mage_Core_Controller_Front_Action{
 		}
 		
 		$this->renderLayout();
+	}
+	
+	public function searchformAction(){
+		$request = $this->getRequest();
+		$url = Mage::helper('job')->getSearchUrl();
+		if($request->get('location')){
+			$url .= '/' . Mage::getModel('job/location')->load($request->get('location'))->getUrlKey();
+		}
+		if($request->get('category')){
+			$url .= '/' . Mage::getModel('job/category')->load($request->get('category'))->getUrlKey();
+		}
+		if($request->get('function_category')){
+			$url .= '/' . Mage::getModel('job/category')->load($request->get('function_category'))->getUrlKey();
+		}
+		if($request->get('q')){
+			$url .= '/' . Mage::helper('job')->formatUrlKey($request->get('q'));
+			Mage::getSingleton('core/session')->setKeywordSearch($request->get('q'));
+		}
+		$this->_redirect($url);
+		return;
 	}
 }
