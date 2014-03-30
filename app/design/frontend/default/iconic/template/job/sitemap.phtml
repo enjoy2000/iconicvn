@@ -172,7 +172,7 @@
 					<tr>
 					<?php $l=1;foreach($this->getLocationList() as $loc): ?>
 						<td>
-							<a href="<?php echo Mage::getBaseUrl().Mage::helper('job')->getSearchUrl() ?>?location=<?php echo $loc->getId() ?>" title="<?php echo $loc->getName() ?>">
+							<a href="<?php echo Mage::getBaseUrl().Mage::helper('job')->getSearchUrl() ?>/<?php echo $loc->getUrlKey() ?>" title="<?php echo $loc->getName() ?>">
 								<?php echo $loc->getName() ?>
 							</a>
 						</td>

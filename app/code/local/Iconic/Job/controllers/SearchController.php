@@ -56,6 +56,8 @@ class Iconic_Job_SearchController extends Mage_Core_Controller_Front_Action{
 		if($request->get('q')){
 			$url .= '/' . Mage::helper('job')->formatUrlKey($request->get('q'));
 			Mage::getSingleton('core/session')->setKeywordSearch($request->get('q'));
+		}else{
+			Mage::getSingleton('core/session')->unsKeywordSearch();
 		}
 		$this->_redirect($url);
 		return;

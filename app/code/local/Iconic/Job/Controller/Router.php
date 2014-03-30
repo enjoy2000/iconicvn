@@ -58,7 +58,7 @@ class Iconic_Job_Controller_Router extends Mage_Core_Controller_Varien_Router_Ab
 						->setParam('location', $loc->getId());
 				}
 				if($cat->getId()){
-					$parent = Mage::getModel('job/parentcategory')->load($cat->getId(), 'parentcategory_id');
+					$parent = Mage::getModel('job/parentcategory')->load($cat->getId());
 					if($parent->getGroupCategory() == 'industry'){
 						$request
 							->setParam('category', $cat->getId());

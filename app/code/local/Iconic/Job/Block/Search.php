@@ -125,7 +125,7 @@ class Iconic_Job_Block_Search extends Mage_Core_Block_Template
 					$catOptions = '';
 					foreach ($categories as $cat){
 						$selected = "";
-						if($cat->getCategoryId() == $this->getCategory()){
+						if($cat->getId() == $this->getCategory()){
 							$selected = " selected=\"selected\"";
 						}
 						$catOptions .= "<option value=\"{$cat->getCategoryId()}\"{$selected}>{$cat->getName()}</option>";
@@ -158,7 +158,7 @@ class Iconic_Job_Block_Search extends Mage_Core_Block_Template
 					$catOptions = '';
 					foreach ($categories as $cat){
 						$selected = "";
-						if($cat->getCategoryId() == $this->getFunctionCategory()){
+						if($cat->getId() == $this->getFunctionCategory()){
 							$selected = " selected=\"selected\"";
 						}
 						$catOptions .= "<option value=\"{$cat->getCategoryId()}\"{$selected}>{$cat->getName()}</option>";
