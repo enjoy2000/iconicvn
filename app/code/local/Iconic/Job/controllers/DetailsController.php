@@ -33,6 +33,10 @@ class Iconic_Job_DetailsController extends Mage_Core_Controller_Front_Action{
 		}	
 		//set title by job title
 		$this->getLayout()->getBlock('head')->setTitle($item->getTitle()); 
+		//set description
+		$desc = $item->getTitle();
+		$desc .= ' - ' . Mage::helper('job')->limitText(strip_tags($item->getInfo()), 160 - strlen($item->getTitle) - 6);
+		$this->getLayout()->getBlock('head')->setDescription($desc);
 		//set item to block
 		$this->getLayout()->getBlock('job_details')->setItem($item);
 		//set other varibles from other models			

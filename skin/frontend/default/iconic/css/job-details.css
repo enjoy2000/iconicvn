@@ -23,6 +23,14 @@ div.job-content > div > p.tit{
 div.job-content #job-info{
 	margin-bottom: 20px;
 }
+#share{
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+#share img.flr{
+	margin-right: 20px;
+	margin-top: 4px;
+}
 div#job-actions a{
 	margin-right: 15px;
 	display: inline-block;
@@ -30,7 +38,7 @@ div#job-actions a{
 	width: 100px;
 	text-align: center;
 	font-size: 17px;
-	margin-top: 30px;
+	margin-top: 15px;
 	text-decoration: none;
 	color: #fff;
 }
