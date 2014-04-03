@@ -855,3 +855,8 @@ body.job-index-afterregister #account-page .reg-success h3{
 	margin-top: 15px;
 	text-align: justify;
 }
+a.laban{
+	display: block;
+	float: right;
+	margin-top: 15px;
+}
