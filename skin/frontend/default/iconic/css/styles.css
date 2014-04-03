@@ -484,7 +484,7 @@ div#home-main-content{
 	border-bottom-right-radius: 8px;
 }
 #tab-content #tab-content-newest-jobs{
-	height: 400px;
+	height: 600px;
 	overflow-y: auto;
 }
 .tab-content.newest-jobs .job.right{
