@@ -67,3 +67,23 @@ span.author span.line{
 .right-col .block.news-categories{
 	border: solid 2px #1197EC;
 }
+body.clnews-index-index .left-col{
+	margin-left: 20px;
+}
+body.clnews-index-index .pager{
+	margin: 10px auto;
+}
+body.clnews-index-index .pager .page a {
+	display: inline-block;
+	border: solid 1px #ccc;
+	padding: 3px 10px;
+	color: #1197EC;
+	text-decoration: none;
+}
+body.clnews-index-index .pager .page span{
+	display: inline-block;
+	border: solid 1px #ccc;
+	border-color: #1197EC;
+	color: #1197EC;
+	font-weight: bold;
+}
