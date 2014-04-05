@@ -588,7 +588,7 @@ body.cms-home .block.news-categories{
 }
 .block.news-categories.list-cat ul > li > a:hover{
 	background-color: #acdbf8;
-	border: 0;
+	border-color: transparent;
 	color: #000;
 }
 .block.news-categories.list-cat ul{
