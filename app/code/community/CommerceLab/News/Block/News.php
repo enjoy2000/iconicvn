@@ -44,6 +44,9 @@ class CommerceLab_News_Block_News extends CommerceLab_News_Block_Abstract
                         ->addFieldToFilter('url_key', $this->getCategoryKey())
                         ->setPageSize(1);
                     $category = $categories->getFirstItem();
+					$head->setTitle($category->getTitle());
+	                $head->setKeywords($category->getMetaKeywords());
+	                $head->setDescription($category->getMetaDescription());
                     $breadcrumbs->addCrumb('category',
                         array(
                         'label'=>$category->getTitle(),

@@ -69,7 +69,12 @@
             <action method="addJs"><script>commercelab/clnews/news.js</script></action>
         </reference>
         <reference name="content">
-            <block type="clnews/news" name="news" template="clnews/list.phtml"/>
+            <block type="clnews/news" name="news" template="clnews/list.phtml">
+            	<block type="clnews/abstract" name="right.clnews.latest" template="clnews/latest.phtml">
+            	</block>
+            	<block type="clnews/abstract" name="right.clnews.categories" template="clnews/categories.phtml">
+            	</block>
+            </block>
         </reference>
     </clnews_index_index>
 
@@ -83,9 +88,12 @@
         </reference>
         <reference name="content">
             <!-- <block type="core/template" name="contactForm" template="contacts/form.phtml"/> -->
-        	<block type="clnews/news" name="right.clnews.latest" template="clnews/latest.phtml">
+            <block type="clnews/newsitem" name="newsitem" template="clnews/newsitem.phtml">
+            	<block type="clnews/abstract" name="right.clnews.latest" template="clnews/latest.phtml">
+            	</block>
+            	<block type="clnews/abstract" name="right.clnews.categories" template="clnews/categories.phtml">
+            	</block>
             </block>
-            <block type="clnews/newsitem" name="newsitem" template="clnews/newsitem.phtml"/>
         </reference>
     </clnews_newsitem_view>
 

@@ -76,6 +76,10 @@ input::-webkit-inner-spin-button {
 	background: url('../images/title-blue.png') bottom left no-repeat transparent;
 	padding-bottom: 10px;
 }
+.white-tit{
+	background: url('../images/white-tit.png') bottom left no-repeat transparent;
+	padding-bottom: 10px;
+}
 select{
 	color: #000;
 }

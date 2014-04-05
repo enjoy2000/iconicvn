@@ -558,11 +558,46 @@ div#home-main-content{
 /*
 	Latest blog
 */
-.block.news-categories{
+body.cms-home .block.news-categories{
 	float: right;
 	width: 30%;
+}
+.block.news-categories + .block.news-categories{
+	margin-top: 25px;
+}
+.block.news-categories{
 	border: solid 6px #acdbf8;
 	border-radius: 8px;
+}
+.block.news-categories.list-cat ul > li{
+	padding: 0;
+}
+.block.news-categories.list-cat ul > li > a{
+	display: block;
+	padding: 20px;
+	padding-left: 45px;
+	background: url('../images/blue-square.png') 20px center no-repeat transparent;
+	text-decoration: none;
+	color: #636466;
+}
+.block.news-categories.list-cat ul > li + li > a{
+	border-top: solid 1px #c4c6c8;
+}
+.block.news-categories.list-cat ul > li + li{
+	border: 0;
+}
+.block.news-categories.list-cat ul > li > a:hover{
+	background-color: #acdbf8;
+	border: 0;
+	color: #000;
+}
+.block.news-categories.list-cat ul{
+	height: auto;
+	max-height: 400px;
+}
+.block.news-categories.list-cat ul > li.last > a{
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
 }
 .block.news-categories ul{
 	list-style: none;
@@ -859,4 +894,7 @@ a.laban{
 	display: block;
 	float: right;
 	margin-top: 15px;
+}
+body.clnews-index-index .left-col{
+	margin-left: 20px;
 }

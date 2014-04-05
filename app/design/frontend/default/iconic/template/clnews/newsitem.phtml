@@ -131,7 +131,8 @@
         var cl = 'page_' + page;
         jQuery("#" + cl).addClass("current");
     }
-    jQuery(document).ready(function(){
-    	jQuery('.block-title span').text('<?php echo $this->__('Bài viết mới nhất') ?>');
-    })
 </script>
+<div class="right-col flr width-30">
+	<?php echo $this->getChildHtml('right.clnews.categories') ?>
+	<?php echo $this->getChildHtml('right.clnews.latest') ?>
+</div>

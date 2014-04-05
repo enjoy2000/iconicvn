@@ -55,6 +55,15 @@ span.author span.line{
 	margin-top: 25px;
 	
 }
-body.clnews-newsitem-view .news-categories{
-	margin-top: 60px;
+.right-col .blue-tit{
+	background: url('../images/white-tit.png') bottom left no-repeat transparent;
+	padding-bottom: 10px;
+	color: #fff;
+}
+.right-col .block.news-categories .block-title{
+	background-color: #1197ec;
+	padding-bottom: 1px;
+}
+.right-col .block.news-categories{
+	border: solid 2px #1197EC;
 }
