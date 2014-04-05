@@ -63,6 +63,7 @@
 #search_results .pager ol li > a{
 	padding: 3px 10px;
 	display: block;
+	text-decoration: none;
 }
 #search_results .pager ol li.current{
 	border-color: #1197EC;

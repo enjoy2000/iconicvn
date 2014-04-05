@@ -71,7 +71,7 @@ body.clnews-index-index .left-col{
 	margin-left: 20px;
 }
 body.clnews-index-index .pager{
-	margin: 10px auto;
+	text-align: center;
 }
 body.clnews-index-index .pager .page a {
 	display: inline-block;
@@ -86,4 +86,5 @@ body.clnews-index-index .pager .page span{
 	border-color: #1197EC;
 	color: #1197EC;
 	font-weight: bold;
+	padding: 3px 10px;
 }
