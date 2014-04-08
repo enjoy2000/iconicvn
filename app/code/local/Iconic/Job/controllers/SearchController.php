@@ -59,7 +59,10 @@ class Iconic_Job_SearchController extends Mage_Core_Controller_Front_Action{
 		}else{
 			Mage::getSingleton('core/session')->unsKeywordSearch();
 		}
-		$this->_redirect($url);
-		return;
+		$url .= '/';
+		$base = Mage::getBaseUrl();
+		$url = $base.$url;
+		header("Location: {$url}");
+		die();
 	}
 }
