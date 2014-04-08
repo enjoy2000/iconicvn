@@ -66,7 +66,7 @@
 					<a class="login" title="<?php echo $this->__('Đăng nhập') ?>" href="/<?php echo Mage::helper('job')->getLoginUrl() ?>"><?php echo $this->__('Đăng nhập') ?></a>
 				<?php else: ?>
 					<?php if(Mage::getSingleton('customer/session')->getCustomer()->getCreatecv() == 0): ?>
-					<a href="<?php echo Mage::getUrl(Mage::helper('job')->getCreateCVUrl()) ?>" class="login"><?php echo $this->__('Tạo hồ sơ trên Iconic') ?></a>
+					<a title="<?php echo $this->__('Tạo hồ sơ trên Iconic') ?>" href="<?php echo Mage::getUrl(Mage::helper('job')->getCreateCVUrl()) ?>" class="login"><?php echo $this->__('Tạo hồ sơ') ?></a>
 					<?php endif; ?>
 				<?php endif; ?>
 				<a class="in" target="_blank" title="Instagram" href="http://www.linkedin.com/profile/view?id=228013283&authType=name&authToken=iK1o&trk=prof-sb-browse_map-name">&nbsp;</a>
