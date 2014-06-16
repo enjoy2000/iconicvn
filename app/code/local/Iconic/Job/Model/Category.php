@@ -52,7 +52,12 @@ class Iconic_Job_Model_Category extends Mage_Core_Model_Abstract
 	}
 	
 	public function getCount(){
-		$count = Mage::getModel('job/job')->getCollection()->addFieldToFilter('category_id',$this->getId())->count();
+		$parent = Mage::getModel('job/parentcategory')->load($this->getParentcategoryId());
+		if($parent->getGroupCategory() == 'industry'){
+			$count = Mage::getModel('job/job')->getCollection()->addFieldToFilter('category_id',$this->getId())->count();
+		}else{
+			$count = Mage::getModel('job/job')->getCollection()->addFieldToFilter('function_category_id',$this->getId())->count();
+		}
 		return $count;
 	}
 }
