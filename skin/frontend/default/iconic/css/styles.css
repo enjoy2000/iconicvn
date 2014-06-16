@@ -82,6 +82,7 @@ html, button, input, select, textarea {
 #breadcrumbs .breadcrumbs{
 	position: absolute;
 	top: 10px;
+	width: 100%;
 }
 #breadcrumbs .breadcrumbs ul li{
 	display: inline;
