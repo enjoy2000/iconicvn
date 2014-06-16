@@ -722,6 +722,9 @@ div.nha-tuyen-dung img.quanly{
 /*
 	GIOI THIEU CONG TY
 */
+body.cms-gioi-thieu-cong-ty #gioi-thieu{
+	display: block;
+}
 #gioi-thieu{
 	background-color: #b7e0f9;
 }

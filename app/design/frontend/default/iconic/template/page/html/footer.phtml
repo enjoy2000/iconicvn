@@ -24,8 +24,7 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<?php if(strpos($this->getLayout()->getBlock('root')->getBodyClass(), 'cms-gioi-thieu-cong-ty')): ?>
-<div id="gioi-thieu">
+<div style="display: none;" id="gioi-thieu">
 	<div class="wrapper">
 		<div class="content">
 			<h2 class="black-tit"><?php echo $this->__('Lĩnh vực hoạt động') ?></h2>
@@ -51,7 +50,6 @@
 		</div>
 	</div>
 </div>
-<?php endif; ?>
 <footer id="footer">
 	<!-- SLOGAN -->
 	<div id="slogan">
