@@ -393,7 +393,7 @@ body.cms-home #search_results{
 	display: none;
 }
 #search-block input, #search-block select{
-	padding: 7px 20px;
+	padding: 3px 20px;
 	border: solid 4px #d2d4d5;
 	font-size: 16px;
 	border-radius: 8px;
@@ -426,14 +426,41 @@ button#search-btn{
     -moz-appearance: none;
     appearance: none;
     border: none;
-    padding: 6px 28px;
-    font-size: 25px;
+	padding: 4px 28px;
+	font-size: 20px;
+	border-radius: 5px;
+}
+/*
+ * FEATURE TAGS
+ */
+#feature-tags{
+	padding: 20px 10px;
+	background-color: #e6e7e8;
+	color: #000;
+	margin-top: 30px;
+}
+#feature-tags .flr{
+	width: 91%;
+}
+#feature-tags .flr a{
+	display: inline-block;
+	color: #000;
+	text-decoration: none;
+	letter-spacing: -0.5px;
+	font-size: 12px;
+}
+#feature-tags .flr a:hover{
+	color: #1197ec;
+	text-decoration: underline;
+}
+#feature-tags .flr span{
+	margin: 0 5px;
 }
 /*
 	HOME MAIN CONTENT
 */
 div#home-main-content{
-	margin-top: 50px;
+	margin-top: 30px;
 }
 #home-main-content #newest-block #tab-control .tab{
 	border: solid 6px #d1d3d4;

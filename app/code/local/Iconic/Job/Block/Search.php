@@ -51,6 +51,9 @@ class Iconic_Job_Block_Search extends Mage_Core_Block_Template
 		if ($this->getJobLevel()){
 			$collection->addFieldToFilter('job_level', array('eq' => $this->getJobLevel()));
 		}
+		if ($this->getFeature()){
+			$collection->addFieldToFilter('feature_id', array('like' => '%,'.$this->getFeature().',%'));
+		}
 		
 		if ($this->getFunctionCategory()){
 			$collection->addFieldToFilter('function_category_id', array('eq' => $this->getFunctionCategory()));
@@ -223,5 +226,10 @@ class Iconic_Job_Block_Search extends Mage_Core_Block_Template
     public function getPagerHtml(){
         return $this->getChildHtml('pager');
     }
+	
+	public function getFeatureTags(){
+		$feature = Mage::getModel('job/feature')->getCollection();
+		return $feature;
+	}
 }
         

@@ -38,6 +38,11 @@ class Iconic_Job_SearchController extends Mage_Core_Controller_Front_Action{
 			$searchBlock->setFunction((int)$function);
 		}
 		
+		$feature = $this->getRequest()->get("feature");
+		if($feature){
+			$searchBlock->setFeature((int)$feature);
+		}
+		
 		$this->renderLayout();
 	}
 	

@@ -22,6 +22,19 @@
 		<button id="search-btn" name"submit" type="submit" class="flr inline btn btn-orange"><?php echo $this->__('Tìm kiếm') ?></button>		
 	</form>
 </div>
+<div id="feature-tags" class="clearfix">
+	<div class="fll">
+		<?php echo $this->__('Feature tags') ?>:
+	</div>
+	<div class="flr">
+		<?php foreach($this->getFeatureTags() as $feature): ?>
+			<a href="<?php echo $feature->getUrl() ?>" title="<?php echo $feature->getName() ?>">
+				<?php echo $feature->getName() ?>
+			</a>
+			<?php echo ($this->getFeatureTags()->getLastItem()->getId() != $feature->getId()) ? '<span>|</span>' : '' ?>
+		<?php endforeach; ?>
+	</div>
+</div>
 
 <?php if(Mage::getSingleton('cms/page')->getIdentifier() != 'home'): ?>
 <div id="search_results" class="clearfix">
