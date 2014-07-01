@@ -39,7 +39,7 @@
 <?php if(Mage::getSingleton('cms/page')->getIdentifier() != 'home'): ?>
 <div id="search_results" class="clearfix">
 	<div id="page-title" class="heading">
-		<h2 class="blue-tit text-blue"><?php echo $this->__('Kết quả tìm kiếm') ?></h2>
+		<h1 class="blue-tit text-blue"><?php echo $this->__('Kết quả tìm kiếm %s', $this->getTit()) ?></h1>
 	</div>
 	<div class="info-search">
 		<?php if($this->getKeyword()): ?>

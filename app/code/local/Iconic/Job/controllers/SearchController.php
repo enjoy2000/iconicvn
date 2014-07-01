@@ -7,41 +7,58 @@ class Iconic_Job_SearchController extends Mage_Core_Controller_Front_Action{
 
 		$q = $this->getRequest()->get("q");
 		$searchBlock->setKeyword($q);
+		$tit = '';
 		
 		$category = $this->getRequest()->get("category");
 		if($category){
 			$searchBlock->setCategory((int)$category);
-		}
-		
-		$location = $this->getRequest()->get("location");
-		if($location){
-			$searchBlock->setLocation((int)$location);
+			$cat = Mage::getModel('job/category')->load($category);
+			$tit .= ' ' . $cat->getName();
 		}
 		
 		$level = $this->getRequest()->get("level");
 		if($level){
 			$searchBlock->setJobLevel((int)$level);
+			$cat = Mage::getModel('job/level')->load($level);
+			$tit .= ' ' . $cat->getName();
 		}
 		
 		$functionCategory = $this->getRequest()->get("function_category");
 		if($functionCategory){
 			$searchBlock->setFunctionCategory((int)$functionCategory);
+			$cat = Mage::getModel('job/category')->load($functionCategory);
+			$tit .= ' ' . $cat->getName();
 		}
 		
 		$industry = $this->getRequest()->get("industry");
 		if($industry){
 			$searchBlock->setIndustry((int)$industry);
+			$cat = Mage::getModel('job/parentcategory')->load($industry);
+			$tit .= ' ' . $cat->getName();
 		}
 		
 		$function = $this->getRequest()->get("function");
 		if($function){
 			$searchBlock->setFunction((int)$function);
+			$cat = Mage::getModel('job/parentcategory')->load($function);
+			$tit .= ' ' . $cat->getName();
 		}
 		
 		$feature = $this->getRequest()->get("feature");
 		if($feature){
 			$searchBlock->setFeature((int)$feature);
+			$cat = Mage::getModel('job/feature')->load($feature);
+			$tit .= ' ' . $cat->getName();
 		}
+		
+		$location = $this->getRequest()->get("location");
+		if($location){
+			$searchBlock->setLocation((int)$location);
+			$cat = Mage::getModel('job/location')->load($location);
+			$tit .= ' ' . $cat->getName();
+		}
+		$searchBlock->setTit($tit);
+		$this->getLayout()->getBlock('head')->setTitle($tit); 
 		
 		$this->renderLayout();
 	}
