@@ -27,6 +27,18 @@
  * @var Mage_Page_Block_Html_Header $this
  */
 ?>
+<?php $bodyclass= $this->getLayout()->getBlock('root')->getBodyClass() ?>
+<?php $bodyclass= $this->getLayout()->getBlock('root')->getBodyClass() ?>
+<?php if(strpos($bodyclass, 'blog-detail-index')): ?>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=516325528419845&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<?php endif; ?>
 <header id="header">
 	<!-- Header Menu & Logo -->
 	<div id="header-menu">
@@ -40,7 +52,6 @@
 			
 			<!-- Menu -->
 			<div id="menu" class="flr">
-				<?php $bodyclass= $this->getLayout()->getBlock('root')->getBodyClass() ?>
 				<ul>
 					<li class="<?php echo strpos($bodyclass, 'cms-index-index') ? 'current-menu-item' : ''  ?>">
 						<a href="/"><?php echo $this->__('Trang chủ') ?></a>
@@ -51,7 +62,7 @@
 					<li class="<?php echo strpos($bodyclass, 'cms-nha-tuyen-dung') ? 'current-menu-item' : ''  ?>">
 						<a href="/nha-tuyen-dung"><?php echo $this->__('Nhà tuyển dụng') ?></a>
 					</li>
-					<li class="<?php echo strpos($bodyclass, 'clnews') ? 'current-menu-item' : ''  ?>">
+					<li class="<?php echo strpos($bodyclass, 'blog') ? 'current-menu-item' : ''  ?>">
 						<a href="/blog"><?php echo $this->__('Blog') ?></a>
 					</li>
 					<li class="<?php echo strpos($bodyclass, 'cms-gioi-thieu-cong-ty') ? 'current-menu-item' : ''  ?>">

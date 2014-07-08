@@ -40,7 +40,6 @@ class Iconic_Job_Controller_Router extends Mage_Core_Controller_Varien_Router_Ab
 
 
         $identifier = substr_replace($request->getPathInfo(), '', 0, 1);
-        $identifier = str_replace(Mage::helper('clnews')->getNewsitemUrlSuffix(), '', $identifier);
         $identifier = trim($identifier, " /");
 
         $parts = explode("/", $identifier);

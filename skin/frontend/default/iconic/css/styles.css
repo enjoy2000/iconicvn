@@ -646,10 +646,6 @@ body.cms-home .block.news-categories{
 .block.news-categories ul > li .item-content a:hover{
 	color: #1197EC;
 }
-.block.news-categories ul > li .item-content > *{
-	display: block;
-	width: 100%;
-}
 .block.news-categories ul > li+li{
 	border-top: solid 1px #828282;
 }

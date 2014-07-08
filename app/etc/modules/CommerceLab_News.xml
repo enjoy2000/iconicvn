@@ -2,7 +2,7 @@
 <config>
     <modules>
         <CommerceLab_News>
-            <active>true</active>
+            <active>false</active>
             <codePool>community</codePool>
         </CommerceLab_News>
     </modules>
