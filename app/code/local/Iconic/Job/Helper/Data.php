@@ -206,5 +206,18 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
 		$objWriter->save($fileName);
 	}
+
+	public function getMailConfig(){
+		$config = array(
+	                    'auth' => 'login',
+	                    'ssl'  => 'tls',
+					    'port' => 587,
+					    'username' => 'test',
+					    'password' => 'testing'
+						);
+	 
+		$transport = new Zend_Mail_Transport_Smtp('mail.iconicvn.com', $config);
+		return $transport;
+	}
 }
 	
