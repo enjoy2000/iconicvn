@@ -211,12 +211,11 @@ class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 		$config = array(
 	                    'auth' => 'login',
 	                    'ssl'  => 'tls',
-					    'port' => 587,
-					    'username' => 'test',
-					    'password' => 'testing'
+					    'port' =>  587,
+					    'username' => 'info@iconic-jp.com',
+					    'password' => 'bsc393939'
 						);
-	 
-		$transport = new Zend_Mail_Transport_Smtp('mail.iconicvn.com', $config);
+		$transport = new Zend_Mail_Transport_Smtp('smtp.gmail.com', $config);
 		return $transport;
 	}
 }
