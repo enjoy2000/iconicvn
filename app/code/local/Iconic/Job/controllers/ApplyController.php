@@ -3,26 +3,21 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 	
 	public function indexAction(){		
         $this->loadLayout();  
-		
-		
-		// redirect if user not login 
-		if (!Mage::getSingleton('customer/session')->isLoggedIn()) {
-            $session = Mage::getSingleton('customer/session');
-            $session->setAfterAuthUrl( Mage::helper('core/url')->getCurrentUrl() );
-            $session->setBeforeAuthUrl( Mage::helper('core/url')->getCurrentUrl() );
-            $this->_redirect(Mage::helper('job')->getLoginUrl());
-            return $this;
-        }
-		
+		//var_dump(Mage::helper('core/url')->getCurrentUrl());die;
 		$id = (int) $this->getRequest()->get('id');
-		if($id <=0){
-			Mage::helper('job')->redirectToSearchPage();
-		}
-		
 		$item = Mage::getModel('job/job')->load($id);
 		if(!$item->getId()){
 			Mage::helper('job')->redirectToSearchPage();
 		}
+		// redirect if user not login 
+		if (!Mage::getSingleton('customer/session')->isLoggedIn()) {
+            $session = Mage::getSingleton('customer/session');
+            //$session->setAfterAuthUrl( Mage::helper('core/url')->getCurrentUrl() );
+            $session->setBeforeAuthUrl( Mage::getUrl('*/*/*', array('id'=>$id)) );
+            $this->_redirect(Mage::helper('job')->getLoginUrl());
+            return $this;
+        }
+		
 		$block = $this->getLayout()->getBlock('job_apply');
 		//set breadcrumbs		
 		$helper = Mage::helper('job');
