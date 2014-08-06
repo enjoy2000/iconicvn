@@ -149,15 +149,4 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 		$this->loadLayout();
 		$this->renderLayout();
 	}
-	
-	public function testAction(){
-		$email_to="enjoy3013@gmail.com";
-		$email_subject="It works";
-		$email_message="Hello. I can send mail!";
-		$headers = "From: Beacze\r\n".
-		"Reply-To: enjoy3013@gmail.com\r\n'" .
-		"X-Mailer: PHP/" . phpversion();
-		mail($email_to, $email_subject, $email_message, $headers);  
-		echo "mail sent!";
-	}
 }
