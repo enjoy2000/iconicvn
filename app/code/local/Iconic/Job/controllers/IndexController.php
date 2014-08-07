@@ -12,6 +12,9 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 		$post = $this->getRequest()->getPost();
 		if($post['email'] && $post['subject'] && $post['message']){
 			try{
+				if (!$this->_validateFormKey()) {
+		            return $this->_redirect('*/*/contact');
+		        }
 				$mail = new Zend_Mail('UTF-8');
 				$nameAdmin = Mage::getStoreConfig('trans_email/ident_general/name'); 
 				$emailAdmin = Mage::getStoreConfig('trans_email/ident_general/email');
@@ -73,6 +76,9 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
             return $this;
         }
 		if($this->getRequest()->getPost()){
+			if(!$this->_validateFormKey()){
+				return $this->_redirect('*/*/createcv');
+			}
 			$data = $this->getRequest()->getPost();
 			$birthday = $data['month'].'/'.$data['day'].'/'.$data['year'];
 			//explode the date to get month, day and year

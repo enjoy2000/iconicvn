@@ -60,6 +60,9 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 	}
 	
 	public function sendAction(){
+		if (!$this->_validateFormKey()) {
+            return $this->_redirect('*/*/index');
+        }
 		$this->loadLayout();
 		
 		// redirect if user not login 
