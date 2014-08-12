@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<layout version="0.1.0">
+<layout>
     <default>
         <reference name="head">
             <action method="setCanLoadExtJs"><flag>1</flag></action>
@@ -11,7 +11,7 @@
             <action method="addJs"><script>mage/adminhtml/browser.js</script></action>
             <action method="addJs"><script>prototype/window.js</script></action>
             <action method="addItem"><type>js_css</type><name>prototype/windows/themes/default.css</name></action>
-            <action method="addItem"><type>js_css</type><name>prototype/windows/themes/commercelab/magento.css</name></action>
+            <action method="addCss"><stylesheet>lib/prototype/windows/themes/magento.css</stylesheet></action>
         </reference>
     </default>
 </layout>

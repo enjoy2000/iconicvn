@@ -33,7 +33,16 @@
                 </args>
             </adminhtml>
         </routers>
-    </admin> 
+    </admin>
+    <adminhtml>
+    	<layout>
+            <updates>
+                <blog>
+                    <file>blog.xml</file>
+                </blog>
+            </updates>
+        </layout>
+    </adminhtml>
     <global>
         <models>
             <blog>
@@ -110,6 +119,14 @@
                     </blog>
                 </observers>
             </controller_front_init_routers>
+            <cms_wysiwyg_config_prepare>
+			    <observers>
+			      <variable_observer>
+			        <class>core/variable_observer</class>
+			        <method>prepareWysiwygPluginConfig</method>
+			      </variable_observer>
+			    </observers>
+			  </cms_wysiwyg_config_prepare>
         </events>
     </global>
 </config>

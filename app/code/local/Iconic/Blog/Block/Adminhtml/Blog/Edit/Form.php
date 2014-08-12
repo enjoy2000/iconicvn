@@ -2,16 +2,14 @@
  
 class Iconic_Blog_Block_Adminhtml_Blog_Edit_Form extends Mage_Adminhtml_Block_Widget_Form
 {
-	protected function _prepareLayout()
-    {
-        parent::_prepareLayout();
 		
-		
-        if (Mage::getSingleton('cms/wysiwyg_config')->isEnabled()) {
-            $this->getLayout()->getBlock('head')->setCanLoadTinyMce(true);
-        }
-		
-    }
+	protected function _prepareLayout() {
+	    parent::_prepareLayout();
+	    if (Mage::getSingleton('cms/wysiwyg_config')->isEnabled()) {
+	        $this->getLayout()->getBlock('head')->setCanLoadTinyMce(true);
+	        $this->getLayout()->getBlock('head')->setCanLoadExtJs(true);
+	    }
+	}
 	
     protected function _prepareForm()
     {

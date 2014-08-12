@@ -1,12 +1,5 @@
 <?xml version="1.0"?>
 <config>
-    <layout>
-        <updates>
-            <blog>
-                <file>blog.xml</file>
-            </blog>
-        </updates>
-    </layout>
     <translate>
         <modules>
             <translations>
