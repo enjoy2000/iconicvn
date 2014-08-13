@@ -51,55 +51,20 @@
     <!-- Testimonials -->
     <div class="testimonials clearfix">
         <h3>Ý kiến chia sẻ của các khách hàng cũ</h3>
-        <div class="testi testi1 width-30 fll">
+        <div class="testi testi1 width-45 fll">
             <div class="content">
-                <strong>Mr.F</strong><br />
-                <br />
-                Qualification: Bachelor<br />
-                Japanese: Business level<br />
-                English: Business level<br />
-                Position: Translator<br />
-                Working experience: 3 years
+                Tôi rất hài lòng với dịch vụ uy tín – chất lượng mà Iconic đã mang lại cho chúng tôi. Đội ngũ nhân viên chăm sóc khách hàng luôn hổ  trợ nhiệt tình và thân thiện. Hơn thế nữa là những ứng viên với chuyên môn tiếng Nhật tốt được giới thiệu từ phía Iconic, chúng tôi thật sự ngạc nhiên vì điều này.
             </div>
             <div class="author">
-                <span class="inline">
-                    Mr.F
-                </span>
-                <img width="62" height="62" class="inline" src="/skin/frontend/default/iconic/images/landing-page/testi1.png" alt="" />
+                Mr.F - <span class="position">Position</span>
             </div>
         </div>
-        <div class="testi testi1 width-30 fll">
+        <div class="testi testi2 width-45 flr">
             <div class="content">
-                <strong>Mr.F</strong><br />
-                <br />
-                Qualification: Bachelor<br />
-                Japanese: Business level<br />
-                English: Business level<br />
-                Position: Translator<br />
-                Working experience: 3 years
+                Nhờ có sự giúp đỡ của Iconic, chúng tôi đã tìm được rất nhiều ứng viên tiếng Nhật có chất lượng tốt. Điều mà chúng tôi rất khó đạt được khi sử dụng các dịch vụ tuyển dụng khác.  Theo ý kiến của riêng tôi, Iconic là nơi tốt nhất để tìm kiếm các ứng viên có thể giao tiếp tiếng Nhật hoặc ứng viên người Nhật.
             </div>
             <div class="author">
-                <span class="inline">
-                    Mr.F
-                </span>
-                <img width="62" height="62" class="inline" src="/skin/frontend/default/iconic/images/landing-page/testi1.png" alt="" />
-            </div>
-        </div>
-        <div class="testi testi1 width-30 fll">
-            <div class="content">
-                <strong>Mr.F</strong><br />
-                <br />
-                Qualification: Bachelor<br />
-                Japanese: Business level<br />
-                English: Business level<br />
-                Position: Translator<br />
-                Working experience: 3 years
-            </div>
-            <div class="author">
-                <span class="inline">
-                    Mr.F
-                </span>
-                <img width="62" height="62" class="inline" src="/skin/frontend/default/iconic/images/landing-page/testi1.png" alt="" />
+                Mr.F - <span class="position">Position</span>
             </div>
         </div>
     </div>
@@ -113,6 +78,11 @@
 </div>
 <script>
     jQuery(document).ready(function(){
-       jQuery('p.slogan').text('Việc Làm Tốt Nhất Cho Nhân Viên Tiếng Nhật'); 
+       jQuery('p.slogan').text('Việc Làm Tốt Nhất Cho Nhân Viên Tiếng Nhật');
+       jQuery('#scroll-to-contact').click(function(e){
+           e.preventDefault;
+           jQuery('html, body').animate({scrollTop: jQuery('#contact-form').offset().top}, 500);
+           jQuery('#contact-form #email').focus();
+       });
     });
 </script>
