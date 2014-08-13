@@ -922,41 +922,41 @@ a.laban{
 	margin-top: 15px;
 }
 /* Landing Pages */
-body.cms-viec-lam-nhan-vien-tieng-nhat #main .col-main{
+body.cms-noi-hoi-tu-nhan-tai-tieng-nhat #main .col-main{
 	padding: 0;
 }
-body.cms-viec-lam-nhan-vien-tieng-nhat{
+body.cms-noi-hoi-tu-nhan-tai-tieng-nhat{
 	color: #000;
 }
-body.cms-viec-lam-nhan-vien-tieng-nhat .top{
+body.cms-noi-hoi-tu-nhan-tai-tieng-nhat .top{
 	margin-top: 20px;
 }
-body.cms-viec-lam-nhan-vien-tieng-nhat .top .fll{
+body.cms-noi-hoi-tu-nhan-tai-tieng-nhat .top .fll{
 	margin-left: 20px;
 }
-body.cms-viec-lam-nhan-vien-tieng-nhat .top .flr{
+body.cms-noi-hoi-tu-nhan-tai-tieng-nhat .top .flr{
 	text-align: center;
 	padding: 0 20px;
 	width: 50%;
 }
-body.cms-viec-lam-nhan-vien-tieng-nhat .top .flr h2{
+body.cms-noi-hoi-tu-nhan-tai-tieng-nhat .top .flr h2{
 	text-transform: uppercase;
 	font-weight: bold;
 	color: #005baa;
 	font-size: 25px;
 }
-body.cms-viec-lam-nhan-vien-tieng-nhat .top .flr p.tit{
+body.cms-noi-hoi-tu-nhan-tai-tieng-nhat .top .flr p.tit{
 	color: #000;
 	font-weight: bold;
 	text-transform: uppercase;
 	font-size: 20px;
 	margin: 10px 0;
 }
-body.cms-viec-lam-nhan-vien-tieng-nhat .top .flr p{
+body.cms-noi-hoi-tu-nhan-tai-tieng-nhat .top .flr p{
 	font-size: 16px;
 }
 /* MIDDLE */
-body.cms-viec-lam-nhan-vien-tieng-nhat .mid{
+body.cms-noi-hoi-tu-nhan-tai-tieng-nhat .mid{
 	padding: 60px 20px;
 	background-color: #cfeafb;
 	text-align: center;
@@ -966,7 +966,7 @@ body.cms-viec-lam-nhan-vien-tieng-nhat .mid{
 	-webkit-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
 	box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
 }
-body.cms-viec-lam-nhan-vien-tieng-nhat .mid .fll{
+body.cms-noi-hoi-tu-nhan-tai-tieng-nhat .mid .fll{
 	font-size: 46px;
 	font-weight: bold;
 	color: #1197ec;
@@ -975,11 +975,11 @@ body.cms-viec-lam-nhan-vien-tieng-nhat .mid .fll{
 	line-height: 49px;
 	padding-right: 81px;
 }
-body.cms-viec-lam-nhan-vien-tieng-nhat .mid .flr{
+body.cms-noi-hoi-tu-nhan-tai-tieng-nhat .mid .flr{
 	width: 65%;
 	text-align: left;
 }
-body.cms-viec-lam-nhan-vien-tieng-nhat .mid button{
+body.cms-noi-hoi-tu-nhan-tai-tieng-nhat .mid button{
 	border-radius: 5px;
 	background-color: #E67E22;
 	color: #fff;
@@ -991,29 +991,29 @@ body.cms-viec-lam-nhan-vien-tieng-nhat .mid button{
 	font-weight: normal;
 }
 /* BOTTOM */
-body.cms-viec-lam-nhan-vien-tieng-nhat .bottom .promote{
+body.cms-noi-hoi-tu-nhan-tai-tieng-nhat .bottom .promote{
 	text-align: center;
 	margin-top: 20px;
 }
-body.cms-viec-lam-nhan-vien-tieng-nhat .bottom .promote > div{
+body.cms-noi-hoi-tu-nhan-tai-tieng-nhat .bottom .promote > div{
 	text-align: center;
 	width: 33.333%;
 }
-body.cms-viec-lam-nhan-vien-tieng-nhat .bottom .promote > div p{
+body.cms-noi-hoi-tu-nhan-tai-tieng-nhat .bottom .promote > div p{
 	font-weight: bold;
 	margin-top: 10px;
 }
-body.cms-viec-lam-nhan-vien-tieng-nhat .bottom .promote > div p > span{
+body.cms-noi-hoi-tu-nhan-tai-tieng-nhat .bottom .promote > div p > span{
 	font-weight: normal;
 }
-body.cms-viec-lam-nhan-vien-tieng-nhat .bottom .testi .content{
+body.cms-noi-hoi-tu-nhan-tai-tieng-nhat .bottom .testi .content{
 	padding: 20px;
 	text-align: justify;
 	border: solid 1px #ccc;
 	border-radius: 5px;
     position: relative;
 }
-body.cms-viec-lam-nhan-vien-tieng-nhat .bottom .testi .content:before{
+body.cms-noi-hoi-tu-nhan-tai-tieng-nhat .bottom .testi .content:before{
 	content: '';
 	position: absolute;
 	border-style: solid;
@@ -1026,7 +1026,7 @@ body.cms-viec-lam-nhan-vien-tieng-nhat .bottom .testi .content:before{
 	bottom: -22px;
 	left: 85%;
 }
-body.cms-viec-lam-nhan-vien-tieng-nhat .bottom .testi .content:after{
+body.cms-noi-hoi-tu-nhan-tai-tieng-nhat .bottom .testi .content:after{
     content: '';
 	position: absolute;
 	border-style: solid;
@@ -1040,20 +1040,20 @@ body.cms-viec-lam-nhan-vien-tieng-nhat .bottom .testi .content:after{
 	left: 85%;
 }
 
-body.cms-viec-lam-nhan-vien-tieng-nhat .bottom .testi .author{
+body.cms-noi-hoi-tu-nhan-tai-tieng-nhat .bottom .testi .author{
 	font-weight: bold;
 	color: #000;
 	margin-top: 30px;
 	text-align: right;
 }
-body.cms-viec-lam-nhan-vien-tieng-nhat .bottom .testi .author span.position{
+body.cms-noi-hoi-tu-nhan-tai-tieng-nhat .bottom .testi .author span.position{
 	color: #A0A0A0;
 }
-body.cms-viec-lam-nhan-vien-tieng-nhat .bottom h3{
+body.cms-noi-hoi-tu-nhan-tai-tieng-nhat .bottom h3{
 	margin-top: 50px;
 	margin-bottom: 10px;
 	font-size: 24px;
 }
-body.cms-viec-lam-nhan-vien-tieng-nhat .bottom .our-clients{
+body.cms-noi-hoi-tu-nhan-tai-tieng-nhat .bottom .our-clients{
 	margin-bottom: 50px;
 }
