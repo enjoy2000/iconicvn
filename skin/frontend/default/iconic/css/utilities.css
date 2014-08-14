@@ -83,6 +83,9 @@ input::-webkit-inner-spin-button {
 select{
 	color: #000;
 }
+select::-ms-expand {
+    display: none;
+}
 select:disabled{
 	background-color: #F0F0F0!important;
 	color: #58595b;
