@@ -110,9 +110,10 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 			}
 			
 			//check input data
-			if(!$data['name'] || !$data['email'] || !$data['message']){
+			if(!$data['name'] || !$data['email']){
 				Mage::getSingleton('core/session')->addError(Mage::helper('job')->__('Not enough information.'));
-				$this->_redirect('job/apply', array('id'=>$data['id']));
+				$this->_redirect('*/*/index', array('id'=>$data['id']));
+				return;
 			}
 			$transport = Mage::helper('job')->getMailConfig();
 			//get general contact from config admin
