@@ -74,17 +74,19 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
             return $this;
         }
 		$id = (int) $this->getRequest()->get('id');
-		if($id <=0){
+		$job = Mage::getModel('job/job')->load($id);
+		
+		//if job not exist redirect to search page
+		if(!$job->hasData()){
 			Mage::helper('job')->redirectToSearchPage();
 		}
 		
 		try{
 			$user = Mage::getSingleton('customer/session')->getCustomer();
-			
 			$data = $this->getRequest()->getPost();
-			$job = Mage::getModel('job/job')->load($id);
 			$block = $this->getLayout()->getBlock('job_apply_success');
 			$block->setItem($job);
+			
 			//set breadcrumbs		
 			$helper = Mage::helper('job');
 			if ($breadcrumbs = $this->getLayout()->getBlock('breadcrumbs')) {
@@ -96,7 +98,7 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 			//get jobs form same category
 			$block->setJobsInCategory($job->getJobsInCategory());
 			
-			//create email content
+			//create email content attchments
 			$cv = implode(';',$data['filenames']);
 			$mail = new Zend_Mail('UTF-8');
 			foreach($data['filenames'] as $filename){
@@ -122,14 +124,16 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 			/* Sender Email */
 			$emailAdmin = Mage::getStoreConfig('trans_email/ident_general/email');
 			
+			//set body HTML
 			$bodyHtml = '<table><tbody>';			
 			$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Link').':</td><td> '.Mage::helper('job')->getJobLink($job).'</td></tr>';
 			$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Tên ứng viên').':</td><td> '.$data['name'].'</td></tr>';
 			$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Email').':</td><td> '.$data['email'].'</td></tr>';			
 			$bodyHtml .= '<tr><td>'.Mage::helper('job')->__('Nội dung').':</td><td> '.$data['message'].'</td></tr>';
 			$bodyHtml .= '</tbody></table>';
-			
 			$mail->setBodyHtml($bodyHtml);
+			
+			//finalize email
 			$mail->addTo('auto_iconic_vn@iconic-intl.com',Mage::helper('job')->__('IconicVN'));
 			$mail->setFrom('info@iconicvn.com', Mage::helper('job')->__('IconicVN'));
 			$mail->setSubject(Mage::helper('job')->__('Ứng tuyển').' "'. $job->getTitle()).'"';
@@ -147,7 +151,7 @@ class Iconic_Job_ApplyController extends Mage_Core_Controller_Front_Action{
 		}catch(Exception $e){
 			//Mage::getSingleton('core/session')->addError($e);
 			Mage::getSingleton('core/session')->addError(Mage::helper('job')->__('Không thể gửi mail.'));
-			$this->_redirect('*/apply', array('id'=> $data['id']));
+			$this->_redirect('*/apply', array('id'=> $id));
 		}
 	}
 }
