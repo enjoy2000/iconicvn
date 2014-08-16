@@ -12,9 +12,7 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 		$post = $this->getRequest()->getPost();
 		if($post['email'] && $post['subject'] && $post['message']){
 			try{
-				if (!$this->_validateFormKey()) {
-		            return $this->_redirect('*/*/contact');
-		        }
+				
 				$mail = new Zend_Mail('UTF-8');
 				$nameAdmin = Mage::getStoreConfig('trans_email/ident_general/name'); 
 				$emailAdmin = Mage::getStoreConfig('trans_email/ident_general/email');
