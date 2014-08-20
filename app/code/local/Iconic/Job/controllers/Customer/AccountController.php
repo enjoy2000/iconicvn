@@ -26,9 +26,8 @@ class Iconic_Job_Customer_AccountController extends Mage_Customer_AccountControl
             $errors = $this->_getCustomerErrors($customer);
 
             if (empty($errors)) {
-            	$customer->setSex($this->getRequest()->getParam('sex'));
-            	$customer->setLocation($this->getRequest()->getParam('location'));
-            	$customer->setBirthYear($this->getRequest()->getParam('birthyear'));
+            	$data = $this->getRequest()->getPost();
+				$customer->setData($data);
                 $customer->save();
                 $this->_dispatchRegisterSuccess($customer);
 				//success action
