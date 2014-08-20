@@ -27,6 +27,11 @@
 		//set position for breadcrumbs
 		$('#breadcrumbs .breadcrumbs').css('left', 0);
 		
+		//show loading box when submiting form
+		$('form').on('submit', function(){
+			console.log('submit');
+		});
+		
 		//contact form email footer
 		$('#contact-us').on('submit', function(e){
 			e.preventDefault();
