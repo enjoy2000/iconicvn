@@ -35,7 +35,7 @@ Default layout, loads most of the pages
         <block type="page/html" name="root" output="toHtml" template="page/1column.phtml">
 
             <block type="page/html_head" name="head" as="head">
-                <action method="addJs"><script>iconic/jquery1.9.0.min.js</script></action>
+                <action method="addJs"><script>iconic/jquery.min.js</script></action>
                 <action method="addJs"><script>iconic/company.js</script></action>
 		
 				<action method="addCss"><stylesheet>css/reset.css</stylesheet></action>
@@ -132,6 +132,11 @@ Default layout, loads most of the pages
             <!-- Mark root page block that template is applied -->
             <action method="setIsHandle"><applied>1</applied></action>
         </reference>
+		    <reference name="head">
+		        <action method="addJs"><script>prototype/prototype.js</script></action> <!-- adds a js referencing to the /js directory -->
+		        <action method="addCss"><stylesheet>css/custom.css</stylesheet></action> <!-- adds CSS looking at the skin/ directories ( in reverse order: base/default, default/default, default/yourtheme, yourpackage/yourtheme -->
+		        <action method="addItem"><type>skin_js</type><name>js/custom_script.js</name><params/></action> <!-- adds a js at the skin/ directories in the same manner as the above addCss directive -->
+		    </reference>
     </page_account>
     
     <page_error translate="label" module="page">

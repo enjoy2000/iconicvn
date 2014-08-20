@@ -1,11 +1,4 @@
 /* CSS  Utilities */
-
-html, button, input, select, textarea {
-	font: 15px 'MS PGothic';
-	font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,Osaka,"ＭＳ Ｐゴシック","MS PGothic",sans-serif;
-	color: #636466;
-	font-size: 14px;
-}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -18,9 +11,6 @@ input::-webkit-inner-spin-button {
 }
 .hide {
     display: none;
-}
-p{
-	line-height: 18px;
 }
 .fll {
 	float: left;
@@ -50,9 +40,6 @@ p{
 
 .clearfix {
     *zoom: 1;
-}
-br.clear{
-	clear: both;
 }
 .wrapper{
 	width: 960px;
@@ -86,74 +73,37 @@ br.clear{
 }
 
 .blue-tit{
-	border-bottom: solid 1px #4571EB;
+	background: url('../images/title-blue.png') bottom left no-repeat transparent;
 	padding-bottom: 10px;
-	font-size: 24px;
-	font-weight: bold;
-	text-align: left;
-	color: #4571EB;
-}
-.blue-tit > a{
-	color: #4571EB;
 }
 .white-tit{
 	background: url('../images/white-tit.png') bottom left no-repeat transparent;
 	padding-bottom: 10px;
 }
 select{
-	text-indent: 0.01px;
-	text-overflow: ' ';
-	padding: 3px 6px;
-	width: 100%;
-	border: none;
-	background: url('../images/select.png') right 5px center no-repeat #e6ecfc;
-	appearance: none;
-	-webkit-appearance: none;
-	border: solid 1px #b0b2b4;
-	color: #A8A8A8;
+	color: #000;
+}
+select::-ms-expand {
+    display: none;
 }
 select:disabled{
+	background-color: #F0F0F0!important;
+	color: #58595b;
 }
 input{
-	padding: 5px 10px;
-	border: solid 1px #b0b2b4;
-	background-color: #e6ecfc;
-}
-input,
-select,
-textarea{
-	background-color: #fff;
-	border-radius: 3px;
-}
-input:required,
-select:required,
-textarea:required{
-	border-color: #d76f2c;
-}
-input:focus,
-select:focus,
-textarea:focus,
-input.error:focus,
-select.error:focus,
-textarea.error:focus{
-	border-color: #4571eb;
+	width: 100%;
+	border: solid 3px #d2d4d5;
+	padding: 3px 10px;
 	color: #000;
-	background-color: #fff;
-}
-input.after-input,
-select.after-input,
-textarea.after-input{
-	border-color: #b0b2b4;
-	background-color: #fff;
-	color: #000;
-}
-input.error,
-select.error,
-textarea.error{
-	border-color: #d76f2c;
 }
 input[readonly]{
-	background-color: #fff;
+	background-color: #F0F0F0!important;
+}
+textarea{
+	width: 100%;
+	border: solid 3px #d2d4d5;
+	padding: 3px 10px;
+	color: #000;
 }
 .btn{
 	text-transform: uppercase;
@@ -164,26 +114,12 @@ input[readonly]{
 	-webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    border: none;
 }
 .btn-blue{
-}
-a.btn-grey{
-	text-decoration: none;
-	color: #fff;
-	background-color: lightgrey;
-	border-radius: 3px;
-	padding: 5px 10px;
+	background: url('../images/btn-blue.png') center no-repeat transparent;
 }
 .btn-orange{
-	background-color: #df8c56;
-	color: white;
-	font-weight: bold;
-	border: none;
-	border-radius: 3px;
-	padding: 3px 10px;
-	font-size: 15px;
-	border-bottom: solid 2px #d7712e;
+	background: url('../images/btn-orange.png') center no-repeat transparent;
 }
 .btn:hover{
 	opacity: 0.8;
@@ -191,18 +127,13 @@ a.btn-grey{
 	filter: alpha(opacity=80);
 	-moz-opacity: 0.8;
 	-khtml-opacity: 0.8;
+
 }
 .text-blue{
-	color: #4571EB;
-}
-.text-orange{
-	color: #f58220;
+	color: #1197EC;
 }
 .text-black{
 	color: #000;
-}
-.text-white{
-	color: #fff;
 }
 .width-10{
 	width: 10%;
@@ -245,20 +176,23 @@ a.btn-grey{
 }
 
 .button-blue{
-	background-color: #6a8def;
-	border-radius: 3px;
-	border-bottom: solid 2px #4571EB;
+	background-color: #1197Ec;
+	border-radius: 8px;
 }
 .button-grey{
 	background-color: #bcbec0;
-	border-radius: 3px;
-	border-bottom: solid 2px #a6a8aa;
+	border-radius: 8px;
+}
+input:focus,textarea:focus{
+	outline: none;
+	border-color: #808285;
+	color: #000;
 }
 *:focus{
 	outline: none;
 }
 h1,h2,h3,h4,h5,h6{
-	color: #4571eb;
+	color: #1197EC;
 }
 ul.small-grey{
 	list-style: url('../images/small-grey-circle.jpg');
@@ -295,43 +229,4 @@ ol.grey > li:before{
 	content: counter(my-counter);
 	counter-increment: my-counter;
 	background: url('../images/big-grey-circle.jpg') 7px -1px no-repeat transparent;
-}
-button.checkform{
-	padding: 7px 20px;
-	background: url('../images/error-btn.png') 10px center no-repeat #E9955D;
-	padding-left: 35px;
-	font-size: 11px;
-	border-radius: 3px;
-	border-bottom: solid 2px #d76f2c;
-}
-button.checkform.checked{
-	background: none #6a8def;
-	border-color: #4571EB;
-	padding: 7px 20px;
-}
-h1{
-	color: #000;
-	font-size: 23px;
-	font-weight: bold;
-	text-align: center;
-	letter-spacing: -1px;
-	margin-bottom: 20px;
-}
-hr.blue{
-	border-color: #4571EB;
-}
-ul.messages{
-	margin-bottom: 20px;
-}
-ul.messages .error-msg{
-	color: #E67E22;
-}
-ul.messages .success-msg{
-	color: #4571EB;
-}
-.transition{
-	-webkit-transition: color 200ms,background-color 200ms;
-	-moz-transition: color 200ms,background-color 200ms;
-	-o-transition: color 200ms,background-color 200ms;
-	transition: color 200ms,background-color 200ms;
 }

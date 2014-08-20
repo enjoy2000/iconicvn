@@ -2,6 +2,12 @@
 
 class Iconic_Job_Helper_Data extends Mage_Core_Helper_Abstract
 {
+	
+	/* Get domain URL */
+	public function getUrl(){
+		return Mage::app()->getStore($storeId)->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK);
+	}
+	
     public function formatUrlKey($str)
     {
         $trans = array(

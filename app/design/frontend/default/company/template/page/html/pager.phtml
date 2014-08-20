@@ -39,8 +39,8 @@
 
     <?php if($this->getShowAmounts()): ?>
     <p class="amount">
-        <?php if($this->getLastPageNum()>1): ?>
-            <?php echo $this->__('Items %s to %s of %s total', $this->getFirstNum(), $this->getLastNum(), $this->getTotalNum()) ?>
+        <?php if($this->getLastPageNum()>=1): ?>
+            <?php echo $this->__('Hiển thị <span>%s - %s</span> trong <span>%s</span> việc làm', $this->getFirstNum(), $this->getLastNum(), $this->getTotalNum()) ?>
         <?php else: ?>
             <strong><?php echo $this->__('%s Item(s)', $this->getTotalNum()) ?></strong>
         <?php endif; ?>

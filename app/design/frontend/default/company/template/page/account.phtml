@@ -24,23 +24,30 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<?php if($crumbs && is_array($crumbs)): ?>
-<div class="breadcrumbs">
-    <ul>
-        <?php foreach($crumbs as $_crumbName=>$_crumbInfo): ?>
-            <li class="<?php echo $_crumbName ?>">
-            <?php if($_crumbInfo['link']): ?>
-                <a href="<?php echo $_crumbInfo['link'] ?>" title="<?php echo $this->escapeHtml($_crumbInfo['title']) ?>"><?php echo $this->escapeHtml($_crumbInfo['label']) ?></a>
-            <?php elseif($_crumbInfo['last']): ?>
-                <strong><?php echo $this->escapeHtml($_crumbInfo['label']) ?></strong>
-            <?php else: ?>
-                <?php echo $this->escapeHtml($_crumbInfo['label']) ?>
-            <?php endif; ?>
-            <?php if(!$_crumbInfo['last']): ?>
-                <span> >> </span>
-            <?php endif; ?>
-            </li>
-        <?php endforeach; ?>
-    </ul>
-</div>
-<?php endif; ?>
+<?php
+/**
+ * Template for Mage_Page_Block_Html
+ */
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->getLang() ?>" lang="<?php echo $this->getLang() ?>">
+<head>
+	<?php echo $this->getChildHtml('head') ?>
+</head>
+<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
+<?php echo $this->getChildHtml('after_body_start') ?>
+    <?php echo $this->getChildHtml('global_notices') ?>
+    
+    <?php echo $this->getChildHtml('header') ?>
+        
+    <div id="account-page">
+        <?php echo $this->getChildHtml('global_messages') ?>
+        <?php echo $this->getChildHtml('content') ?>
+    </div>
+    <?php echo $this->getChildHtml('footer') ?>
+    <?php echo $this->getChildHtml('before_body_end') ?>
+        
+        
+<?php echo $this->getAbsoluteFooter() ?>
+</body>
+</html>

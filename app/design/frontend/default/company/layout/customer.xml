@@ -48,8 +48,9 @@ Default layout, loads most of the pages
 
     <default>
         <!-- Mage_Customer -->
-        <reference name="top.links">
-            <action method="addLink" translate="label title" module="customer"><label>My Account</label><url helper="customer/getAccountUrl"/><title>My Account</title><prepare/><urlParams/><position>10</position></action>
+        <reference name="head">
+                <action method="addJs"><script>iconic/user.js</script></action>
+				<action method="addCss"><stylesheet>css/user.css</stylesheet></action>
         </reference>
     </default>
 
@@ -82,10 +83,12 @@ Layout for customer login page
 -->
 
     <customer_account_login translate="label">
-        <label>Customer Account Login Form</label>
-        <block type="core/text_list" name="root" output="toHtml">
-        	<block type="customer/form_login" name="customer_form_login" template="customer/form/login.phtml"></block>
-       	</block>
+        <reference name="root">
+            <action method="setTemplate"><template>page/account.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="customer/form_login" name="customer_form_login" template="customer/form/login.phtml" />
+        </reference>
     </customer_account_login>
 
 <!--
@@ -93,13 +96,16 @@ Layout for customer log out page
 -->
 
     <customer_account_logoutsuccess translate="label">
-        <label>Customer Account Logout Success</label>
+        <label>Đăng xuất</label>
         <!-- Mage_Customer -->
         <remove name="right"/>
         <remove name="left"/>
-
+		
+        <reference name="head">
+            <action method="setTitle" translate="title" module="customer"><title>Đăng xuất</title></action>
+        </reference>
         <reference name="root">
-            <action method="setTemplate"><template>page/1column.phtml</template></action>
+            <action method="setTemplate"><template>page/account.phtml</template></action>
         </reference>
         <reference name="content">
             <block type="core/template" name="customer_logout" template="customer/logout.phtml"/>
@@ -111,41 +117,57 @@ New customer registration
 -->
 
     <customer_account_create translate="label">
+        <label>Customer Account Registration Form</label>
+        <!-- Mage_Customer -->
+        <remove name="right"/>
+        <remove name="left"/>
+
         <reference name="root">
-            <action method="setTemplate"><template>page/1column.phtml</template></action>
-        </reference>
-        <reference name="head">
-            <action method="addCss"><stylesheet>css/register.css</stylesheet></action>
+            <action method="setTemplate"><template>page/account.phtml</template></action>
         </reference>
         <reference name="content">
             <block type="customer/form_register" name="customer_form_register" template="customer/form/register.phtml">
+                <block type="page/html_wrapper" name="customer.form.register.fields.before" as="form_fields_before" translate="label">
+                    <label>Form Fields Before</label>
+                </block>
             </block>
         </reference>
     </customer_account_create>
 
     <customer_account_forgotpassword translate="label">
-        <label>Customer Account Login Form</label>
-        <block type="core/text_list" name="root" output="toHtml">
-        	<block type="customer/account_forgotpassword" name="forgotPassword" template="customer/form/forgotpassword.phtml"></block>
-       	</block>
+        <label>Customer Forgot Password Form</label>
+        <remove name="right"/>
+        <remove name="left"/>
+
+        <reference name="head">
+            <action method="setTitle" translate="title" module="customer"><title>Bạn đã quên mật khẩu?</title></action>
+        </reference>
+        <reference name="root">
+            <action method="setTemplate"><template>page/account.phtml</template></action>
+            <action method="setHeaderTitle" translate="title" module="customer"><title>Password forgotten</title></action>
+        </reference>
+        <reference name="content">
+            <!--<block type="core/template" name="forgotPassword" template="customer/form/forgotpassword.phtml"/>-->
+            <block type="customer/account_forgotpassword" name="forgotPassword" template="customer/form/forgotpassword.phtml" />
+        </reference>
     </customer_account_forgotpassword>
 
     <customer_account_resetpassword translate="label">
-        <label>Reset a Password</label>
+        <label>Đổi lại mật khẩu</label>
         <remove name="right"/>
         <remove name="left"/>
 
         <reference name="head">
             <action method="setTitle" translate="title" module="customer">
-                <title>Reset a Password</title>
+                <title>Đổi lại mật khẩu</title>
             </action>
         </reference>
         <reference name="root">
             <action method="setTemplate">
-                <template>page/1column.phtml</template>
+                <template>page/account.phtml</template>
             </action>
             <action method="setHeaderTitle" translate="title" module="customer">
-                <title>Reset a Password</title>
+                <title>Đổi lại mật khẩu</title>
             </action>
         </reference>
         <reference name="content">
@@ -158,7 +180,7 @@ New customer registration
         <remove name="left"/>
 
         <reference name="root">
-            <action method="setTemplate"><template>page/1column.phtml</template></action>
+            <action method="setTemplate"><template>page/account.phtml</template></action>
             <action method="setHeaderTitle" translate="title" module="customer"><title>Send confirmation link</title></action>
         </reference>
         <reference name="content">
@@ -167,14 +189,17 @@ New customer registration
     </customer_account_confirmation>
 
     <customer_account_edit translate="label">
+        <label>Customer Account Edit Form</label>
+        <update handle="customer_account"/>
         <reference name="root">
             <action method="setHeaderTitle" translate="title" module="customer"><title>Edit Account Info</title></action>
         </reference>
-        <reference name="head">
-            <action method="addCss"><stylesheet>css/register.css</stylesheet></action>
-        </reference>
-        <reference name="content">
+        <reference name="my.account.wrapper">
             <block type="customer/form_edit" name="customer_edit" template="customer/form/edit.phtml"/>
+        </reference>
+
+        <reference name="left">
+          <action method="unsetChild"><name>left.permanent.callout</name></action>
         </reference>
     </customer_account_edit>
 
@@ -188,7 +213,7 @@ Customer account pages, rendered for all tabs in dashboard
         <remove name="sale.reorder.sidebar"/-->
         <!-- Mage_Customer -->
         <reference name="root">
-            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+            <action method="setTemplate"><template>page/account.phtml</template></action>
         </reference>
 
         <reference name="content">
@@ -224,7 +249,7 @@ Customer account home dashboard layout
         <update handle="customer_account"/>
         <!-- Mage_Customer -->
         <reference name="root">
-            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+            <action method="setTemplate"><template>page/account.phtml</template></action>
         </reference>
         <reference name="my.account.wrapper">
             <block type="customer/account_dashboard" name="customer_account_dashboard" template="customer/account/dashboard.phtml">
