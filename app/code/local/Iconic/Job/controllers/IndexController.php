@@ -39,8 +39,7 @@ class Iconic_Job_IndexController extends Mage_Core_Controller_Front_Action
 				echo Mage::helper('job')->__('Đã có lỗi xảy ra. Xin vui lòng thử lại sau.');
 			}
 		}else{
-			$this->_redirect('/');
-			return;
+			echo Mage::helper('job')->__('Bạn chưa điền đủ thông tin.');
 		}
 		
 	}

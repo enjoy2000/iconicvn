@@ -42,4 +42,47 @@ class Iconic_Job_Model_Job extends Mage_Core_Model_Abstract
 					->load();
 		return $jobsInCategory;
 	}
+	
+	public function getCountry(){
+		$location = Mage::getModel('job/location')->load($this->getLocationId());
+		return Mage::helper('job')->getTransName($location);
+	}
+	
+	public function getCategoryName(){
+		$category = Mage::getModel('job/category')->load($this->getCategoryId());
+		$parent = Mage::getModel('job/parentcategory')->load($category->getParentcategoryId());
+		return Mage::helper('job')->getTransName($category);
+	}
+	
+	public function getFunctionName(){
+		$function = Mage::getModel('job/category')->load($this->getFunctionCategoryId());
+		$parent = Mage::getModel('job/parentcategory')->load($function->getParentcategoryId());
+		return Mage::helper('job')->getTransName($function);
+	}
+	
+	public function getLevel(){
+		$level = Mage::getModel('job/level')->load($this->getJobLevel());
+		return Mage::helper('job')->getTransName($level);
+	}
+	
+	public function getType(){
+		$type = Mage::getModel('job/type')->load($this->getJobType());
+		return Mage::helper('job')->getTransName($type);
+	}
+	
+	public function getFullSalary(){
+		if($this->getJobSalary() && $this->getJobSalaryTo()){
+			$salary = $this->getJobSalaryCurrency() . $this->getJobSalary() . ' - ' . $this->getJobSalaryTo() . '(' .$this->getJobSalaryType() . ')'; 
+		}else if($this->getJobSalary() && !$this->getJobSalaryTo()){
+			$salary = $this->getJobSalaryCurrency() . $this->getJobSalary() . '(' .$this->getJobSalaryType() . ')'; 
+		}else{
+			$salary = Mage::helper('job')->__('Negotiable');
+		}
+		return $salary;
+	}
+	
+	public function getEditUrl(){
+		$url = Mage::getUrl('client/job/post', array('id'=>$this->getId()));
+		return $url;
+	}
 }

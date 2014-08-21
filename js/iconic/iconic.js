@@ -27,6 +27,11 @@
 		//set position for breadcrumbs
 		$('#breadcrumbs .breadcrumbs').css('left', 0);
 		
+		//show loading box when submiting form
+		$('form').on('submit', function(){
+			$('#loading-animation').fadeIn(500);
+		});
+		
 		//contact form email footer
 		$('#contact-us').on('submit', function(e){
 			e.preventDefault();
@@ -38,6 +43,7 @@
 					$('#response').show().text(msg);
 					$('#contact-us input').val('');
 					$('#contact-us textarea').val('');
+					$('#loading-animation').fadeOut(200);
 				}
 			});
 		});

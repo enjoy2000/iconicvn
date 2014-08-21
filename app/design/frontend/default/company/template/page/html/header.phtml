@@ -1,0 +1,126 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+<?php $bodyclass= $this->getLayout()->getBlock('root')->getBodyClass() ?>
+<header id="header">
+	<!-- Switch site menu -->
+	<div id="switch-site">
+			<a href="<?php echo $this->getBaseUrl() ?>" class="inline-b employer active">
+				<?php echo $this->__('Nhà tuyển dụng') ?>
+			</a>
+			<a href="<?php echo Mage::helper('job')->getUrl() ?>" class="inline-b candidate">
+				<?php echo $this->__('Ứng viên') ?>
+			</a>
+	</div>
+	
+	<!-- Header Menu & Logo -->
+	<div id="header-menu">
+		<div class="wrapper clearfix">
+			<!-- Logo -->
+			<div id="logo" class="fll">
+				<a title="Iconic" href="<?php echo $this->getBaseUrl() ?>">
+					<img src="<?php echo $this->getSkinUrl('images/logo.png') ?>" alt="Iconic's Logo"  />
+				</a>
+			</div><!-- End Logo -->
+			
+			<!-- Begin Top Social Icons -->
+			<div class="top-social flr">
+				<?php if(!Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+					<a class="login" title="<?php echo $this->__('Đăng nhập') ?>" href="<?php echo $this->getBaseUrl().Mage::helper('job')->getLoginUrl() ?>"><?php echo $this->__('Đăng nhập') ?></a>
+				<?php else: ?>
+					<a class="login" title="<?php echo $this->__('Đăng xuất') ?>" href="<?php echo Mage::helper('customer')->getLogoutUrl() ?>"><?php echo $this->__('Đăng xuất') ?></a>
+				<?php endif; ?>
+				<a class="in" target="_blank" title="Instagram" href="http://www.linkedin.com/profile/view?id=228013283&authType=name&authToken=iK1o&trk=prof-sb-browse_map-name">&nbsp;</a>
+				<a class="facebook" target="_blank" title="Facebook" href="https://www.facebook.com/iconic4vn">&nbsp;</a>
+				<a class="google" target="_blank" title="Google+" href="https://plus.google.com/u/0/b/112764902169096553590/112764902169096553590/">&nbsp;</a>
+			</div><!-- End Top Social Icons -->
+			
+			<!-- Menu -->
+			<div id="menu" class="flr">
+				<ul>
+					<li class="<?php echo strpos($bodyclass, 'client-job-post') ? 'current-menu-item' : ''  ?>">
+						<a href="<?php echo $this->getBaseUrl().Mage::helper('client')->getJobPostUrl() ?>"><?php echo $this->__('Đăng tuyển') ?></a>
+					</li>
+					<li class="<?php echo strpos($bodyclass, 'client-job-manage') ? 'current-menu-item' : ''  ?>">
+						<a href="<?php echo $this->getBaseUrl().Mage::helper('client')->getJobManageUrl() ?>"><?php echo $this->__('Quản lý tuyển dụng') ?></a>
+					</li>
+					<li class="has-child <?php echo strpos($bodyclass, 'customer-account') ? 'current-menu-item' : ''  ?>">
+						<a href="#"><?php echo $this->__('Tài khoản') ?></a>
+						<ul class="sub">
+							<li>
+								<a class="transition" href="<?php echo $this->getBaseUrl() ?>customer/account/edit/" title="<?php echo $this->__('Thay đổi thông tin') ?>">
+									<?php echo $this->__('Thay đổi thông tin') ?>
+								</a>
+							</li>
+							<li>
+								<a class="transition" href="<?php echo $this->getBaseUrl() ?>customer/account/edit/changepass/1/" title="<?php echo $this->__('Thay đổi thông tin') ?>">
+									<?php echo $this->__('Thay đổi mật khẩu') ?>
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div><!-- End Menu -->
+		</div>
+	</div><!-- End Header Menu & Logo -->
+	
+	<!-- Breadcrumb -->
+	<?php if($this->getChildHtml('breadcrumbs')): ?>
+	<div id="breadcrumbs">
+		<div class="wrapper">
+    		<?php echo $this->getChildHtml('breadcrumbs') ?>
+    	</div>
+	</div>
+	<?php endif; ?>
+	<!-- End Breadcrumb -->
+	
+	<!-- Header Landing -->
+	<div id="header-landing">
+		<div class="wrapper">
+			<div class="top-text clearfix">
+				<p class="slogan<?php echo !Mage::getSingleton('customer/session')->isLoggedIn() ? ' fll' : '' ?>"><?php echo $this->__('Dịch Vụ Tuyển Dụng Hàng Đầu Châu Á') ?></p>
+				<?php if(!Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+				<a class="flr transition register-btn" href="<?php echo $this->getBaseUrl().Mage::helper('job')->getRegisterUrl() ?>" title="<?php echo $this->__('ĐĂNG KÝ NGAY') ?>">
+					<?php echo $this->__('ĐĂNG KÝ NGAY') ?>
+				</a>
+				<?php endif; ?>
+			</div>
+			
+			<!-- Logged In -->
+			<?php if(Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+				<div id="user" class="logged">
+					<span id="logged-user">
+						<?php echo $this->__('Xin chào, %s', Mage::getSingleton('customer/session')->getCustomer()->getName()) ?>
+					</span>
+					<a class="last" id="logout" href="<?php echo Mage::helper('customer')->getLogoutUrl() ?>"><?php echo $this->__('Đăng xuất') ?></a>
+				</div>
+			<?php endif; ?>
+		</div>
+	</div><!-- End Header Landing -->
+</header>

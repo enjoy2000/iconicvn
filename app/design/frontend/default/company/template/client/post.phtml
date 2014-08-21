@@ -1,0 +1,76 @@
+<?php $data = Mage::getSingleton('customer/session')->getJobData() ?>
+<h1><?php echo $this->__('Đăng tuyển') ?></h1>
+<form method="POST" action="" id="create-job">
+	<ul>
+		<li>
+			<input required type="text" name="title" placeholder="<?php echo $this->__('Vị trí đăng tuyển') ?> *" value="<?php echo $data['title'] ?>" />
+		</li>
+		<li class="row2">
+			<select class="first" required name="category_id">
+				<option value=""><?php echo $this->__('Ngành nghề') ?> *</option>
+				<?php echo $this->getCategoryList('industry',$data['category_id']) ?>
+			</select>
+			<select class="last" required name="function_category_id">
+				<option value=""><?php echo $this->__('Chức năng') ?> *</option>
+				<?php echo $this->getCategoryList('function',$data['function_category_id']) ?>
+			</select>
+		</li>
+		<li class="row2">
+			<select class="first" required name="job_level">
+				<option value=""><?php echo $this->__('Cấp độ công việc') ?> *</option>
+				<?php echo $this->getLevelList($data['job_level']) ?>
+			</select>
+			<select class="last" required name="location_id">
+				<option value=""><?php echo $this->__('Địa chỉ làm việc') ?> *</option>
+				<?php echo $this->getLocationList($data['location_id']) ?>
+			</select>
+		</li>
+		<li class="row2">
+			<input required class="first" type="number" name="job_salary" placeholder="<?php echo $this->__('Mức lương thấp nhất') ?> *" value="<?php echo $data['job_salary'] ?>" />
+			<input class="last" type="number" name="job_salary_to" placeholder="<?php echo $this->__('Mức lương cao nhất') ?>" value="<?php echo $data['job_salary_to'] ?>" />
+		</li>
+		<li class="row2">
+			<select class="first" required name="job_salary_currency">
+				<option value=""><?php echo $this->__('Tiền tệ') ?> *</option>
+				<option<?php echo ($data['job_salary_currency']=='VND') ? ' selected="selected"' : '' ?> value="VND">VND</option>
+				<option<?php echo ($data['job_salary_currency']=='USD') ? ' selected="selected"' : '' ?> value="USD">USD</option>
+			</select>
+			<select class="last" required name="job_salary_type">
+				<option value=""><?php echo $this->__('Gross/Net') ?> *</option>
+				<option<?php echo ($data['job_salary_type']=='Gross') ? ' selected="selected"' : '' ?> value="Gross">Gross</option>
+				<option<?php echo ($data['job_salary_type']=='NET') ? ' selected="selected"' : '' ?> value="NET">NET</option>
+			</select>
+		</li>
+		<li class="row2">
+			<select required class="first" name="job_type">
+				<option value=""><?php echo $this->__('Loại hình công việc') ?> *</option>
+				<?php echo $this->getTypeList($data['job_type']) ?>
+			</select>
+			<div class="last features">
+				<a data-box="features-box" class="select-button" href="#">
+					<?php if($data['feature_id']): ?>
+					<?php echo $this->__('Đã chọn') ?>
+					<?php else: ?>
+					<?php echo $this->__('Feature tags') ?> *
+					<?php endif; ?>
+				</a>
+				<div id="features-box" class="select-box">
+					<?php echo $this->getFeatureList($data['feature_id']) ?>
+				</div>
+			</div>
+		</li>
+		<li>
+			<textarea rows="5" id="requirement" required name="requirement" placeholder="<?php echo $this->__('Yêu cầu công việc') ?> *"><?php echo $data['requirement'] ?></textarea>
+		</li>
+		<li>
+			<textarea id="info" required name="info" placeholder="<?php echo $this->__('Thông tin công việc') ?> *"><?php echo $data['info'] ?></textarea>
+		</li>
+	</ul>
+	<div class="button">
+		<!--
+		<button class="reset btn" type="reset"><?php echo $this->__('Hủy bỏ') ?></button>
+		-->
+		<button name="draft" value="1" class="inactive draft btn"><?php echo $this->__('Lưu vào bản nháp') ?></button>
+		<button name="submit" value="1" class="active submit btn blue-btn" type="submit"><?php echo $this->__('Đăng tuyển') ?></button>
+	</div>
+</form>
