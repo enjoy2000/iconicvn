@@ -48,10 +48,6 @@ Default layout, loads most of the pages
 
     <default>
         <!-- Mage_Customer -->
-        <reference name="head">
-                <action method="addJs"><script>iconic/user.js</script></action>
-				<action method="addCss"><stylesheet>css/user.css</stylesheet></action>
-        </reference>
     </default>
 
 <!--
@@ -125,6 +121,9 @@ New customer registration
         <reference name="root">
             <action method="setTemplate"><template>page/account.phtml</template></action>
         </reference>
+        <reference name="head">
+    		<action method="addCss"><stylesheet>css/customer_register.css</stylesheet></action>
+        </reference>
         <reference name="content">
             <block type="customer/form_register" name="customer_form_register" template="customer/form/register.phtml">
                 <block type="page/html_wrapper" name="customer.form.register.fields.before" as="form_fields_before" translate="label">
@@ -158,6 +157,7 @@ New customer registration
         <remove name="left"/>
 
         <reference name="head">
+    		<action method="addCss"><stylesheet>css/customer_register.css</stylesheet></action>
             <action method="setTitle" translate="title" module="customer">
                 <title>Đổi lại mật khẩu</title>
             </action>
@@ -179,6 +179,9 @@ New customer registration
         <remove name="right"/>
         <remove name="left"/>
 
+        <reference name="head">
+    		<action method="addCss"><stylesheet>css/customer_register.css</stylesheet></action>
+        </reference>
         <reference name="root">
             <action method="setTemplate"><template>page/account.phtml</template></action>
             <action method="setHeaderTitle" translate="title" module="customer"><title>Send confirmation link</title></action>
@@ -191,6 +194,9 @@ New customer registration
     <customer_account_edit translate="label">
         <label>Customer Account Edit Form</label>
         <update handle="customer_account"/>
+        <reference name="head">
+    		<action method="addCss"><stylesheet>css/customer_register.css</stylesheet></action>
+        </reference>
         <reference name="root">
             <action method="setHeaderTitle" translate="title" module="customer"><title>Edit Account Info</title></action>
         </reference>

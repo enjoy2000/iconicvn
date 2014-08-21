@@ -119,6 +119,20 @@ class Iconic_Job_Controller_Router extends Mage_Core_Controller_Varien_Router_Ab
                         ->setActionName('login');
                         return true;
             	}
+				if($parts[0] == Mage::helper('client')->getJobPostUrl()){
+            		$request
+                        ->setModuleName('client')
+                        ->setControllerName('job')
+                        ->setActionName('post');
+                        return true;
+            	}
+				if($parts[0] == Mage::helper('client')->getJobManageUrl()){
+            		$request
+                        ->setModuleName('client')
+                        ->setControllerName('job')
+                        ->setActionName('manage');
+                        return true;
+            	}
 				/*
             	if($parts[0] == Mage::helper('job')->getSearchUrl()){
             		$request

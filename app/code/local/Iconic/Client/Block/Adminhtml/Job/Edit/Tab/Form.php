@@ -92,11 +92,11 @@ class Iconic_Client_Block_Adminhtml_Job_Edit_Tab_Form extends Mage_Adminhtml_Blo
         ));
 		
 		//get location values
-		$countries = Mage::getModel('job/country')->getCollection();
-		foreach($countries as $country){
+		$locationModel = Mage::getModel('job/location')->getCollection();
+		foreach($locationModel as $loc){
 			$arrayLocation[] = array(
-								'label' => $country->getName(),
-								'value' => $country->getId(),
+							'label'		=> $loc->getName(),
+							'value'		=> $loc->getLocationId(),
 			);
 		}
 		
@@ -106,12 +106,6 @@ class Iconic_Client_Block_Adminhtml_Job_Edit_Tab_Form extends Mage_Adminhtml_Blo
             'required'  => true,
             'name'      => 'location_id',
             'values'	=> $arrayLocation,
-        ));
-		$fieldset->addField('location_text', 'text', array(
-            'label'     => Mage::helper('job')->__('Area'),
-            'class'     => 'required-entry',
-            'required'  => true,
-            'name'      => 'location_text',
         ));
 		
 		//get level values
@@ -151,10 +145,6 @@ class Iconic_Client_Block_Adminhtml_Job_Edit_Tab_Form extends Mage_Adminhtml_Blo
             'required'  => true,
             'name'      => 'job_salary_currency',
             'values'    => array(
-            			array(
-							'label' => 'JPY',
-							'value' => 'JPY'
-						),
 						array(
 							'label' => 'VND',
 							'value' => 'VND'
@@ -164,7 +154,7 @@ class Iconic_Client_Block_Adminhtml_Job_Edit_Tab_Form extends Mage_Adminhtml_Blo
 							'value' => 'USD'
 						),
 			),
-            'value'		=> 'JPY',
+            'value'		=> 'VND',
         ));
 		
 		$fieldset->addField('job_salary_type', 'select', array(
@@ -184,36 +174,7 @@ class Iconic_Client_Block_Adminhtml_Job_Edit_Tab_Form extends Mage_Adminhtml_Blo
 			),
             'value'		=> 'Gross',
         ));
-		//job ammount
-		$fieldset->addField('amount', 'text', array(
-            'label'     => Mage::helper('job')->__('Job Amount'),
-            'class'     => 'required-entry',
-            'required'  => true,
-            'name'      => 'amount',
-        ));
-		//job language
-		$languages = Mage::getModel('job/language')->getCollection();
-		$langlevels = Mage::getModel('job/langlevel')->getCollection();
-		foreach($languages as $lang){
-			$levelarray = array();
-			foreach($langlevels as $langlevel){
-				$levelarray[] = array(
-						'label' => $langlevel->getName(),
-						'value' => $lang->getId() . '-' . $langlevel->getId()
-					);
-			}
-			$arrayLang[] = array(
-							'label' => $lang->getName(),
-							'value' => $levelarray,
-			);
-		}
-		$fieldset->addField('language_id', 'multiselect', array(
-            'label'     => Mage::helper('job')->__('Job Language'),
-            'class'     => 'required-entry',
-            'required'  => true,
-            'name'      => 'language_id',
-            'values'    => $arrayLang,
-        ));
+		
 		//get type values
 		$typeModel = Mage::getModel('job/type')->getCollection();
 		foreach($typeModel as $type){

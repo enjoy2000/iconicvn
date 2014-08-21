@@ -7,10 +7,12 @@ class Iconic_Client_Block_Job extends Mage_Core_Block_Template
 	}
 	
 	public function getCategoryList($group, $data){
-		$industry =  Mage::getModel('job/parentcategory')->getCollection()->addFieldToFilter('group_category', array('eq'=>$group));
+		$industry =  Mage::getModel('job/parentcategory')->getCollection()
+						->addFieldToFilter('group_category', array('eq'=>$group));
 		$option = '';
 		foreach($industry as $parent){
 			$cats = Mage::getModel('job/category')->getCollection()->addFieldToFilter('parentcategory_id', array('eq'=>$parent->getId()));
+			$option .= '<optgroup label="' . $parent->getName() . '">';
 			foreach($cats as $cat){
 				$catName = Mage::helper('job')->getTransName($cat);
 				$selected = '';
@@ -19,6 +21,7 @@ class Iconic_Client_Block_Job extends Mage_Core_Block_Template
 				}
 				$option .= "<option{$selected} value=\"{$cat->getId()}\">{$catName}</option>";
 			}
+			$option .= '</optgroup>';
 		}
 		
 		return $option;
@@ -26,7 +29,7 @@ class Iconic_Client_Block_Job extends Mage_Core_Block_Template
 	
 	public function getLocationList($data){
 		if(!$this->hasData('locationList')){
-			$locations = Mage::getModel('job/country')->getCollection();
+			$locations = Mage::getModel('job/location')->getCollection()->setOrder('url_key', 'ASC');
 			$option = '';
 			foreach($locations as $loc){
 				$locName = Mage::helper('job')->getTransName($loc);

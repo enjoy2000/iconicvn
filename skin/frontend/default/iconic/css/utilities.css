@@ -230,3 +230,12 @@ ol.grey > li:before{
 	counter-increment: my-counter;
 	background: url('../images/big-grey-circle.jpg') 7px -1px no-repeat transparent;
 }
+div#loading-animation{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: url('../images/loading.gif') center no-repeat rgba(193, 230, 252, 0.95);;
+	display: none;
+}

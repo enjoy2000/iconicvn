@@ -35,7 +35,7 @@
 <?php $data = $this->getRequest()->getPost(); ?>
 <div class="account-create">
     <div class="page-title">
-        <h1><?php echo $this->__('法人アカウントを登録する') ?></h1>
+        <h1><?php echo $this->__('Đăng ký thành viên mới') ?></h1>
     </div>
     <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
     <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="form-validate">
@@ -43,9 +43,6 @@
             <ul class="form-list">
             	<input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>" />
            		<input type="hidden" name="error_url" value="<?php echo $this->getErrorUrl() ?>" />
-           		<li>
-           			<?php echo $this->__('＊＝必須') ?>
-           		</li>
                 <li id="company-logo">
                 	<div class="company-logo<?php echo ($this->getFormData()->getCompanyLogo()) ? ' after-input' : '' ?>">
                 		<?php if($this->getFormData()->getCompanyLogo()): ?>
@@ -60,53 +57,58 @@
                 	<input id="logo-file-name" type="hidden" name="company_logo" value="<?php echo $this->getFormData()->getCompanyLogo() ?>" />
                 </li>
                 <li>
-                	<input <?php echo ($this->getFormData()->getCompanyName()) ? 'class="after-input"' : '' ?> required type="text" name="company_name" placeholder="<?php echo $this->__('企業名') ?> *" value="<?php echo $this->getFormData()->getCompanyName() ?>" />
+                	<input <?php echo ($this->getFormData()->getCompanyName()) ? 'class="after-input"' : '' ?> required type="text" name="company_name" placeholder="<?php echo $this->__('Tên công ty') ?> *" value="<?php echo $this->getFormData()->getCompanyName() ?>" />
                 </li>
                 <li>
-                	<input <?php echo ($this->getFormData()->getCompanyAddress()) ? 'class="after-input"' : '' ?> required type="text" name="company_address" placeholder="<?php echo $this->__('所在地') ?> *" value="<?php echo $this->getFormData()->getCompanyAddress() ?>" />
+                	<input <?php echo ($this->getFormData()->getCompanyAddress()) ? 'class="after-input"' : '' ?> required type="text" name="company_address" placeholder="<?php echo $this->__('Địa chỉ công ty') ?> *" value="<?php echo $this->getFormData()->getCompanyAddress() ?>" />
                 </li>
                 <li>
-                	<input required type="password" name="password" placeholder="<?php echo $this->__('パスワード') ?> *" />
+                	<input required type="password" name="password" placeholder="<?php echo $this->__('Mật khẩu') ?> *" />
                 </li>
                 <li>
-                	<input required type="password" name="confirmation" placeholder="<?php echo $this->__('確認（パスワード）') ?> *" />
+                	<input required type="password" name="confirmation" placeholder="<?php echo $this->__('Xác nhận mật khẩu') ?> *" />
+                </li>
+                <li class="clearfix">
+                	<div class="fll width-45">
+	                	<select <?php echo ($this->getFormData()->getCompanySize()) ? 'class="after-input"' : '' ?> name="company_size">
+	                		<option value=""><?php echo $this->__('Quy mô công ty') ?></option>
+	                		<option <?php echo ($this->getFormData()->getCompanySize() == '1') ? 'selected="selected"' : '' ?> value="1"><?php echo $this->__('Less than 10') ?></option>
+	                		<option <?php echo ($this->getFormData()->getCompanySize() == '2') ? 'selected="selected"' : '' ?> value="2"><?php echo $this->__('10-24') ?></option>
+	                		<option <?php echo ($this->getFormData()->getCompanySize() == '3') ? 'selected="selected"' : '' ?> value="3"><?php echo $this->__('25-99') ?></option>
+	                		<option <?php echo ($this->getFormData()->getCompanySize() == '4') ? 'selected="selected"' : '' ?> value="4"><?php echo $this->__('100-500') ?></option>
+	                		<option <?php echo ($this->getFormData()->getCompanySize() == '5') ? 'selected="selected"' : '' ?> value="5"><?php echo $this->__('More than 500') ?></option>
+	                	</select>
+                	</div>
+                	<div class="flr width-45">
+                		<input <?php echo ($this->getFormData()->getCompanyWebsite()) ? 'class="after-input"' : '' ?> type="url" name="company_website" placeholder="<?php echo $this->__('Website') ?>" value="<?php echo $this->getFormData()->getCompanyWebsite() ?>" />
+                	</div>
                 </li>
                 <li>
-                	<select <?php echo ($this->getFormData()->getCompanySize()) ? 'class="after-input"' : '' ?> name="company_size">
-                		<option value=""><?php echo $this->__('企業規模') ?></option>
-                		<option <?php echo ($this->getFormData()->getCompanySize() == '1') ? 'selected="selected"' : '' ?> value="1"><?php echo $this->__('Less than 10') ?></option>
-                		<option <?php echo ($this->getFormData()->getCompanySize() == '2') ? 'selected="selected"' : '' ?> value="2"><?php echo $this->__('10-24') ?></option>
-                		<option <?php echo ($this->getFormData()->getCompanySize() == '3') ? 'selected="selected"' : '' ?> value="3"><?php echo $this->__('25-99') ?></option>
-                		<option <?php echo ($this->getFormData()->getCompanySize() == '4') ? 'selected="selected"' : '' ?> value="4"><?php echo $this->__('100-500') ?></option>
-                		<option <?php echo ($this->getFormData()->getCompanySize() == '5') ? 'selected="selected"' : '' ?> value="5"><?php echo $this->__('More than 500') ?></option>
-                	</select>
+                	<textarea <?php echo ($this->getFormData()->getCompanyDetail()) ? 'class="after-input"' : '' ?> placeholder="<?php echo $this->__('Thông tin công ty') ?> *" name="company_detail" required><?php echo $this->getFormData()->getCompanyDetail() ?></textarea>
                 </li>
-                <li>
-                	<input <?php echo ($this->getFormData()->getCompanyWebsite()) ? 'class="after-input"' : '' ?> type="url" name="company_website" placeholder="<?php echo $this->__('ウェブサイト') ?>" value="<?php echo $this->getFormData()->getCompanyWebsite() ?>" />
-                </li>
-                <li>
-                	<textarea <?php echo ($this->getFormData()->getCompanyDetail()) ? 'class="after-input"' : '' ?> placeholder="<?php echo $this->__('企業情報') ?> *" name="company_detail" required><?php echo $this->getFormData()->getCompanyDetail() ?></textarea>
-                </li>
-                <li>
-                	<input <?php echo ($this->getFormData()->getFirstname()) ? 'class="after-input"' : '' ?> required type="text" name="firstname" placeholder="<?php echo $this->__('担当者') ?> *" value="<?php echo $this->getFormData()->getFirstname() ?>" />
-                </li>
-                <li>
-                	<input <?php echo ($this->getFormData()->getEmail()) ? 'class="after-input"' : '' ?> required type="email" name="email" placeholder="<?php echo $this->__('Email') ?> *" value="<?php echo $this->getFormData()->getEmail() ?>" />
+                <li class="clearfix">
+                	<div class="fll width-45">
+                		<input <?php echo ($this->getFormData()->getFirstname()) ? 'class="after-input"' : '' ?> required type="text" name="firstname" placeholder="<?php echo $this->__('Người liên hệ') ?> *" value="<?php echo $this->getFormData()->getFirstname() ?>" />
+					</div>
+					<div class="flr width-45">
+						<input <?php echo ($this->getFormData()->getEmail()) ? 'class="after-input"' : '' ?> required type="email" name="email" placeholder="<?php echo $this->__('Email') ?> *" value="<?php echo $this->getFormData()->getEmail() ?>" />
+					</div>
                 </li>
                 <li>
                 	<input name="agree" required type="radio" value="1" />
-                	<?php echo $this->__('アイコニックの <a target="_blank" href="%s">個人情報保護方針</a> に同意する。', Mage::helper('job')->getUrl().'privacy-policy') ?>
+                	<?php echo $this->__('Đồng ý với <a target="_blank" href="%s">quy định của Iconic</a> về sử dụng thông tin của bạn.', Mage::helper('job')->getUrl().'chinh-sach-bao-mat') ?>
                 </li>
             </ul>
         </div>
         <div class="buttons-set">
-            <button type="submit" title="<?php echo $this->__('この内容で登録する') ?>" class="btn button"><?php echo $this->__('この内容で登録する') ?></button>
+            <button type="submit" title="<?php echo $this->__('Đăng ký') ?>" class="btn button"><?php echo $this->__('Đăng ký') ?></button>
         </div>
     </form>
 </div>
 <script>
 	jQuery(document).ready(function(){
-		jQuery('#browse').click(function(){
+		jQuery('#browse').click(function(e){
+			e.preventDefault();
 			jQuery('#upload-input').click();
 		});
 	});

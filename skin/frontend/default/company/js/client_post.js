@@ -59,11 +59,11 @@
 			        div.hide();
 			        $this.removeClass('focus');
 			        var count = $('input:checked', div).length;
-			        var defaultText = $this.text();
+			        var defaultText = 'Feature tags *';
 			        if(count > 0){
 			        	$this.addClass('after-input');
 			        	$this.removeClass('error');
-			        	$this.text('入力済み'); // already checked text
+			        	$this.text('Đã chọn'); // already checked text
 			        }else{
 			        	$this.removeClass('after-input');
 			        	$this.addClass('error');

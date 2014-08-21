@@ -1,27 +1,27 @@
 <div class="manage-job-menu">
-	<a<?php echo ($this->getParam() == 'draft') ? ' class="active"' : '' ?> href="<?php echo $this->getUrl('draft') ?>" title="<?php echo $this->__('下書き') ?>">
-		<?php echo $this->__('下書き') ?>
+	<a<?php echo ($this->getParam() == 'draft') ? ' class="active"' : '' ?> href="<?php echo $this->getUrl('draft') ?>" title="<?php echo $this->__('Bản nháp') ?>">
+		<?php echo $this->__('Bản nháp') ?>
 		(<?php echo $this->getCount('draft') ?>)
 	</a>
 	
-	<a<?php echo ($this->getParam() == 'pending') ? ' class="active"' : '' ?> href="<?php echo $this->getUrl('pending') ?>" title="<?php echo $this->__('承認待ち') ?>">
-		<?php echo $this->__('承認待ち') ?>
+	<a<?php echo ($this->getParam() == 'pending') ? ' class="active"' : '' ?> href="<?php echo $this->getUrl('pending') ?>" title="<?php echo $this->__('Đang đợi duyệt') ?>">
+		<?php echo $this->__('Đang đợi duyệt') ?>
 		(<?php echo $this->getCount('pending') ?>)
 	</a>
 	
-	<a<?php echo ($this->getParam() == 'active') ? ' class="active"' : '' ?> href="<?php echo $this->getUrl('active') ?>" title="<?php echo $this->__('投稿中') ?>">
-		<?php echo $this->__('投稿中') ?>
+	<a<?php echo ($this->getParam() == 'active') ? ' class="active"' : '' ?> href="<?php echo $this->getUrl('active') ?>" title="<?php echo $this->__('Đang đăng tuyển') ?>">
+		<?php echo $this->__('Đang đăng tuyển') ?>
 		(<?php echo $this->getCount('active') ?>)
 	</a>
 	
-	<a<?php echo ($this->getParam() == '') ? ' class="active"' : '' ?> href="<?php echo $this->getUrl() ?>" title="<?php echo $this->__('すべて') ?>">
-		<?php echo $this->__('すべて') ?>
+	<a<?php echo ($this->getParam() == '') ? ' class="active"' : '' ?> href="<?php echo $this->getUrl() ?>" title="<?php echo $this->__('Tất cả') ?>">
+		<?php echo $this->__('Tất cả') ?>
 		(<?php echo $this->getCount() ?>)
 	</a>
 	
 	<div class="post-job inline">
-		<a href="<?php echo Mage::getUrl('client/job/post') ?>" class="post-job" title="<?php echo $this->__('求人を投稿する') ?>">
-			<?php echo $this->__('求人を投稿する') ?>
+		<a href="<?php echo Mage::getUrl('client/job/post') ?>" class="post-job" title="<?php echo $this->__('Đăng tuyển') ?>">
+			<?php echo $this->__('Đăng tuyển') ?>
 		</a>
 	</div>
 </div>
@@ -29,12 +29,12 @@
 	<table>
 		<thead>
 			<tr>
-				<td class="title"><?php echo $this->__('求人名') ?></td>
-				<td><?php echo $this->__('勤務地') ?></td>
-				<td><?php echo $this->__('就業形態') ?></td>
-				<td><?php echo $this->__('給与') ?></td>
-				<td><?php echo $this->__('投稿日') ?></td>
-				<td><?php echo $this->__('アクション') ?></td>
+				<td class="title"><?php echo $this->__('Vị trí đăng tuyển') ?></td>
+				<td><?php echo $this->__('Địa chỉ công ty') ?></td>
+				<td><?php echo $this->__('Loại hình') ?></td>
+				<td><?php echo $this->__('Lương') ?></td>
+				<td><?php echo $this->__('Ngày đăng') ?></td>
+				<td><?php echo $this->__('Hành động') ?></td>
 			</tr>
 		</thead>
 		<tbody>
@@ -47,11 +47,11 @@
 					<td><?php echo $job->getFullSalary() ?></td>
 					<td><?php echo Mage::helper('job')->formatDate($job->getCreatedTime()) ?></td>
 					<td class="actions">
-						<a class="details" href="#" title="<?php echo $this->__('詳細') ?>">&nbsp;</a>
+						<a class="details" href="#" title="<?php echo $this->__('Xem thêm') ?>">&nbsp;</a>
 						<?php if($this->getParam() != 'active'): ?>
-						<a class="edit" href="<?php echo $job->getEditUrl() ?>" title="<?php echo $this->__('編集する') ?>">&nbsp;</a>
+						<a class="edit" href="<?php echo $job->getEditUrl() ?>" title="<?php echo $this->__('Sửa') ?>">&nbsp;</a>
 						<?php endif; ?>
-						<a data-job="<?php echo $job->getId() ?>" class="delete" href="#" title="<?php echo $this->__('削除する') ?>">&nbsp;</a>
+						<a data-job="<?php echo $job->getId() ?>" class="delete" href="#" title="<?php echo $this->__('Xóa') ?>">&nbsp;</a>
 					</td>
 				</tr>
 				<tr class="detail">
@@ -59,24 +59,18 @@
 						<table>
 							<tbody>
 								<tr>
-									<td>
-										<span><?php echo $this->__('業界') ?>:</span>
+									<td colspan="2">
+										<span><?php echo $this->__('Ngành nghề') ?>:</span>
 										<?php echo $job->getCategoryName() ?><br />
-										<span><?php echo $this->__('職種') ?>:</span>
+										<span><?php echo $this->__('Chức năng') ?>:</span>
 										<?php echo $job->getFunctionName() ?><br />
-										<span><?php echo $this->__('職務レベル') ?>:</span>
+										<span><?php echo $this->__('Cấp độ công việc') ?>:</span>
 										<?php echo $job->getLevel() ?><br />
-										<span><?php echo $this->__('採用予定人数') ?>:</span>
-										<?php echo $job->getAmount() ?><br />
-									</td>
-									<td>
-										<span><?php echo $this->__('言語要件') ?>:</span><br />
-										<?php echo $job->getLanguage() ?>
 									</td>
 								</tr>
 								<tr class="feature">
 									<td colspan="2">
-										<span><?php echo $this->__('求人の特徴') ?>:</span>
+										<span><?php echo $this->__('Feature tags') ?>:</span>
 										<?php $features = explode(',', substr($job->getFeatureId(),1,-1)) ?>
 										<?php 
 											foreach($features as $id){
@@ -91,11 +85,11 @@
 								</tr>
 								<tr class="info">
 									<td>
-										<span><?php echo $this->__('職務内容') ?>:</span><br />
+										<span><?php echo $this->__('Thông tin công việc') ?>:</span><br />
 										<?php echo $job->getInfo() ?>
 									</td>
 									<td>
-										<span><?php echo $this->__('必須条件') ?>:</span><br />
+										<span><?php echo $this->__('Yêu cầu công việc') ?>:</span><br />
 										<?php echo $job->getRequirement() ?>
 									</td>
 								</tr>
@@ -107,7 +101,7 @@
 			<?php else: ?>
 				<tr class="noresult">
 					<td colspan="6">
-						<?php echo $this->__('まだ応募はありません') ?>
+						<?php echo $this->__('Bạn chưa đăng tuyển công việc.') ?>
 					</td>
 				</tr>
 			<?php endif; ?>

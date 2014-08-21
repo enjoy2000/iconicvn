@@ -83,6 +83,8 @@ $installer->addAttribute('customer', 'company_detail', array(
 $installer->run("
  
 ALTER TABLE {$this->getTable('job')} ADD COLUMN customer_id int(11) unsigned NULL AFTER job_id;
+UPDATE {$this->getTable('job')} SET status='active' WHERE status=0;
+ALTER TABLE {$this->getTable('job')} CHANGE `status` `status` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'active';
  
 ");
 	

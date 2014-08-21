@@ -5,6 +5,11 @@
     </default>
     
     <client_job_post>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/account.phtml</template>
+            </action>
+        </reference>
     	<reference name="head">
     		<action method="addCss"><stylesheet>css/client_post.css</stylesheet></action>
             <action method="addJs"><script>ckeditor/ckeditor.js</script></action>

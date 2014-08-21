@@ -126,6 +126,7 @@ div.results > table tbody tr.detail td > table tr td{
 	color: #000;
 	width: 50%;
 	padding: 10px 20px;
+	vertical-align: top;
 }
 div.results > table tbody tr.detail td > table tr td:first-child{
 	padding-left: 30px;
@@ -141,6 +142,10 @@ div.results > table tbody tr.detail td > table tr.info{
 }
 div.results > table tbody tr.detail td > table tr.info ul{
 	list-style: initial;
+	margin-left: 17px;
+}
+div.results > table tbody tr.detail td > table tr.info ol{
+	list-style: decimal;
 	margin-left: 17px;
 }
 div.results > table tbody tr.detail td > table tr.info ul ul{

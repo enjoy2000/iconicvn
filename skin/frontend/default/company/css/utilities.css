@@ -80,11 +80,23 @@ input::-webkit-inner-spin-button {
 	background: url('../images/white-tit.png') bottom left no-repeat transparent;
 	padding-bottom: 10px;
 }
-select{
-	color: #000;
-}
 select::-ms-expand {
     display: none;
+}
+select{
+	text-indent: 0.01px;
+	text-overflow: ' ';
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+	width: 100%;
+	padding: 2px 8px;
+	border: solid 3px #d2d4d5;
+	background: url('../images/select-arrow.png') right 5px center transparent no-repeat;
+	color: rgb(166, 166, 166);
+}
+select.after-input{
+	color: #000;
 }
 select:disabled{
 	background-color: #F0F0F0!important;
@@ -114,6 +126,7 @@ textarea{
 	-webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    text-decoration: none;
 }
 .btn-blue{
 	background: url('../images/btn-blue.png') center no-repeat transparent;
@@ -176,12 +189,19 @@ textarea{
 }
 
 .button-blue{
-	background-color: #1197Ec;
+	background-color: #005baa;
+	border-radius: 8px;
+}
+.btn-grey{
+	background-color: #bcbec0;
 	border-radius: 8px;
 }
 .button-grey{
 	background-color: #bcbec0;
 	border-radius: 8px;
+}
+input.after-input{
+	color: #000;
 }
 input:focus,textarea:focus{
 	outline: none;
@@ -229,4 +249,21 @@ ol.grey > li:before{
 	content: counter(my-counter);
 	counter-increment: my-counter;
 	background: url('../images/big-grey-circle.jpg') 7px -1px no-repeat transparent;
+}
+.transition{
+	-webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+ul.messages{
+	padding-left: 0 20px;
+}
+.error-msg{
+	padding: 3px 20px;
+	border: solid 1px red;
+}
+.success-msg{
+	padding: 3px 20px;
+	border: solid 1px #005baa;
 }

@@ -5,10 +5,9 @@ class Iconic_Client_JobController extends Mage_Core_Controller_Front_Action{
 		// redirect if user not login 
 		if (!Mage::getSingleton('customer/session')->isLoggedIn()) {
             $session = Mage::getSingleton('customer/session');
-			Mage::getSingleton('customer/session')->setShowLogin(1);
-            $session->setAfterAuthUrl( Mage::getUrl('*/*/*', array('_current' => true)) );
-            $session->setBeforeAuthUrl( Mage::getUrl('*/*/*', array('_current' => true)) );
-            $this->_redirect('/');
+            //$session->setAfterAuthUrl( Mage::helper('core/url')->getCurrentUrl() );
+            $session->setBeforeAuthUrl( Mage::getUrl('*/*/*', array('id'=>$id)) );
+            $this->_redirect(Mage::helper('job')->getLoginUrl());
             return $this;
         }
         $this->loadLayout();
@@ -31,10 +30,9 @@ class Iconic_Client_JobController extends Mage_Core_Controller_Front_Action{
 		// redirect if user not login 
 		if (!Mage::getSingleton('customer/session')->isLoggedIn()) {
             $session = Mage::getSingleton('customer/session');
-			Mage::getSingleton('customer/session')->setShowLogin(1);
-            $session->setAfterAuthUrl( Mage::getUrl('*/*/*', array('_current' => true)) );
-            $session->setBeforeAuthUrl( Mage::getUrl('*/*/*', array('_current' => true)) );
-            $this->_redirect('/');
+            //$session->setAfterAuthUrl( Mage::helper('core/url')->getCurrentUrl() );
+            $session->setBeforeAuthUrl( Mage::getUrl('*/*/*', array('id'=>$id)) );
+            $this->_redirect(Mage::helper('job')->getLoginUrl());
             return $this;
         }
 		
@@ -53,16 +51,6 @@ class Iconic_Client_JobController extends Mage_Core_Controller_Front_Action{
 			/* Change data format to render to edit page */
 			$job = (array) $job->getData();
 			$job['feature_id'] = explode(',', substr($job['feature_id'], 1, -1));
-			$jobLang = $job['language_id'];
-			$jobLang = explode(',', substr($job['language_id'], 1, -1));
-			$arrayLang = array();
-			foreach($jobLang as $lang){
-				list($key, $level) = explode('-',$lang);
-				$arrayLang[$key] = $level;
-			}
-			$job['language_id'] = $arrayLang;
-			$jobLocationId = explode(',', substr($job['location_id'], 1, -1));
-			$job['location_id'] = $jobLocationId[0];
 			Mage::getSingleton('customer/session')->setJobData($job);
 		}
 		
@@ -70,14 +58,14 @@ class Iconic_Client_JobController extends Mage_Core_Controller_Front_Action{
 			try{
 				$formData = $data;
 				$jobModel = Mage::getModel('job/job');
-				if(count($data) < 13){
+				if(count($data) < 11){
 					Mage::getSingleton('core/session')->addError(Mage::helper('client')->__('Not enough information.'));
 					Mage::getSingleton('customer/session')->setJobData($formData);
 					$this->_redirect('*/*/*', array('id'=>$jobId));
 					return;
 				}
 				//var_dump($data['language_id']);die;
-				if(!$data['info'] || !$data['requirement'] || count($data['feature_id']) <= 0 || count($data['language_id']) <= 0 || !$data['title'] || !$data['category_id'] || !$data['function_category_id']){
+				if(!$data['info'] || !$data['requirement'] || count($data['feature_id']) <= 0 || !$data['title'] || !$data['category_id'] || !$data['function_category_id']){
 					Mage::getSingleton('core/session')->addError(Mage::helper('client')->__('Not enough information.'));
 					Mage::getSingleton('customer/session')->setJobData($formData);
 					$this->_redirect('*/*/*', array('id'=>$jobId));
@@ -89,12 +77,16 @@ class Iconic_Client_JobController extends Mage_Core_Controller_Front_Action{
 				}else{
 					$data['status'] = 'draft';
 				}
+				
+				//if edit exist job not change url_key
+				if($jobId){
+					$data['url_key'] = $job['url_key'];
+				}
 				$data['customer_id'] = $customer->getId();
 				/* Created time */
 	            $currentDate = Date('Y-m-d H:i:s');
-				if($jobId){
-					$data['update_time'] = $currentDate;
-				}else{
+				$data['update_time'] = $currentDate;
+				if(!$jobId){
 					$data['created_time'] = $currentDate;
 				}
 				$requirement = strip_tags($_POST['requirement'], '<p><ol><ul><li><em><strong><b><i>');
@@ -102,13 +94,7 @@ class Iconic_Client_JobController extends Mage_Core_Controller_Front_Action{
 				$info = strip_tags($_POST['info'], '<p><ol><ul><li><em><strong><b><i>');
 				$data['info'] = $info;
 				/* Change data format to save to databse */
-				$data['location_id'] = ','.$data['location_id'].',';
 				$data['feature_id'] = ','.implode(',', $data['feature_id']).',';
-				$langIds = array();
-				foreach($data['language_id'] as $k=>$v){
-					$langIds[] = $k.'-'.$v;
-				}
-				$data['language_id'] = ','.implode(',', $langIds).',';
 				
 				/* Save Job */
 				$jobModel->setData($data)

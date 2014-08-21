@@ -47,6 +47,7 @@ class Mage_Adminhtml_Block_Customer_Grid extends Mage_Adminhtml_Block_Widget_Gri
     {
         $collection = Mage::getResourceModel('customer/customer_collection')
             ->addNameToSelect()
+            ->addAttributeToFilter('website_id', array('eq'=>1))
             ->addAttributeToSelect('email')
             ->addAttributeToSelect('created_at')
             ->addAttributeToSelect('group_id')			

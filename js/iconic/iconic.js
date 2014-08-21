@@ -29,7 +29,7 @@
 		
 		//show loading box when submiting form
 		$('form').on('submit', function(){
-			console.log('submit');
+			$('#loading-animation').fadeIn(500);
 		});
 		
 		//contact form email footer
@@ -43,6 +43,7 @@
 					$('#response').show().text(msg);
 					$('#contact-us input').val('');
 					$('#contact-us textarea').val('');
+					$('#loading-animation').fadeOut(200);
 				}
 			});
 		});

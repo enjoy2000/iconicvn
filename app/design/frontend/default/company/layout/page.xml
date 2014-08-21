@@ -36,10 +36,12 @@ Default layout, loads most of the pages
 
             <block type="page/html_head" name="head" as="head">
                 <action method="addJs"><script>iconic/jquery.min.js</script></action>
+                <action method="addJs"><script>iconic/jquery.selectric.min.js</script></action>
                 <action method="addJs"><script>iconic/company.js</script></action>
 		
 				<action method="addCss"><stylesheet>css/reset.css</stylesheet></action>
-				<action method="addCss"><stylesheet>css/utilities.css</stylesheet></action>				
+				<action method="addCss"><stylesheet>css/utilities.css</stylesheet></action>	
+				<action method="addCss"><stylesheet>css/selectric.css</stylesheet></action>			
                 <action method="addCss"><stylesheet>css/styles.css</stylesheet></action>
             </block>
 
@@ -125,18 +127,17 @@ Default layout, loads most of the pages
         </reference>
     </page_one_column>
     
-    <page_account translate="label" module="page">
+    <page_account translate="label">
     	<label>Account Pages</label>
         <reference name="root">
             <action method="setTemplate"><template>page/account.phtml</template></action>
             <!-- Mark root page block that template is applied -->
             <action method="setIsHandle"><applied>1</applied></action>
         </reference>
-		    <reference name="head">
-		        <action method="addJs"><script>prototype/prototype.js</script></action> <!-- adds a js referencing to the /js directory -->
-		        <action method="addCss"><stylesheet>css/custom.css</stylesheet></action> <!-- adds CSS looking at the skin/ directories ( in reverse order: base/default, default/default, default/yourtheme, yourpackage/yourtheme -->
-		        <action method="addItem"><type>skin_js</type><name>js/custom_script.js</name><params/></action> <!-- adds a js at the skin/ directories in the same manner as the above addCss directive -->
-		    </reference>
+        <block type="page/html_head" name="head" as="head">
+		    <action method="addJs"><script>iconic/user.js</script></action>
+			<action method="addCss"><stylesheet>css/user.css</stylesheet></action>
+		</block>
     </page_account>
     
     <page_error translate="label" module="page">
