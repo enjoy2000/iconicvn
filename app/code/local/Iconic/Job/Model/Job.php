@@ -36,6 +36,7 @@ class Iconic_Job_Model_Job extends Mage_Core_Model_Abstract
 		$category = $this->getCategory();
 		$jobsInCategory = Mage::getModel('job/job')->getCollection()->addFieldToFilter('category_id',array('eq'=>$this->getCategoryId()))
 					->addFieldToFilter('job_id',array('neq'=>$this->getId()))
+					->addFieldToFilter('status', array('eq'=>'active'))
 					->setOrder('created_time','DESC')
 					->setPageSize($limit)
 					->setCurPage(1)
