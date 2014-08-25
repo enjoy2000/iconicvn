@@ -6,6 +6,38 @@ html, button, input, select, textarea {
 	color: #58595b;
 	font-size: 14px;
 }
+#header #switch-site{
+	text-align: center;
+	background-color: #fff;
+	border-bottom: solid 1px #005baa;
+	padding-top: 20px;
+}
+#header #switch-site a{
+	padding: 5px;
+	width: 150px;
+	border: solid 1px transparent;
+	border-bottom-color: #005baa;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 18px;
+	margin-bottom: -1px;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	color: #fff;
+	background-color: #dcddde;
+}
+#header #switch-site a.candidate{
+	background-color: #fff;
+	border-color: #1197EC;
+	border-bottom-color: #fff;
+	color: #1197EC;
+}
+#header #switch-site a.employer:hover{
+	background-color: #fff;
+	border-color: #005baa;
+	border-bottom-color: #fff;
+	color: #005baa;
+}
 #header{
 	background-color: #1197ec;
 	min-height: 300px;
@@ -15,7 +47,6 @@ html, button, input, select, textarea {
 	position: relative;
 }
 #header #header-menu{
-	height: 85px;
 	background-color: #fff;
 }
 
@@ -23,7 +54,7 @@ html, button, input, select, textarea {
  * LOGO 
 */
 #header #header-menu #logo{
-	margin-top: 18px;
+	margin-top: 12px;
 	margin-left: 10px;
 }
 
@@ -31,7 +62,7 @@ html, button, input, select, textarea {
  * MENU
  */
 #header #header-menu #menu{
-	margin-top: 50px;
+	margin-top: 28px;
 }
 #header #header-menu #menu ul{
 	list-style: none;
@@ -40,13 +71,14 @@ html, button, input, select, textarea {
 	display: inline;
 }
 #header #header-menu #menu ul li a{
-	padding: 5px 18px;
+	padding: 8px 7px;
 	text-transform: uppercase;
 	color: #939598;
 	font-size: 14px;
 	font-weight: bold;
 	position: relative;
 	text-decoration: none;
+	display: inline-block;
 }
 #header #header-menu #menu ul li a:hover{
 	color: #1197EC;
@@ -60,7 +92,7 @@ html, button, input, select, textarea {
 	position: absolute;
 	width: 0;
 	height: 0;
-	bottom: -30px;
+	bottom: -20px;
 	left: 50%;
 	pointer-events: none;
 	border: solid transparent;
@@ -100,20 +132,23 @@ html, button, input, select, textarea {
 	TOP SOCIAL
 */
 #header #header-menu > .wrapper .top-social{
-	position: absolute;
-	top: 0;
-	right: 20px;
+	margin-top: 23px;
+	margin-left: 10px;
 }
 #header #header-menu > .wrapper .top-social > a{
 	display: block;
 	float: left;
 	margin-left: 3px;
-	width: 34px;
-	height: 34px;
+	width: 28px;
+	height: 28px;
 	background-color: #c7c8ca;
 	background-position: center;
 	background-repeat: no-repeat;
 	text-decoration: none;
+	-webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
 }
 #header #header-menu > .wrapper .top-social > a.login{
 	padding-left: 30px;
@@ -123,8 +158,8 @@ html, button, input, select, textarea {
 	font-weight: bold;
 	letter-spacing: -0.5px;
 	font-size: 15px;
-	padding-top: 8px;
-	height: 26px;
+	padding-top: 4px;
+	height: 24px;
 	width: 75px;
 }
 #header #header-menu > .wrapper .top-social > a.login:hover{

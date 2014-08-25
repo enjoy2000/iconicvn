@@ -14,7 +14,7 @@ class Iconic_Job_Model_Job extends Mage_Core_Model_Abstract
             $urlKey = Mage::helper('job')->formatUrlKey($this->getTitle());
             if(!Mage::getModel('job/job')->load($urlKey, 'url_key')->getId()){
                 $this->setUrlKey($urlKey);
-            } else {
+            }else{
                 $urlKey .= '-' . $this->getId();
             	$this->setUrlKey($urlKey);
             }

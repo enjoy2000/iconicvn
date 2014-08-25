@@ -1,0 +1,107 @@
+#header #header-landing p.slogan{
+	text-transform: uppercase;
+	font-size: 40px;
+	letter-spacing: -1px;
+}
+#header #header-landing{
+	height: 400px;
+}
+div.top-page > div{
+	position: relative;
+	text-align: center;
+	padding-bottom: 30px;
+}
+div.top-page .fll img.top-img{
+	position: absolute;
+	top: -182px;
+	left: 0;
+}
+div.top-page .flr img.top-img{
+	position: absolute;
+	top: -66px;
+	left: 0;
+}
+#main{
+	border-top-color: transparent;
+}
+div.top-page a.btn{
+	display: inline-block;
+	padding: 8px 20px;
+	border-radius: 5px;
+	border: solid 1px #abd6f2;
+	background-color: #004282;
+	margin-top: 56px;
+	text-transform: none;
+	text-decoration: none;
+	color: #fff;
+	font-weight: normal;
+}
+div.top-page .flr p{
+	text-transform: uppercase;
+	text-align: center;
+	letter-spacing: -1px;
+	padding: 2px 30px;
+}
+div.top-page .flr p.tit{
+	margin-top: 60px;
+	font-weight: bold;
+	font-size: 18px;
+	color: #000;
+}
+
+div.about-iconic,
+div.iconic-reponse,
+div.why-iconic{
+	border-top: dotted 1px #49aff0;
+	padding: 10px 0;
+}
+div.about-iconic .width-60,
+div.iconic-reponse .width-60,
+div.why-iconic .width-60{
+	width: 55%;
+	padding: 50px 0;
+}
+h2.tit{
+	font-weight: normal;
+	font-size: 35px;
+	line-height: 40px;
+	color: #000;
+	margin-bottom: 30px;
+}
+h2.tit span{
+	color: #1197EC;
+}
+div.about-iconic ul li{
+	margin-left: 10px;
+	padding-left: 20px;
+	background: url('../images/landing-page/lp3-list-icon.png') left center no-repeat;
+}
+div.iconic-reponse .email{
+	margin-top: 20px;
+	padding: 10px 20px;
+	background-color: #dcddde;
+	color: #000;
+	font-weight: bold;
+	font-size: 15px;
+}
+div.iconic-reponse .email > a{
+	color: #fff;
+	text-transform: none;
+	text-decoration: none;
+	padding: 12px 20px;
+	border-radius: 4px;
+	background-color: #f9690e;
+	margin-left: 35px;
+	font-weight: normal;
+	font-size: 17px;
+}
+footer #clients{
+	padding: 30px 0;
+	background: url('../images/landing-page/lp3-bg-clients.png') left center repeat;
+	text-align: center;
+}
+footer #clients h2{
+	font-size: 30px;
+	margin-bottom: 20px;
+	font-weight: bold;
+}

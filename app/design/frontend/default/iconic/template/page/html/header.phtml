@@ -40,6 +40,17 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 <?php endif; ?>
 <header id="header">
+	
+	<!-- Switch site menu -->
+	<div id="switch-site">
+			<a href="<?php echo $this->getBaseUrl() ?>cong-ty/" class="inline-b employer">
+				<?php echo $this->__('Nhà tuyển dụng') ?>
+			</a>
+			<a href="<?php echo $this->getBaseUrl() ?>" class="inline-b candidate active">
+				<?php echo $this->__('Ứng viên') ?>
+			</a>
+	</div>
+	
 	<!-- Header Menu & Logo -->
 	<div id="header-menu">
 		<div class="wrapper clearfix">
@@ -49,6 +60,20 @@
 					<img src="<?php echo $this->getSkinUrl('images/logo.png') ?>" alt="Iconic's Logo"  />
 				</a>
 			</div><!-- End Logo -->
+			
+			<!-- Begin Top Social Icons -->
+			<div class="top-social flr">
+				<?php if(!Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+					<a class="login" title="<?php echo $this->__('Đăng nhập') ?>" href="/<?php echo Mage::helper('job')->getLoginUrl() ?>"><?php echo $this->__('Đăng nhập') ?></a>
+				<?php else: ?>
+					<?php if(Mage::getSingleton('customer/session')->getCustomer()->getCreatecv() == 0): ?>
+					<a title="<?php echo $this->__('Tạo hồ sơ trên Iconic') ?>" href="<?php echo Mage::getUrl(Mage::helper('job')->getCreateCVUrl()) ?>" class="login"><?php echo $this->__('Tạo hồ sơ') ?></a>
+					<?php endif; ?>
+				<?php endif; ?>
+				<a class="in" target="_blank" title="Instagram" href="http://www.linkedin.com/profile/view?id=228013283&authType=name&authToken=iK1o&trk=prof-sb-browse_map-name">&nbsp;</a>
+				<a class="facebook" target="_blank" title="Facebook" href="https://www.facebook.com/iconic4vn">&nbsp;</a>
+				<a class="google" target="_blank" title="Google+" href="https://plus.google.com/u/0/b/112764902169096553590/112764902169096553590/">&nbsp;</a>
+			</div><!-- End Top Social Icons -->
 			
 			<!-- Menu -->
 			<div id="menu" class="flr">
@@ -70,20 +95,6 @@
 					</li>
 				</ul>
 			</div><!-- End Menu -->
-			
-			<!-- Begin Top Social Icons -->
-			<div class="top-social">
-				<?php if(!Mage::getSingleton('customer/session')->isLoggedIn()): ?>
-					<a class="login" title="<?php echo $this->__('Đăng nhập') ?>" href="/<?php echo Mage::helper('job')->getLoginUrl() ?>"><?php echo $this->__('Đăng nhập') ?></a>
-				<?php else: ?>
-					<?php if(Mage::getSingleton('customer/session')->getCustomer()->getCreatecv() == 0): ?>
-					<a title="<?php echo $this->__('Tạo hồ sơ trên Iconic') ?>" href="<?php echo Mage::getUrl(Mage::helper('job')->getCreateCVUrl()) ?>" class="login"><?php echo $this->__('Tạo hồ sơ') ?></a>
-					<?php endif; ?>
-				<?php endif; ?>
-				<a class="in" target="_blank" title="Instagram" href="http://www.linkedin.com/profile/view?id=228013283&authType=name&authToken=iK1o&trk=prof-sb-browse_map-name">&nbsp;</a>
-				<a class="facebook" target="_blank" title="Facebook" href="https://www.facebook.com/iconic4vn">&nbsp;</a>
-				<a class="google" target="_blank" title="Google+" href="https://plus.google.com/u/0/b/112764902169096553590/112764902169096553590/">&nbsp;</a>
-			</div><!-- End Top Social Icons -->
 		</div>
 	</div><!-- End Header Menu & Logo -->
 	
