@@ -57,7 +57,7 @@ body.customer-account-edit #account-page{
 }
 #account-page .width-45 select{
 	width: 99%;
-	background: url('../images/select-arrow.png') 120px center transparent no-repeat;
+	background: url('../images/select-arrow.png') right 5px center transparent no-repeat;
 }
 #account-page select:focus{
 	border-color: #808285;
