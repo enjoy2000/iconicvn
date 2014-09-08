@@ -173,3 +173,6 @@ tr.pager ol li a{
 	border: solid 1px #4571EB;
 	text-decoration: none;
 }
+ul.messages{
+	margin-bottom: 20px;
+}

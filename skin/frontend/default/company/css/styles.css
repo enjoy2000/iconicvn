@@ -102,7 +102,7 @@ html, button, input, select, textarea {
 	position: absolute;
 	top: 38px;
 	width: 150px;
-	left: -40px;
+	left: -8px;
 	display: none;
 }
 #header #header-menu #menu ul li > ul.sub li{
@@ -116,7 +116,6 @@ html, button, input, select, textarea {
 	text-align: center;
 	padding: 3px 10px;
 	color: #fff;
-	width: 100%;
 }
 #header #header-menu #menu ul li > ul.sub li > a:hover{
 	background-color: #005baa;
