@@ -67,23 +67,6 @@ class Iconic_Client_Adminhtml_Client_JobController extends Mage_Adminhtml_Contro
                 	$jobModel->setCreatedTime($currentDate);
                 }
 				$jobModel->save();
-				
-				if(!$this->getRequest()->getParam('id')){
-                	$jobModel->setCreatedTime($currentDate);
-					$newjob = Mage::getModel('job/job')->getCollection()->getLastItem();
-                }else{
-                	$newjob = Mage::getModel('job/job')->load($this->getRequest()->getParam('id'));
-                }
-				//$newjob->setLanguageId(','.implode(',', $this->getRequest()->getParam('language_id')).',')
-				//	   ->setFeatureId(','.implode(',', $this->getRequest()->getParam('feature_id')).',')
-				//	   ->save();
-				//set url key
-				//if($postData['url_key']){
-					//$urlkey = Mage::helper('job')->formatUrlKey($postData['url_key']);
-				//}else{
-					//$urlkey = Mage::helper('job')->formatUrlKey($postData['title']);
-				//}
-				//$jobModel->setUrlKey($urlkey)->save();
                                 
                 Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('adminhtml')->__('Item was successfully saved'));
                 Mage::getSingleton('adminhtml/session')->setJobData(false);
