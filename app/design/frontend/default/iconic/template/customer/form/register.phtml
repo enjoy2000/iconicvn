@@ -162,12 +162,12 @@
                             </select>
                         </div>
                         <div class="input-box flr width-45">
-                            <select required placeholder="<?php echo $this->__('Năm sinh') ?>" name="birthyear" title="<?php echo $this->__('Năm sinh') ?>" id="birthyear" class="select-box required-entry">
+                            <select required placeholder="<?php echo $this->__('Năm sinh') ?>" name="birth_year" title="<?php echo $this->__('Năm sinh') ?>" id="birthyear" class="select-box required-entry">
                             	<option value=""><?php echo $this->__('Năm sinh') ?></option>
                             	<?php 
                             	$y = (int) Date('Y');
                             	for($i = $y-10; $i >= $y-60;$i--): ?>
-                            	<option <?php echo ($this->getFormData()->getBirthyear()==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $i ?></option>
+                            	<option <?php echo ($this->getFormData()->getBirthYear()==$i) ? 'selected="selected"' : '' ?> value="<?php echo $i ?>"><?php echo $i ?></option>
                             	<?php endfor; ?>
                             </select>
                         </div>
