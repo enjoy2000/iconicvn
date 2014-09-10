@@ -121,6 +121,12 @@ class Iconic_Client_Block_Adminhtml_Job_Grid extends Mage_Adminhtml_Block_Widget
     			'url'      => $this->getUrl('*/*/massDelete'),
     			'confirm'  => Mage::helper('job')->__('Are you sure?')
     	));
+		
+		// Create mass action for change status to active
+		$this->getMassactionBlock()->addItem('active', array(
+    			'label'    => Mage::helper('job')->__('Active'),
+    			'url'      => $this->getUrl('*/*/massActive'),
+    	));
     	return $this;
     }
  

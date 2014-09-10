@@ -129,4 +129,23 @@ class Iconic_Client_Adminhtml_Client_JobController extends Mage_Adminhtml_Contro
         }
         $this->_redirect('*/*/');
     }
+	
+	// Controller for mass active all selected jobs
+	public function massActiveAction(){
+		if(is_array($this->getRequest()->getParam('job_id'))) {
+        	try{
+                $jobIds = $this->getRequest()->get('job_id');
+            	foreach($jobIds as $k => $v){
+            	   Mage::getModel('job/job')->load($v)->setStatus('active')->save();
+            	}
+				// Add Success message based on job id count
+                Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('adminhtml')->__('%s job(s) were successfully changed to active status.', count($jobIds)));
+                $this->_redirect('*/*/');
+            }catch(Exception $e){
+                Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+                $this->_redirect('*/*/');
+            }
+        }
+        $this->_redirect('*/*/');
+	}
 }
