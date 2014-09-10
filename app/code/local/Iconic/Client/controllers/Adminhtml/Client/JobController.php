@@ -59,7 +59,6 @@ class Iconic_Client_Adminhtml_Client_JobController extends Mage_Adminhtml_Contro
                 $jobModel->setData($postData)
 	                     ->setId($this->getRequest()->getParam('id'))
 						 ->setUpdateTime($currentDate)
-						 ->setLocationId(','.$this->getRequest()->getParam('location_id').',')
 						 ->setLanguageId(','.implode(',', $this->getRequest()->getParam('language_id')).',')
 					     ->setFeatureId(','.implode(',', $this->getRequest()->getParam('feature_id')).',');
 						 

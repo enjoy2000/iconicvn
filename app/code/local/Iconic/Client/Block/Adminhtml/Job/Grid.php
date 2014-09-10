@@ -16,7 +16,7 @@ class Iconic_Client_Block_Adminhtml_Job_Grid extends Mage_Adminhtml_Block_Widget
     protected function _prepareCollection()
     {
         $collection = Mage::getModel('job/job')->getCollection()
-							->addFieldToFilter('customer_id', array('neq'=>NULL));
+							->addFieldToFilter('customer_id', array('gt'=>0));
 		
 		//JOIN TABLES TO SHOW ON NAME ON GRID
 		/* @var $collection Iconic_Client_Model_Mysql4_Type_Collection */
@@ -39,6 +39,7 @@ class Iconic_Client_Block_Adminhtml_Job_Grid extends Mage_Adminhtml_Block_Widget
 	
     protected function _prepareColumns()
     {
+		
         $this->addColumn('job_id', array(
             'header'    => Mage::helper('job')->__('ID'),
             'align'     =>'right',
