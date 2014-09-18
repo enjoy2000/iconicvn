@@ -1108,6 +1108,8 @@ div.advertise{
 	position: fixed;
 	top: 200px;
 	right: 0;
+}
+div.advertise img{
 	border: solid 1px #fff;
-	box-shadow: 2px 0 2px rgba(0,0,0,0.8);
+	box-shadow: 2px 2px 1px rgba(0,0,0,0.8);
 }
