@@ -239,3 +239,11 @@ div#loading-animation{
 	background: url('../images/loading.gif') center no-repeat rgba(193, 230, 252, 0.95);;
 	display: none;
 }
+/* Hidden ads on phone */
+@media only screen 
+and (max-width : 767px) {
+/* Styles */
+	.hidden-phone{
+		display: none;
+	}
+}

@@ -1101,3 +1101,11 @@ div#loading-animation{
 	background: url('../images/loading.gif') center no-repeat rgba(193, 230, 252, 0.95);;
 	display: none;
 }
+/*
+ * Ads banner style
+ */
+div.advertise{
+	position: fixed;
+	top: 200px;
+	right: 0;
+}

@@ -147,7 +147,13 @@
 <div id="loading-animation">
 	&nbsp;
 </div>
-
+<?php if($this->getIsHomePage()): ?>
+<div class="advertise hidden-phone">
+	<a href="http://iconicvn.com/blog/hoi-thao-tu-van-viec-lam-danh-cho-nguoi-viet-song-tai-nhat-tokyo" title="Hội thảo tư vấn việc làm dành cho người Việt sống tại Nhật - Tokyo">
+		<img src="<?php echo $this->getSkinUrl('images/viec-lam-nhat.jpg') ?>" alt="Hội thảo tư vấn việc làm dành cho người Việt sống tại Nhật - Tokyo" width="210" height="250" />
+	</a>
+</div>
+<?php endif; ?>
 
 <!-- Google Code for Remarketing Tag -->
 <!--------------------------------------------------
