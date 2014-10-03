@@ -323,6 +323,13 @@
 #blog-details .author a{
 	color: #636466;
 }
+#blog-details .linkedin-share .IN-widget{
+	vertical-align: bottom!important;
+	line-height: 1px;
+}
+#blog-details .google-share > div{
+	vertical-align: bottom!important;
+}
 
 #newest-blog{
 	width: 230px;
