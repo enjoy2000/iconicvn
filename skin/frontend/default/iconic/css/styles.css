@@ -1106,7 +1106,7 @@ div#loading-animation{
  */
 div.advertise{
 	position: fixed;
-	top: 200px;
+	top: 50px;
 	right: 0;
 }
 div.advertise img{
